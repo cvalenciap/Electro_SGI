@@ -1,0 +1,312 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionSupervisorModel
+<div class="modal-body">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@Html.Raw(InvestigacionResource.EtiquetaNombresyApellidos):</label>
+                @Html.TextBox("txtInformacionNombresyApellidos", Model.InvestigacionSupervisor.NombreCompletoColaborador, new { id = "txtInformacionNombresyApellidos", @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>@Html.Raw(InvestigacionResource.EtiquetaTipoDocumento):</label>
+                @Html.TextBox("txtInformacionTipoDocumento", Model.InvestigacionSupervisor.DescripcionTipoDocumento, new { id = "txtInformacionTipoDocumento", @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>@Html.Raw(InvestigacionResource.EtiquetaNumeroDocumento):</label>
+                @Html.TextBox("txtInformacionDniPasaporte", Model.InvestigacionSupervisor.NumeroDocumento, new { id = "txtInformacionDniPasaporte", @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="tab-interno item03">
+            <ul class="nav nav-tabs" role="tablist" id="cartTabs">
+                <li id="listaPrimero" role="presentation" class="active"><a href="#tabDetalleSupervisor" class="top-tab" aria-controls="tabDetalleSupervisor" role="tab" data-toggle="tab" style="font-size: 11.5px;">@Html.Raw(InvestigacionResource.EtiquetaTabInformacionGeneral)</a></li>
+                <li id="listaSegundo" role="presentation"><a href="#tabEmpresaSupervisor" class="top-tab" aria-controls="tabEmpresaSupervisor" role="tab" data-toggle="tab" style="font-size: 11.5px;">@Html.Raw(InvestigacionResource.EtiquetaEmpresa)</a></li>
+                <li id="listaTercero" role="presentation"><a href="#tabExperienciaSupervisor" class="top-tab" aria-controls="tabExperienciaSupervisor" role="tab" data-toggle="tab" style="font-size: 11.5px;">@Html.Raw(InvestigacionResource.EtiquetaTabTrabajoyExperiencia)</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="tabDetalleSupervisor">
+                    <form id="frmInformacionGeneralSupervisor" onsubmit="return false;">
+                        <fieldset id="flsInformacionGeneralSupervisor" @(Model.InvestigacionSupervisor.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaPuestoTrabajo): (*)</label>
+                                        @Html.DropDownList("ddlPuestoTrabajoInformacionSupervisor", Model.ListaPuestoTrabajo, new { @class = "form-control", @id = "ddlPuestoTrabajoInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaFechaNacimiento): (*)</label>
+                                        @Html.TextBox("dtpFechaNacimientoInformacionSupervisor", Model.InvestigacionSupervisor.FechaNacimientoString, new { id = "dtpFechaNacimientoInformacionSupervisor", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaEdad):</label>
+                                        @Html.TextBox("txtEdadInformacionSupervisor", Model.InvestigacionSupervisor.Edad, new { @class = "form-control", @id = "txtEdadInformacionSupervisor", @disabled = "disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaEstadoCivil): (*)</label>
+                                        @Html.DropDownList("ddlEstadoCivilInformacionSupervisor", Model.ListaEstadoCivil, new { @class = "form-control", @id = "ddlEstadoCivilInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaPaisProcedencia): (*)</label>
+                                        @Html.TextBox("txtPaisInformacionSupervisor", Model.InvestigacionSupervisor.NombrePais, new { maxlength = 100, @class = "form-control", @id = "txtPaisInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaDepartamento): (*)</label>
+                                        @Html.TextBox("txtDepartamentoTerritorioInformacionSupervisor", Model.InvestigacionSupervisor.NombreDepartamentoTerritorio, new { maxlength = 100, @class = "form-control", @id = "txtDepartamentoTerritorioInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaProvincia): (*)</label>
+                                        @Html.TextBox("txtProvinciaInformacionSupervisor", Model.InvestigacionSupervisor.NombreProvincia, new { maxlength = 100, @class = "form-control", @id = "txtProvinciaInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaSexo): (*)</label>
+                                        @Html.DropDownList("ddlGeneroInformacionSupervisor", Model.ListaGenero, new { @class = "form-control", @id = "ddlGeneroInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaGradoInstruccion): (*)</label>
+                                        @Html.DropDownList("ddlGradoInstruccionInformacionSupervisor", Model.ListaGradoInstruccion, new { @class = "form-control", @id = "ddlGradoInstruccionInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaTipoContrato): (*)</label>
+                                        @Html.DropDownList("ddlTipoContratoInformacionSupervisor", Model.ListaTipoContrato, new { @class = "form-control", @id = "ddlTipoContratoInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaProyecto): (*)</label>
+                                        @Html.DropDownList("ddlProyectoInformacionSupervisor", Model.ListaProyecto, new { @class = "form-control", @id = "ddlProyectoInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaDepartamento): (*)</label>
+                                        @Html.DropDownList("ddlDepartamentoInformacionSupervisor", Model.ListaDepartamento, new { @class = "form-control", @id = "ddlDepartamentoInformacionSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaArea):</label>
+                                        @Html.DropDownList("ddlAreaInformacionSupervisor", Model.ListaArea, new { @class = "form-control", @id = "ddlAreaInformacionSupervisor" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaGuardia):</label>
+                                        @Html.DropDownList("ddlGuardiaInformacionSupervisor", Model.ListaGuardia, new { @class = "form-control", @id = "ddlGuardiaInformacionSupervisor" })
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                            <div class="comp-Modal-footer text-center">
+                                <button class="btn btn-default" id="btnCancelarInformacionSupervisor">@GenericoResource.BotonCancelar</button>
+                                @if (Model.InvestigacionSupervisor.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                                {									
+                                    <button class="btn btn-primary" id="btnGrabarInformacionSupervisor">@GenericoResource.BotonGrabar</button>
+                                }
+                            </div>
+                    </form>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade in" id="tabEmpresaSupervisor">
+                    <form id="frmEmpresaSupervisor" onsubmit="return false;">
+                        <fieldset id="flsEmpresaSupervisor" @(Model.InvestigacionSupervisor.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaEmpresa)</label>
+                                        <div class="input-group">
+                                            @Html.Hidden("hdnCodigoEmpresaSupervisor", Model.Empresa.CodigoEmpresa, new { ïd = "hdnCodigoEmpresaSupervisor" })
+                                            @Html.Hidden("hdnCodigoTipoEmpresa", Model.Empresa.CodigoTipoEmpresa, new { ïd = "hdnCodigoTipoEmpresa" })
+                                            @Html.TextBox("txtNombreEmpresaSupervisor", Model.Empresa.RazonSocial, string.Empty, new { id = "txtNombreEmpresaSupervisor", @class = "form-control", disabled = "disabled" })
+                                            <div class="input-group-addon">
+                                                <button class="btn-form" id="btnBuscarEmpresaSupervisor" type="button">....</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaEmpresaRUC):</label>
+                                        @Html.TextBox("txtRucEmpresaSupervisor", Model.Empresa.Ruc, new { id = "txtRucEmpresaSupervisor", @class = "form-control", disabled = "disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaEmpresaDomicilioFiscal):</label>
+                                        @Html.TextBox("txtDireccionEmpresaSupervisor", Model.Empresa.Direccion, new { id = "txtDireccionEmpresaSupervisor", @class = "form-control", disabled = "disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarEmpresaSupervisor">@GenericoResource.BotonCancelar</button>
+                            @if (Model.InvestigacionSupervisor.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                            {
+                                <button class="btn btn-primary" id="btnGrabarEmpresaSupervisor">@GenericoResource.BotonGrabar</button>
+                            }   
+                        </div>
+                    </form>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade in" id="tabExperienciaSupervisor">
+                    <form id="frmExperienciaSupervisor" onsubmit="return false;">
+                        <fieldset id="flsExperienciaSupervisor" @(Model.InvestigacionSupervisor.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaExperienciaLaboral)</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaTiempoProyecto)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaAnio): (*)</label>
+                                        @Html.TextBox("txtAnioNegocioExperienciaSupervisor", Model.InvestigacionSupervisor.ExperienciaNegocioAnios, string.Empty, new { maxlength = 2, id = "txtAnioNegocioExperienciaSupervisor", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaMeses): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionSupervisor.ExperienciaNegocioMeses, Model.ListaMesesNegocio, new { @class = "form-control", @id = "ddlMesesNegocioExperienciaSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaAnio): (*)</label>
+                                        @Html.TextBox("txtAnioTiempoProyectoExperienciaSupervisor", Model.InvestigacionSupervisor.TiempoProyectoAnios, string.Empty, new { maxlength = 2, min = "0", id = "txtAnioTiempoProyectoExperienciaSupervisor", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaMeses): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionSupervisor.TiempoProyectoMeses, Model.ListaMesesProyecto, new { @class = "form-control", @id = "ddlMesesTiempoProyectoExperienciaSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaEmpresaContratista)</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaExperienciaLaboralPuesto)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaAnio): (*)</label>
+                                        @Html.TextBox("txtAnioTiempoContratistaExperienciaSupervisor", Model.InvestigacionSupervisor.TiempoContratistaAnios, string.Empty, new { maxlength = 2, min = "0", id = "txtAnioTiempoContratistaExperienciaSupervisor", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">                                        
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaMeses): (*)</label>
+                                        @{
+                                            foreach (var item in Model.ListaMesesContratistaTemporal){
+                                                item.Selected = false;
+                                            }    
+                                        }
+                                        @Html.DropDownListFor(model => model.InvestigacionSupervisor.TiempoContratistaMeses, Model.ListaMesesContratistaTemporal, new { @class = "form-control", @id = "ddlMesesTiempoContratistaExperienciaSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaAnio): (*)</label>
+                                        @Html.TextBox("txtAnioPuestoExperienciaSupervisor", Model.InvestigacionSupervisor.ExperienciaPuestoAnios, string.Empty, new { maxlength = 2, min = "0", id = "txtAnioPuestoExperienciaSupervisor", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaMeses): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionSupervisor.ExperienciaPuestoMeses, Model.ListaMesesPuesto, new { @class = "form-control", @id = "ddlMesesPuestoExperienciaSupervisor", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaActividadMomentoIncidente): (*)</label>
+                                        @Html.TextArea("txaActividadMomentoIncidenteExperienciaSupervisor", Model.InvestigacionSupervisor.ActividadMomentoIncidente, new { id = "txaActividadMomentoIncidenteExperienciaSupervisor", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                                        <div class="text-right">
+                                            <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, 255))</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaTareaTrabajoMomentoIncidente): (*)</label>
+                                        @Html.TextArea("txaTareaMomentoIncidenteExperienciaSupervisor", Model.InvestigacionSupervisor.TareaMomentoIncidente, new { id = "txaTareaMomentoIncidenteExperienciaSupervisor", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                                        <div class="text-right">
+                                            <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, 255))</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarExperienciaSupervisor">@GenericoResource.BotonCancelar</button>
+                            @if (Model.InvestigacionSupervisor.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                            {
+                                <button class="btn btn-primary" id="btnGrabarExperienciaSupervisor">@GenericoResource.BotonGrabar</button>
+                            }
+                        </div>                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioSupervisorModel = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

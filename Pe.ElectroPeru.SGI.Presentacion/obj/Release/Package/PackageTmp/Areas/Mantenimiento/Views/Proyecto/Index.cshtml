@@ -1,0 +1,77 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Proyecto.FormularioBandejaProyectoModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-content view-wrap">
+<div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@Html.Raw(ProyectoResource.EtiquetaTituloPrincipal)</strong>
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnAgregar" type="button" class="btn-table text-line one">
+                    @Html.Raw(ProyectoResource.BotonAgregarProyecto)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(ProyectoResource.EtiquetaLista)</span>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Actions.BuscarProyecto = '@Url.Action("BuscarProyecto", "Proyecto", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Actions.FormularioProyecto = '@Url.Action("FormularioProyecto", "Proyecto", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Actions.RegistrarProyecto = '@Url.Action("RegistrarProyecto", "Proyecto", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Actions.EliminarProyecto = '@Url.Action("EliminarProyecto", "Proyecto", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.FormularioProyecto = '@Html.Raw(ProyectoResource.EtiquetaFormularioProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.EtiquetaRegistrarProyecto = '@Html.Raw(ProyectoResource.EtiquetaRegistrarProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.EtiquetaEditarProyecto = '@Html.Raw(ProyectoResource.EtiquetaEditarProyecto)';                
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridCodigoProyecto = '@Html.Raw(ProyectoResource.GridCodigoProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridNombreProyecto = '@Html.Raw(ProyectoResource.GridNombreProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridNombreProyectoUsuario = '@Html.Raw(ProyectoResource.GridNombreProyectoUsuario)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridNombreProyecto = '@Html.Raw(ProyectoResource.GridNombreProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridCodigoIdentificador = '@Html.Raw(ProyectoResource.GridCodigoIdentificador)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridEmpresa = '@Html.Raw(ProyectoResource.GridEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridPais = '@Html.Raw(ProyectoResource.GridPais)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridCodigoMeta4Sispo = '@Html.Raw(ProyectoResource.GridCodigoMeta4Sispo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridEstadoRegistroDescripcion = '@Html.Raw(ProyectoResource.GridEstadoRegistroDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Resources.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Proyecto.Models.Proyecto = '@(Html.Raw(Json.Encode(Model)))';
+    </script>  
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+            overflow-y: auto !important;
+        }
+
+        /*.skin-stracon .form-control {
+            width: auto !important;
+        }*/
+    </style>
+    @CustomHtmlHelper.RenderViewJs("mantenimientoproyectoformularioproyecto") 
+}

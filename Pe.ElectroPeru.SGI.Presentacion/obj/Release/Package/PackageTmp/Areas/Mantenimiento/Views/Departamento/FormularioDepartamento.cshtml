@@ -1,0 +1,54 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Departamento.FormularioDepartamentoModel
+<div class="modal-body">
+    <form id="frmDepartamento" onsubmit="return false;" style="padding: 0 8px;">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(DepartamentoResource.EtiquetaProyecto): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Departamento.CodigoProyecto, Model.ListaProyecto, Model.Departamento.CodigoProyecto.HasValue ? (object)new { id = "slcProyecto", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" })
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label style="margin-top: 7px;">@Html.Raw(DepartamentoResource.EtiquetaNombreDepartamento): (*)</label>
+                    <div>
+                        @Html.TextBox("txtNombreDepartamento", Model.Departamento.NombreDepartamento, new { id = "txtNombreDepartamento", @class = "form-control", @validable = "required Validar", @maxlength = "50" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="margin-top: 7px;">@Html.Raw(DepartamentoResource.EtiquetaColaborador):</label>
+                    <div>
+                        <div class="input-group">
+                            @Html.Hidden("hdnCodigoColaborador", Model.Departamento.CodigoColaboradorResponsable, new { ïd = "hdnCodigoColaborador" })
+                            @Html.TextBox("txtCodigoColaborador", Model.Departamento.NombreColaboradorResponsable, new { id = "txtCodigoColaborador", @class = "form-control", disabled = "disabled", @validable = "required Validar", })
+                            <div class="input-group-addon">
+                                <button class="btn-form" id="btnBuscarColaborador" type="button">....</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(DepartamentoResource.EtiquetaEstado): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Departamento.EstadoRegistroCodigo, Model.ListaEstadoDepartamento, new { id = "slcEstado", @class = "form-control", @validable = "required Validar" })
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabar">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>
+
+

@@ -1,0 +1,56 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.ConfiguracionFamiliaEquipoProcesosModel
+
+<div class="main-content view-wrap">
+    <input id="HidenCodigoFamiliaEq" type="hidden" value="@Model.CodFam_Eq">
+
+    <div class="modal-body">
+        <form id="frmAgregarEquipoModal" onsubmit="return false;">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label style="margin-top: 8px"><strong>@Html.Raw(ConfiguracionResource.EtiquetaEquipoFamiliaAgregarProcesos): </strong></label>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input id="txtCodigoFamilia" type="text" class="form-control" value="@Model.IdenFam_Eq" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <input id="txtDesFamilia" type="text" class="form-control" value="@Model.NomFam_Eq" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <input id="txtDesFamiliaAbrev" type="text" class="form-control" value="@Model.NomFam_Eq_Abrev" disabled="disabled" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-md-3"><label style="margin-top: 8px;">@Html.Raw(AsignacionResource.EtiquetaProceso):</label></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.DropDownList("slcProceso", Model.ListaProcesos, new { id = "slcProceso", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-right"><button class="btn btn-primary right" type="submit" id="btnAgregarProceso">@Html.Raw(AsignacionResource.EtiquetaAgregarProceso)</button></div>
+                        </div>
+                    </div>
+                    <div class="table-grilla">
+                        <div id="divGrdResultadoProcesosModal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="box-acciones-foot modal_box">
+        <button class="btn btn-default" id="btnCancelarEquipo" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+        <button class="btn btn-primary" id="btnGrabarEquipo">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+
+
+<div class="modal-body">
+    <fieldset id="flsCambiarEstado">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-6">
+                    Seleccione el estado de la investigación: 
+                </div>
+                <div class="col-md-6">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">
+                        completado
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option2">
+                        aprobado
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div id="divBotonEstado" class="box-acciones-foot modal_box text-center">
+            <button class="btn btn-default" id="btnCancelarInvestigacion">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+            <button class="btn btn-primary" id="btnGuardarInvestigacion">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+        </div>
+    </fieldset>
+</div>
+

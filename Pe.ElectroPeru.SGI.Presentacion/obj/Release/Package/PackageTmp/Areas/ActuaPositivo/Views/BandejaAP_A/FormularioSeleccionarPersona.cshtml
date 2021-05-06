@@ -1,0 +1,47 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Colaborador.FormularioColaboradorModel
+<div class="modal-body">
+    <form id="frmBuscarColaborador">
+        <div class="form-group">
+            <div class="row">
+                <div class="hidden">
+                    <input type="hidden" id="hdnCodigoAsignacionProyecto" value="@ViewBag.CodigoAsignacionProyecto"/>
+                </div>
+                <div class="col-sm-3">
+                    <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaBuscarPor):</label>
+                    <select class="form-control" id="slcFiltroBuscarColaborador">
+                        <option value="1">@Html.Raw(BuscadorColaboradorResource.EtiquetaNumeroDocumento)</option>
+                        <option value="2" selected>@Html.Raw(BuscadorColaboradorResource.EtiquetaApellidosNombres)</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="txtNombreColaborador">@Html.Raw(BuscadorColaboradorResource.EtiquetaIngresoCaracteres):</label>
+                        @Html.TextBox("txtNombreColaborador", null, new { @class = "form-control", @id = "txtNombreColaborador" })
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <button id="btnBuscarColaborador" class="btn btn-default" style="margin-top: 22px;" type="button">@Html.Raw(GenericoResource.BotonBuscar)</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@GenericoResource.EtiquetaResultadosBusqueda</h4>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="table-grilla">
+        <div id="divGrdResultColaborador">
+        </div>
+    </div>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarPersona" type="button" data-dismiss="modal">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnAceptarColaborador">@GenericoResource.BotonAceptar</button>
+</div>

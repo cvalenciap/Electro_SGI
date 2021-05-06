@@ -1,0 +1,68 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguridad.Permisos
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguridad.Permisos.PermisosModel
+
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@Html.Raw(PermisosResource.EtiquetaTituloPrincipal)</strong>
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnRegistrar" type="button" class="btn-table text-line one">
+                    @Html.Raw(PermisosResource.EtiquetaBotonRegistrar)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(PermisosResource.EtiquetaLista)</span>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Actions.Buscar = '@Url.Action("Buscar", "Permisos", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Actions.Formulario = '@Url.Action("Formulario", "Permisos", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Actions.Obtener = '@Url.Action("Obtener", "Permisos", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Actions.Registrar = '@Url.Action("Registrar", "Permisos", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Actions.Eliminar = '@Url.Action("Eliminar", "Permisos", new { Area = "Seguridad" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.GridPerfil = '@Html.Raw(PermisosResource.EtiquetaPerfil)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.GridAccion = '@Html.Raw(PermisosResource.EtiquetaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.GridOpcion = '@Html.Raw(PermisosResource.EtiquetaOpcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.GridEstadoPermiso = '@Html.Raw(PermisosResource.EtiquetaEstadoPermiso)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.GridEstado = '@Html.Raw(PermisosResource.EtiquetaEstado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.EtiquetaMensajeEliminar = '@Html.Raw(PermisosResource.EtiquetaMensajeEliminar)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Models.Permisos = '@(Html.Raw(Json.Encode(Model)))';
+
+    </script>
+    <style type="text/css">
+        form-control {
+            width: 100%;
+        }
+    </style>
+    @CustomHtmlHelper.RenderViewJs("seguridadpermisosformulario")
+}

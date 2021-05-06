@@ -1,0 +1,1773 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Records.RecordsModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left title-form">NEW REGISTER ACTION
+        </h2>
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label>Record #:</label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control" value="257" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+   
+            <a href="../../Seguimiento/Accion/Index" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="List of Actions">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">
+        <!-- Tab custom -->
+        <div class="tab_custom">
+            <div class="left-tabs">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation"><a href="#general" class="top-tab" aria-controls="general" role="tab" data-toggle="tab">General</a></li>
+
+                    <li role="presentation"><a href="#persons" class="top-tab form-warning" aria-controls="persons" role="tab" data-toggle="tab">Persons Involved</a></li>
+
+                    <li role="presentation" class="active"><a href="#actions" class="top-tab form-warning" aria-controls="actions" role="tab" data-toggle="tab">Actions</a></li>
+
+                    <li role="presentation"><a href="#photos" class="top-tab form-warning" aria-controls="photos" role="tab" data-toggle="tab">Photos</a></li>
+                    <li role="presentation"><a href="#appendix" class="top-tab" aria-controls="appendix" role="tab" data-toggle="tab">Appendix</a></li>
+                    <li role="presentation"><a href="#review" class="top-tab" aria-controls="review" role="tab" data-toggle="tab">Review & Close</a></li>
+                </ul>
+                <!-- Cierra Nav tabs -->
+            </div>
+
+            <div class="right-tabs">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in" id="general">
+                        <div class="title-interna">
+                            <span>General</span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Record #:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Incident coding:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Project:</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>All projects</option>
+                                        <option>La Arena</option>
+                                        <option>La Zanja</option>
+                                        <option>Comercial</option>
+                                        <option>Oficina Principal</option>
+                                        <option>Panamá</option>
+                                        <option>Pasco</option>
+                                        <option>San Ramón</option>
+                                        <option>Tiwu</option>
+                                        <option>Shahuindo</option>
+                                        <option>San Rafael</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Country:</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>All Country</option>
+                                        <option>Perú</option>
+                                        <option>Panama</option>
+                                        <option>Colombia</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Operating area:</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>Administración</option>
+                                        <option>Calidad</option>
+                                        <option>Comercial</option>
+                                        <option>Equipos y Logística</option>
+                                        <option>Gerencia</option>
+                                        <option>Gestión Humana</option>
+                                        <option>Mejora Continua</option>
+                                        <option>Oficina Técnica</option>
+                                        <option>Operaciones</option>
+                                        <option>Propuestas y Contratos</option>
+                                        <option>SSOMA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Company / Contractor:</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>AMEC</option>
+                                        <option>AUTRISA VOLVO</option>
+                                        <option>CCESSOMA</option>
+                                        <option>COMPUNET</option>
+                                        <option>CRUSHING SCREENING</option>
+                                        <option>CRUZPER</option>
+                                        <option>DISAL</option>
+                                        <option>DIVEMOTOR</option>
+                                        <option>FABRITEC E.I.R.L.</option>
+                                        <option>Ferreyros</option>
+                                        <option>Geotecnia peruana</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Date:</label>
+                                    <input type="text" id="date-general" class="form-control" placeholder="DD / MM / AAAA">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Time:</label>
+                                    <input type="text" class="form-control" placeholder="00:00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Labor day (Régimen atípico):</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        <option>13</option>
+                                        <option>14</option>
+                                        <option>15</option>
+                                        <option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+                                        <option>19</option>
+                                        <option>20</option>
+                                        <option>21</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Category:</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>Seguridad</option>
+                                        <option>Propiedad</option>
+                                        <option>Proceso</option>
+                                        <option>Ambiental</option>
+                                        <option>Social</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Classification:</label>
+                                    <select class="form-control has-warning">
+                                        <option>Select</option>
+                                        <option>Fatalidad (F)</option>
+                                        <option>Incidente de alto potencial (HPI)</option>
+                                        <option>Lesión con tiempo perdido (LTI)</option>
+                                        <option>Lesión con trabajo restringido (RWI)</option>
+                                        <option>Lesión con tratamiento médico (MTI)</option>
+                                        <option>Lesión con primeros auxilios (FAI)</option>
+                                        <option>Enfermedad ocupacional</option>
+                                        <option>Incidente ambiental (EI)</option>
+                                        <option>Incidente con daño a la propiedad</option>
+                                        <option>Cuasi incidente</option>
+                                        <option>Incidente social</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group has-warning">
+                                    <label>Risk rating:</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>Higher</option>
+                                        <option>Medium</option>
+                                        <option>Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Supervisor:</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>Juan Perez</option>
+                                        <option>Jorge Bedrillana</option>
+                                        <option>Jesus Paredes</option>
+                                        <option>Juan Maunricio Escobar</option>
+                                        <option>Léa Guadalupe</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Related to the 10 biggest risks:</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                        <option>1.- Transporte de personal</option>
+                                        <option>2.- Trabajo de campo con tormentas eléctricas</option>
+                                        <option>3.- Operación de vehículos y  equipos</option>
+                                        <option>4.- Trabajos con riesgo de caída de rocas / Excavaciones y zanjas</option>
+                                        <option>5.- Manipulación de explosivos</option>
+                                        <option>6.- Herramientas manuales y de poder</option>
+                                        <option>7.- Trabajos en altura</option>
+                                        <option>8.- Trabajos en espacios confinados</option>
+                                        <option>9.- Trabajos con riesgo a energías</option>
+                                        <option>10.- Manipulación y uso de neumáticos</option>
+                                        <option>N/A</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Place of occurrence of the incident:</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Nature of the incident (Describe the loss or injury):</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Description of the incident:</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Preliminary immediate causes:</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Immediate actions taken:</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Reported by:</label>
+                                    <input type="text" name="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Position or position of reporting:</label>
+                                    <input type="text" name="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Area / Department of who reports:</label>
+                                    <input type="text" name="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Attach photograph that describes the incident:</label>
+                                    <input type="file" name="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="persons">
+                        <div class="title-interna">
+                            <span>Persons Involved</span>
+                        </div>
+                        <!-- Tab interno -->
+                        <div class="tab-interno item02">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#tab03" aria-controls="tab03" role="tab" data-toggle="tab">Person Details
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#tab04" aria-controls="tab04" role="tab" data-toggle="tab">Injury Details
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="tab03">
+                                    <div class="title-interna">
+                                        Name and General Information
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Person Involved:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Gender:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Position:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Employment Status:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Company:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Proyecto:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Departament:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Area:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Crew:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Residency:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title-interna">
+                                        Work Activity and Experience Level
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Work Activity at Time of Incident:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Work Activity Experience (years):</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Work Activity Training Completed:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Industry Experience (years):</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title-interna">
+                                        Drug & Alcohol Testing
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>
+                                                    Drug Tested?
+                                                    <input type="checkbox" name=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>
+                                                    Alcohol Tested?
+                                                    <input type="checkbox" name=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>
+                                                    N/A
+                                                    <input type="checkbox" name=""></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title-interna">
+                                        Sleep and Fatigue Information
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="form-group check-form">
+                                                    <label>
+                                                        Person reported feeling fatigued?
+                                                        <input type="checkbox" name=""></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Hours of sleep in last 24 hours:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Hours of sleep in last 48 hours:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Hours awake at time of Incident:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Personal Fatigue Rating:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title-interna">
+                                        Shift and Roster Information
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Roster:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="form-group check-form">
+                                                    <label>
+                                                        Is this A split shift?
+                                                        <input type="checkbox" name=""></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Start of shift time:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Shift Duration:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Number of complete Days/Shifts worked in the current shift cycle prior to the incident:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Number of days in current roster cycle:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title-interna">
+                                        Crib Breaks Taken On The Day Of Incident
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Time:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Duration (minutes):</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title-interna">
+                                        Witness Name (s)
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title-interna">
+                                        Include Name, Company y and Contact Information
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div role="tabpanel" class="tab-pane fade in" id="tab04">
+                                    <div class="title-interna">
+                                        Involved Person(s) Injury Details
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Injury Description:</label>
+                                                <textarea class="form-control" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Link to prior record:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Injury Severity:</label>
+                                                <select class="form-control">
+                                                    <option>Seleccionar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Prior Injury:</label>
+                                                <textarea class="form-control" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Total Days Restricted:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Total Days Lost:</label>
+                                                <input type="text" name="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Details of the link:</label>
+                                                <textarea class="form-control" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Treatment Location:</label>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Transport:</label>
+                                                <select class="form-control">
+                                                    <option>Seleccionar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>By:</label>
+                                                <select class="form-control">
+                                                    <option>Seleccionar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cierra Tab interno -->
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in active" id="actions">
+                        <div class="title-interna">
+                            Immediate Corrective Actions
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>@Html.Raw(RecordsResource.EtiquetaInformacion)</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(RecordsResource.EtiquetaAccionCorrectiva)</span>
+                            <div class="acciones-form btn-group btn-group-table">
+                               <button type="button" id="show-generate" class="btn-table text-line one">
+                                    Generate Action Copy
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Tab interno -->
+                        <div class="tab-interno item03">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#dinamic01" aria-controls="dinamic01" role="tab" data-toggle="tab" aria-expanded="true">Actions 01
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#dinamic02" aria-controls="dinamic02" role="tab" data-toggle="tab" aria-expanded="true" class="tab-show">Actions 02
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="dinamic01">
+                                    <!--  -->
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Action Number:</label>
+                                                <textarea class="form-control" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="box-row">
+                                        <div class="col-box left">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>@Html.Raw(RecordsResource.EtiquetaRaisedby) (*)</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>@Html.Raw(RecordsResource.EtiquetaPlanteadaEn): (*)</label>
+                                                        <input type="text" name="" id="Raised" class="form-control" placeholder="dd / mm / aaaa">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Description: (*)</label>
+                                                        <textarea class="form-control" rows="2"></textarea>
+                                                        <Label>Máx 2,000 caracteres</Label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Repeat This Action Every:</label>
+                                                        <input type="text" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group check-form">
+                                                        <label>
+                                                            Months
+                                                            <input type="checkbox" name=""></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Due Date: (*)</label>
+                                                        <input type="text" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Priority: (*)</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-10">
+                                                    <div class="form-group">
+                                                        <label>Responsible:  (*)</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn-notification form">
+                                                            <span data-toggle="tooltip" data-placement="left" title="" data-original-title="Email Notification"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                  <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Photo:</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                        <Label>Los tipos de archivos deben ser BMP, GIF, JPG, JPEG, TIF, TIFF o PNG, el tamaño del archivo no deberá exceder los 0.5MB</Label>
+                                                    </div>
+                                                </div>
+
+                                                 <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Appendix:</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                        <Label>El tamaño del archivo no debe exceder los 0.5MB</Label>
+                                                    </div>
+                                                </div>
+                                             </div>
+                                        </div>
+                                        
+                                        <div class="col-box right">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Status:</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Status Date:</label>
+                                                        <input type="text" name="" id="Status" class="form-control" placeholder="dd / mm / aaaa">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Comment:</label>
+                                                        <textarea class="form-control" rows="2"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group check-form">
+                                                        <label>
+                                                            Closed?
+                                                            <input type="checkbox" name=""></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Closed On:</label>
+                                                        <input type="text" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Closed By:</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-acciones-foot">
+                                        <button class="btn-guardar-form btn-guardar-general" id="" type="button">Generate</button>
+                                    </div>
+                                    <!--  -->
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane fade in" id="dinamic02">
+
+                                    <!--  -->
+                                    <div class="box-row">
+                                        <div class="col-box left">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Action Raised By:</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Raised On:</label>
+                                                        <input type="text" name="" id="Raised" class="form-control" placeholder="dd / mm / aaaa">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Description:</label>
+                                                        <textarea class="form-control" rows="2"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Repeat This Action Every:</label>
+                                                        <input type="text" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group check-form">
+                                                        <label>
+                                                            Months
+                                                            <input type="checkbox" name=""></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Due Date:</label>
+                                                        <input type="text" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Priority:</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-10">
+                                                    <div class="form-group">
+                                                        <label>Responsible:</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn-notification form">
+                                                            <span data-toggle="tooltip" data-placement="left" title="" data-original-title="Email Notification"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-box right">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Status:</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Status Date:</label>
+                                                        <input type="text" name="" id="Status" class="form-control" placeholder="dd / mm / aaaa">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Comment:</label>
+                                                        <textarea class="form-control" rows="2"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group check-form">
+                                                        <label>
+                                                            Closed?
+                                                            <input type="checkbox" name=""></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Closed On:</label>
+                                                        <input type="text" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Closed By:</label>
+                                                        <select class="form-control">
+                                                            <option>Seleccionar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-acciones-foot">
+                                        <button class="btn-guardar-form btn-guardar-general" id="" type="button">Generate</button>
+                                    </div>
+                                    <!--  -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cierra Tab Interno -->
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="photos">
+                        <div class="title-interna">
+                            <span>Photographs</span>
+                            <div class="acciones-form btn-group btn-group-table">
+                                <button type="button" class="btn-table text-line one" data-toggle="modal" data-target="#addPhoto">
+                                    Add Photo
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th class="item">Item</th>
+                                        <th>Photo name</th>
+                                        <th>Description</th>
+                                        <th>Preview Photo</th>
+                                        <th>Acciones</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>Image 01</td>
+                                        <td>Personal Damage</td>
+                                        <td class="text-center">
+                                            <a title="Image 1" href="~/Components/FancyBox/images/image01.jpg" class="fancybox img-preview-grilla">
+                                                <img src="~/Components/FancyBox/images/preview-galley.png">
+                                            </a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn-grilla edit-grilla" data-toggle="modal" data-target="#addPhoto"></a>
+                                            <a href="#" class="btn-grilla trash-grilla" data-toggle="modal" data-target="#eliminar"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>Image 02</td>
+                                        <td>Personal Damage</td>
+                                        <td class="text-center">
+                                            <a title="Image 2" href="~/Components/FancyBox/images/image02.jpg" class="fancybox img-preview-grilla">
+                                                <img src="~/Components/FancyBox/images/preview-galley.png">
+                                            </a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn-grilla edit-grilla" data-toggle="modal" data-target="#addPhoto"></a>
+                                            <a href="#" class="btn-grilla trash-grilla" data-toggle="modal" data-target="#exito"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>Image 02</td>
+                                        <td>Personal Damage</td>
+                                        <td class="text-center">
+                                            <a title="Image 2" href="~/Components/FancyBox/images/image02.jpg" class="fancybox img-preview-grilla">
+                                                <img src="~/Components/FancyBox/images/preview-galley.png">
+                                            </a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn-grilla edit-grilla" data-toggle="modal" data-target="#addPhoto"></a>
+                                            <a href="#" class="btn-grilla trash-grilla" data-toggle="modal" data-target="#error"></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-pagination">
+                                <span class="pull-left col-pag">Mostrar</span>
+                                <span class="pull-left col-pag">
+                                    <select>
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>15</option>
+                                        <option>20</option>
+                                        <option>25</option>
+                                        <option>30</option>
+                                    </select>
+                                </span>
+                                <span class="pull-left col-pag">Filas
+                                </span>
+                                <span class="pull-left col-pag cant-pag"></span>
+                                <span class="pull-right">
+                                    <div class="pagination-grid int">
+                                        <ul class="pagination">
+                                            <li class="disabled">
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">Prev</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">Next</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="appendix">
+                        <div class="title-interna">
+                            <span>Appendix</span>
+                            <div class="acciones-form btn-group btn-group-table">
+                                <button type="button" class="btn-table text-line one" data-toggle="modal" data-target="#addFile">
+                                    Add File
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th class="item">Item</th>
+                                        <th>File name</th>
+                                        <th>Description</th>
+                                        <th>Download</th>
+                                        <th>Acciones</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>Document 01</td>
+                                        <td>Personal Damage</td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn-grilla glyphicon glyphicon-download-alt"></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn-grilla edit-grilla" data-toggle="modal" data-target="#addFile"></a>
+                                            <a href="#" class="btn-grilla trash-grilla" data-toggle="modal" data-target="#eliminar"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>Document 02</td>
+                                        <td>Personal Damage</td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn-grilla glyphicon glyphicon-download-alt"></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn-grilla edit-grilla" data-toggle="modal" data-target="#addFile"></a>
+                                            <a href="#" class="btn-grilla trash-grilla" data-toggle="modal" data-target="#eliminar"></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-pagination">
+                                <span class="pull-left col-pag">Mostrar</span>
+                                <span class="pull-left col-pag">
+                                    <select>
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>15</option>
+                                        <option>20</option>
+                                        <option>25</option>
+                                        <option>30</option>
+                                    </select>
+                                </span>
+                                <span class="pull-left col-pag">Filas
+                                </span>
+                                <span class="pull-left col-pag cant-pag"></span>
+                                <span class="pull-right">
+                                    <div class="pagination-grid int">
+                                        <ul class="pagination">
+                                            <li class="disabled">
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">Prev</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">Next</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="review">
+                        <div class="title-interna">
+                            <span>Review & Close</span>
+                            <label class="label-text-line pull-right">
+                                Record Closed
+                                <input type="checkbox" name=""></label>
+                        </div>
+                        <div class="box-row">
+                            <div class="col-box left">
+                                <div class="title-interna">
+                                    <span>Involved Person(s) Comment and Acceptance</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Involved Person(s) Comment and Acceptance:</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Name:</label>
+                                            <select class="form-control">
+                                                <option>Seleccionar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group check-form">
+                                            <label>
+                                                Signed-off?
+                                                <input type="checkbox" name=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Date:</label>
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-box right">
+                                <div class="title-interna">
+                                    <span>Department Manager's Comment and Acceptance</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Department Manager's Comment and Acceptance:</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Name:</label>
+                                            <select class="form-control">
+                                                <option>Seleccionar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group check-form">
+                                            <label>
+                                                Signed-off?
+                                                <input type="checkbox" name=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Date:</label>
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-row">
+                            <div class="col-box left">
+                                <div class="title-interna">
+                                    <span>Supervisor's Comment and Acceptance</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Supervisor's Comment and Acceptance:</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Name:</label>
+                                            <select class="form-control">
+                                                <option>Seleccionar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group check-form">
+                                            <label>
+                                                Signed-off?
+                                                <input type="checkbox" name=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Date:</label>
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-box right">
+                                <div class="title-interna">
+                                    <span>OHST Manager's Comment and Acceptance:</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>OHST Manager's Comment and Acceptance:</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Name:</label>
+                                            <select class="form-control">
+                                                <option>Seleccionar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group check-form">
+                                            <label>
+                                                Signed-off?
+                                                <input type="checkbox" name=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Date:</label>
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-row">
+                            <div class="col-box left">
+                                <div class="title-interna">
+                                    <span>Superintendent / Contractor Manager's Comment and Acceptance</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Superintendent / Contractor Manager's Comment and Acceptance:</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Name:</label>
+                                            <select class="form-control">
+                                                <option>Seleccionar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group check-form">
+                                            <label>
+                                                Signed-off?
+                                                <input type="checkbox" name=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Date:</label>
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-box right">
+                                <div class="title-interna">
+                                    <span>General / Resident Manager Comment and Acceptance</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>General / Resident Manager Comment and Acceptance:</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Name:</label>
+                                            <select class="form-control">
+                                                <option>Seleccionar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group check-form">
+                                            <label>
+                                                Signed-off?
+                                                <input type="checkbox" name=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Date:</label>
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-row">
+                            <div class="col-box left">
+                                <div class="title-interna">
+                                    <span>Superintendent / Contractor Manager's Comment and Acceptance</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Superintendent / Contractor Manager's Comment and Acceptance:</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Name:</label>
+                                            <select class="form-control">
+                                                <option>Seleccionar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group check-form">
+                                            <label>
+                                                Signed-off?
+                                                <input type="checkbox" name=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Date:</label>
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-box right">
+                                <div class="title-interna">
+                                    <span>General / Resident Manager Comment and Acceptance</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>General / Resident Manager Comment and Acceptance:</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Name:</label>
+                                            <select class="form-control">
+                                                <option>Seleccionar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group check-form">
+                                            <label>
+                                                Signed-off?
+                                                <input type="checkbox" name=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Date:</label>
+                                            <input type="text" name="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Cierra Tab panes -->
+                <div class="box-acciones-foot">
+                    <button class="btn-cancelar-form" id="" type="button">Cancel</button>
+                    <button class="btn-guardar-form btn-guardar-general" id="" type="button" data-toggle="modal" data-target="#Modalexito">Save</button>
+                </div>
+            </div>
+        </div>
+        <!-- Cierra Tab custom -->
+    </div>
+</div>
+
+<!-- Modales -->
+
+<!-- Eliminar -->
+<div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="ef-close">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i></i>Delete Registry</h4>
+            </div>
+            <div class="modal-body">
+                <div class="cont-critico"><span class="img-item-eliminar"></span><span class="texto-item">"Are you sure you want to delete?"  </span></div>
+            </div>
+            <div class="box-acciones-foot modal_box">
+                <button class="btn-cancelar-form" id="" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn-guardar-form" id="" type="button" data-dismiss="modal">Yes, delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cierra exito -->
+<!-- Eliminar -->
+<div class="modal fade" id="exito" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="ef-close">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i></i>Successful registration</h4>
+            </div>
+            <div class="modal-body">
+                <div class="cont-critico"><span class="img-item-exito"></span><span class="texto-item">"Do you want to save this record?"  </span></div>
+            </div>
+            <div class="box-acciones-foot modal_box">
+                <button class="btn-cancelar-form" id="" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn-guardar-form" id="" type="button" data-dismiss="modal">Yes, Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cierra exito -->
+<!-- Error -->
+<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="ef-close">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i></i>Successful registration</h4>
+            </div>
+            <div class="modal-body">
+                <div class="cont-critico"><span class="img-item-error"></span><span class="texto-item">"Do you want to save this record?"  </span></div>
+            </div>
+            <div class="box-acciones-foot modal_box">
+                <button class="btn-cancelar-form" id="" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn-guardar-form" id="" type="button" data-dismiss="modal">Yes, Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cierra Error -->
+
+<!-- Add Photo -->
+<div class="modal fade" id="addPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="ef-close">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i></i>Add Photo</h4>
+            </div>
+            <div class="modal-body">
+                <div class="acciones-form btn-group btn-group-table modal-add">
+
+                    <button type="button" class="btn-table text-line one">
+                        <input type="file">
+                        Add / Change Photo
+                    </button>
+                    <button type="button" class="btn-table text-line two">
+                        Remove This Photo
+                    </button>
+                </div>
+                <div class="box-row">
+                    <div class="col-box left">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Photo Name:</label>
+                                    <textarea class="form-control" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Description:</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-box right">
+                        <div class="title-interna">
+                            <span>Preview Photo</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="preview-photo">
+                                        foto
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-acciones-foot modal_box">
+                <button class="btn-cancelar-form" id="" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn-guardar-form" id="" type="button" data-dismiss="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cierra Add Photo -->
+
+<!-- Add File -->
+<div class="modal fade" id="addFile" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="ef-close">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i></i>Add File</h4>
+            </div>
+            <div class="modal-body">
+                <div class="acciones-form btn-group btn-group-table modal-add">
+
+                    <button type="button" class="btn-table text-line one">
+                        <input type="file">
+                        Add / Change File
+                    </button>
+                    <button type="button" class="btn-table text-line two">
+                        Remove This File
+                    </button>
+                </div>
+                <div class="box-row">
+                    <div class="col-box left">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>File Name:</label>
+                                    <input type="file" name="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Description:</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-acciones-foot modal_box">
+                <button class="btn-cancelar-form" id="" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn-guardar-form" id="" type="button" data-dismiss="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cierra Add File-->
+
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            /*Tooltip*/
+            $('[data-toggle="tooltip"]').tooltip();
+
+            /*Modal Imagen*/
+            $(".fancybox").fancybox({
+                openEffect: 'elastic',
+                closeEffect: 'elastic'
+            });
+
+        });
+
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarSiglaTipoRecord = '@Url.Action("BuscarSiglaTipoRecord", "Records", new { Area = "Seguimiento" })';
+
+    
+    </script>
+
+
+}

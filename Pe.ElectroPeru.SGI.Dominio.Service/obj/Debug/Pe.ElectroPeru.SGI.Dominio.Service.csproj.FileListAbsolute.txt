@@ -1,0 +1,29 @@
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.XML
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\obj\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\obj\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.XML
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\AutoMapper.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\AutoMapper.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\obj\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\obj\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.XML
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\AutoMapper.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\AutoMapper.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\obj\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Dominio.Service\obj\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.XML
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\AutoMapper.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Dominio.Service\bin\Debug\AutoMapper.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Dominio.Service\obj\Debug\Pe.ElectroPeru.SGI.Dominio.Service.csprojResolveAssemblyReference.cache
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Dominio.Service\obj\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Dominio.Service\obj\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb

@@ -1,0 +1,1029 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pe.ElectroPeru.SGI.Infraestructura.QueryModel</name>
+    </assembly>
+    <members>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Base.Logic">
+            <summary>
+            Entity Logic
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Base.Logic.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Base.Logic.NumeroRegistro">
+            <summary>
+            Número de Registro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Base.Logic.TotalRegistro">
+            <summary>
+            Registros por Pagina
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.AdjuntosLogic">
+            <summary>
+            Logic de Adjuntos
+            </summary>
+            <remarks>
+            Creación:   GMD 05042017 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.AdjuntosLogic.NombreArchivo">
+            <summary>
+            NombreArchivo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.AdjuntosLogic.Archivo">
+            <summary>
+            Archivo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.DireccionesLogic">
+            <summary>
+            Logic de Direcciones
+            </summary>
+            <remarks>
+            Creación:   GMD 05042017 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.DireccionesLogic.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.DireccionesLogic.NombreCompleto">
+            <summary>
+            Para
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.EmailLogic.#ctor">
+            <summary>
+            EmailLogic
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.EmailLogic.Para">
+            <summary>
+            Para
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.EmailLogic.ConCopia">
+            <summary>
+            ConCopia
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.EmailLogic.Asunto">
+            <summary>
+            Asunto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.EmailLogic.Mensaje">
+            <summary>
+            Mensaje
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.EmailLogic.Adjuntos">
+            <summary>
+            Adjuntos
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaAnualLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaAnualLogic.CodigoIndicadorMetaAnual">
+            <summary>
+            Codigo Indicador MetaAnual
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaAnualLogic.CodigoIndicador">
+            <summary>
+            Codigo Indicador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaAnualLogic.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaAnualLogic.ValorMetaAnual">
+            <summary>
+            Valor MetaAnual
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorEvaluacionLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorEvaluacionLogic.CodigoIndicadorEvaluacion">
+            <summary>
+            Codigo Indicador Evaluacion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorEvaluacionLogic.CodigoIndicador">
+            <summary>
+            Codigo Indicador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorEvaluacionLogic.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorEvaluacionLogic.Mes">
+            <summary>
+            Mes
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorEvaluacionLogic.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorEvaluacionLogic.DescripcionSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorEvaluacionLogic.ValorEvaluacion">
+            <summary>
+            Valor Evaluacion
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorValorLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorValorLogic.CodigoIndicadorValor">
+            <summary>
+            Codigo Indicador Valor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorValorLogic.CodigoIndicador">
+            <summary>
+            Codigo Indicador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorValorLogic.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorValorLogic.Mes">
+            <summary>
+            Mes
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorValorLogic.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorValorLogic.DescripcionSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorValorLogic.ValorReal">
+            <summary>
+            Valor Valor
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.AreaLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.AreaLogic.CodigoArea">
+            <summary>
+            Código de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.AreaLogic.NombreArea">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.AreaLogic.CodigoResponsable">
+            <summary>
+            Código de Responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.AreaLogic.NombreResponsable">
+            <summary>
+            Nombre de Responsable
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.AccionEstrategicaInstitucionalLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.AccionEstrategicaInstitucionalDetalleLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.AccionEstrategicaSectorialLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.AccionEstrategicaSectorialDetalleLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableValorLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableValorLogic.CodigoVariableValor">
+            <summary>
+            Codigo Variable Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableValorLogic.CodigoVariable">
+            <summary>
+            Codigo Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableValorLogic.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableValorLogic.Mes">
+            <summary>
+            Mes
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableValorLogic.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableValorLogic.DescripcionSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableValorLogic.Valor">
+            <summary>
+            Valor Meta
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaLogic.CodigoIndicadorMeta">
+            <summary>
+            Codigo Indicador Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaLogic.CodigoIndicador">
+            <summary>
+            Codigo Indicador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaLogic.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaLogic.Mes">
+            <summary>
+            Mes
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaLogic.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaLogic.DescripcionSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorMetaLogic.ValorMeta">
+            <summary>
+            Valor Meta
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.FormulaDetalleLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.FormulaLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.ObjetivoEstrategicoEmpresaAccionEstrategicaInstitucionalLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.ObjetivoEstrategicoSectorialDetalleLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.ObjetivoEstrategicoSectorialLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.PerspectivaDetalleLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.PerspectivaLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.ObjetivoEstrategicoFonafeDetalleLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.ObjetivoEstrategicoFonafeLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.ObjetivoEstrategicoEmpresaDetalleLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.ObjetivoEstrategicoEmpresaLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorLogic.FechaInicioVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorLogic.FechaInicioVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorLogic.FechaFinVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorLogic.FechaFinVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.IndicadorLogic.IndicadorAmbito">
+            <summary>
+            Ámbito
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.ResponsableLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.CodigoDetalleVariable">
+            <summary>
+            Código de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.CodigoVariable">
+            <summary>
+            Código de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.FechaInicioVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.FechaInicioVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.FechaFinVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.FechaFinVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.CodigoArea">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.NombreArea">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.CodigoResponsable">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.NombreCompletoResponsable">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.CodigoPeriodicidad">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.DescripcionPeriodicidad">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.NombreVariable">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.NombreSiglaVariable">
+            <summary>
+            Nombre de Responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.DescripcionVariable">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.CodigoTipoVariable">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.NombreTipoVariable">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableDetalleLogic.EstadoRegistroDescripcion">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableLogic">
+            <summary>
+            Logic de Tabla de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableLogic.CodigoVariable">
+            <summary>
+            Código de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableLogic.NombreVariable">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableLogic.NombreSiglaVariable">
+            <summary>
+            Nombre de Responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableLogic.DescripcionVariable">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableLogic.CodigoTipoVariable">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Mantenimiento.VariableLogic.NombreTipoVariable">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.PlantillaNotificacion.PlantillaNotificacionLogic">
+            <summary>
+            Representa los datos de Plantilla Notificacion
+            </summary>
+            <remarks>
+            Creación:   GMD 27032015 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.PlantillaNotificacion.PlantillaNotificacionLogic.CodigoPlantillaNotificacion">
+            <summary>
+            CodigoPlantillaNotificacion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.PlantillaNotificacion.PlantillaNotificacionLogic.CodigoTipoNotificacion">
+            <summary>
+            CodigoTipoNotificacion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.PlantillaNotificacion.PlantillaNotificacionLogic.Asunto">
+            <summary>
+            Asunto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.PlantillaNotificacion.PlantillaNotificacionLogic.Contenido">
+            <summary>
+            Contenido
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.PlantillaNotificacion.PlantillaNotificacionLogic.Remitente">
+            <summary>
+            Remitente
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.PlantillaNotificacion.PlantillaNotificacionLogic.Destinatario">
+            <summary>
+            Destinatario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.PlantillaNotificacion.PlantillaNotificacionLogic.DestinatarioCopia">
+            <summary>
+            Destinatario Copia
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorSeccionLogic">
+            <summary>
+            Representa los datos de Parametro de Valor
+            </summary>
+            <remarks>
+            Creación:   GMD 27032015 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorSeccionLogic.ListadoSeccionValor">
+            <summary>
+            Estadro de Registro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorSeccionLogic.ListadoValorRelacionado">
+            <summary>
+            Estadro de Registro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorSeccionLogic.ListadoValor">
+            <summary>
+            Estadro de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic">
+            <summary>
+            Representa los datos de Parametro
+            </summary>
+            <remarks>
+            Creación:   GMD 27032015 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.CodigoParametro">
+            <summary>
+            Código de parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.CodigoIdentificador">
+            <summary>
+            Código Identificador 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.IndicadorEmpresa">
+            <summary>
+            Identificador Empresa 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.CodigoEmpresa">
+            <summary>
+            Código Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.CodigoEmpresaIdentificador">
+            <summary>
+            Código Identificador de Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.NombreEmpresa">
+            <summary>
+            Nombre de Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.CodigoSistema">
+            <summary>
+            Código Sistema 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.CodigoSistemaIdentificador">
+            <summary>
+            Código Identificador de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.NombreSistema">
+            <summary>
+            Nombre de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.TipoParametro">
+            <summary>
+            Tipo de Parámetro 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.Nombre">
+            <summary>
+            Nombre del Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.Descripcion">
+            <summary>
+            Descripción del Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.IndicadorPermiteAgregar">
+            <summary>
+            Indicador Permite Agregar 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.IndicadorPermiteModificar">
+            <summary>
+            Indicador Permite Modificar 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.IndicadorPermiteEliminar">
+            <summary>
+            Indicador Permite Eliminar 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroLogic.EstadoRegistro">
+            <summary>
+            Estadro de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic">
+            <summary>
+            Representa los datos de Parametro de Sección
+            </summary>
+            <remarks>
+            Creación:   GMD 27032015 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.CodigoParametro">
+            <summary>
+            Código de Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.CodigoSeccion">
+            <summary>
+            Código de Sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.IndicadorSistema">
+            <summary>
+            Indicador de sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.Nombre">
+            <summary>
+            Nombre de Sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.CodigoTipoDato">
+            <summary>
+            Código de Tipo de Dato
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.DescripcionTipoDato">
+            <summary>
+            Descripción de Tipo de Dato
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.IndicadorPermiteModificar">
+            <summary>
+            Indicador de Permite Modificar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.IndicadorObligatorio">
+            <summary>
+            Indicador de Sección Obligatorio
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.CodigoParametroRelacionado">
+            <summary>
+            Código de Parametro Relacionado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.NombreParametroRelacionado">
+            <summary>
+            Nombre de Parámetro Relacionado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.CodigoSeccionRelacionado">
+            <summary>
+            Código de Sección Relacionada
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.NombreSeccionRelacionado">
+            <summary>
+            Nombre de Sección Relacionada
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.CodigoSeccionRelacionadoMostrar">
+            <summary>
+            Código de Sección Relacionada a Mostrar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.NombreSeccionRelacionadoMostrar">
+            <summary>
+            Nombre de Sección Relacionada a Mostrar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroSeccionLogic.EstadoRegistro">
+            <summary>
+            Estadro de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic">
+            <summary>
+            Representa los datos de Parametro de Valor
+            </summary>
+            <remarks>
+            Creación:   GMD 27032015 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.CodigoParametro">
+            <summary>
+            Código de parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.CodigoIdentificador">
+            <summary>
+            Código Identificador 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.IndicadorEmpresa">
+            <summary>
+            Identificador Empresa 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.CodigoEmpresa">
+            <summary>
+            Código de Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.CodigoSistema">
+            <summary>
+            Código Sistema 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.TipoParametro">
+            <summary>
+            Tipo de Parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.CodigoSeccion">
+            <summary>
+            Código de Sección 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.CodigoValor">
+            <summary>
+            Código de Valor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.CodigoTipoDato">
+            <summary>
+            Código de Tipo de Dato
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.CodigoValorString">
+            <summary>
+            Código de Valor en cadena de texto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.Valor">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.CodigoIdioma">
+            <summary>
+            Código de Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.PrimerValorAdicional">
+            <summary>
+            Primer Valor Adicional
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.SegundoValorAdicional">
+            <summary>
+            Segundo Valor Adicional
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic.EstadoRegistro">
+            <summary>
+            Estadro de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic">
+            <summary>
+            Representa los datos de Plantilla Notificacion
+            </summary>
+            <remarks>
+            Creación:   GMD 27032015 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic.CodigoPlantillaNotificacion">
+            <summary>
+            CodigoPlantillaNotificacion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic.CodigoSistema">
+            <summary>
+            CodigoSistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic.CodigoTipoNotificacion">
+            <summary>
+            CodigoTipoNotificacion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic.Asunto">
+            <summary>
+            Asunto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic.IndicadorActiva">
+            <summary>
+            IndicadorActiva
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic.Contenido">
+            <summary>
+            Contenido
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic.CodigoTipoDestinatario">
+            <summary>
+            Codigo Tipo Destinatario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic.Destinatario">
+            <summary>
+            Destinatario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.PlantillaNotificacionLogic.DestinatarioCopia">
+            <summary>
+            Destinatario Copia
+            </summary>
+        </member>
+    </members>
+</doc>

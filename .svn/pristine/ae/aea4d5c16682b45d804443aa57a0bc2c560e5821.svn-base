@@ -1,0 +1,623 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ComiteSSoma
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ComiteSSoma.IngresoComiteSSoma.ComiteSSomaModel
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label><strong>@Html.Raw(ComiteSSomaResource.EtiquetaTituloComiteSoma):</strong></label>
+                    </div>
+                    <div class="cell-line">
+                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaNroRegistro):</label>
+                    </div>
+                    <div class="cell-line">
+                        @Html.TextBox("txtNumeroComiteSoma", Model.ComiteSSoma.NumeroComiteSSoma, new { id = "txtNumeroComiteSoma", @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaInvestigacion" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="@Html.Raw(AccionResource.EtiquetaListaAcciones)">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsFormularioIngresoComiteSSoma">
+                    <li role="presentation" class="active validateComiteSSoma">
+                        <a href="#tabGeneral" class="top-tab" aria-controls="tabGeneral" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(ComiteSSomaResource.EtiquetaTabGeneral)</a>
+                    </li>
+                    <li role="presentation" class="validateComiteSSoma">
+                        <a href="#tabHallazgo" class="top-tab" aria-controls="tabHallazgo" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(ComiteSSomaResource.EtiquetaTabHallazgo)</a>
+                    </li>
+                    <li role="presentation" class="validateComiteSSoma">
+                        <a href="#tabAccion" class="top-tab" aria-controls="tabAccion" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(ComiteSSomaResource.EtiquetaTabAcciones)</a>
+                    </li>
+                    <li role="presentation" class="validateComiteSSoma">
+                        <a href="#tabParticipante" class="top-tab" aria-controls="tabParticipante" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(ComiteSSomaResource.EtiquetaTabParticipante)</a>
+                    </li>
+                    <li role="presentation" class="validateComiteSSoma">
+                        <a href="#tabAnexo" class="top-tab" aria-controls="tabAnexo" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(ComiteSSomaResource.EtiquetaTabAnexos)</a>
+                    </li>
+                    <li role="presentation" class="validateComiteSSoma">
+                        <a href="#tabFoto" class="top-tab" aria-controls="tabFoto" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(ComiteSSomaResource.EtiquetaTabFotos)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGeneral">
+                        <form onsubmit="return false;" id="frmInformacionGeneral">
+                            <fieldset id="flsInformacionGeneral" @(Model.ComiteSSoma.IndicadorEsLectura == true ? "disabled=disabled" : null)>
+                                <div class="title-interna">
+                                    <span>@Html.Raw(ComiteSSomaResource.EtiquetaTituloInformacionGeneral)</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaTipoComite): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.CodigoTipoComite, Model.ListaTipoComites, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcTipoComite", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoComite", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaEmpresa): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.CodigoEmpresaPais, Model.ListaEmpresa, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcEmpresaPais", @class = "form-control", @validable = "required Validar" } : new { id = "slcEmpresaPais", @class = "form-control", @validable = "required Validar", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaNombreComite): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.CodigoComite, Model.ListaComites, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcComite", @class = "form-control", @validable = "required Validar" } : new { id = "slcComite", @class = "form-control", @validable = "required Validar", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaPais): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.CodigoPais, Model.ListaPais, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcPais", @class = "form-control", @validable = "required Validar" } : new { id = "slcPais", @class = "form-control", @validable = "required Validar", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaProyecto): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.CodigoProyecto, Model.ListaProyectos, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" } : new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaAnioEvaluado): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.CodigoAnioEvaluado, Model.ListaAnios, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcAnioEvaluado", @class = "form-control", @validable = "required Validar" } : new { id = "slcAnioEvaluado", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaMesEvaluado): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.CodigoMesEvaluado, Model.ListaMeses, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcMesEvaluado", @class = "form-control", @validable = "required Validar" } : new { id = "slcMesEvaluado", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaTipoReunion): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.CodigoTipoReunion, Model.ListaTipoReuniones, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcTipoReunion", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoReunion", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaLugarReunion): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("txtDescripcionLugarReunion", Model.ComiteSSoma.DescripcionLugarReunion, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "txtDescripcionLugarReunion", @class = "form-control", @maxlength = "50", @validable = "required Validar" } : new { id = "txtDescripcionLugarReunion", @class = "form-control", @maxlength = "50", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaFechaReunion): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    @Html.TextBox("dtpFechaReunion", Model.ComiteSSoma.FechaReunionString, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "dtpFechaReunion", @class = "form-control", @validable = "required Validar" } : new { id = "dtpFechaReunion", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaHoraReunion): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.HoraReunion, Model.ListaHoras, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcHoraReunion", @class = "form-control", @validable = "required Validar" } : new { id = "slcHoraReunion", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaMinutoReunion): </label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSoma.MinutoReunion, Model.ListaMinutos, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcMinutoReunion", @class = "form-control", @validable = "required Validar" } : new { id = "slcMinutoReunion", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </fieldset>
+                        </form>
+                        @if (Model.ComiteSSoma.IndicadorEsLectura != true)
+                        {
+                            <div id="divBotonAccion" class="box-acciones-foot text-center">
+                                <button class="btn btn-default" id="btnSalirInformacionGeneral">@Html.Raw(GenericoResource.BotonSalir)</button>
+                                @if (Model.ComiteSSoma.CodigoComiteSSoma.HasValue && (Model.ComiteSSoma.CodigoEstadoDocumento != DatosConstantes.ParametrosEstadoDocumento.Anulado))
+                                { 
+                                    <button class="btn btn-primary" id="btnAnularInformacionGeneral">@Html.Raw(GenericoResource.BotonAnular)</button>   
+                                }
+                                <button class="btn btn-primary" id="btnGuardarInformacionGeneral">@Html.Raw(GenericoResource.BotonGuardar)</button>
+                            </div>
+                        }
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabHallazgo">
+                        <form onsubmit="return false;" id="frmHallazgo">
+                            <fieldset id="flsHallazgo" @(Model.ComiteSSoma.IndicadorEsLectura == true ? "disabled=disabled" : null)>
+                                <div class="title-interna">
+                                    <span>@Html.Raw(ComiteSSomaResource.EtiquetaTituloIngresoHallazgo)</span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaDescripcionCorta): (*)</label>
+                                            @Html.TextArea("txtDescripcionCorta", Model.Hallazgo.DescripcionCorta, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionCorta", @class = "form-control", @rows = "2", @validable = "required Validar", @maxlength = "255", @style = "resize:none;" } : new { id = "txtDescripcionCorta", @class = "form-control", @maxlength = "255", @rows = "2", @validable = "required Validar", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaDescripcionLarga): (*)</label>
+                                            @Html.TextArea("txtDescripcionLarga", Model.Hallazgo.DescripcionLarga, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionLarga", @class = "form-control", @validable = "required Validar", @maxlength = "2500", @rows = "3", @style = "resize:none;" } : new { id = "txtDescripcionLarga", @class = "form-control", @maxlength = "2500", @rows = "3", @validable = "required Validar", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 2500 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaNivelRiesgo): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownList("slcNivelRiesgo", Model.ListaNivelRiesgo, new { @class = "form-control", @id = "slcNivelRiesgo", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                        @if (Model.ComiteSSoma.IndicadorEsLectura != true)
+                        {
+                            <div class="box-acciones-foot text-center">
+                                <button class="btn btn-default" @(Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? "" : "hidden") id="btnLimpiarHallazgo">@Html.Raw(GenericoResource.EtiquetaLimpiar)</button>
+                                <button class="btn btn-default" @(Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? "" : "hidden") id="btnSalirHallazgo">@Html.Raw(GenericoResource.BotonSalir)</button>
+                                <button class="btn btn-primary" @(Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? "" : "hidden") id="btnGuardarHallazgo">@Html.Raw(GenericoResource.BotonGuardar)</button>
+                            </div>                                          
+                        }
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoHallazgo">
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabAccion">
+                        <form onsubmit="return false;" id="frmAccion">
+                            <div id="DivfrmAccion" class="title-interna">
+                                <span>@Html.Raw(ComiteSSomaResource.EtiquetaTituloIngresoAcciones)</span>
+                            </div>
+                            <fieldset id="flsRevisarHallazgoAccion" disabled="disabled">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaNivelRiesgo):</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownList("slcNivelRiesgoAccion", Model.ListaNivelRiesgo, new { @class = "form-control", @id = "slcNivelRiesgoAccion", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaDescripcionCorta):</label>
+                                            @Html.TextArea("txtDescripcionCortaAccion", Model.Hallazgo.DescripcionCorta, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionCortaAccion", @class = "form-control", @rows = "2", @maxlength = "255", @style = "resize:none;" } : new { id = "txtDescripcionCortaAccion", @class = "form-control", @maxlength = "255", @rows = "2", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        @if (Model.ComiteSSoma.IndicadorEsLectura != true)
+                        {
+                            <div class="acciones-form text-right" style="border: none">
+                                <button id="btnAgregarAccion" class="btn btn-primary">@Html.Raw(ComiteSSomaResource.EtiquetaAgregarAccion)</button>
+                            </div>
+                        }
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="table-grilla">
+                                    <div id="divGrdResultadoAccion">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabParticipante">
+                        <form onsubmit="return false;" id="frmParticipante">
+                            <fieldset id="flsParticipante" @(Model.ComiteSSoma.IndicadorEsLectura == true ? "disabled=disabled" : null)>
+                                <div class="title-interna">
+                                    <span>@Html.Raw(ComiteSSomaResource.EtiquetaTituloIngresoParticipantes)</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaTipoParticipante): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSomaParticipante.CodigoColaboradorParticipante, Model.ListaTipoParticipante, Model.ComiteSSomaParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "slcTipoParticipante", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoParticipante", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaProyecto): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSomaParticipante.CodigoProyecto, Model.ListaProyectos, Model.ComiteSSomaParticipante.CodigoComiteSSomaParticipante.HasValue ? (object)new { id = "slcProyectoParticipante", @class = "form-control", @validable = "required Validar" } : new { id = "slcProyectoParticipante", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaNombre): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="input-group" id="divGetColaboradorInterno" style="display: none">                                                      
+                                                        @Html.Hidden("hdnCodigoColaboradorParticipante", Model.ComiteSSomaParticipante.CodigoColaboradorParticipante, new { ïd = "hdnCodigoColaboradorParticipante" })
+                                                        @Html.TextBox("txtNombreColaboradorParticipante", Model.ComiteSSomaParticipante.NombreCompletoColaboradorParticipante, Model.ComiteSSomaParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "txtNombreColaboradorParticipante", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorParticipante", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                                                        <div class="input-group-addon">
+                                                            <button class="btn-form" id="btnBuscarColaboradorParticipante" type="button">....</button>
+                                                        </div>
+                                                    </div>
+
+                                                    @Html.TextBox("txtNombreColaboradorInvitadoParticipante", Model.ComiteSSomaParticipante.NombreCompletoColaboradorParticipante, Model.ComiteSSomaParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "txtNombreColaboradorInvitadoParticipante", @class = "form-control", @Styles = "Display:none", @validable = "required Validar", } : new { id = "txtNombreColaboradorInvitadoParticipante", @class = "form-control", @validable = "required Validar" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaTipoDocumento): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSomaParticipante.CodigoTipoDocumento, Model.ListaTipoDocumento, Model.ComiteSSomaParticipante.CodigoComiteSSomaParticipante.HasValue ? (object)new { id = "slcTipoDocumento", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoDocumento", @class = "form-control", @validable = "required Validar", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaNumeroDocumento): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("txtNumeroDocumento", Model.ComiteSSomaParticipante.NumeroDocumento, Model.ComiteSSomaParticipante.CodigoComiteSSomaParticipante.HasValue ? (object)new { id = "txtNumeroDocumento", @class = "form-control", @validable = "required Validar", @maxlength = "12" } : new { id = "txtNumeroDocumento", @class = "form-control", @maxlength = "12", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaApellidoPaterno): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("txtApellidoPaterno", Model.ComiteSSomaParticipante.ApellidoPaterno, Model.ComiteSSomaParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "txtApellidoPaterno", @class = "form-control", @validable = "required Validar", @disabled = "disabled", @maxlength = "50" } : new { id = "txtApellidoPaterno", @class = "form-control", @maxlength = "50", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaApellidoMaterno): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("txtApellidoMaterno", Model.ComiteSSomaParticipante.ApellidoMaterno, Model.ComiteSSomaParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "txtApellidoMaterno", @class = "form-control", @validable = "required Validar", @disabled = "disabled", @maxlength = "50" } : new { id = "txtApellidoMaterno", @class = "form-control", @maxlength = "50", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaMiembro): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSomaParticipante.CodigoTipoMiembro, Model.ListaTipoMiembro, Model.ComiteSSomaParticipante.CodigoComiteSSomaParticipante.HasValue ? (object)new { id = "slcTipoMiembro", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoMiembro", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaCargoEmpresa): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSomaParticipante.CodigoTipoCargoEmpresa, Model.ListaTipoCargoEmpresa, Model.ComiteSSomaParticipante.CodigoComiteSSomaParticipante.HasValue ? (object)new { id = "slcTipoCargoEmpresa", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoCargoEmpresa", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaCargoComite): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.ComiteSSomaParticipante.CodigoTipoCargoComite, Model.ListaTipoCargoComite, Model.ComiteSSomaParticipante.CodigoComiteSSomaParticipante.HasValue ? (object)new { id = "slcTipoCargoComite", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoCargoComite", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaParticipacion): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextArea("txtDescripcionParticipacion", Model.ComiteSSomaParticipante.DescripcionParticipacion, Model.ComiteSSomaParticipante.CodigoComiteSSomaParticipante.HasValue ? (object)new { id = "txtDescripcionParticipacion", @class = "form-control", @validable = "required Validar", rows = "2", @maxlength = "200" } : new { id = "txtDescripcionParticipacion", @class = "form-control", rows = "2", @maxlength = "200", @validable = "required Validar" })
+                                                    <div class="form-group text-right">
+                                                        <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 200 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+                        </form>
+                        @if (Model.ComiteSSoma.IndicadorEsLectura != true)
+                        {
+                            <div class="box-acciones-foot text-center">
+                                <button class="btn btn-default" @(Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? "" : "hidden")") id="btnLimpiarParticipante">@Html.Raw(GenericoResource.EtiquetaLimpiar)</button>
+                                <button class="btn btn-primary" @(Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? "" : "hidden")") id="btnGuardarParticipante">@Html.Raw(GenericoResource.BotonGuardar)</button>
+                            </div>
+                        }
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="table-grilla">
+                                    <div id="divGrdResultadoParticipante">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabAnexo">
+                        <div role="tabpanel" class="tab-pane fade in" id="anexo">
+                            <div class="title-interna">
+                                <span>@Html.Raw(ComiteSSomaResource.EtiquetaInformacionAnexos)</span>
+                                @if (Model.ComiteSSoma.IndicadorEsLectura != true)
+                                {
+                                    <div class="acciones-form btn-group btn-group-table">
+                                        <button id="btnAgregarComiteSSomaAnexoArchivo" type="button" class="btn-table text-line one">
+                                            @Html.Raw(RecordsResource.EtiquetaAgregarArchivo)
+                                        </button>
+                                    </div>
+                                }
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultadoComiteSSomaAnexoApendice">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabFoto">
+                        <div role="tabpanel" class="tab-pane fade in" id="foto">
+
+                            <div class="title-interna">
+                                <span>@Html.Raw(ComiteSSomaResource.EtiquetaInformacionFotos)</span>
+                                @if (Model.ComiteSSoma.IndicadorEsLectura != true)
+                                {
+                                    <div class="acciones-form btn-group btn-group-table">
+                                        <button id="btnAgregarComiteSSomaAnexoFoto" type="button" class="btn-table text-line one">
+                                            @Html.Raw(RecordsResource.EtiquetaAgregarFoto)
+                                        </button>
+                                    </div>
+                                }
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultadoComiteSSomaAnexoFoto">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridTipoHallazgo = '@Html.Raw(ComiteSSomaResource.GridTipoHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridFechaHallazgo = '@Html.Raw(ComiteSSomaResource.GridFechaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridLugarTrabajo = '@Html.Raw(ComiteSSomaResource.GridLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridDescripcionCorta = '@Html.Raw(ComiteSSomaResource.GridDescripcionCorta)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridDescripcionLarga = '@Html.Raw(ComiteSSomaResource.GridDescripcionLarga)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridNivelRiesgo = '@Html.Raw(ComiteSSomaResource.GridNivelRiesgo)';
+        
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridItem = '@Html.Raw(ComiteSSomaResource.GridItem)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridNombreArchivo = '@Html.Raw(ComiteSSomaResource.GridNombreArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridTipo = '@Html.Raw(ComiteSSomaResource.GridTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridDescripcion = '@Html.Raw(ComiteSSomaResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridVistaPreviaFoto = '@Html.Raw(ComiteSSomaResource.GridVistaPreviaFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridDescargar = '@Html.Raw(ComiteSSomaResource.GridDescargar)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaObservacionAnularComiteSSoma = '@Html.Raw(ComiteSSomaResource.EtiquetaObservacionAnularComiteSSoma)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaObservacionAnular = '@Html.Raw(ComiteSSomaResource.EtiquetaObservacionAnular)';
+        
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridTipoParticipante = '@Html.Raw(ComiteSSomaResource.GridTipoParticipante)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridProyecto = '@Html.Raw(ComiteSSomaResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridApellidosNombres = '@Html.Raw(ComiteSSomaResource.GridApellidosNombres)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridTipoDocumento = '@Html.Raw(ComiteSSomaResource.GridTipoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridNumeroDocumento = '@Html.Raw(ComiteSSomaResource.GridNumeroDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridMiembro = '@Html.Raw(ComiteSSomaResource.GridMiembro)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridCargoEmpresa = '@Html.Raw(ComiteSSomaResource.GridCargoEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridCargoComite = '@Html.Raw(ComiteSSomaResource.GridCargoComite)';
+                      
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridPlanteadaPor = '@Html.Raw(ComiteSSomaResource.GridPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridFechaPlanteada = '@Html.Raw(ComiteSSomaResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridEjecutaPor = '@Html.Raw(ComiteSSomaResource.GridEjecutaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridFechaVencimiento = '@Html.Raw(ComiteSSomaResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridDescripcion = '@Html.Raw(ComiteSSomaResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaTituloIngresoAcciones = '@Html.Raw(ComiteSSomaResource.EtiquetaTituloIngresoAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaTituloListaAcciones = '@Html.Raw(ComiteSSomaResource.EtiquetaTituloListaAcciones)';
+
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.ConfirmacionSalirComiteSSoma = '@Html.Raw(ComiteSSomaResource.ConfirmacionSalirComiteSSoma)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaObservacionGuardarComiteSSoma = '@Html.Raw(ComiteSSomaResource.EtiquetaObservacionGuardarComiteSSoma)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.ConfirmacionSalirHallazgo = '@Html.Raw(ComiteSSomaResource.ConfirmacionSalirHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaObservacionGuardarHallazgo = '@Html.Raw(ComiteSSomaResource.EtiquetaObservacionGuardarHallazgo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaObsEliminarComiteSSomaNoPermite = '@Html.Raw(ComiteSSomaResource.EtiquetaObsEliminarComiteSSomaNoPermite)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaObsEliminarComiteSSomaAsociada = '@Html.Raw(ComiteSSomaResource.EtiquetaObsEliminarComiteSSomaAsociada)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaObsEliminarAccionDocNoPermite = '@Html.Raw(ComiteSSomaResource.EtiquetaObsEliminarAccionDocNoPermite)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.EtiquetaObsEliminarAccionSegNoPermite = '@Html.Raw(ComiteSSomaResource.EtiquetaObsEliminarAccionSegNoPermite)';            
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridEstadoAccion = '@Html.Raw(ComiteSSomaResource.GridEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridResponsableEjecucion = '@Html.Raw(ComiteSSomaResource.GridResponsableEjecucion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridDescripcionCortaHallazgo = '@Html.Raw(ComiteSSomaResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridDescripcionCortaAccion = '@Html.Raw(ComiteSSomaResource.GridDescripcionCortaAccion)';       
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Resource.GridNumeroAccion = '@Html.Raw(ComiteSSomaResource.GridNumeroAccion)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.DatosConstantes.CodigoTiposAnexosComiteSSoma = '@DatosConstantes.ParametrosComiteSSoma.CodigoTiposAnexosComiteSSoma';
+         
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.DatosConstantes.ParametrosTiposParticipanteComiteSSoma')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.DatosConstantes.ParametrosTiposParticipanteComiteSSoma.Invitado = '@DatosConstantes.ParametrosTiposParticipanteComiteSSoma.Invitado';
+         
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.DatosConstantes.ParametrosEstadoIngresoDocumento')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteHallazgo = '@DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteHallazgo';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteAcciones = '@DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteAcciones';
+         
+
+
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.SeguimientoAccionIndex = '@Url.Action("Index", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.RegistrarComiteSSoma = '@Url.Action("RegistrarComiteSSoma", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.AnularComiteSSoma = '@Url.Action("AnularComiteSSoma", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.SalirComiteSSoma = '@Url.Action("SalirComiteSSoma", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';
+       
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.BuscarComiteSSomaHallazgo = '@Url.Action("BuscarComiteSSomaHallazgo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.RegistrarComiteSSomaHallazgo = '@Url.Action("RegistrarComiteSSomaHallazgo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.EliminarComiteSSomaHallazgo = '@Url.Action("EliminarComiteSSomaHallazgo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.BuscarComiteSSomaAnexo =  '@Url.Action("BuscarComiteSSomaAnexo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.EliminarIntegradorTipoRegistroAnexo =  '@Url.Action("EliminarIntegradorTipoRegistroAnexo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.DescargarIntegradorTipoRegistroArchivo =  '@Url.Action("DescargarIntegradorTipoRegistroArchivo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.BuscarHallazgo =  '@Url.Action("BuscarHallazgo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.ObtenerHallazgoPorCodigo =  '@Url.Action("ObtenerHallazgoPorCodigo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.RegistrarHallazgo =  '@Url.Action("RegistrarHallazgo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.EliminarHallazgo =  '@Url.Action("EliminarHallazgo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.RegistrarComiteSSomaParticipante =  '@Url.Action("RegistrarComiteSSomaParticipante", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.EliminarComiteSSomaParticipante =  '@Url.Action("EliminarComiteSSomaParticipante", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.ObtenerComiteSSomaParticipantePorCodigo =  '@Url.Action("ObtenerComiteSSomaParticipantePorCodigo", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.BuscarComiteSSomaParticipante =  '@Url.Action("BuscarComiteSSomaParticipante", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';    
+
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.BandejaComiteSSoma = '@Url.Action("Index", "BandejaComiteSSoma", new { Area = "ComiteSSoma" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Actions.SalirHallazgoComiteSSoma = '@Url.Action("SalirHallazgoComiteSSoma", "IngresoComiteSSoma", new { Area = "ComiteSSoma" })';
+     
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Models')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoComiteSSoma.Index.Models.IngresoComiteSSomaModel = @(Html.Raw(Json.Encode(Model)))
+    
+    </script>
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordacciongenerico");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicearchivo");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicefoto");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariovistapreviafotogenerico");
+    
+}
+

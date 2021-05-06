@@ -1,0 +1,72 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Politicas
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Politicas.ValorParametro.ValorParametroModel
+@{
+    ViewBag.Title = "Index";
+}
+<div class="GmdBody-header">
+    <h2>@ValorParametroResource.EtiquetaTituloPrincipal</h2>
+</div>
+<div class="GmdBody-body">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label>@ValorParametroResource.EtiquetaParametro</label>
+                    <div class="input-group input-group-ibtn">
+                        @Html.DropDownList("slcParametro", Model.ListaParametro, new { id = "slcParametro", @class = "form-control" })
+                    </div>                    
+            </div>
+        </div>
+    </div>
+    <div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-6" align ="left">
+                <h3>@GenericoResource.EtiquetaResultadosBusqueda</h3>
+            </div>
+            <div class="col-sm-6" align ="right">
+                <button id="btnEliminar" class="btn btn-info">@GenericoResource.BotonEliminar</button>
+                <button id="btnAgregar" class="btn btn-primary">@GenericoResource.BotonAñadir</button>            
+            </div>
+        </div>
+        <div id="divGrdResult"></div>        
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Actions.BuscarParametro = '@Url.Action("BuscarParametro", "ValorParametro", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Actions.Buscar = '@Url.Action("Buscar", "ValorParametro", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Actions.FormularioParametro = '@Url.Action("FormularioParametro", "ValorParametro", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Actions.GuardarParametro = '@Url.Action("GuardarParametro", "ValorParametro", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Actions.EliminarParametro = '@Url.Action("EliminarParametro", "ValorParametro", new { Area = "Politicas" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.BuscarParametrosGenerales         = '@Html.Raw(ValorParametroResource.EtiquetaTituloDlgBuscarParametrosGenerales)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.FormularioParametrosGenerales     = '@Html.Raw(ValorParametroResource.EtiquetaDlgFormularioParametrosGenerales)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.Confirmar                         = '@Html.Raw(ValorParametroResource.EtiquetaTituloDlgConfirmar)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.EstaSeguro                        = '@Html.Raw(ValorParametroResource.EtiquetaMessageDlgEstaSeguro)'; 
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.EstaSeguroGrabar                  = '@Html.Raw(ValorParametroResource.EtiquetaMessageDlgEstaSeguroGrabar)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.GridAcciones                      = '@Html.Raw(GenericoResource.GridAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.EtiquetaEditar                    = '@Html.Raw(GenericoResource.EtiquetaEditar)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.EtiquetaEliminar                  = '@Html.Raw(GenericoResource.EtiquetaEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.TituloEliminar                    = '@Html.Raw(ValorParametroResource.EtiquetaTituloEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.MsgEliminar                       = '@Html.Raw(ValorParametroResource.EtiquetaDlgMsgEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.ValorParametro.Resources.EtiquetaTituloAdvertencia         = '@Html.Raw(MensajeResource.EtiquetaTituloAdvertencia)';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion')
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ConfirmacionGuardar                       = '@Html.Raw(MensajeResource.ConfirmacionGuardar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaEjecutoNingunProceso              = '@MensajeResource.EtiquetaNoEjecutoNingunProceso';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaErrorRegistro                     = '@MensajeResource.EtiquetaErrorRegistro';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ActualizacionConforme                     = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaConfirmacion                      = '@MensajeResource.SeGuardoInformacionExito';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetEliminacion                        = '@MensajeResource.ConfirmacionEliminacion';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.SeleccionarRegistroEliminar               = '@Html.Raw(MensajeResource.SeleccionarRegistroEliminar)';
+    </script>
+    <script src="~/Scripts/Politicas/ValorParametro/FormularioParametro/Controller.js"></script>
+}
+

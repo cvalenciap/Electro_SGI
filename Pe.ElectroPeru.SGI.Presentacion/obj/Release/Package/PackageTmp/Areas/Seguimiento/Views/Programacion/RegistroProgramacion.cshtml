@@ -1,0 +1,282 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@*@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Records.RecordsModel*@
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            @*@RecordsResource_en_us.EtiquetaTituloPrincipal "hOLA"*@
+            NEW REGISTER TASK
+        </h2>
+        <div class="pull-right">
+            <a href="../../Seguimiento/Programacion/Index" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="List of Tasks">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">
+
+        <div class="title-interna">
+            <span>General</span>
+            <label class="label-text-line pull-right">
+                Closed
+                <input type="checkbox" name=""></label>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Task ID</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Task Type</label>
+                    <select class="form-control">
+                        <option>All Types</option>
+                        <option>Task 01</option>
+                        <option>Task 02</option>
+                        <option>Task 03</option>
+                        <option>Task 04</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Site</label>
+                    <select class="form-control" disabled="disabled">
+                        <option>Main office</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Departament</label>
+                    <select class="form-control" disabled="disabled">
+                        <option>Admission Management</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Person  Responsible</label>
+                    <select class="form-control">
+                        <option>No Filter</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Section</label>
+                    <select class="form-control">
+                        <option>All Section</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>General Description:</label>
+                    <textarea class="form-control" rows="2"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab_custom">
+            <!-- Tab interno -->
+            <div class="tab-interno item03">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#dinamic01" aria-controls="dinamic01" role="tab" data-toggle="tab" aria-expanded="true">01
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#dinamic02" aria-controls="dinamic02" role="tab" data-toggle="tab" aria-expanded="true" class="tab-show">02
+                        </a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="dinamic01">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Task Description:</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Responsible</label>
+                                    <select class="form-control">
+                                        <option>No Filter</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>First Date</label>
+                                    <input type="text" name="" id="firstDate" class="form-control" placeholder="dd / mm / aaaa">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Due Date</label>
+                                    <input type="text" name="" id="dueDate" class="form-control" placeholder="dd / mm / aaaa">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label>Frequency:</label>
+                                    <input type="text" name="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <select class="form-control hide-label">
+                                        <option>No Filter</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group check-form">
+                                    <label>
+                                        Closed?
+                                        <input type="checkbox" name="">
+                                    </label>
+                                    <button type="button" class="btn-notification inline-form">
+                                        <span data-toggle="tooltip" data-placement="left" title="" data-original-title="Email Notification"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-acciones-foot">
+                            <button class="btn-guardar-form btn-guardar-general" id="" type="button">Generate</button>
+                        </div>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="dinamic02">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Task Description:</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Responsible</label>
+                                    <select class="form-control">
+                                        <option>No Filter</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>First Date</label>
+                                    <input type="text" name="" id="firstDate" class="form-control" placeholder="dd / mm / aaaa">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Due Date</label>
+                                    <input type="text" name="" id="dueDate" class="form-control" placeholder="dd / mm / aaaa">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label>Frequency:</label>
+                                    <input type="text" name="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <select class="form-control hide-label">
+                                        <option>No Filter</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group check-form">
+                                    <label>
+                                        Closed?
+                                        <input type="checkbox" name="">
+                                    </label>
+                                    <button type="button" class="btn-notification inline-form">
+                                        <span data-toggle="tooltip" data-placement="left" title="" data-original-title="Email Notification"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-acciones-foot">
+                            <button class="btn-guardar-form btn-guardar-general" id="" type="button">Generate</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Cierra Tab Interno -->
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarSiglaTipoRecord = '@Url.Action("BuscarSiglaTipoRecord", "Records", new { Area = "Seguimiento" })';
+
+        //$('#slcRecords').on('change', function (e) {
+        //    var optionSelected = $("option:selected", this);
+        //    var valueSelected = this.value;
+
+        //    alert(valueSelected);
+        //});
+
+
+    </script>
+
+
+}

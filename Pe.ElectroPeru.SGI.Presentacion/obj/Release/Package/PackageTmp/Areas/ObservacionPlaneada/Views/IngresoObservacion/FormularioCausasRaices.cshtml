@@ -1,0 +1,78 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.FormularioCausasRaices.FormularioCausasRaicesModel
+
+<div class="modal-body">
+    <form id="frmAnalisisCausasRaices" onsubmit="return false;">
+        <fieldset id="flsAnalisisCausasRaices" @(Model.RecordCausaRaiz.IndicadorLectura ? "disabled=disabled" : null)>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaCodigo): (*)</label>
+                        @Html.TextBox("txtIdentificadorCausaRaiz", Model.RecordCausaRaiz.CodigoGenerado, new { id = "txtIdentificadorCausaRaiz", @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaCategoria): (*)</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @Html.DropDownListFor(model => model.RecordCausaRaiz.CodigoCategoria, Model.ListaCategoria, new { @class = "form-control", @id = "ddlCategoriaCausaRaiz", @validable = "required Validar" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaSubCategoria): (*)</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @Html.DropDownList("ddlSubCategoriaCausaRaiz", Model.ListaSubCategoria, new { @class = "form-control", @id = "ddlSubCategoriaCausaRaiz", @validable = "required Validar" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaCausaRaiz): (*)</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @Html.DropDownList("ddlCausaRaiz", Model.ListaCausaRaiz, new { @class = "form-control", @id = "ddlCausaRaiz", @validable = "required Validar" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaComentario): (*)</label>
+                        @Html.TextArea("txaComentarioCausaRaiz", Model.RecordCausaRaiz.Comentario, new { id = "txaComentarioCausaRaiz", @class = "form-control", @validable = "required Validar", @maxlength = "400" })
+                        <div class="text-right">
+                            <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, 400))</label>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </fieldset>
+        @if(!Model.RecordCausaRaiz.IndicadorLectura)
+        {   
+            <div id="divBotonEstado" class="box-acciones-foot modal_box text-center">
+                <button class="btn btn-default" id="btnCancelarCausaRaiz">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                <button class="btn btn-primary" id="btnGuardarCausaRaiz">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+            </div>        
+        }
+    </form>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Models.FormularioCausasRaices = @(Html.Raw(Json.Encode(Model)))
+</script>

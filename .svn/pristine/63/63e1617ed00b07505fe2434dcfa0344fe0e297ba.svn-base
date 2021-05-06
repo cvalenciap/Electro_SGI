@@ -1,0 +1,30 @@
+FechaHora = 27/01/2016 12:32:58 p.m.
+MensajeError = An error occurred while executing the command definition. See the inner exception for details.
+DetalleError =    at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.FindInStore(WrappedEntityKey key, String keyValuesParamName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   at System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   at Pe.ElectroPeru.SGI.Infraestructura.Repository.Base.ComandRepository`1.GetById(Object[] id) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Infraestructura.Repository\Base\ComandRepository.cs:line 65
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ContratoService.ApruebaContratoEstadio(Guid codigoContrato, Guid codigoContratoEstadio) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ContratoService.cs:line 654
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 727
+__________________________________________________
+FechaHora = 27/01/2016 05:06:58 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ContratoService.GenerarContenidoContrato(Guid codigoContrato, Nullable`1 codigoContratoEstadio, String& nombreArchivoContrato, String linkFileCss) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ContratoService.cs:line 1453
+__________________________________________________

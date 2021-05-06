@@ -1,0 +1,174 @@
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll.config
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.XML
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\AutoMapper.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.SharePoint.Client.Taxonomy.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Newtonsoft.Json.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Account.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Web.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Mvc.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Optimization.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Windsor.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\log4net.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\EntityFramework.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Account.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Account.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Web.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Web.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\AutoMapper.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Newtonsoft.Json.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Mvc.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Optimization.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Windsor.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\log4net.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\EntityFramework.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Core.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\en-us\Pe.ElectroPeru.SGI.Aplicacion.Core.resources.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\en-us\Pe.ElectroPeru.SGI.Presentacion.Recursos.resources.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\obj\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.csprojResolveAssemblyReference.cache
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\obj\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\obj\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll.config
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.XML
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.SharePoint.Client.Taxonomy.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Newtonsoft.Json.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Account.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Web.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Mvc.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Optimization.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Windsor.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\log4net.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\EntityFramework.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Account.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Account.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Web.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Web.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Newtonsoft.Json.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Mvc.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Optimization.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Windsor.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\log4net.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\EntityFramework.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\en-us\Pe.ElectroPeru.SGI.Aplicacion.Core.resources.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\en-us\Pe.ElectroPeru.SGI.Presentacion.Recursos.resources.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\obj\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.csprojResolveAssemblyReference.cache
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\obj\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\obj\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll.config
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.XML
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Microsoft.SharePoint.Client.Taxonomy.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Newtonsoft.Json.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Account.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Web.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Mvc.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Optimization.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Windsor.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\log4net.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\EntityFramework.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Account.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Account.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Web.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.GyM.Security.Web.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Newtonsoft.Json.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Mvc.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\System.Web.Optimization.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Windsor.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\log4net.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\EntityFramework.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\Castle.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\en-us\Pe.ElectroPeru.SGI.Aplicacion.Core.resources.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\bin\Debug\en-us\Pe.ElectroPeru.SGI.Presentacion.Recursos.resources.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\obj\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.csprojResolveAssemblyReference.cache
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\obj\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Presentacion.Core\obj\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.pdb

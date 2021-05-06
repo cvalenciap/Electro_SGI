@@ -1,0 +1,124 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.RegistroModel
+<div class="modal-body">
+     <form id="frmAgregarEjecucion" onsubmit="return false;" style="padding: 0 8px;"> 
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaProyecto): (*)</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.Registro.CodigoProyecto, Model.ListaProyectos, Model.Registro.CodigoEjecucion.HasValue ? (object)new { id = "slcProyecto", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } :  new { id = "slcProyecto", @class = "form-control", @validable = "required Validar", })   
+                </div>
+            </div>
+        </div>            
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaEquipo): (*)</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.Registro.CodigoEquipo, Model.ListaEquipos, Model.Registro.CodigoEjecucion.HasValue ? (object)new { id = "slcEquipo", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "slcEquipo", @class = "form-control", @validable = "required Validar"  })  
+                </div>
+                <div class="col-sm-6">
+                    @Html.TextBox("txtEquipoDescripcion", Model.Registro.DescripcionEquipo, Model.Registro.CodigoEjecucion.HasValue ? (object)new { id = "txtEquipoDescripcion", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "txtEquipoDescripcion", @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaProceso): (*)</label>
+                </div>
+                <div class="col-sm-6">
+                     @Html.DropDownListFor(model => model.Registro.CodigoProceso, Model.ListaProcesos, Model.Registro.CodigoEjecucion.HasValue ? (object)new { id = "slcProceso", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "slcProceso", @class = "form-control", @validable = "required Validar" })
+                </div>
+            </div>
+        </div>          
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaSubProceso): (*)</label>
+                </div>
+                <div class="col-sm-6">                    
+                    @Html.DropDownListFor(model => model.Registro.CodigoSubProceso, Model.ListaSubProcesos, Model.Registro.CodigoEjecucion.HasValue ? (object)new { id = "slcSubProceso", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "slcSubProceso", @class = "form-control", @validable = "required Validar",})
+                </div>
+            </div>
+        </div>            
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaInstructor): (*)</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                         @Html.Hidden("hdnCodigoInstructor", Model.Registro.CodigoInstructor, new { ïd = "hdnCodigoInstructor" })
+                         @Html.TextBox("txtCodigoInstructor", Model.Registro.NombreCompletoInstructor, new { id = "txtCodigoInstructor", @class = "form-control", disabled = "disabled",  @validable = "required Validar", })                                                          
+                        <div class="input-group-addon">
+                            <button class="btn-form" id="btnBuscarInstructor" type="button">....</button>
+                        </div>
+                    </div>
+                </div> 
+              
+            </div>        
+        </div>           
+        @*<div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaFechaHoraInicio): </label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.TextBox("dtpFechaHoraInicio", Model.Ejecucion.FechaInicioString, new { id = "dtpFechaHoraInicio", @class = "form-control", @validable = "required Validar" })
+                </div>
+                <div class="col-sm-1 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaHora): </label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.Ejecucion.HoraInicioString, Model.ListaHora, new { id = "slcHoraInicio", @class = "form-control", @validable = "required Validar" })
+                </div>
+                <div class="col-sm-1 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaMinuto): </label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.Ejecucion.MinutoHoraInicioString, Model.ListaMinuto, new { id = "slcMinutoInicio", @class = "form-control", @validable = "required Validar" })
+                </div>
+            </div>
+        </div>  
+        <div class="form-group">            
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaFechaHoraFin): </label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.TextBox("dtpFechaHoraFin", Model.Ejecucion.FechaFinalString, new { id = "dtpFechaHoraFin", @class = "form-control", @validable = "required Validar" })
+                </div>
+                <div class="col-sm-1 text-right">
+                    <label style="margin-top: 7px;">Hora: </label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.Ejecucion.HoraFinalString, Model.ListaHora, new { id = "slcHoraFin", @class = "form-control", @validable = "required Validar" })
+                </div>
+                <div class="col-sm-1 text-right">
+                    <label style="margin-top: 7px;">Minuto: </label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.Ejecucion.MinutoHoraFinalString, Model.ListaMinuto, new { id = "slcMinutoFin",  @class = "form-control", @validable = "required Validar" })
+                </div>
+                <div class="col-sm-1 text-right">
+                    <label>@Html.Raw(RegistroResource.EtiquetaHoraEfectiva): </label>
+                </div>                
+                <div class="col-sm-1">
+                    @Html.TextBox("txtHorasEfectivas", Model.Ejecucion.NroHoras, new { id = "txtHorasEfectivas", @class = "form-control" ,disabled = "disabled"})                  
+                </div>
+            </div>
+        </div>*@
+   </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarAgregarEjecucion" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarAgregarEjecucion">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>
+
+

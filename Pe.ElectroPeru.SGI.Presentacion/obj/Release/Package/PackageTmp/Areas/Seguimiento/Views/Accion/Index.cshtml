@@ -1,0 +1,206 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante;
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Accion.RecordAccionModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            @{
+                if(Model.RecordAccion.indicadorMenu == 3)
+                {
+                    <strong>@AccionResource.EtiquetaTituloAccionCerradoGerencia</strong>
+                }
+                else if(Model.RecordAccion.indicadorMenu == 4)
+                {
+                    <strong>@AccionResource.EtiquetaTituloAccionAnuladoGerencia</strong>
+                }
+                else  if(Model.RecordAccion.indicadorMenu == 5)
+                {
+                    <strong>@AccionResource.EtiquetaTituloAccionReabrirGerencia</strong>
+                }
+                else{
+                    <strong>@AccionResource.EtiquetaTituloPrincipal</strong>
+                }
+            }
+        </h2>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(AccionResource.EtiquetaLista)</span>
+            <div class="acciones-form btn-group btn-group-table">
+                <button type="button" class="btn-table text-line one collapsed" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    @AccionResource.EtiquetaBusquedaA
+                </button>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample" aria-expanded="false" style="height: 0px;">
+            <div class="filter-avanzado">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaHerramienta):</label>
+                            @Html.DropDownList("slcTipoRecord", Model.ListaTipoRecord, new { @class = "form-control", @id = "slcTipoRecord" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaProject):</label>
+                            @Html.DropDownList("slcProyecto", Model.ListaProyecto, new { @class = "form-control", @id = "slcProyecto" })
+                        </div>
+                    </div>                    
+                </div>
+                <div class="row">                    
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaEmpresa):</label>
+                            @Html.DropDownList("slcEmpresa", Model.ListaEmpresa, new { @class = "form-control", @id = "slcEmpresa" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaDepartamento):</label>
+                            @Html.DropDownList("slcDepartamento", Model.ListaDepartamento, new { @class = "form-control", @id = "slcDepartamento" })                            
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaResponsable):</label>
+                            <div class="input-group">
+                                @Html.Hidden("hdnCodigoColaboradorResponsable", Model.CodigoResponsable, new { ïd = "hdnCodigoColaboradorResponsable" })
+                                @Html.TextBox("txtNombreColaboradorResponsable", Model.NombreResponsable, new { id = "txtNombreColaboradorResponsable", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                                <div class="input-group-addon">
+                                    <button class="btn-form" id="btnBuscarColaboradorResponsable" type="button">....</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaArea):</label>
+                            @Html.DropDownList("slcArea", Model.ListaArea, new { @class = "form-control", @id = "slcArea" })
+                        </div>
+                    </div>*@
+                </div>
+                <div class="row">                    
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaEstadoAccion):</label>
+                            @Html.DropDownList("slcEstadoAccion", Model.ListaEstadoAccion, new { @class = "form-control", @id = "slcEstadoAccion" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaAlerta):</label>
+                            @Html.DropDownList("slcAlerta", Model.ListaAlerta, new { @class = "form-control", @id = "slcAlerta" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaFechaVencimientoDesde):</label>
+                            <input id="dtpFechaVencimientoDesde" class="form-control" placeholder="dd/MM/yyyy">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaFechaVencimientoHasta):</label>
+                            <input id="dtpFechaVencimientoHasta" class="form-control" placeholder="dd/MM/yyyy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-acciones-foot filter">
+                <button class="btn btn-default" id="btnLimpiar">@Html.Raw(RecordsResource.EtiquetaLimpiar)</button>
+                <button class="btn btn-primary" id="btnBuscar">@Html.Raw(RecordsResource.EtiquetaBuscar)</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-right">
+                <button id="btnDescargarExcel" class="btn btn-primary">@InformeResource.BtnDescargarExcel</button>
+            </div>
+        </div>   
+        <div class="row">
+            <div class="table-grilla">
+                <div id="divGrdResult">
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.BuscarRecordAccion = '@Url.Action("BuscarRecordAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.RegistroRecord = '@Url.Action("RegistroAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.SeguimientoAccion = '@Url.Action("SeguimientoAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.DescargarReporteAcciones = '@Url.Action("DescargarReporteAcciones", "Accion", new { Area = "Seguimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridRecordType = '@Html.Raw(AccionResource.GridRecordType)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridClassification = '@Html.Raw(AccionResource.GridClassification)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDate = '@Html.Raw(AccionResource.GridDate)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridPosition = '@Html.Raw(AccionResource.GridPosition)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDescription = '@Html.Raw(AccionResource.GridDescription)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridRiskrating = '@Html.Raw(AccionResource.GridRiskrating)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridReporting = '@Html.Raw(AccionResource.GridReporting)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridClosed = '@Html.Raw(AccionResource.GridClosed)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridClosedOn = '@Html.Raw(AccionResource.GridClosedOn)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridProject = '@Html.Raw(AccionResource.GridProject)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridArea = '@Html.Raw(AccionResource.GridArea)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridOutstanding = '@Html.Raw(AccionResource.GridOutstanding)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridOveractions = '@Html.Raw(AccionResource.GridOveractions)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridRequiresCheck = '@Html.Raw(AccionResource.GridRequiresCheck)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaAlertaVerde = '@Html.Raw(AccionResource.EtiquetaAlertaVerde)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaAlertaRojo = '@Html.Raw(AccionResource.EtiquetaAlertaRojo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaAlertaPlomo = '@Html.Raw(AccionResource.EtiquetaAlertaPlomo)';
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridNumeroAccion = '@Html.Raw(AccionResource.GridNumeroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridNumeroRegistro = '@Html.Raw(AccionResource.GridNumeroRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridTipoRegistro = '@Html.Raw(AccionResource.EtiquetaHerramienta)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridDescripcionCorta = '@Html.Raw(AccionResource.GridDescripcionCorta)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridDescripcionCortaHallazgo = '@Html.Raw(AccionResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridResponsable = '@Html.Raw(AccionResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridVencimiento = '@Html.Raw(AccionResource.GridVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridPlanteadoEn = '@Html.Raw(AccionResource.GridPlanteadoEn)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridEstado = '@Html.Raw(AccionResource.GridEstado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridFechaEstado = '@Html.Raw(AccionResource.GridFechaEstado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridComentario = '@Html.Raw(AccionResource.GridComentario)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridLink = '@Html.Raw(AccionResource.GridLink)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridAlerta = '@Html.Raw(AccionResource.GridAlerta)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaRecord = '@Html.Raw(AccionResource.EtiquetaRecord)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion')
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ConfirmacionGuardar = '@Html.Raw(MensajeResource.ConfirmacionGuardar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaConfirmacion = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ActualizacionConforme = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetEliminacion = '@Html.Raw(MensajeResource.ConfirmacionEliminacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.SeleccionarRegistroEliminar = '@Html.Raw(MensajeResource.SeleccionarRegistroEliminar)';
+                
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Models.RecordAccionModel = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.DatosConstantes.ParametrosColorSemaforo')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.DatosConstantes.ParametrosColorSemaforo.Verde = '@DatosConstantes.ParametrosColorSemaforo.Verde';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.DatosConstantes.ParametrosColorSemaforo.Rojo = '@DatosConstantes.ParametrosColorSemaforo.Rojo';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.DatosConstantes.ParametrosColorSemaforo.Plomo = '@DatosConstantes.ParametrosColorSemaforo.Plomo'
+    </script>
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador")
+}

@@ -1,0 +1,162 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Politicas
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Politicas.Trabajador.TrabajadorModel
+
+@{
+    var disabled = (Model.ControlPermisos.ControlTotal || Model.ControlPermisos.Escritura) ? false : true;
+    var disabledEliminar = (Model.ControlPermisos.ControlTotal) ? false : true;
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="GmdBody-header">
+    <h2>@TrabajadorResource.EtiquetaTituloPrincipal</h2>
+</div>
+<div class="GmdBody-body">
+    <form id="frmTrabajadorBusqueda">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>
+                        @TrabajadorResource.EtiquetaCodigoIdentificacion
+                    </label>
+                    <input id="txtCodigoIdentificacion" class="form-control" type="text" />
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>
+                        @TrabajadorResource.EtiquetaCodigoTipoDocumento
+                    </label>
+                    @Html.DropDownList("slcCodigoTipoDocumento", Model.CodigoTipoDocumentoIdentidad, new { id = "slcCodigoTipoDocumento", @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>
+                        @TrabajadorResource.EtiquetaNumeroDocumentoIdentidad
+                    </label>
+                    <input id="txtNumeroDocumentoIdentidad" class="form-control" maxlength="15" />
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>
+                        @TrabajadorResource.EtiquetaNombres
+                    </label>
+                    <input id="txtNombres" class="form-control" type="text" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <button id="btnLimpiar" class="btn btn-info" type="reset">@GenericoResource.BotonLimpiar</button>
+                <button id="btnBuscar" class="btn btn-default" type="button">@GenericoResource.BotonMostrar</button>
+                <hr />
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>@GenericoResource.EtiquetaResultadosBusqueda</h3>
+        </div>
+        <div class="col-sm-6" align="right">
+            @if (!disabledEliminar)
+            {
+                <button id="btnEliminar" class="btn btn-info">@GenericoResource.BotonEliminar</button>
+            }
+            @if (!disabled)
+            {
+                
+                <button id="btnAgregar" class="btn btn-primary">@GenericoResource.BotonAñadir</button>
+            }
+        </div>
+    </div>
+    <div id="divGrdResult">
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.FormularioTrabajador = '@Url.Action("FormularioTrabajador", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.Buscar = '@Url.Action("Buscar", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.Registrar = '@Url.Action("Registrar", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.Eliminar = '@Url.Action("Eliminar", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.RegistrarValidar = '@Url.Action("RegistrarValidar", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.CargarFirmaTrabajador = '@Url.Action("CargarFirmaTrabajador", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.VerFirmaTrabajador = '@Url.Action("VerFirmaTrabajador", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.FormularioTrabajadorUnidadOperativa = '@Url.Action("FormularioTrabajadorUnidadOperativa", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.RegistrarTrabajadorUnidadOperativa = '@Url.Action("RegistrarTrabajadorUnidadOperativa", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.EliminarTrabajadorUnidadOperativa = '@Url.Action("EliminarTrabajadorUnidadOperativa", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.BuscarTrabajadorUnidadOperativa = '@Url.Action("BuscarTrabajadorUnidadOperativa", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.FormularioTrabajadorSuplente = '@Url.Action("FormularioTrabajadorSuplente", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.BuscarTrabajadorUO = '@Url.Action("BuscarTrabajadorUO", "Trabajador", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.RegistrarTrabajadorSuplente = '@Url.Action("RegistrarTrabajadorSuplente", "Trabajador", new { Area = "Politicas" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Actions.BuscarUnidadOperativaProyectoPorEmpresaMatriz = '@Url.Action("BuscarUnidadOperativaProyectoPorEmpresaMatriz", "Trabajador", new { Area = "Politicas" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridCodigoIdentificacion = '@Html.Raw(TrabajadorResource.GridCodigoIdentificacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridCodigoTipoDocumento = '@Html.Raw(TrabajadorResource.GridCodigoTipoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridNumeroDocumentoIdentidad = '@Html.Raw(TrabajadorResource.GridNumeroDocumentoIdentidad)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridApellidoPaterno = '@Html.Raw(TrabajadorResource.GridApellidoPaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridApellidoMaterno = '@Html.Raw(TrabajadorResource.GridApellidoMaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridNombres = '@Html.Raw(TrabajadorResource.GridNombres)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridOrganizacion = '@Html.Raw(TrabajadorResource.GridOrganizacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridDepartamento = '@Html.Raw(TrabajadorResource.GridDepartamento)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridCargo = '@Html.Raw(TrabajadorResource.GridCargo)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridTelefonoTrabajo = '@Html.Raw(TrabajadorResource.GridTelefonoTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridAnexo = '@Html.Raw(TrabajadorResource.GridAnexo)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridTelefonoMovil = '@Html.Raw(TrabajadorResource.GridTelefonoMovil)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridTelefonoPersonal = '@Html.Raw(TrabajadorResource.GridTelefonoPersonal)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.GridCorreoElectronico = '@Html.Raw(TrabajadorResource.GridCorreoElectronico)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Resource.EtiquetaEliminarDescripcion = '@Html.Raw(TrabajadorResource.EtiquetaEliminarDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.EtiquetaTituloPrincipal = '@Html.Raw(TrabajadorResource.EtiquetaTituloPrincipal)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.EtiquetaTituloConfirmar = '@Html.Raw(GenericoResource.EtiquetaTituloConfirmar)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.EtiquetaTituloPrincipalTrabajadorUnidadOperativa = '@Html.Raw(TrabajadorResource.EtiquetaTituloPrincipalTrabajadorUnidadOperativa)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.EtiquetaTituloPrincipalSuplente = '@Html.Raw(TrabajadorResource.EtiquetaTituloPrincipalSuplente)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.EtiquetaProyecto = '@Html.Raw(TrabajadorResource.EtiquetaProyecto)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion')
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ConfirmacionGuardar = '@Html.Raw(MensajeResource.ConfirmacionGuardar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaConfirmacion = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ActualizacionConforme = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetEliminacion = '@Html.Raw(MensajeResource.ConfirmacionEliminacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarCodigoTipoDocumento = '@Html.Raw(TrabajadorResource.EtiquetaCodigoTipoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarCodigoIdentificacion = '@Html.Raw(TrabajadorResource.EtiquetaCodigoIdentificacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarNumeroDocumentoIdentidad = '@Html.Raw(TrabajadorResource.EtiquetaNumeroDocumentoIdentidad)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.SeleccionarRegistroEliminar = '@Html.Raw(MensajeResource.SeleccionarRegistroEliminar)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarSuplente = '@Html.Raw(TrabajadorResource.EtiquetaSuplente)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarFechaInicio = '@Html.Raw(TrabajadorResource.EtiquetaFechaInicio)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarFechaFin = '@Html.Raw(TrabajadorResource.EtiquetaFechaFin)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaituloError = '@Html.Raw(MensajeResource.EtiquetaTituloError)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.MensajeErrorSuplente = '@Html.Raw(TrabajadorResource.MensajeErrorSuplente)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarUnidadOperativa = '@Html.Raw(TrabajadorResource.EtiquetaProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarEmpresaMatriz = '@Html.Raw(TrabajadorResource.EtiquetaEmpresaMatriz)';
+
+        ns('Pe.Stracon.Politica.Presentacion.General.Trabajador.Enumerados.TipoDocumento')
+        Pe.Stracon.Politica.Presentacion.General.Trabajador.Enumerados.TipoDocumento.Dni = '@DatosConstantes.TipoDocumentoIdentidad.Dni';
+        Pe.Stracon.Politica.Presentacion.General.Trabajador.Enumerados.TipoDocumento.Ruc = '@DatosConstantes.TipoDocumentoIdentidad.Ruc';
+
+                
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.Trabajador.Models.Index = @(Html.Raw(Json.Encode(Model)));
+        
+    </script>
+    <script src="~/Scripts/Base/UsuarioAD/Controller.js"></script>
+    <script src="~/Scripts/Base/CargaArchivo/Controller.js"></script>
+
+    @CustomHtmlHelper.RenderViewJs("politicastrabajadorformulariotrabajador")
+    @CustomHtmlHelper.RenderViewJs("politicastrabajadorformulariotrabajadorunidadoperativa")
+    @CustomHtmlHelper.RenderViewJs("politicastrabajadorformulariotrabajadorsuplente")
+}

@@ -1,0 +1,326 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionCategoriaImpactoAmbienteModel
+
+<div class="modal-body">
+    <div class="tab_custom">
+        <div class="tab-interno item03">
+            <ul class="nav nav-tabs" role="tablist" id="cartTabs">
+                <li id="listaPrimero" role="presentation" class="active"><a href="#primero" class="top-tab" aria-controls="primero" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabInformacionGeneral)</a></li>
+                <li id="listaSegundo" role="presentation"><a href="#segundo" class="top-tab" aria-controls="segundo" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabOtrosDetalles)</a></li>
+                <li id="listaTercero" role="presentation"><a href="#tercero" class="top-tab" aria-controls="tercero" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabEvaluacionConsecuencias)</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="primero">
+                    <div class="title-interna">
+                        <span>@Html.Raw(InvestigacionResource.EtiquetaAgentesContaminantesInvolucrados)</span>
+                        <div class="acciones-form btn-group btn-group-table">
+                            @if (Model.CuerpoReceptorResponse.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                            {
+                                <button id="btnAgregarAgentesContaminantes" type="button" class="btn-table text-line one" @(!Model.CuerpoReceptorResponse.CodigoInvestigacionCuerpoReceptor.HasValue ? "disabled=disabled" : null)>
+                                    @Html.Raw(InvestigacionCategoriaResource.EtiquetaBotonAgregarAgente)
+                                </button>
+                            }
+                        </div>
+                    </div>
+                    <div class="table-grilla">
+                        <div id="divGrdInformacionGeneralLesion">
+                        </div>
+                    </div>
+                    <br />
+                    <form onsubmit="return false;" id="frmInformacionGeneralModal">
+                        <fieldset id="flsInformacionGeneralModal" @(Model.CuerpoReceptorResponse.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaCuerpoReceptorAfectado): (*)</label>
+                                        @Html.DropDownListFor(model => model.CuerpoReceptorResponse.CodigoCuerpoReceptorAfectado, Model.ListaCuerpoReceptorAfectado, new { @class = "form-control", @id = "slcCuerpoReceptorAfectado", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaOtrosEspecificar): (*)</label>
+                                        @Html.TextBox("txtOtrosEspecificar", Model.CuerpoReceptorResponse.OtrosCuerpoReceptor, string.Empty, String.IsNullOrEmpty(Model.CuerpoReceptorResponse.OtrosCuerpoReceptor) ? (object)new { @class = "form-control", @id = "txtOtrosEspecificar", @disabled = "disabled" } :  new { @class = "form-control", @id = "txtOtrosEspecificar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label id="lblCheck">@Html.Raw(InvestigacionResource.EtiquetaTipoImpactoAmbiental): (*)</label>
+                                        <div class="row">
+                                            @foreach (var item in Model.ListaTipoImpactoMedioAmbiental)
+                                            {
+                                                if (item.Value == DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosCuerpoReceptorAfectado)
+                                                {
+                                                     <div class="col-sm-4">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                    <div class="checkbox" style="margin: 2px 0;">
+                                                                        <label>
+                                                                             <input type="checkbox" id="id_@item.Value" value="@item.Value" class="checkboxClass"/>@item.Text
+                                                                        </label> 
+                                                                    </div> 
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="txtOtros" maxlength="255" disabled="disabled"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>                                                  
+                                                }
+                                                else 
+                                                { 
+                                                    <div class="col-sm-4">
+                                                        <div class="checkbox" style="margin: 2px 0;">
+                                                            <label>
+                                                                <input type="checkbox" id="id_@item.Value" value="@item.Value" class="checkboxClass"/>@item.Text
+                                                            </label>                                                        
+                                                        </div>
+                                                    </div>                                                                                                                                                        
+                                                }           
+                                            }                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaCantidadResiduosPeligrososGenerados): (*)</label>
+                                        @Html.TextBox("txtCantidadResiduosPeligrososGenerados", Model.CuerpoReceptorResponse.CantidadResiduosPeligrososGenerados, string.Empty, new { @class = "form-control", @id = "txtCantidadResiduosPeligrososGenerados", @maxlength = "9", @mask = "decimal", @validable = "required Validar"  })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaCantidadResiduosPeligrogosNoGenerados): (*)</label>
+                                        @Html.TextBox("txtCantidadResiduosPeligrogosNoGenerados", Model.CuerpoReceptorResponse.CantidadResiduosPeligrososNoGenerados, string.Empty, new { @class = "form-control", @id = "txtCantidadResiduosPeligrogosNoGenerados", @maxlength = "9", @mask = "decimal", @validable = "required Validar"  })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaCantidadTopSoil): </label>
+                                        @Html.TextBox("txtCantidadTopSoil", Model.CuerpoReceptorResponse.CantidadTopSoil, string.Empty, Model.CuerpoReceptorResponse.CantidadTopSoil.HasValue ? (object)new { @class = "form-control", @id = "txtCantidadTopSoil", @maxlength = "9", @mask = "decimal" } : new { @class = "form-control", @id = "txtCantidadTopSoil", @maxlength = "9", @mask = "decimal", @disabled="disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.CantidadSueloImpactado): </label>
+                                        @Html.TextBox("txtCantidadSueloImpactado", Model.CuerpoReceptorResponse.CantidadSuelo, string.Empty, Model.CuerpoReceptorResponse.CantidadSuelo.HasValue ? (object)new { @class = "form-control", @id = "txtCantidadSueloImpactado", @maxlength = "9", @mask = "decimal" } : new { @class = "form-control", @id = "txtCantidadSueloImpactado", @maxlength = "9", @mask = "decimal", @disabled="disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaAreaAfectada): </label>
+                                        @Html.TextBox("txtAreaAfectada", Model.CuerpoReceptorResponse.AreaAfectada, string.Empty, Model.CuerpoReceptorResponse.AreaAfectada.HasValue ? (object)new { @class = "form-control", @id = "txtAreaAfectada", @maxlength = "9", @mask = "decimal" } : new { @class = "form-control", @id = "txtAreaAfectada", @maxlength = "9", @mask = "decimal", @disabled="disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaCantidadAnimalesMuertos): </label>
+                                        @Html.TextBox("txtCantidadAnimalesMuertos", Model.CuerpoReceptorResponse.CantidadAnimales, string.Empty, Model.CuerpoReceptorResponse.CantidadAnimales.HasValue ? (object)new { @class = "form-control", @id = "txtCantidadAnimalesMuertos", @maxlength = "9", @mask = "decimal" } : new { @class = "form-control", @id = "txtCantidadAnimalesMuertos", @maxlength = "9", @mask = "decimal", @disabled="disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaFloraAfectada): </label>
+                                        @Html.TextBox("txtFloraAfectada", Model.CuerpoReceptorResponse.CantidadFlora, string.Empty, Model.CuerpoReceptorResponse.CantidadFlora.HasValue ? (object)new { @class = "form-control", @id = "txtFloraAfectada", @maxlength = "9", @mask = "decimal" } : new { @class = "form-control", @id = "txtFloraAfectada", @maxlength = "9", @mask = "decimal", @disabled="disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarInformacionGeneral" data-dismiss="modal">@GenericoResource.BotonCancelar</button>
+                            @if (Model.CuerpoReceptorResponse.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                            {
+                                <button class="btn btn-primary" id="btnGrabarInformacionGeneral">@GenericoResource.BotonGrabar</button>
+                            }
+                        </div>                        
+                    </form>
+
+                </div>
+                <div role="tabpanel" class="tab-pane fade in" id="segundo">
+                    <form onsubmit="return false;" id="frmOtrosDetallesModal">
+                        <fieldset id="flsOtrosDetalles" @(Model.CuerpoReceptorResponse.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <label>@Html.Raw(InvestigacionCategoriaResource.EtiquetaOtrosDetallePregunta1): (*)</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.DropDownListFor(model => model.CuerpoReceptorResponse.IndicadorHuboMuerte, Model.ListaPregunta1, new { @class = "form-control", @id = "slcPregunta1ImpactoOtros", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <label>@Html.Raw(InvestigacionCategoriaResource.EtiquetaOtrosDetallePregunta2): (*)</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.DropDownListFor(model => model.CuerpoReceptorResponse.IndicadorMuerteMasiva, Model.ListaPregunta2, (String.IsNullOrEmpty(Model.CuerpoReceptorResponse.IndicadorMuerteMasiva)) ? (object)new { @class = "form-control", @id = "slcPregunta2ImpactoOtros", @disabled= "disabled" }: new { @class = "form-control", @id = "slcPregunta2ImpactoOtros" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <label>@Html.Raw(InvestigacionCategoriaResource.EtiquetaOtrosDetallePregunta3): (*)</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.DropDownListFor(model => model.CuerpoReceptorResponse.IndicadorPudoHaberMuerte, Model.ListaPregunta3, (String.IsNullOrEmpty(Model.CuerpoReceptorResponse.IndicadorPudoHaberMuerte)) ? (object)new { @class = "form-control", @id = "slcPregunta3ImpactoOtros", @disabled="disabled" } : new { @class = "form-control", @id = "slcPregunta3ImpactoOtros" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <label>@Html.Raw(InvestigacionCategoriaResource.EtiquetaOtrosDetallePregunta4): (*)</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.DropDownListFor(model => model.CuerpoReceptorResponse.IndicadorPudoHaberMuerteMasiva, Model.ListaPregunta4, (String.IsNullOrEmpty(Model.CuerpoReceptorResponse.IndicadorPudoHaberMuerteMasiva)) ? (object)new { @class = "form-control", @id = "slcPregunta4ImpactoOtros", @disabled="disabled" } : new { @class = "form-control", @id = "slcPregunta4ImpactoOtros" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <label>@Html.Raw(InvestigacionCategoriaResource.EtiquetaOtrosDetallePregunta5): (*)</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.DropDownListFor(model => model.CuerpoReceptorResponse.CodigoConsecuenciaActual, Model.ListaConsecuenciaIncidente, new { @class = "form-control", @id = "slcConsecuenciaActualMedioAmbiental", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <label>@Html.Raw(InvestigacionCategoriaResource.EtiquetaOtrosDetallePregunta6): (*)</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.DropDownListFor(model => model.CuerpoReceptorResponse.CodigoConsecuenciaPotencial, Model.ListaPotencialIncidente, new { @class = "form-control", @id = "slcConsecuenciaPotencialMedioAmbiental", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarOtrosDetalles" data-dismiss="modal">@GenericoResource.BotonCancelar</button>
+                            @if (Model.CuerpoReceptorResponse.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                            {
+                                <button class="btn btn-primary" id="btnGrabarOtrosDetalles" @(!Model.CuerpoReceptorResponse.CodigoInvestigacionCuerpoReceptor.HasValue ? "disabled=disabled" : null)>@GenericoResource.BotonGrabar</button>
+                            }
+                        </div>                        
+                    </form>
+                </div>
+                <div role="tabpanel" class="tab-pane fade in" id="tercero">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>@Html.Raw(InvestigacionResource.EtiquetaActual): (*)</strong></label>
+                            </div>
+                            <div>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th width="10%"></th>
+                                        <th width="60%">@Html.Raw(InvestigacionResource.EtiquetaDescripcion)</th>
+                                        <th>@Html.Raw(InvestigacionResource.EtiquetaActual)</th>
+                                    </tr>
+                                    @foreach (var item in Model.ListaCategoriaImpactoAmbiente)
+                                    {                                                 
+                                        <tr>
+                                            <td class="text-center">
+                                                @if (Model.CuerpoReceptorResponse.CodigoConsecuenciaActual == item.CodigoConsecuenciaActual)
+                                                {
+                                                    Model.CuerpoReceptorResponse.DescripcionConsecuenciaActual = item.DescripcionConsecuenciaActual;                                                 
+                                                    <input type="radio" name="codigoConsecuenciaActualCuerpoModal" disabled="disabled" id="radioConsecuenciaActual_@item.CodigoConsecuenciaActual" data-descripcion="@item.DescripcionConsecuenciaActual" data-codigo="@item.CodigoCategoriaTexto" checked/>
+                                                }
+                                                else 
+                                                { 
+                                                    <input type="radio" name="codigoConsecuenciaActualCuerpoModal" disabled="disabled" id="radioConsecuenciaActual_@item.CodigoConsecuenciaActual" data-descripcion="@item.DescripcionConsecuenciaActual" data-codigo="@item.CodigoCategoriaTexto"/>
+                                                }
+                                            </td>
+                                            <td>@item.NombreCategoriaDetalleEspaniol</td>
+                                            <td>@item.DescripcionConsecuenciaActual</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>@Html.Raw(InvestigacionResource.EtiquetaPotencial): (*)</strong></label>
+                            </div>
+                            <div>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th width="10%"></th>
+                                        <th width="60%">@Html.Raw(InvestigacionResource.EtiquetaDescripcion)</th>
+                                        <th>@Html.Raw(InvestigacionResource.EtiquetaActual)</th>
+                                    </tr>
+                                    @foreach (var item in Model.ListaCategoriaImpactoAmbiente)
+                                    { 
+                                        <tr>
+                                            <td class="text-center">
+                                                @if (Model.CuerpoReceptorResponse.CodigoConsecuenciaPotencial == item.CodigoConsecuenciaPotencial)
+                                                {
+                                                    Model.CuerpoReceptorResponse.DescripcionConsecuenciaPotencial = item.DescripcionConsecuenciaPotencial;
+                                                    <input type="radio" name="codigoConsecuenciaPotencialCuerpoModal" disabled="disabled" id="radioConsecuenciaPotencial_@item.CodigoConsecuenciaPotencial" data-descripcion="@item.DescripcionConsecuenciaPotencial" data-codigo="@item.CodigoCategoriaTexto" checked/>
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="codigoConsecuenciaPotencialCuerpoModal" disabled="disabled" id="radioConsecuenciaPotencial_@item.CodigoConsecuenciaPotencial" data-descripcion="@item.DescripcionConsecuenciaPotencial" data-codigo="@item.CodigoCategoriaTexto"/>
+                                                }
+                                            </td>
+                                            <td>@item.NombreCategoriaDetalleEspaniol</td>
+                                            <td>@item.DescripcionConsecuenciaActual</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaActualConsecuencia)</label>
+                            @Html.TextBox("txtDescripcionConsecuenciaActual", Model.CuerpoReceptorResponse.DescripcionConsecuenciaActual, new { id = "txtDescripcionConsecuenciaActual", @class = "form-control", @disabled= "disabled" })                            
+                        </div>
+                        <div class="col-sm-6">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaPotencialConsecuencia)</label>
+                            @Html.TextBox("txtDescripcionConsecuenciaPotencial", Model.CuerpoReceptorResponse.DescripcionConsecuenciaPotencial, new { id = "txtDescripcionConsecuenciaPotencial", @class = "form-control", @disabled= "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioCuerpoReceptorAfectado = @(Html.Raw(Json.Encode(Model)))
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes.OtrosCuerpoReceptorAfectado = '@DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosCuerpoReceptorAfectado';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes.OtrosAgenteContaminante = '@DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosAgenteContaminante';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes.OtrosEstadoAgenteContaminante = '@DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosEstadoAgenteContaminante';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes.CodigoAgua = '@DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoAgua';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes.CodigoAire = '@DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoAire';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes.CodigoSuelo = '@DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoSuelo';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes.CodigoFauna = '@DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoFauna';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes.CodigoTSoil = '@DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoTSoil';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioCuerpoReceptorAfectado.DatosConstantes.CodigoOtros = '@DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoOtros';
+</script>
+@CustomHtmlHelper.RenderViewJs()

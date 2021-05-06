@@ -1,0 +1,125 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ComiteSSoma
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ComiteSSoma.IngresoComiteSSoma.ComiteSSomaModel
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@ComiteSSomaResource.EtiquetaTituloCierreComiteSSoma</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+        <div class="filter-avanzado">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaPais):</label>
+                        @Html.DropDownList("slcPais", Model.ListaPais, new { @class = "form-control", @id = "slcPais" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaEmpresa):</label>
+                        @Html.DropDownList("slcEmpresaPais", Model.ListaEmpresa, new { @class = "form-control", @id = "slcEmpresaPais" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaProyecto):</label>
+                        @Html.DropDownList("slcProyecto", Model.ListaProyectos, new { @class = "form-control", @id = "slcProyecto" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaTipoComite):</label>
+                        @Html.DropDownList("slcTipoComite", Model.ListaTipoComites, new { @class = "form-control", @id = "slcTipoComite" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaTipoReunion):</label>
+                        @Html.DropDownList("slcTipoReunion", Model.ListaTipoReuniones, new { @class = "form-control", @id = "slcTipoReunion" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(ComiteSSomaResource.GridEstadoDocumento):</label>
+                        @Html.DropDownList("slcEstadoDocumento", Model.ListaEstadoDocumento, new { @class = "form-control", @id = "slcEstadoDocumento" })
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaFechaDesde):</label>
+                        <input id="dtpFechaReunionDesde" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaFechaHasta):</label>
+                        <input id="dtpFechaReunionHasta" class="form-control">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" id="btnLimpiar">@Html.Raw(GenericoResource.EtiquetaLimpiar)</button>
+            <button class="btn btn-primary" id="btnBuscar">@Html.Raw(GenericoResource.EtiquetaBuscar)</button>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                @* <div class="table-responsive">*@
+                <div class="table-grilla">
+                    <div id="divGrdResultComiteSSoma">
+                    </div>
+                </div>
+                @*</div>*@
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridNumeroComite = '@Html.Raw(ComiteSSomaResource.GridNumeroComite)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridTipoComite = '@Html.Raw(ComiteSSomaResource.GridTipoComite)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridEmpresa = '@Html.Raw(ComiteSSomaResource.GridEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridNombreComite = '@Html.Raw(ComiteSSomaResource.GridNombreComite)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridPais = '@Html.Raw(ComiteSSomaResource.GridPais)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridProyecto = '@Html.Raw(ComiteSSomaResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridTipoReunion = '@Html.Raw(ComiteSSomaResource.GridTipoReunion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridFechaReunion = '@Html.Raw(ComiteSSomaResource.GridFechaReunion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridEstadoIngresoDocumento = '@Html.Raw(ComiteSSomaResource.GridEstadoIngresoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridEstadoDocumento = '@Html.Raw(ComiteSSomaResource.GridEstadoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridEstadoMinimoAccion = '@Html.Raw(ComiteSSomaResource.GridEstadoMinimoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridAlerta = '@Html.Raw(ComiteSSomaResource.GridAlerta)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.EtiquetaAlertaRequiereCierre = '@Html.Raw(ComiteSSomaResource.EtiquetaAlertaRequiereCierre)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.EtiquetaAlertaNoRequiereCierre = '@Html.Raw(ComiteSSomaResource.EtiquetaAlertaNoRequiereCierre)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.EtiquetaAlertaAnuladaPorGerencia = '@Html.Raw(ComiteSSomaResource.EtiquetaAlertaAnuladaPorGerencia)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.EtiquetaAlertaCombinacionNoDefinida = '@Html.Raw(ComiteSSomaResource.EtiquetaAlertaCombinacionNoDefinida)';
+       
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Actions.BuscarBandejaCierreComiteSSoma = '@Url.Action("BuscarCierreComiteSSoma", "BandejaCierreComiteSSoma", new { Area = "ComiteSSoma" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Actions.FormularioCierreComiteSSoma = '@Url.Action("Index", "CierreComiteSSoma", new { Area = "ComiteSSoma" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.DatosConstantes.ParametrosTiposAlertas')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.DatosConstantes.ParametrosTiposAlertas.RequiereCierre = '@DatosConstantes.ParametrosTiposAlertas.RequiereCierre';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.DatosConstantes.ParametrosTiposAlertas.NoRequiereCierre = '@DatosConstantes.ParametrosTiposAlertas.NoRequiereCierre';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.DatosConstantes.ParametrosTiposAlertas.AnuladaPorGerencia = '@DatosConstantes.ParametrosTiposAlertas.AnuladaPorGerencia'
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.DatosConstantes.ParametrosTiposAlertas.CombinacionNoDefinida = '@DatosConstantes.ParametrosTiposAlertas.CombinacionNoDefinida'
+
+    </script>
+}

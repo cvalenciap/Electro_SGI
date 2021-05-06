@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7FA64A98-D0D2-423C-8CAC-F9AC49C7CDC0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pe.ElectroPeru.SGI.Infraestructura.CommandModel</RootNamespace>
+    <AssemblyName>Pe.ElectroPeru.SGI.Infraestructura.CommandModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'STRACON_QA|AnyCPU'">
+    <OutputPath>bin\STRACON_QA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tiraggo.DynamicQuery.EF">
+      <HintPath>..\packages\Tiraggo.EF.1.3.0.0\lib\net45\Tiraggo.DynamicQuery.EF.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\AppResponse.cs" />
+    <Compile Include="Base\BaseEntityMapping.cs" />
+    <Compile Include="Base\Entity.cs" />
+    <Compile Include="Base\TraceAuditAttribute.cs" />
+    <Compile Include="Mantenimiento\IndicadorMetaAnualEntity.cs" />
+    <Compile Include="Mantenimiento\IndicadorEvaluacionEntity.cs" />
+    <Compile Include="Mantenimiento\IndicadorValorEntity.cs" />
+    <Compile Include="Mapping\Mantenimiento\IndicadorMetaAnualMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\IndicadorEvaluacionMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\IndicadorValorMapping.cs" />
+    <Compile Include="Mapping\Seguridad\AccionMapping.cs" />
+    <Compile Include="Mapping\Seguridad\AsignacionMapping.cs" />
+    <Compile Include="Mapping\Seguridad\ModuloMapping.cs" />
+    <Compile Include="Mapping\Seguridad\OpcionMapping.cs" />
+    <Compile Include="Mapping\Seguridad\PermisosMapping.cs" />
+    <Compile Include="Mapping\Seguridad\SistemaMapping.cs" />
+    <Compile Include="Mapping\Seguridad\UsuariosMapping.cs" />
+    <Compile Include="Reportes\DashboardEntity.cs" />
+    <Compile Include="Seguridad\AccionEntity.cs" />
+    <Compile Include="Mantenimiento\AreaEntity.cs" />
+    <Compile Include="Mantenimiento\AccionEstrategicaInstitucionalDetalleEntity.cs" />
+    <Compile Include="Mantenimiento\AccionEstrategicaInstitucionalEntity.cs" />
+    <Compile Include="Mantenimiento\AccionEstrategicaSectorialEntity.cs" />
+    <Compile Include="Mantenimiento\AccionEstrategicaSectorialDetalleEntity.cs" />
+    <Compile Include="Seguridad\AsignacionEntity.cs" />
+    <Compile Include="Mantenimiento\VariableValorEntity.cs" />
+    <Compile Include="Mantenimiento\IndicadorMetaEntity.cs" />
+    <Compile Include="Mantenimiento\FormulaDetalleEntity.cs" />
+    <Compile Include="Mantenimiento\FormulaEntity.cs" />
+    <Compile Include="Seguridad\ModuloEntity.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoEmpresaAnalisisEstrategicoInstitucionalEntity.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoSectorialDetalleEntity.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoSectorialEntity.cs" />
+    <Compile Include="Mantenimiento\IndicadorAmbitoEntity.cs" />
+    <Compile Include="Seguridad\OpcionEntity.cs" />
+    <Compile Include="Seguridad\PerfilEntity.cs" />
+    <Compile Include="Seguridad\PermisosEntity.cs" />
+    <Compile Include="Mantenimiento\PerspectivaDetalleEntity.cs" />
+    <Compile Include="Mantenimiento\PerspectivaEntity.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoFonafeDetalleEntity.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoFonafeEntity.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoEmpresaDetalleEntity.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoEmpresaEntity.cs" />
+    <Compile Include="Mantenimiento\IndicadorEntity.cs" />
+    <Compile Include="Mantenimiento\ResponsableEntity.cs" />
+    <Compile Include="Seguridad\SistemaEntity.cs" />
+    <Compile Include="Seguridad\UsuariosEntity.cs" />
+    <Compile Include="Mantenimiento\VariableDetalleEntity.cs" />
+    <Compile Include="Mantenimiento\VariableEntity.cs" />
+    <Compile Include="Mapping\Mantenimiento\AreaMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\AccionEstrategicaInstitucionalDetalleMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\AccionEstrategicaInstitucionalMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\AccionEstrategicaSectorialMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\AccionEstrategicaSectorialDetalleMapping.cs" />
+    <Compile Include="Mapping\Seguridad\PerfilMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\VariableValorMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\FormulaDetalleMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\FormulaMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\IndicadorMetaMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\ObjetivoEstrategicoEmpresaAnalisisEstrategicoInstitucionalMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\ObjetivoEstrategicoSectorialDetalleMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\ObjetivoEstrategicoSectorialMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\IndicadorAmbitoMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\PerspectivaDetalleMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\PerspectivaMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\ObjetivoEstrategicoFonafeDetalleMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\ObjetivoEstrategicoFonafeMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\ObjetivoEstrategicoEmpresaDetalleMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\ObjetivoEstrategicoEmpresaMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\IndicadorMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\VariableDetalleMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\VariableMapping.cs" />
+    <Compile Include="Mapping\Mantenimiento\ResponsableMapping.cs" />
+    <Compile Include="Models\TiraggoEF_v2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TiraggoEF_v2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TiraggoEF_v3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TiraggoEF_v3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Politicas\ParametroMapping.cs" />
+    <Compile Include="Mapping\Politicas\ParametroSeccionMapping.cs" />
+    <Compile Include="Mapping\Politicas\ParametroValorMapping.cs" />
+    <Compile Include="Mapping\Politicas\PlantillaNotificacionMapping.cs" />
+    <Compile Include="Politicas\ParametroEntity.cs" />
+    <Compile Include="Politicas\ParametroSeccionEntity.cs" />
+    <Compile Include="Politicas\ParametroValorEntity.cs" />
+    <Compile Include="Politicas\PlantillaNotificacionEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TiraggoEdmx\TiraggoEdmx.EF.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Models\TiraggoEF_v2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TiraggoEF_v2.cs</LastGenOutput>
+    </None>
+    <None Include="Models\TiraggoEF_v3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TiraggoEF_v3.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Cross.Core\Pe.ElectroPeru.SGI.Transversal.Core.csproj">
+      <Project>{f4ece405-25b7-4365-aab3-503c5f8859e6}</Project>
+      <Name>Pe.ElectroPeru.SGI.Transversal.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

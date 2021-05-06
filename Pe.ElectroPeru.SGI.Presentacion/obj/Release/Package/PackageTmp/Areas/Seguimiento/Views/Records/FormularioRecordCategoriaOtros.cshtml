@@ -1,0 +1,87 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Records.RecordCategoriaModel
+
+<div class="modal-body">
+    <form id="frmRecordCategoriaOtros">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaCategoria): (*)</label>
+                     @Html.TextBox("nombreCategoria", Model.Categoria.NombreCategoria, new { id = "nombreCategoria", @class = "form-control", @readonly = "readonly" })                                
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label><strong>@Html.Raw(RecordsResource.EtiquetaActual): (*)</strong></label>
+                    </div>
+                    <div>
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <th width="10%"></th>
+                                <th>@Html.Raw(RecordsResource.EtiquetaActual)</th>
+                            </tr>
+                            @foreach (var item in Model.ListaConsecuencias)
+                            { 
+                                <tr>
+                                    <td class="text-center">
+                                        <input type="radio" name="codigoConsecuenciaActual" value="@item.Value"/>
+                                    </td>
+                                        <td>@item.Text</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label><strong>@Html.Raw(RecordsResource.EtiquetaPotencial): (*)</strong></label>
+                    </div>
+                    <div>
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <th width="10%"></th>
+                                <th>@Html.Raw(RecordsResource.EtiquetaPotencial)</th>
+                            </tr>
+                            @foreach (var item in Model.ListaConsecuencias)
+                            { 
+                                <tr>
+                                    <td class="text-center">
+                                        <input type="radio" name="codigoConsecuenciaPotencial" value="@item.Value"/>
+                                    </td>
+                                        <td>@item.Text</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaComment) (*)</label>
+                    @Html.TextArea("txtComentario", Model.Categoria.DescripcionCategoriaOtros, new { id = "txtComentario", @class = "form-control", @maxlength = "100",  @validable = "required Validar" })                                          
+                    <div class="text-right">
+                        <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, "100"))</label>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarRecordCategoriaOtros" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarCategoriaOtros">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models.FormularioRecordCategoriaOtros = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

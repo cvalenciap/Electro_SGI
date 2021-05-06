@@ -1,0 +1,84 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.GestionLesiones
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.GestionLesiones.BandejaLesiones.BandejaLesionesModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(GestionLesionesResource.EtiquetaTituloBandeja)</strong>
+        </h2>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row"><div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(GestionLesionesResource.EtiquetaProyecto)</label></div>
+                    <div class="col-sm-2"> @Html.DropDownList("slcProyecto", Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control" })</div>                                            
+                    <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(GestionLesionesResource.EtiquetaFechaIncidenteDesde)</label></div>
+                    <div class="col-sm-2"> @Html.TextBox("dtpFechaIncidenteDesde", string.Empty, new { id = "dtpFechaIncidenteDesde", @class = "form-control" })</div>
+                    <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(GestionLesionesResource.EtiquetaFechaIncidenteHasta)</label></div>
+                    <div class="col-sm-2"> @Html.TextBox("dtpFechaIncidenteHasta", string.Empty, new { id = "dtpFechaIncidenteHasta", @class = "form-control" })</div>
+                </div>                                
+            </div>            
+        </div>    
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnBuscar">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>  
+        
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <button id="btnDescargarExcel" class="btn btn-primary">@InformeResource.BtnDescargarExcel</button>
+                </div>
+            </div>
+            <div style="overflow-x: scroll;">
+                <div class="table-grilla">
+                    <div id="divGrdResultLesiones">
+                    </div>
+                </div>    
+            </div>  
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Actions.BuscarLesiones = '@Url.Action("BuscarCombosEjecucion", "Registro", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Actions.ConsultarLesiones = '@Url.Action("ConsultarLesiones", "BandejaLesiones", new { Area = "GestionLesiones" })';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Actions.DescargarReporteBandejaLesiones = '@Url.Action("DescargarReporteBandejaLesiones", "BandejaLesiones", new { Area = "GestionLesiones" })';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Actions.BandejaAtenciones = '@Url.Action("Index", "BandejaAtenciones", new { Area = "GestionLesiones" })'; 
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Actions.IngresoExpediente = '@Url.Action("Index", "IngresoExpediente", new { Area = "GestionLesiones" })'; 
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Actions.EliminarExpedienteMedico = '@Url.Action("EliminarExpedienteMedico", "BandejaLesiones", new { Area = "GestionLesiones" })'; 
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Actions.ValidarExpedienteMedico = '@Url.Action("ValidarExpedienteMedico", "BandejaLesiones", new { Area = "GestionLesiones" })'; 
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridNroExpediente = '@Html.Raw(GestionLesionesResource.GridNumeroExpediente)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridApellidosyNombres = '@Html.Raw(GestionLesionesResource.GridApellidosyNombres)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridTipoDocumento = '@Html.Raw(GestionLesionesResource.GridTipoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridNroDocumento = '@Html.Raw(GestionLesionesResource.GridNroDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridEmpresaColaborador = '@Html.Raw(GestionLesionesResource.GridEmpresaColaborador)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridPuestoTrabajo = '@Html.Raw(GestionLesionesResource.GridPuestoTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridProyectoIncidente = '@Html.Raw(GestionLesionesResource.GridProyectoIncidente)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridFechaIncidente = '@Html.Raw(GestionLesionesResource.GridFechaIncidente)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridLesionActual = '@Html.Raw(GestionLesionesResource.GridLesionActual)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridParteCuerpo = '@Html.Raw(GestionLesionesResource.GridParteCuerpo)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridDiagnostico = '@Html.Raw(GestionLesionesResource.GridDiagnostico)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridFechaProximaCita = '@Html.Raw(GestionLesionesResource.GridFechaProximaCita)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridDiasDescansoMedico = '@Html.Raw(GestionLesionesResource.GridDiasDescansoMedico)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridDiasPerdidos = '@Html.Raw(GestionLesionesResource.GridDiasPerdidos)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridDiasCargados = '@Html.Raw(GestionLesionesResource.GridDiasCargados)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridDiasRestringidos = '@Html.Raw(GestionLesionesResource.GridDiasRestringidos)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridEstado = '@Html.Raw(GestionLesionesResource.GridEstado)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridEstadoAtencion = '@Html.Raw(GestionLesionesResource.GridEstadoAtencion)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.GridOperaciones = '@Html.Raw(GestionLesionesResource.GridOperaciones)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.EtiquetaValidarExpedienteMedico = '@Html.Raw(GestionLesionesResource.EtiquetaValidarExpedienteMedico)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.MsjSinResultadosLesiones = '@Html.Raw(GestionLesionesResource.MsjSinResultadosLesiones)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaLesiones.Resource.MensajeValidacionExpedienteMedico = '@Html.Raw(GestionLesionesResource.MensajeValidacionExpedienteMedico)';
+    </script>
+}

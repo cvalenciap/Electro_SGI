@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FlujoAprobacionEstadioDescripcionExiste" xml:space="preserve">
+    <value>Ya existe un estadio con la misma Descripción.</value>
+  </data>
+  <data name="FlujoAprobacionEstadioExiste" xml:space="preserve">
+    <value>Ya existe un estadio con los mismos datos de Orden de Prioridad y Descripción</value>
+  </data>
+  <data name="FlujoAprobacionEstadioOrdenExiste" xml:space="preserve">
+    <value>Ya existe un estadio con el mismo orden de prioridad</value>
+  </data>
+  <data name="FlujoAprobacionExiste" xml:space="preserve">
+    <value>Ya existe un flujo de aprobación con los mismos datos.</value>
+  </data>
+  <data name="PlantillaExiste" xml:space="preserve">
+    <value>No puede registrar una combinación ya existente.</value>
+  </data>
+  <data name="PlantillaFechaInicioVigenciaMenor" xml:space="preserve">
+    <value>No puede registrar una Fecha de Inicio de Vigencia menor a la que ya existe.</value>
+  </data>
+  <data name="PlantillaFechaInicioVigenciIncorrecto" xml:space="preserve">
+    <value>El formato de la Fecha de Inicio de Vigencia es incorrecto.</value>
+  </data>
+  <data name="ProcesoAuditoriaExiste" xml:space="preserve">
+    <value>Unidad Operativa Y  Fecha planificada, no pueden tener datos iguales.</value>
+  </data>
+  <data name="CopiarEstadioIgual" xml:space="preserve">
+    <value>No se puede copiar los estadios de un mismo registro</value>
+  </data>
+  <data name="CopiarEstadioNoTiene" xml:space="preserve">
+    <value>Elija otro registro, este no contiene estadios</value>
+  </data>
+  <data name="CopiarEstadioNoExiste" xml:space="preserve">
+    <value>El registro no existe</value>
+  </data>
+  <data name="PlantillaParrafoExiste" xml:space="preserve">
+    <value>Ya existe un Párrafo con el mismo Orden y Título para la Plantilla.</value>
+  </data>
+  <data name="PlantillaParrafoOrdenExiste" xml:space="preserve">
+    <value>El Orden del Párrafo ya se encuentra registrada para esta Plantilla.</value>
+  </data>
+  <data name="PlantillaParrafoTituloExiste" xml:space="preserve">
+    <value>El Título del Párrafo ya se encuentra registrada para esta Plantilla.</value>
+  </data>
+  <data name="FlujoAprobacionFormaEdicionNoExiste" xml:space="preserve">
+    <value>No se ha configurado un Flujo de Aprobación para la Forma de Edición {0}.</value>
+  </data>
+  <data name="FlujoAprobacionOrdenIgualUno" xml:space="preserve">
+    <value>Debe establecer un Orden mayor a 1.</value>
+  </data>
+  <data name="FlujoAprobacionNoExiste" xml:space="preserve">
+    <value>No existe un Flujo de Aprobación con la Unidad Operativa, Tipo de Servicio, Tipo de Requerimiento ingresado.</value>
+  </data>
+  <data name="PlantillaFlujoAprobacionNoExiste" xml:space="preserve">
+    <value>No existe una Plantilla ni un Flujo de Aprobación para la combinación ingresada.</value>
+  </data>
+  <data name="PlantillaNoExiste" xml:space="preserve">
+    <value>No existe una Plantilla con el Tipo de Servicio, Tipo de Requerimiento, Tipo de Documento y Tipo Adhesión ingresado.</value>
+  </data>
+  <data name="EtiquetaError" xml:space="preserve">
+    <value>Ocurrió un error inesperado. Inténtelo nuevamente.</value>
+  </data>
+  <data name="PlantillaParrafoNoExiste" xml:space="preserve">
+    <value>No existe un Párrafo para la Plantilla seleccionada.</value>
+  </data>
+  <data name="FlujoAprobacionNoExisteReporte" xml:space="preserve">
+    <value>No existe un Flujo de Aprobación con la Unidad Operativa, Tipo de Servicio, Tipo de Requerimiento y Forma de Edición ingresado.</value>
+  </data>
+  <data name="PlantillaNoEliminar" xml:space="preserve">
+    <value>No se puede eliminar, existen contratos asociados a esta plantilla.</value>
+  </data>
+  <data name="PlantillaNoModificar" xml:space="preserve">
+    <value>No se puede modificar, existen contratos asociados a esta plantilla.</value>
+  </data>
+  <data name="FirmanteNoValido" xml:space="preserve">
+    <value>Los firmantes ya están completos o el orden de firmante ya existe.</value>
+  </data>
+  <data name="UnidadOperativaMatrizObligatorio" xml:space="preserve">
+    <value>La Empresa Matriz es obligatoria.</value>
+  </data>
+  <data name="UOCIExiste" xml:space="preserve">
+    <value>Ya existe una Unidad Operativa con el mismo Código de Identificación .</value>
+  </data>
+  <data name="UONombreExiste" xml:space="preserve">
+    <value>"Ya existe una Unidad Operativa con el mismo Nombre."</value>
+  </data>
+  <data name="EtiquetaValidarCamposObligatorios" xml:space="preserve">
+    <value>Hay campos que son obligatorios y no se ha llenado información.</value>
+  </data>
+  <data name="PersonaInvolucradaExiste" xml:space="preserve">
+    <value>La Persona ya se encuentra registrada.</value>
+  </data>
+  <data name="ArchivoObligatorio" xml:space="preserve">
+    <value>Seleccione un Archivo por favor.</value>
+  </data>
+  <data name="PersonaInvestigadorExiste" xml:space="preserve">
+    <value>La Persona Investigador ya se encuentra registrada.</value>
+  </data>
+  <data name="PersonaSupervisorExiste" xml:space="preserve">
+    <value>La Persona Supervisor ya se encuentra registrada.</value>
+  </data>
+  <data name="PersonaTestigoExiste" xml:space="preserve">
+    <value>La Persona Testigo ya se encuentra registrada.</value>
+  </data>
+  <data name="DepartamentoRepetido" xml:space="preserve">
+    <value>El departamento ya existe.</value>
+  </data>
+  <data name="ViolacionIntegridadProyecto" xml:space="preserve">
+    <value>El proyecto no existe.</value>
+  </data>
+  <data name="ViolacionIntegridadColaborador" xml:space="preserve">
+    <value>El usuario actual fue deshabilitado del sistema.</value>
+  </data>
+  <data name="ProyectoRepetido" xml:space="preserve">
+    <value>El Proyecto ya existe.</value>
+  </data>
+  <data name="ColaboradorProyectoRepetido" xml:space="preserve">
+    <value>La asociación ya existe.</value>
+  </data>
+  <data name="ProyectoRepetidoIntegridad" xml:space="preserve">
+    <value>Ya existe un Proyecto con el mismo código. Ingrese otro código.</value>
+  </data>
+  <data name="ViolacionIntegridadDepartamento" xml:space="preserve">
+    <value>No se puede eliminar el "Departamento" ya que está siendo usado/referenciado en un "Área"</value>
+  </data>
+  <data name="ViolacionIntegridadEmpresa" xml:space="preserve">
+    <value>No se puede eliminar la "Empresa" ya que está siendo usado/referenciado en un "Proyecto".</value>
+  </data>
+  <data name="ViolacionIntegridadProyectoDelete" xml:space="preserve">
+    <value>No se puede eliminar el "Proyecto" ya que está siendo usado/referenciado en un "Departamento".</value>
+  </data>
+  <data name="ViolacionIntegridadGrupo" xml:space="preserve">
+    <value>No se puede eliminar el "Área" ya que está siendo usado/referenciado en un "Grupo".</value>
+  </data>
+  <data name="ViolacionIntegridadActuaPositivo" xml:space="preserve">
+    <value>El proyecto está siendo utilizado por el Módulo Actúa Positivo.</value>
+  </data>
+  <data name="ViolacionIntegridadAsignacionProyecto" xml:space="preserve">
+    <value>El proyecto está siendo utilizado por el Módulo Capacitación.</value>
+  </data>
+  <data name="ViolacionIntegridadProyectoExpedienteMedico" xml:space="preserve">
+    <value>El proyecto está siendo utilizado por el Módulo Gestión de Lesiones.</value>
+  </data>
+  <data name="ViolacionIntegridadProyectoHHT" xml:space="preserve">
+    <value>El proyecto está siendo utilizado por el Módulo HHT.</value>
+  </data>
+  <data name="ViolacionIntegridadProyectoInvestigacioRecords" xml:space="preserve">
+    <value>El proyecto está siendo utilizado por el Módulo Gestión de Incidentes / Otros.</value>
+  </data>
+  <data name="ViolacionIntegridadProyectoVisitaGerencialConfNotif" xml:space="preserve">
+    <value>El proyecto está siendo utilizado por el Módulo Visita Gerencial.</value>
+  </data>
+  <data name="ViolacionIntegridadProyectoColaboradorProyecto" xml:space="preserve">
+    <value>El proyecto está asociado a un colaborador.</value>
+  </data>
+  <data name="ViolacionIntegridadColaboradorActuaPositivo" xml:space="preserve">
+    <value>El colaborador está siendo utilizado por el Módulo Actúa Positivo.</value>
+  </data>
+  <data name="ViolacionIntegridadColaboradorAsignacionProyectoPersona" xml:space="preserve">
+    <value>No se puede eliminar el "Colaborador" ya que está siendo usado/referenciado en una "Asignación".</value>
+  </data>
+  <data name="ViolacionIntegridadColaboradorInestigacionInvestigador" xml:space="preserve">
+    <value>No se puede eliminar el "Colaborador" ya que está siendo usado/referenciado en una "Investigación".</value>
+  </data>
+  <data name="ViolacionIntegridadColaboradorInvestigacionTestigo" xml:space="preserve">
+    <value>No se puede eliminar el "Colaborador" ya que está siendo usado/referenciado en "Testigo".</value>
+  </data>
+  <data name="RecordSeguimientoAccionAbierto" xml:space="preserve">
+    <value>No puede Reabrir la Acción porque su estado no lo permite.</value>
+  </data>
+  <data name="RecordSeguimientoAccionCerrado" xml:space="preserve">
+    <value>No puede registrar más seguimientos porque el estado de la acción lo permite.</value>
+  </data>
+  <data name="ResponsableNoCorresponde" xml:space="preserve">
+    <value>La acción seleccionada no le corresponde como Responsable.</value>
+  </data>
+  <data name="MsjContratistaExiste" xml:space="preserve">
+    <value>El contratista ya se registro</value>
+  </data>
+  <data name="ViolacionIntegridadSubContratista" xml:space="preserve">
+    <value>El SubContratista seleccionado, ya se encuentra ingresado.</value>
+  </data>
+  <data name="ViolacionIntegridadObservadorInterno" xml:space="preserve">
+    <value>El Observador seleccionado, ya se encuentra ingresado.</value>
+  </data>
+  <data name="ViolacionIntegridadReportante" xml:space="preserve">
+    <value>El Reportante ya se encuentra ingresado.</value>
+  </data>
+  <data name="ViolacionIntegridadEmpresaReportada" xml:space="preserve">
+    <value>La Empresa ya se encuentra reportada.</value>
+  </data>
+  <data name="EtiquetaMsgValidacionConsistencia" xml:space="preserve">
+    <value>No se puede eliminar este Objetivo, ya que cuenta con Indicador(es) asociado(s)</value>
+  </data>
+  <data name="EtiquetaMsgValidacionConsistenciaOEE" xml:space="preserve">
+    <value>No se puede eliminar este Objetivo, ya que cuenta con Objetivo(s) Específico(s) Empresa(s) asociado(s)</value>
+  </data>
+  <data name="EtiquetaMsgValidacionConsistenciaOEF" xml:space="preserve">
+    <value>No se puede eliminar este Objetivo, ya que cuenta con Objetivo(s) Estratégico(s) Empresa(s) asociado(s)</value>
+  </data>
+  <data name="EtiquetaMsgValidacionConsistenciaPerspectiva" xml:space="preserve">
+    <value>No se puede eliminar esta Perspectiva, ya que cuenta con Objetivo(s) Estratégico(s) FONAFE asociado(s)</value>
+  </data>
+  <data name="EtiquetaMsgValidacionConsistenciaOES" xml:space="preserve">
+    <value>No se puede eliminar este Objetivo, ya que cuenta con Acción(es) Estratégica(s) Sectorial (es) asociado(s)</value>
+  </data>
+  <data name="EtiquetaMsgValidacionConsistenciaAES" xml:space="preserve">
+    <value>No se puede eliminar esta Acción, ya que cuenta con Objetivo(s) Estratégico(s) FONAFE asociado(s)</value>
+  </data>
+  <data name="ViolacionRegistro" xml:space="preserve">
+    <value>Ya existe un registro para este Año y Periodicidad. Elimine el registro y vuelva a intentarlo.</value>
+  </data>
+</root>

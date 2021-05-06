@@ -1,0 +1,54 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.CentroCosto.FormularioCentroCostoModel
+
+<form id="frmFormularioCentroCosto">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@CentroCostoResource.EtiquetaEmpresa</label>
+                <div>
+                    @Html.DropDownList("slcEmpresa", Model.ListaEmpresa, new { @class = "form-control", @id = "slcEmpresa", @validable = "required ValidarEmpresa" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@CentroCostoResource.EtiquetaIdCC</label>
+                @Html.TextBox("txtIdCCFormulario", Model.CentroCosto.IdCC, new { id = "txtIdCCFormulario", @type = "text", @class = "form-control", @maxlength = "250", @validable = "required ValidarIdCC" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+         <div class="col-sm-6">
+            <div class="form-group">
+                <label>@CentroCostoResource.EtiquetaAbreviaturaCC</label>
+                @Html.TextBox("txtAbreviaturaCCFormulario", Model.CentroCosto.AbreviaturaCC, new { id = "txtAbreviaturaCCFormulario", @type = "text", @class = "form-control", @maxlength = "500", @validable = "required ValidarAbreviaturaCC" })
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>@CentroCostoResource.EtiquetaCentroCosto</label>
+                @Html.TextBox("txtNombreCCFormulario", Model.CentroCosto.NombreCC, new { id = "txtNombreCCFormulario", @type = "text", @class = "form-control", @maxlength = "500", @validable = "required ValidarNombreCC" })
+            </div>
+        </div>
+    </div>
+
+</form>
+<div class="comp-Modal-footer">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.CentroCosto.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.CentroCosto.Resources.Validacion.ValidarEmpresa = '@(Html.Raw(CentroCostoResource.EtiquetaEmpresa))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.CentroCosto.Resources.Validacion.ValidarIdCC = '@(Html.Raw(CentroCostoResource.EtiquetaIdCC))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.CentroCosto.Resources.Validacion.ValidarAbreviaturaCC = '@(Html.Raw(CentroCostoResource.EtiquetaAbreviaturaCC))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.CentroCosto.Resources.Validacion.ValidarNombreCC = '@(Html.Raw(CentroCostoResource.EtiquetaCentroCosto))';
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.CentroCosto.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.CentroCosto.Models.FormularioCentroCosto = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

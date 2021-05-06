@@ -1,0 +1,61 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.Registro.RegistroCursoModel
+
+<div class="modal-body">
+     <form id="frmRegistroNotas" onsubmit="return false;" style="padding: 0 8px;"> 
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-1">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaFecha):(*)</label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.TextBox("txtFechaRegistro", Model.RegistroCurso.FechaRegistroString, Model.RegistroCurso.CodigoEjecucionRegistroCurso.HasValue ? (object)new { id = "txtFechaRegistro", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "txtFechaRegistro", @class = "form-control", @validable = "required Validar" })
+                </div>
+                <div class="col-sm-1 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaHora): (*)</label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.RegistroCurso.HoraRegistroString, Model.ListaHora, Model.RegistroCurso.CodigoEjecucionRegistroCurso.HasValue ? (object)new { id = "slcHoraRegistro", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "slcHoraRegistro", @class = "form-control", @validable = "required Validar" })
+                </div>
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaMinuto): (*)</label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.DropDownListFor(model => model.RegistroCurso.MinutoRegistroString, Model.ListaMinuto, Model.RegistroCurso.CodigoEjecucionRegistroCurso.HasValue ? (object)new { id = "slcMinutoRegistro", @class = "form-control", @validable = "required Validar", @disabled = "disabled"  } : new { id = "slcMinutoRegistro", @class = "form-control", @validable = "required Validar" })
+                </div>
+                <div class="col-sm-1 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaNota): (*)</label>
+                </div>                
+                <div class="col-sm-1">
+                    @Html.TextBox("txtNotaRegistroCurso", Model.RegistroCurso.NotaRegistroCurso, new { id = "txtNotaRegistroCurso", @class = "form-control",@maxlength="3",@max="100", @style="padding: 2px; text-align:center", @validable = "required Validar", @mask="integer"})                  
+                </div>
+            </div>
+        </div>  
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group" id="NombreArchivoApendice">
+                        <label>@Html.Raw(RecordsResource.EtiquetaNombreArchivo):</label>
+                        <input id="fileApendice" type="file" name="fileApendice" class="form-control">
+                        @Html.TextBox("txtAnexoFotoString", ViewData["AnexoString"], new { @id = "txtAnexoFotoString", @class = "hidden" })
+                        <div class="text-right">
+                            <label>@Html.Raw(string.Format(MensajeResource.EtiquetaTamanioArchivoAnexoMaximo, Model.RegistroCurso.PesoMaximoArchivoAnexoSharePointString))</label>
+                        </div>
+                        <div class="ClsNombreArchivoApendice"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarRegistroCapacitacion" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarRegistroCapacitacion">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Models.FormularioRegistroNotas = @(Html.Raw(Json.Encode(Model)))
+</script> 

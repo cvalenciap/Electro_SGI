@@ -1,0 +1,97 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ReporteRiesgos
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ComiteSSoma
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ReporteRiesgos.IngresoReporteRiesgos.IngresoReporteRiesgosModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion">
+           <strong>@Html.Raw(ReporteRiesgosResource.EtiquetaTituloBandejaCierre)</strong>            
+        </h2>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row"><div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(ReporteRiesgosResource.EtiquetaProyecto)</label></div>
+                    <div class="col-sm-2"> @Html.DropDownList("slcProyecto", Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control" })</div>                                            
+                    <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(ReporteRiesgosResource.EtiquetaFechaEjecucion + " - Desde")</label></div>
+                    <div class="col-sm-2"> @Html.TextBox("dtpFechaEjecucionDesde", string.Empty, new { id = "dtpFechaEjecucionDesde", @class = "form-control" })</div>
+                    <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(ReporteRiesgosResource.EtiquetaFechaEjecucion + " - Hasta")</label></div>
+                    <div class="col-sm-2"> @Html.TextBox("dtpFechaEjecucionHasta", string.Empty, new { id = "dtpFechaEjecucionHasta", @class = "form-control" })</div>
+                </div>                                
+            </div>            
+        </div>    
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnBuscar">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>  
+        
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <button id="btnDescargarExcel" class="btn btn-primary">@InformeResource.BtnDescargarExcel</button>
+                </div>
+            </div>
+            <div style="overflow-x: scroll;">
+                <div class="table-grilla">
+                    <div id="divGrdResult">
+                    </div>
+                </div>   
+            </div>       
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Actions.ConsultarReporteRiesgos = '@Url.Action("ConsultarReporteRiesgos", "BandejaReporteRiesgos", new { Area = "ReporteRiesgos" })';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Actions.IngresoReporteRiesgos = '@Url.Action("Index", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Actions.DescargarReporteBandejaReporteRiesgos = '@Url.Action("DescargarReporteBandejaReporteRiesgos", "BandejaReporteRiesgos", new { Area = "ReporteRiesgos" })';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Actions.DescargarReporteReporteRiesgosPDF = '@Url.Action("DescargarReporteReporteRiesgosPDF", "BandejaReporteRiesgos", new { Area = "ReporteRiesgos" })';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Actions.FormularioCierre = '@Url.Action("FormularioCierre", "BandejaReporteRiesgos", new { Area = "ReporteRiesgos" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridProyecto = '@Html.Raw(ReporteRiesgosResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridNumeroRegistroReporteRiesgos = '@Html.Raw(ReporteRiesgosResource.GridNumeroRegistroReporteRiesgos)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridFechaEjecucion = '@Html.Raw(ReporteRiesgosResource.GridFechaEjecucion)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridLugarExacto = '@Html.Raw(ReporteRiesgosResource.GridLugarExacto)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridTipoReporte = '@Html.Raw(ReporteRiesgosResource.GridTipoReporte)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridClasificacionPerdida = '@Html.Raw(ReporteRiesgosResource.GridClasificacionPerdida)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridCausaInmediata = '@Html.Raw(ReporteRiesgosResource.GridCausaInmediata)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridClasificacionReporteRiesgos = '@Html.Raw(ReporteRiesgosResource.GridClasificacionReporteRiesgos)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridNivelRiesgo = '@Html.Raw(ReporteRiesgosResource.GridNivelRiesgo)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridReportantesInternos = '@Html.Raw(ReporteRiesgosResource.GridReportantesInternos)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridEmpresasReportadas = '@Html.Raw(ReporteRiesgosResource.GridEmpresasReportadas)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridDescripcionCortaHallazgo = '@Html.Raw(ReporteRiesgosResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridAccionInmediata = '@Html.Raw(ReporteRiesgosResource.GridAccionInmediata)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridEstadoAccion = '@Html.Raw(ReporteRiesgosResource.GridEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridEstadoInformacion = '@Html.Raw(ReporteRiesgosResource.GridEstadoInformacion)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.GridAlerta = '@Html.Raw(ReporteRiesgosResource.GridAlerta)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.Resource.MsjSinResultadosReporteRiesgos = '@Html.Raw(ReporteRiesgosResource.MsjSinResultadosReporteRiesgos)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.ParametrosTiposAlerta')
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.ParametrosTiposAlerta.RequiereCierre = '@DatosConstantes.ParametrosTiposAlertas.RequiereCierre';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.ParametrosTiposAlerta.NoRequiereCierre = '@DatosConstantes.ParametrosTiposAlertas.NoRequiereCierre';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.ParametrosTiposAlerta.DescripcionRequiereCierre = '@Html.Raw(ComiteSSomaResource.EtiquetaAlertaRequiereCierre)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.ParametrosTiposAlerta.DescripcionNoRequiereCierre = '@Html.Raw(ComiteSSomaResource.EtiquetaAlertaNoRequiereCierre)';
+
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.EstadosDeReporteRiesgosAbierto = '@DatosConstantes.EstadosDeInspeccion.Abierto';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.EstadosDeReporteRiesgosReabierto = '@DatosConstantes.EstadosDeInspeccion.Reabierto';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.ParametrosColorSemaforo')
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.ParametrosColorSemaforo.Verde = '@DatosConstantes.ParametrosColorSemaforo.Verde';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.ParametrosColorSemaforo.Rojo = '@DatosConstantes.ParametrosColorSemaforo.Rojo';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.BandejaReporteRiesgos.DatosConstantes.ParametrosColorSemaforo.Plomo = '@DatosConstantes.ParametrosColorSemaforo.Plomo'
+    </script>
+}

@@ -1,0 +1,94 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Records.DocumentoFotoModel
+
+@if (Model.CodigoEstadoRecord != DatosConstantes.EstadoRecord.Cerrado && !Model.IndicadorLectura)
+{
+    <div class="modal-body clearfix" style="padding-bottom: 0">
+        <div class="acciones-form btn-group btn-group-table modal-add">
+            <button type="button" class="btn-table text-line one" id="btnCargarFoto">
+                <input id="myFile" type="file" name="myFile">
+                @Html.Raw(RecordsResource.EtiquetaAgregarCambiarFoto)
+            </button>
+            <button type="button" id="btnEliminarFoto" class="btn-table text-line two">
+                @Html.Raw(RecordsResource.EtiquetaEliminarFoto)
+            </button>
+        </div>
+    </div>
+}
+<div class="modal-body" style="padding-top: 0">
+    <form id="frmDocumentoFoto">
+        <fieldset @(Model.IndicadorLectura ? "disabled=disabled" : null)>
+            <div class="box-row">
+                <div class="col-sm-6">
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>@Html.Raw(RecordsResource.EtiquetaNombreFoto): (*)</label>
+                                @Html.TextBox("txtNombreFoto", Model.Nombre, new { id = "txtNombreFoto", @type = "text", @class = "form-control", @maxlength = "250", @validable = "required Validar" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>@Html.Raw(RecordsResource.EtiquetaDescripcionFoto): (*)</label>
+                                @Html.TextArea("txtDescripcionFoto", Model.Descripcion, Model.CodigoDocumentoAnexo.HasValue ? (object)new { id = "txtDescripcionFoto", @class = "form-control", @validable = "required Validar", rows = "3", @maxlength = "255" } : new { id = "txtDescripcionFoto", @class = "form-control", rows = "3", @maxlength = "255", @validable = "required Validar" })
+                                <div class="form-group text-left">
+                                    <label style="font-size: 10px;">@Html.Raw(GenericoResource.EtiquetaTipoArchivoFoto)</label>
+                                    <label style="font-size: 10px;">@Html.Raw(string.Format(GenericoResource.EtiquetaTamanioArchivo, Model.PesoMaximoArchivoAnexoSharePointString))</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <br />
+                    <div class="row">
+                        <div class="title-interna">
+                            <span>@Html.Raw(RecordsResource.EtiquetaVistaPreviaFoto)</span>
+                        </div>
+                        <div class="col-sm-12">
+                            <div id="divFotoColaborador" style="text-align: center; width: 280px; height: 320px; border: 1px solid #cccccc">
+                                <br />
+                                @if (Model.CodigoDocumentoAnexo.HasValue)
+                                {
+                                    <img id="imgFotoColaborador" src="data:image/png;base64,@ViewData["AnexoString"]" style="border-color:white; width:250px; height:290px" /> 
+                                    @Html.TextBox("txtAnexoFotoString", ViewData["AnexoString"], new { @id = "txtAnexoFotoString", @class = "hidden" })
+                                }
+                                else
+                                {
+                                    <img id="imgFotoColaborador" style="border-color: white; width: 250px; height: 290px" />
+                                }
+                                <br     />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    @if (Model.CodigoEstadoRecord != DatosConstantes.EstadoRecord.Cerrado && !Model.IndicadorLectura)
+    {
+        <button class="btn btn-default" id="btnCancelarRecordDocumentoFoto" data-dismiss="modal">@Html.Raw(GenericoResource.BotonCancelar)</button>
+        <button class="btn btn-primary" id="btnGrabarRecordDocumentoFoto">@Html.Raw(GenericoResource.BotonGrabar)</button>
+    }
+    else
+    {
+        <button class="btn btn-default" id="btnCerrarRecordAnexoFoto" type="button" data-dismiss="modal">@Html.Raw(GenericoResource.BotonCerrar)</button>
+    }
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models.DocumentoFotoModel = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()
+
+

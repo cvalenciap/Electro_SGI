@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{678335AE-4782-4752-BEBB-708402046DFE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pe.ElectroPeru.SGI.Infraestructura.Repository</RootNamespace>
+    <AssemblyName>Pe.ElectroPeru.SGI.Infraestructura.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Repository.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'STRACON_QA|AnyCPU'">
+    <OutputPath>bin\STRACON_QA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\ComandRepository.cs" />
+    <Compile Include="Base\QueryRepository.cs" />
+    <Compile Include="Command\Mantenimiento\IndicadorMetaAnualEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\IndicadorEvaluacionEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\IndicadorValorEntityRepository.cs" />
+    <Compile Include="Command\Seguridad\AccionEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\AreaEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\AccionEstrategicaInstitucionalEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\AccionEstrategicaInstitucionalDetalleEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\AccionEstrategicaSectorialEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\AccionEstrategicaSectorialDetalleEntityRepository.cs" />
+    <Compile Include="Command\Seguridad\AsignacionEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\VariableValorEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\IndicadorMetaEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\FormulaDetalleEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\FormulaEntityRepository.cs" />
+    <Compile Include="Command\Seguridad\ModuloEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\ObjetivoEstrategicoEmpresaAnalisisEstrategicoInstitucionalEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\ObjetivoEstrategicoSectorialDetalleEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\ObjetivoEstrategicoSectorialEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\IndicadorAmbitoEntityRepository.cs" />
+    <Compile Include="Command\Seguridad\OpcionEntityRepository.cs" />
+    <Compile Include="Command\Seguridad\PerfilEntityRepository.cs" />
+    <Compile Include="Command\Seguridad\PermisosEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\PerspectivaDetalleEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\PerspectivaEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\ObjetivoEstrategicoFonafeDetalleEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\ObjetivoEstrategicoFonafeEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\ObjetivoEstrategicoEmpresaDetalleEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\ObjetivoEstrategicoEmpresaEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\IndicadorEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\ResponsableEntityRepository.cs" />
+    <Compile Include="Command\Seguridad\SistemaEntityRepository.cs" />
+    <Compile Include="Command\Seguridad\UsuariosEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\VariableDetalleEntityRepository.cs" />
+    <Compile Include="Command\Mantenimiento\VariableEntityRepository.cs" />
+    <Compile Include="Command\Politicas\ParametroEntityRepository.cs" />
+    <Compile Include="Command\Politicas\ParametroSeccionEntityRepository.cs" />
+    <Compile Include="Command\Politicas\ParametroValorEntityRepository.cs" />
+    <Compile Include="Command\Politicas\PlantillaNotificacionEntityRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\Mantenimiento\IndicadorMetaAnualLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\IndicadorEvaluacionLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\IndicadorValorLogicRepository.cs" />
+    <Compile Include="Query\Proceso\PlanOperativoLogicRepository.cs" />
+    <Compile Include="Query\Reportes\DashboardLogicRepository.cs" />
+    <Compile Include="Query\Seguridad\AccionLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\AreaLogicRepository.cs" />
+    <Compile Include="Query\Correo\CorreoLogicProxy.cs" />
+    <Compile Include="Query\Mantenimiento\AccionEstrategicaInstitucionalDetalleLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\AccionEstrategicaInstitucionalLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\AccionEstrategicaSectorialLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\AccionEstrategicaSectorialDetalleLogicRepository.cs" />
+    <Compile Include="Query\Seguridad\AsignacionLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\VariableValorLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\IndicadorMetaLogicRepository.cs" />
+    <Compile Include="Query\Seguridad\ModuloLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\ObjetivoEstrategicoEmpresaAnalisisEstrategicoInstitucionalLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\ObjetivoEstrategicoSectorialDetalleLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\ObjetivoEstrategicoSectorialLogicRepository.cs" />
+    <Compile Include="Query\Seguridad\OpcionLogicRepository.cs" />
+    <Compile Include="Query\Seguridad\PerfilLogicRepository.cs" />
+    <Compile Include="Query\Seguridad\PermisosLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\PerspectivaDetalleLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\PerspectivaLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\ObjetivoEstrategicoFonafeDetalleLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\ObjetivoEstrategicoFonafeLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\ObjetivoEstrategicoEmpresaDetalleLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\ObjetivoEstrategicoEmpresaLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\IndicadorLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\ResponsableLogicRepository.cs" />
+    <Compile Include="Query\Seguridad\SistemaLogicRepository.cs" />
+    <Compile Include="Query\Seguridad\UsuariosLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\VariableDetalleLogicRepository.cs" />
+    <Compile Include="Query\Mantenimiento\VariableLogicRepository.cs" />
+    <Compile Include="Query\PlantillaNotificacion\PlantillaNotificacionLogicRepository.cs" />
+    <Compile Include="Query\Politicas\ParametroLogicRepository.cs" />
+    <Compile Include="Query\Politicas\ParametroSeccionLogicRepository.cs" />
+    <Compile Include="Query\Politicas\ParametroValorLogicRepository.cs" />
+    <Compile Include="Query\Politicas\PlantillaNotificacionLogicRepository.cs" />
+    <Compile Include="Query\Proceso\PlanEstrategicoLogicRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.csproj">
+      <Project>{e43da679-229c-4103-af10-7fa3584ba914}</Project>
+      <Name>Pe.ElectroPeru.SGI.Aplicacion.TransferObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Cross.Core\Pe.ElectroPeru.SGI.Transversal.Core.csproj">
+      <Project>{f4ece405-25b7-4365-aab3-503c5f8859e6}</Project>
+      <Name>Pe.ElectroPeru.SGI.Transversal.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.csproj">
+      <Project>{7fa64a98-d0d2-423c-8cac-f9ac49c7cdc0}</Project>
+      <Name>Pe.ElectroPeru.SGI.Infraestructura.CommandModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Infraestructura.Core\Pe.ElectroPeru.SGI.Infraestructura.Core.csproj">
+      <Project>{2b8f9b45-35da-4eea-b07e-f2598b2863ab}</Project>
+      <Name>Pe.ElectroPeru.SGI.Infraestructura.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Infraestructura.QueryModel\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.csproj">
+      <Project>{7280cdd5-08db-4be3-a412-1b1e6d9a5de2}</Project>
+      <Name>Pe.ElectroPeru.SGI.Infraestructura.QueryModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Query\Base\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

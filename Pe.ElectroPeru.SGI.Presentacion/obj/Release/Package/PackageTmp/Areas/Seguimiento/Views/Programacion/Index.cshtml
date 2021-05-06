@@ -1,0 +1,283 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+<div class="main-content view-wrap">    
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">SCHEDULED TASKS
+        </h2>
+        <div class="pull-right">
+            <a href="../../Seguimiento/Programacion/RegistroProgramacion" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="New Register">
+                    <i class="add_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <div class="content-body">
+        <div class="title-interna">
+            <span>Listado</span>
+            <div class="acciones-form btn-group btn-group-table">
+                <button type="button" class="btn-table text-line one collapsed" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    @Html.Raw(GenericoResource.BotonBusquedaAvanzada)
+                </button>
+            </div>
+        </div>
+
+        <div class="collapse" id="collapseExample" aria-expanded="false" style="height: 0px;">
+            <div class="filter-avanzado">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Task Type</label>
+                            <select class="form-control">
+                                <option>All Types</option>
+                                <option>Task 01</option>
+                                <option>Task 02</option>
+                                <option>Task 03</option>
+                                <option>Task 04</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Site</label>
+                            <select class="form-control" disabled="disabled">
+                                <option>Main office</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Departament</label>
+                            <select class="form-control" disabled="disabled">
+                                <option>Admission Management</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Person  Responsible</label>
+                            <select class="form-control">
+                                <option>No Filter</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Section</label>
+                            <select class="form-control">
+                                <option>All Section</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Due Date</label>
+                                <input type="text" id="FecDes" class="form-control" placeholder="DD / MMM / AAAA">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-acciones-foot filter">
+                <button class="btn-guardar-form btn-guardar-general" id="btnBuscar" type="button" data-toggle="modal" data-target="#Modalexito">@RecordsResource.EtiquetaBuscar</button>
+            </div>
+        </div>
+        @*        <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Pe.ElectroPeru.SGI.Presentacion.Recursos.Base.GenericoResource.EtiquetaResultadosBusqueda</h4>
+                </div>
+            </div>*@
+
+
+        <div class="table-grilla">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Task #</th>
+                        <th>Title</th>
+                        <th>Task Description</th>
+                        <th>Task Type</th>
+                        <th>Responsible</th>
+                        <th>Site</th>
+                        <th>Departament</th>
+                        <th class="edit-delete">Edit / Delete</th>
+                    </tr>
+                    <tr class="filter-row">
+                        <th>
+                            <input type="text" class="form-control">
+                        </th>
+                        <th>
+                            <input type="text" class="form-control">
+                        </th>
+                        <th>
+                            <input type="text" class="form-control">
+                        </th>
+                        <th>
+                            <input type="text" class="form-control">
+                        </th>
+                        <th>
+                            <input type="text" class="form-control">
+                        </th>
+                        <th>
+                            <input type="text" class="form-control">
+                        </th>
+                        <th>
+                            <input type="text" class="form-control">
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>201</td>
+                        <td>Management Visit</td>
+                        <td>Managerial visit constancia manager of administration</td>
+                        <td>Task 01</td>
+                        <td>Juan Perez</td>
+                        <td>Main office</td>
+                        <td>Management and Finance Management</td>
+                        <td>
+                            <a href="#" class="btn-action-form-grilla" data-toggle="modal" data-target="#modalEditPage">
+                                <i class="editar_black" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i>
+                            </a>
+                            <a href="#" class="btn-action-form-grilla" data-toggle="modal" data-target="#eliminar">
+                                <i class="delete_black" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>210</td>
+                        <td>Leadership Workshop Commitment</td>
+                        <td>SSOMA Leadership Workshop Commitment in Main Office</td>
+                        <td>Task 02</td>
+                        <td>Pons Miguel</td>
+                        <td>Main office</td>
+                        <td>Management and Finance Management</td>
+                        <td>
+                            <a href="#" class="btn-action-form-grilla" data-toggle="modal" data-target="#modalEditPage">
+                                <i class="editar_black" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i>
+                            </a>
+                            <a href="#" class="btn-action-form-grilla" data-toggle="modal" data-target="#eliminar">
+                                <i class="delete_black" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="table-pagination">
+                <span class="pull-left col-pag">Mostrar</span>
+                <span class="pull-left col-pag">
+                    <select>
+                        <option>5</option>
+                        <option>10</option>
+                        <option>15</option>
+                        <option>20</option>
+                        <option>25</option>
+                        <option>30</option>
+                    </select>
+                </span>
+                <span class="pull-left col-pag">Filas
+                </span>
+                <span class="pull-left col-pag cant-pag"></span>
+                <span class="pull-right">
+                    <div class="pagination-grid int">
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">Prev</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Eliminar -->
+<div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="ef-close">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i></i>Delete Registry</h4>
+            </div>
+            <div class="modal-body">
+                <div class="cont-critico"><span class="img-item-eliminar"></span><span class="texto-item">"Are you sure you want to delete?"  </span></div>
+            </div>
+            <div class="box-acciones-foot modal_box">
+                <button class="btn-cancelar-form" id="" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn-guardar-form" id="" type="button" data-dismiss="modal">Yes, delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cierra Eliminar -->
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.BuscarRecords = '@Url.Action("BuscarRecords", "Records", new { Area = "Seguimiento" })';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridRecordType = '@Html.Raw(RecordsResource.GridRecordType)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridNumeroRecord = '@Html.Raw(RecordsResource.GridNumeroRecord)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridClassification = '@Html.Raw(RecordsResource.GridClassification)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDate = '@Html.Raw(RecordsResource.GridDateCreation)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridPosition = '@Html.Raw(RecordsResource.GridPosition)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDescription = '@Html.Raw(RecordsResource.GridDescription)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridRiskrating = '@Html.Raw(RecordsResource.GridRiskrating)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridReporting = '@Html.Raw(RecordsResource.GridReporting)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridClosed = '@Html.Raw(RecordsResource.GridClosed)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridClosedOn = '@Html.Raw(RecordsResource.GridClosedOn)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridProject = '@Html.Raw(RecordsResource.GridProject)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridArea = '@Html.Raw(RecordsResource.GridArea)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridOutstanding = '@Html.Raw(RecordsResource.GridOutstanding)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridOveractions = '@Html.Raw(RecordsResource.GridOveractions)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridRequiresCheck = '@Html.Raw(RecordsResource.GridRequiresCheck)';
+
+        
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaRecord = '@Html.Raw(RecordsResource.EtiquetaTipoRecord)';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion')
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ConfirmacionGuardar = '@Html.Raw(MensajeResource.ConfirmacionGuardar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaConfirmacion = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ActualizacionConforme = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetEliminacion = '@Html.Raw(MensajeResource.ConfirmacionEliminacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.SeleccionarRegistroEliminar = '@Html.Raw(MensajeResource.SeleccionarRegistroEliminar)';
+
+        @*ns('Pe.Stracon.Politica.Presentacion.General.Trabajador.Enumerados.TipoDocumento')
+        Pe.Stracon.Politica.Presentacion.General.Trabajador.Enumerados.TipoDocumento.Dni = '@DatosConstantes.TipoDocumentoIdentidad.Dni';
+        Pe.Stracon.Politica.Presentacion.General.Trabajador.Enumerados.TipoDocumento.Ruc = '@DatosConstantes.TipoDocumentoIdentidad.Ruc';*@
+
+                
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models.Index = @(Html.Raw(Json.Encode(Model)));
+        
+    </script>
+
+    @*@CustomHtmlHelper.RenderViewJs("politicastrabajadorformulariotrabajador")*@
+}

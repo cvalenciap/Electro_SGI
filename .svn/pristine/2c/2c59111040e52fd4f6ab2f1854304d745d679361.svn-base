@@ -1,0 +1,147 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ComiteSSoma
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Inspecciones
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Inspecciones.IngresoInspeccion.IngresoInspeccionModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <h2 class="tituloCapacitacion">
+                <strong>@Html.Raw(InspeccionesResource.EtiquetaCierre)</strong>
+            </h2>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaCierre" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaNumeroRegistroInspeccion):</label> 
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtNumeroRegistroInspeccion", Model.BandejaInspeccion.NumeroRegistroInspeccion, new { id = "txtNumeroRegistroInspeccion", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaProyecto):</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtProyecto",Model.BandejaInspeccion.Proyecto, new { id = "txtProyecto", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                    <div class="col-sm-1 text-right">
+                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaEmpresa):</label>  
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtEmpresa", (string.IsNullOrEmpty(Model.BandejaInspeccion.Empresa) || Model.BandejaInspeccion.Empresa == "null") ? string.Empty : Model.BandejaInspeccion.Empresa, new { id = "txtEmpresa", @class = "form-control", @disabled ="disabled" })                                        
+                    </div>
+                    <div class="col-sm-1 text-right">
+                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaPais):</label>  
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtPais", (string.IsNullOrEmpty(Model.BandejaInspeccion.Pais) || Model.BandejaInspeccion.Pais == "null") ? string.Empty : Model.BandejaInspeccion.Pais, new { id = "txtPais", @class = "form-control", @disabled ="disabled" })                                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaTituloInspeccionCierre):</label> 
+                    </div>
+                    <div class="col-sm-10">
+                        @Html.TextBox("txtTituloInspeccion", Model.BandejaInspeccion.TituloInspeccion, new { id = "txtTituloInspeccion", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                </div> 
+            </div>
+            <div class="form-group"> 
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaFechaEjecucion):</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtFechaEjecucion",Model.BandejaInspeccion.FechaEjecucionString, new { id = "txtFechaEjecucion", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                    <div class="col-sm-2 text-right">
+                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaHora):</label>  
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtHoraEjecucion", Model.BandejaInspeccion.HoraMinutoEjecucionString, new { id = "txtHoraEjecucion", @class = "form-control", @disabled ="disabled" })                                        
+                    </div>
+                </div> 
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaTipoInspeccion):</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtDescripcionTipoInspeccion",Model.BandejaInspeccion.DescripcionTipoInspeccion, new { id = "txtDescripcionTipoInspeccion", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                    <div class="col-sm-2 text-right">
+                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaFuenteInspeccion):</label>  
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtDescripcionFuenteInspeccion", Model.BandejaInspeccion.DescripcionFuenteInspeccion, new { id = "txtDescripcionFuenteInspeccion", @class = "form-control", @disabled ="disabled" })                                        
+                    </div>
+                </div>                              
+            </div> 
+        </div>    
+        <div class="box-acciones-foot filter">            
+            <button class="btn btn-primary" type="button" id="btnCerrar">@Html.Raw(InspeccionesResource.EtiquetaBotonCierre)</button>
+        </div>          
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(InspeccionesResource.EtiquetaListaAcciones)</h4>
+                </div>
+            </div>
+            <div class="table-grilla">
+                <div id="divGrdResultAcciones">
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.GridDescripcionCorta = '@Html.Raw(InspeccionesResource.GridDescripcionCortaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.GridNumeroAccion = '@Html.Raw(InspeccionesResource.GridNumeroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.GridPlanteadaPor = '@Html.Raw(InspeccionesResource.GridPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.GridFechaPlanteada = '@Html.Raw(InspeccionesResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.GridResponsable = '@Html.Raw(InspeccionesResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.GridFechaVencimiento = '@Html.Raw(InspeccionesResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.GridDescripcionCortaAccion = '@Html.Raw(InspeccionesResource.GridDescripcionCortaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.GridEstadoDeAccion = '@Html.Raw(InspeccionesResource.GridEstadoDeAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.GridDescripcionLarga = '@Html.Raw(InspeccionesResource.GridDescripcionLargaAccion)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.ConfirmacionCerrarComiteSSoma = '@Html.Raw(ComiteSSomaResource.ConfirmacionCerrarComiteSSoma)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Resource.MensajeCierreInspeccion = '@Html.Raw(InspeccionesResource.MensajeCierreInspeccion)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Actions.CierreInspeccion = '@Url.Action("CierreInspeccion", "BandejaInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Actions.BandejaInspeccion = '@Url.Action("Index", "BandejaInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.FormularioCierre.Actions.BandejaCierre = '@Url.Action("BandejaCierre", "BandejaInspeccion", new { Area = "Inspecciones" })';
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformularioseguimientoaccion")
+}

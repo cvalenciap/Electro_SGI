@@ -1,0 +1,88 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.ConfiguracionSubProcesoModel
+
+<div class="main-content view-wrap">
+        <div role="tabpanel" class="tab-pane fade in" id="tabConfiguracion">
+        <div role="tabpanel" class="tab-pane fade in" id="Configuracion">
+            <div class="content-body">
+                <div class="tab_custom">
+                    <div class="tab-interno item03">
+                        <ul class="nav nav-tabs" role="tablist" id="cartTabsFormularioConfiguracion">
+                            <li id="listaConfiguracionProceso" role="presentation">
+                                <a id="cProceso" href="#tabConfiguracionProceso" class="top-tab" aria-controls="tabConfiguracionProceso" role="tab" data-toggle="tab">@Html.Raw(AsignacionResource.EtiquetaProcesos)</a>
+                            </li>
+                            <li id="listaConfiguracionSubProceso" role="presentation" class="active">
+                                <a id="cSubProceso" href="#tabConfiguracionSubProceso" class="top-tab" aria-controls="tabConfiguracionSubProceso" data-toggle="tab">@Html.Raw(AsignacionResource.EtiquetaSubProceso)</a>
+                            </li>
+                            <li id="listaConfiguracionFamiliaEquipo" role="presentation">
+                                <a id="cFamiliaEquipo" href="#tabConfiguracionFamiliaEquipo" class="top-tab" aria-controls="tabConfiguracinFamiliaEquipo" data-toggle="tab">@Html.Raw(ConfiguracionResource.EtiquetaFamiliaEquipo)</a>
+                            </li>
+                            <li id="listaConfiguracionEquipo" role="presentation">
+                                <a id="cEquipo" href="#tabConfiguracionEquipo" class="top-tab" aria-controls="tabConfiguracinEquipo" data-toggle="tab">@Html.Raw(ConfiguracionResource.EtiquetaTituloEquipo)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="GmdBody-header main-title">
+         <div class="pull-left">
+            <h2 class="tituloCapacitacion">
+                <strong><i class="fa fa-truck"></i>@Html.Raw(ConfiguracionResource.EtiquetaPrincipalSubProceso)</strong></h2>
+        </div>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnAgregarSubProceso" type="button" class="btn-table text-line one">                    
+                @Html.Raw(ConfiguracionResource.EtiquetaAgregarSubProcesoCapacitacion)           
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="row" >
+            <div class="col-sm-6">
+                <h4>@Html.Raw(ConfiguracionResource.EtiquetaResultadosBusquedaProceso)</h4>
+            </div>
+        </div>      
+        <div class="table-grilla">
+            <div id="divGrdResultSubProceso">
+            </div>
+        </div>     
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaTituloFormularioSubProceso = '@Html.Raw(ConfiguracionResource.EtiquetaTituloFormularioSubProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaCodigoSubProceso = '@Html.Raw(ConfiguracionResource.EtiquetaCodigoSubProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaDescripcionSubProceso = '@Html.Raw(ConfiguracionResource.EtiquetaDescripcionSubProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaSubProcesoTipo = '@Html.Raw(ConfiguracionResource.EtiquetaSubProcesoTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.MsjValidarSubProcesoAsignadoFamilia = '@Html.Raw(ConfiguracionResource.MsjValidarSubProcesoAsignadoFamilia)';
+     
+       
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioAgregarSubProcesoModal = '@Url.Action("FormularioAgregarSubProcesoModal", "Configuracion", new { Area = "Capacitacion" })';    
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.BuscarSubProceso = '@Url.Action("BuscarSubProceso", "Configuracion", new { Area = "Capacitacion" })';          
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.RegistrarSubProceso = '@Url.Action("RegistrarSubProceso", "Configuracion", new { Area = "Capacitacion" })';                 
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.EliminarSubProceso =  '@Url.Action("EliminarSubProceso", "Configuracion", new { Area = "Capacitacion" })';                 
+        
+
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.Index = '@Url.Action("Index", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioMantenimientoProceso = '@Url.Action("Proceso", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioMantenimientoSubProceso = '@Url.Action("SubProceso", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioMantenimientoFamiliaEquipo = '@Url.Action("FamiliaEquipo", "Configuracion", new { Area = "Capacitacion" })';
+ 
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Models.SubProceso = @(Html.Raw(Json.Encode(Model)))
+        </script>
+    
+    @CustomHtmlHelper.RenderViewJs("capacitacionconfiguracionformularioagregarsubprocesomodal");
+}

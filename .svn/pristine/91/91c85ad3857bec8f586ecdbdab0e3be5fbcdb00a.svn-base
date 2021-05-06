@@ -1,0 +1,8 @@
+FechaHora = 20/10/2015 02:55:13 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 713
+__________________________________________________
+FechaHora = 20/10/2015 02:56:31 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 713
+__________________________________________________

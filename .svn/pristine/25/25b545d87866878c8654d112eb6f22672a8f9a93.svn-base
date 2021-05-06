@@ -1,0 +1,94 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.RegistroModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <div class="pull-left">
+            <h2 class="tituloCapacitacion">
+                <strong>@Html.Raw(RegistroResource.EtiquetaTituloEjecucionParticipante)</strong></h2>
+        </div>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnAgregarEjecucion" type="button" class="btn-table text-line one">                    
+                 @Html.Raw(RegistroResource.EtiquetaAgregarEjecucion)                
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(RegistroResource.EtiquetaListadeCursos)</span>  
+        </div>       
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResultEjecucion">
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridProyecto = '@Html.Raw(AsignacionResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridAnnio = '@Html.Raw(AsignacionResource.GridAnnio)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridHorasPlanificadas = '@Html.Raw(AsignacionResource.GridHorasPlanificadas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridHorasEjercidas = '@Html.Raw(AsignacionResource.GridHorasEjercidas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridPorcentajeEfectividad = '@Html.Raw(AsignacionResource.GridPorcentajeEfectividad)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridPersonasActivas = '@Html.Raw(AsignacionResource.GridPersonasActivas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridPersonasCapacitadas = '@Html.Raw(AsignacionResource.GridPersonasCapacitadas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaTituloFormularioEjecucion = '@Html.Raw(RegistroResource.EtiquetaTituloFormularioEjecucion)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.ValidarCampos = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaInstructor = '@Html.Raw(RegistroResource.EtiquetaInstructor)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaMensajeElimineDetalle = '@Html.Raw(RegistroResource.EtiquetaMensajeElimineDetalle)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridCantParticipante = '@Html.Raw(RegistroResource.GridCantParticipante)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridCorrelativo = '@Html.Raw(RegistroResource.GridCorrelativo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridEquipo = '@Html.Raw(RegistroResource.GridEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridHorasEstimadas = '@Html.Raw(RegistroResource.GridHorasEstimadas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridHorasDictadas = '@Html.Raw(RegistroResource.GridHorasDictadas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridInstructor = '@Html.Raw(RegistroResource.GridInstructor)';        
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridOperacion = '@Html.Raw(RegistroResource.GridOperacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridProceso = '@Html.Raw(RegistroResource.GridProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridProyecto = '@Html.Raw(RegistroResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridTipo = '@Html.Raw(RegistroResource.GridTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridFamiliaEquipo = '@Html.Raw(RegistroResource.GridFamiliaEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridMarca = '@Html.Raw(RegistroResource.GridMarca)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridModelo = '@Html.Raw(RegistroResource.GridModelo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridSubProceso = '@Html.Raw(RegistroResource.GridSubProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaTituloFormularioEjecucion = '@Html.Raw(RegistroResource.EtiquetaTituloFormularioEjecucion)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.ValidarCampos = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.MensajeEjecucionRegistrada = '@Html.Raw(RegistroResource.MensajeEjecucionRegistrada)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.FormularioAgregarEjecucion = '@Url.Action("FormularioAgregarEjecucion", "Registro", new { Area = "Capacitacion" })';          
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.BuscarCombosEjecucion = '@Url.Action("BuscarCombosEjecucion", "Registro", new { Area = "Capacitacion" })';  
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.RegistrarEjecucion = '@Url.Action("RegistrarEjecucion", "Registro", new { Area = "Capacitacion" })';  
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.FormularioAgregarParticipante = '@Url.Action("FormularioAgregarParticipante", "Registro", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.FormularioAgregarRegistroClase = '@Url.Action("FormularioAgregarRegistroClase", "Registro", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.BuscarEjecucion = '@Url.Action("BuscarEjecucion", "Registro", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.EliminarEjecucion = '@Url.Action("EliminarEjecucion", "Registro", new { Area = "Capacitacion" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Models.Index = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Resource.EtiquetaVentanaBuscarColaborador = '@Html.Raw(AsignacionResource.EtiquetaVentanaBuscarColaborador)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Actions')        
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Actions.FormularioAgregarPersonasModal = '@Url.Action("FormularioAgregarPersonasModal", "Asignacion", new { Area = "Capacitacion" })';       
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Actions.BuscarColaborador = '@Url.Action("BuscarColaboradoresParaIntructores", "Registro", new { Area = "Capacitacion" })';
+            
+        </script>
+
+    @CustomHtmlHelper.RenderViewJs("capacitacionregistroformularioagregarejecucion");
+    @CustomHtmlHelper.RenderViewJs("capacitacionasignacionformularioagregarpersonasmodal");
+}

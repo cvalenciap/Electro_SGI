@@ -1,0 +1,175 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.VisitaGerencial
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.VisitaGerencial.CerradoGerencia.CerradoGerenciaModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@VisitaGerencialResource.EtiquetaCerradoGerencia</strong>
+            @Html.Hidden("hdnCodigoEstadoTotalVisitaGerencial", Model.VisitaGerencial.CodigoEstadoDocumento, new { id = "hdnCodigoEstadoDocumento" })
+        </h2>
+        <div class="pull-right">
+            <a id="btnRegresarBusquedaNumeroVisita" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="@Html.Raw(AccionResource.EtiquetaListaAcciones)">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="filter-avanzado">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaNumeroVisitaGerencial):</label>
+                        @Html.TextBox("txtNumeroVisitaGerencial", Model.VisitaGerencial.NumeroVisitaGerencial, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "txtNumeroVisitaGerencial", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNumeroVisitaGerencial", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaFechaDesde):</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @Html.TextBox("dtpFechaVisitaDesde", Model.VisitaGerencial.FechaVisitaDesdeString, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "dtpFechaVisitaDesde", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "dtpFechaVisitaDesde", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaFechaHasta):</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @Html.TextBox("dtpFechaVisitaHasta", Model.VisitaGerencial.FechaVisitaHastaString, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "dtpFechaVisitaHasta", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "dtpFechaVisitaHasta", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaProyecto):</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @Html.TextBox("txtNombreProyecto", Model.VisitaGerencial.NombreProyecto, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "txtNombreProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar", })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaVisitante):</label>
+                        @Html.TextBox("txtNombreColaboradorVisitante", Model.VisitaGerencial.NombreCompletoColaboradorVisitante, Model.VisitaGerencial.CodigoColaboradorVisitante.HasValue ? (object)new { id = "txtNombreColaboradorVisitante", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorVisitante", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaGerenteProyecto):</label>
+                        @Html.TextBox("txtNombreColaboradorGerenteProyecto", Model.VisitaGerencial.NombreCompletoColaboradorGerente, Model.VisitaGerencial.CodigoColaboradorGerente.HasValue ? (object)new { id = "txtNombreColaboradorGerenteProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorGerenteProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaJefeSSOMAProyecto):</label>
+                        @Html.TextBox("txtNombreColaboradorJefeSSOMAProyecto", Model.VisitaGerencial.NombreCompletoColaboradorJefe, Model.VisitaGerencial.CodigoColaboradorJefe.HasValue ? (object)new { id = "txtNombreColaboradorJefeSSOMAProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorJefeSSOMAProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoVisita):</label>
+                        @Html.TextBox("txtDescripcionEstadoIngresoDocumento", Model.VisitaGerencial.DescripcionEstadoIngresoDocumento, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "txtCodigoEstadoIngresoDocumento", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtCodigoEstadoIngresoDocumento", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoIngresoPlanAccion):</label>
+                        @Html.TextBox("txtDescripcionEstadoIngresoPlanAccion", Model.VisitaGerencial.DescripcionEstadoIngresoPlanAccion, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "txtDescripcionEstadoIngresoPlanAccion", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtDescripcionEstadoIngresoPlanAccion", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoProcesoPlanAccion):</label>
+                        @Html.TextBox("txtDescripcionEstadoProcesoPlanAccion", Model.VisitaGerencial.DescripcionEstadoProcesoPlanAccion, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "txtDescripcionEstadoProcesoPlanAccion", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtDescripcionEstadoProcesoPlanAccion", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoDocumento):</label>
+                        @Html.TextBox("txtDescripcionEstadoDocumento", Model.VisitaGerencial.DescripcionEstadoDocumento, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "txtDescripcionEstadoDocumento", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtDescripcionEstadoDocumento", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoMinimoAccion):</label>
+                        @Html.TextBox("txtDescripcionEstadoModuloAccion", Model.VisitaGerencial.DescripcionEstadoMinimoAccion, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "txtDescripcionEstadoModuloAccion", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtDescripcionEstadoModuloAccion", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaComentarioCierreAnuladoGerencia):</label>
+                        @Html.TextBox("txtComentario", Model.VisitaGerencial.Comentario, new { id = "txtComentario", @class = "form-control", @validable = "required Validar" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-primary" id="btnAnuladoGerencia">@Html.Raw(VisitaGerencialResource.EtiquetaBotonAnuladoGerencia)</button>
+            <button class="btn btn-primary" id="btnCerradoGerencia">@Html.Raw(VisitaGerencialResource.EtiquetaBotonCerradoGerencia)</button>
+        </div>
+        <div class="title-interna">
+            <span>@Html.Raw(RecordsResource.EtiquetaLista)</span>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                @*<div class="table-responsive">*@
+                <div class="table-grilla">
+                    <div id="divGrdResult">
+                    </div>
+                </div>
+                @* </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.GridNumeroAccion = '@Html.Raw(VisitaGerencialResource.GridNumeroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.GridFechaPlanteada = '@Html.Raw(VisitaGerencialResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.GridPlanteaAccion = '@Html.Raw(VisitaGerencialResource.GridPlanteaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.GridFechaVencimiento = '@Html.Raw(VisitaGerencialResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.GridEjecutaAccion = '@Html.Raw(VisitaGerencialResource.GridEjecutaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.GridDescripcionHallazgo = '@Html.Raw(VisitaGerencialResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.GridDescripcionAccion = '@Html.Raw(VisitaGerencialResource.GridDescripcionCortaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.GridDescripcionEstadoAccion = '@Html.Raw(VisitaGerencialResource.GridDescripcionEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.ConfirmacionGuardarCerrar = '@Html.Raw(VisitaGerencialResource.ConfirmacionGuardarCerrar)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.EtiquetaEstadoTotalVisitaCerradoGerencia = '@Html.Raw(VisitaGerencialResource.EtiquetaEstadoTotalVisitaCerradoGerencia)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.EtiquetaEstadoTotalVisitaAnuladoGerencia = '@Html.Raw(VisitaGerencialResource.EtiquetaEstadoTotalVisitaAnuladoGerencia)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Resource.EtiquetaSinComentario = '@Html.Raw(SeguimientoResource.EtiquetaSinComentario)';
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Actions.CerradoGerenciaVisitaGerencial = '@Url.Action("CerradoGerenciaVisitaGerencial", "CerradoGerencia", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Actions.AnuladoGerenciaVisitaGerencial = '@Url.Action("AnuladoGerenciaVisitaGerencial", "CerradoGerencia", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Actions.BuscarCierreBandeja = '@Url.Action("BuscarCierreBandeja", "CerradoGerencia", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Actions.CerradoGerenciaIndex = '@Url.Action("Index", "CerradoGerencia", new { Area = "VisitaGerencial" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.DatosConstantes.ParametrosEstadoDocumento')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.DatosConstantes.ParametrosEstadoDocumento.CerradoPorGerencia = '@DatosConstantes.ParametrosEstadoDocumento.CerradoPorGerencia';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.DatosConstantes.ParametrosEstadoDocumento.AnuladoPorGerencia = '@DatosConstantes.ParametrosEstadoDocumento.AnuladoPorGerencia';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Models')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.CerradoGerencia.FormularioCerradoGerencia.Models.CerradoGerenciaModel = '@(Html.Raw(Json.Encode(Model)))';
+
+    </script>
+}

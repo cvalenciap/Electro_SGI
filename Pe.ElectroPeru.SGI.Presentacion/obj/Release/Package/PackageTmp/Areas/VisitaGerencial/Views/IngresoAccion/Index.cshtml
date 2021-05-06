@@ -1,0 +1,90 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ActuaPositivo
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.VisitaGerencial
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.VisitaGerencial.IngresoVisita.IngresoVisitaModel
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <h2 class="pull-left">
+                <strong>@VisitaGerencialResource.EtiquetaInformacionAcciones</strong>
+            </h2>
+        </div>
+         @if (Model.VisitaGerencial.CodigoVisitaGerencial.HasValue)
+        {
+            <div class="pull-right">
+                <a id="btnRegresarBandejaVisitaGerencial" class="btn nav_ajx btn-action-form tool pull-left">
+                    <span data-toggle="tooltip" data-placement="left" title="" data-original-title="@Html.Raw(AccionResource.EtiquetaListaAcciones)">
+                        <i class="listado_record"></i>
+                    </span>
+                </a>
+            </div>
+          }
+    </div>
+    <div class="content-body">
+        <div class="filter-avanzado">
+            <div class="row">
+                <div class="col-sm-5 text-right" style="margin-top: 7px;">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaNumeroVisitaGerencial):</label>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="form-group">
+                        <div class="col-sm-5">
+                            @Html.TextBox("txtNumeroRegistroVisitaGerencial", Model.VisitaGerencial.NumeroVisitaGerencial, new { id = "txtNumeroRegistroVisitaGerencial", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>       
+            </div>
+        </div>
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" id="btnLimpiar">@Html.Raw(RecordsResource.EtiquetaLimpiar)</button>
+            <button class="btn btn-primary" id="btnBuscar">@Html.Raw(RecordsResource.EtiquetaBuscar)</button>
+        </div>           
+          <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>    
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-grilla">
+                    <div id="divGrdResultHallazgoObservacion">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.GridTipoHallazgo = '@Html.Raw(VisitaGerencialResource.GridTipoHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.GridFechaHallazgo = '@Html.Raw(VisitaGerencialResource.GridFechaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.GridLugarTrabajo = '@Html.Raw(VisitaGerencialResource.GridLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.GridDescripcionCortaHallazgo = '@Html.Raw(VisitaGerencialResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.GridDescripcionLargaHallazgo = '@Html.Raw(VisitaGerencialResource.GridDescripcionLargaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.GridNivelRiesgo = '@Html.Raw(VisitaGerencialResource.GridNivelRiesgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.MsjIngresaNumeroVisitaGerencial = '@Html.Raw(VisitaGerencialResource.MsjIngresaNumeroVisitaGerencial)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.MsjValidarNumeroVisita = '@Html.Raw(VisitaGerencialResource.MsjValidarNumeroVisita)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.MsjVisitaGerencialNoTieneHallazgo = '@Html.Raw(VisitaGerencialResource.MsjVisitaGerencialNoTieneHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Resource.MsjNoPuedeAccederDocumentoVisita = '@Html.Raw(VisitaGerencialResource.MsjNoPuedeAccederDocumentoVisita)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Actions.BuscarHallazgoPorNumeroVisitaGerencial = '@Url.Action("BuscarHallazgoPorNumeroVisitaGerencial", "IngresoAccion", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Actions.FormularioBandejaAccion = '@Url.Action("FormularioBandejaAccion", "IngresoAccion", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Actions.FormularioBandejaVisitaGerencial = '@Url.Action("Index", "IngresoVisita", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.Actions.VerificarNumeroVisitaGerencialHallazgoPorColaboradorProyecto = '@Url.Action("VerificarNumeroVisitaGerencialHallazgoPorColaboradorProyecto", "IngresoAccion", new { Area = "VisitaGerencial" })';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.DatosConstantes.ParametrosTipoHallazgo')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.Index.DatosConstantes.ParametrosTipoHallazgo.Observacion = '@DatosConstantes.ParametrosTipoHallazgo.Observacion';
+
+
+    </script>
+}

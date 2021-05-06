@@ -1,0 +1,66 @@
+FechaHora = 21/10/2015 04:48:10 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 04:56:36 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 06:09:17 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 06:11:08 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 06:11:42 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 06:22:04 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 06:24:35 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 06:27:53 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 06:28:46 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 06:40:56 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________
+FechaHora = 21/10/2015 06:59:46 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 243
+__________________________________________________

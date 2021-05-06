@@ -1,0 +1,466 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.GyM.Security.Account.Model
+@using Pe.GyM.Security.Web.Session
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@*@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Base.PrincipalModel*@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+
+    <title>@DatosConstantes.ConfiguracionPresentacion.TituloAplicacion</title>
+    <link href="~/Theme/images/system/gmd_gm.ico" type="image/x-icon" rel="shortcut icon">
+    @Styles.Render("~/FrameworkStyle/css")
+    @Styles.Render("~/Template/css")
+    @Styles.Render("~/Components/JQueryCss")
+    @Styles.Render("~/Components/JQuery")
+    @Styles.Render("~/Components/GmdCss")
+    @Styles.Render("~/Components/DataTablesCss")
+    @Styles.Render("~/Components/SelectCustomCss")
+    @Styles.Render("~/Components/FancyBoxCss")
+    @RenderSection("css", required: false)
+    @{
+        var user = HttpGyMSessionContext.CurrentAccount();      
+    }
+
+</head>
+<body class="skin-stracon bar-dark aside-closed aside-closed-complete show-ui">
+    <!--<GmdWrap>-->
+    <section class="wrap-ui">
+        <!--<GmdHeader>-->
+        <header class="header">
+            <a class="button-nav" href="#" data-asideslide="button"><i class="fa fa-bars"></i></a>
+            <div class="logo-data"></div>
+            <h1 class="name-app">@Html.Raw(GenericoResource.NombreSistema)</h1>
+            <div class="pull-right ">
+                <div class="pull-left" style="background-color: #fff;">
+                    <div class="combo-custom">
+                        @Html.DropDownList("slcIdioma", (List<SelectListItem>)Session["ListaIdioma"], new { @class = "", @id = "slcIdioma" })
+                    </div>
+                </div>
+                <div class="pull-left comp-btn-user btn-group">
+                    <button id="btnGroupDrop2" type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                        @if (user != null)
+                        { 
+                            @Html.Hidden("hdnUsuarioLogueo", user.Alias, new { id = "hdnUsuarioLogueo" })
+                            <img src="@Url.Content("~/Theme/images/system/usuario.jpg")"  alt="@user.NombreCompleto" style="width:30px; height:30px" />
+@*}*@
+                            <span class="name">@user.NombreCompleto</span>
+                            <span class="caret"></span>
+                        }
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="btnGroupDrop2">
+                        <li class="first">
+                            <a href="@Url.Action("Index", "LogOut", new { Area = "Base" })">@GenericoResource.BotonCerrarSesion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </header>
+        <!--</GmdHeader>-->
+        <!--<GmdBody>-->
+        <div id="DivPrincipal">
+            <div class="wrap-content">
+                <!--<main-aside>-->
+                <aside class="main-aside" data-asideslide="slide">
+                    <nav class="main-nav">
+                        <div class="bl-slide" style="left: -202px"></div>
+                        @*@if (Session["PortalStracon"] == null)
+                        {
+                            
+                        }*@
+                        <ul id="lstMenu"></ul>
+                    </nav>
+                </aside>
+                <!--</main-aside>-->
+                <!--<pull-main-content>-->
+                <div class="pull-main-content">
+                    <!--<main-content>-->
+                    <div class="main-content">
+                        @RenderBody()
+                    </div>
+                    <!--</main-content>-->
+                </div>
+            </div>
+            <!--</pull-main-content>-->
+        </div>
+        <!--</GmdBody>-->
+        <!--<gmd-footer>-->
+        <footer class="lay-GmdFooter">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="pull-left">Todos los derechos reservados. Graña y Montero 2016 R.1.0</p>
+                    <ul class="pull-right">
+                        <li class="title">Powered by</li>
+                        <li class="img"><a href="#">
+                            <img src="@Url.Content("~/Theme/images/system/logo-gmd.png")" alt="GMD"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <!--</gmd-footer>-->
+        <div class="nav-UpPage upPage" data-element='btnUp'><span class="glyphicon glyphicon-chevron-up"></span></div>
+    </section>
+    @Scripts.Render("~/Components/JQuery")
+    @Scripts.Render("~/Components/Codemaleon")
+    @Scripts.Render("~/Components/GmdUtil")
+    <script type="text/javascript">
+        ns('Pe.GMD.UI.Web.Formato')
+        Pe.GMD.UI.Web.Formato.Fecha = '@DatosConstantes.Formato.FormatoFechaSelector';
+        Pe.GMD.UI.Web.Formato.FechaMascara = '@DatosConstantes.Formato.FormatoFechaMascara';
+        Pe.GMD.UI.Web.Formato.Decimal = '##0.00';
+        Pe.GMD.UI.Web.Formato.DecimalSeparadorDecimal = '.';
+        Pe.GMD.UI.Web.Formato.DecimalSeparadorMiles = '';
+        Pe.GMD.UI.Web.Formato.EnteroSeparadorMiles = '';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioBuscarProveedor = '@Url.Action("BuscarProveedor", "BuscadorProveedor", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.Index = '@Url.Action("Index", "Principal", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.CambiarIdioma = '@Url.Action("CambiarIdioma", "Principal", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.Menu = '@Url.Action("GenerarMenu", "OpcionMenu", new { Area = "Mantenimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.HorasTrabajadas = '@Url.Action("Index", "BandejaHoras", new { Area = "HorasTrabajadas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.GestionBandejaLesiones = '@Url.Action("Index", "BandejaLesiones", new { Area = "GestionLesiones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.GestionBandejaAtenciones = '@Url.Action("Index", "BandejaAtenciones", new { Area = "GestionLesiones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.Records = '@Url.Action("Index", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.Accion = '@Url.Action("Index", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.Departamento = '@Url.Action("Index", "Departamento", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.Programacion = '@Url.Action("Index", "Programacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioBuscarColaborador = '@Url.Action("FormularioBuscarColaborador", "Colaborador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioBuscarEmpresa = '@Url.Action("FormularioBuscarEmpresa", "Empresa", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarColaborador = '@Url.Action("BuscarColaborador", "Colaborador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.RegistrarColaborador = '@Url.Action("RegistrarColaborador", "Colaborador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioInvestigacion = '@Url.Action("Index", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioInformes = '@Url.Action("FormularioInformes", "Investigacion", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarEmpresa = '@Url.Action("BuscarEmpresa", "Empresa", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.RegistrarEmpresa = '@Url.Action("RegistrarEmpresa", "Empresa", new { Area = "Mantenimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarDepartamento = '@Url.Action("BuscarDepartamento", "Departamento", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarArea = '@Url.Action("BuscarArea", "Area", new { Area = "Mantenimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarIntegradorTipoRegistroAnexo = '@Url.Action("BuscarIntegradorTipoRegistroAnexo", "IntegradorTipoRegistro", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarDocumentoAnexo = '@Url.Action("BuscarDocumentoAnexo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.DescargarIntegradorTipoRegistroAnexo = '@Url.Action("DescargarIntegradorTipoRegistroAnexo", "IntegradorTipoRegistro", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.EliminarIntegradorTipoRegistroAnexo = '@Url.Action("EliminarIntegradorTipoRegistroAnexo", "IntegradorTipoRegistro", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.EliminarDocumentoAnexo = '@Url.Action("EliminarDocumentoAnexo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.RegistrarHallazgo = '@Url.Action("RegistrarHallazgo", "Hallazgo", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.EliminarHallazgo = '@Url.Action("EliminarHallazgo", "Hallazgo", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarHallazgo = '@Url.Action("BuscarHallazgo", "Hallazgo", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.ObtenerHallazgoPorCodigo = '@Url.Action("ObtenerHallazgoPorCodigo", "Hallazgo", new { Area = "Base" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioEmpresaColaborador = '@Url.Action("FormularioEmpresaColaborador", "EmpresaColaborador", new { Area = "Mantenimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.RegistrarIntegradorTipoRegistroAnexo = '@Url.Action("RegistrarIntegradorTipoRegistroAnexo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.RegistrarDocumentoAnexo = '@Url.Action("RegistrarDocumentoAnexo", "Records", new { Area = "Seguimiento" })';        
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioIntegradorApendiceArchivo = '@Url.Action("FormularioIntegradorApendiceArchivo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioIntegradorApendiceFoto = '@Url.Action("FormularioIntegradorApendiceFoto", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioDocumentoFoto = '@Url.Action("FormularioDocumentoFoto", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.DescargarArchivoIntegradorTipoRegistroAnexoApendice = '@Url.Action("DescargarArchivoApendice", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioVistaPreviaFotoGenerico = '@Url.Action("FormularioVistaPreviaFotoGenerico", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioVistaPreviaDocumentoFoto = '@Url.Action("FormularioVistaPreviaDocumentoFoto", "Records", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.RegistrarRecordAccion = '@Url.Action("RegistrarRecordAccion", "IntegradorTipoRegistro", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarRecordAccionHallazgo = '@Url.Action("BuscarRecordAccionHallazgo", "IntegradorTipoRegistro", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.EliminarRecordAccion = '@Url.Action("EliminarRecordAccion", "IntegradorTipoRegistro", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarRecordAccionIntegrador = '@Url.Action("BuscarRecordAccionIntegrador", "IntegradorTipoRegistro", new { Area = "Base" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.RegistrarRecordCausaRaiz = '@Url.Action("RegistrarRecordCausaRaiz", "RecordCausaRaiz", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioCausasRaices = '@Url.Action("FormularioCausasRaices", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.EliminarRecordCausaRaiz = '@Url.Action("EliminarRecordCausaRaiz", "RecordCausaRaiz", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarRecordCausaRaiz = '@Url.Action("BuscarRecordCausaRaiz", "RecordCausaRaiz", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarPorCategoriaPorCausaRaiz = '@Url.Action("BuscarPorCategoria", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.ListarCausas = '@Url.Action("ListarCausas", "Investigacion", new { Area = "Seguimiento" })';
+
+        /*Parametros de Formulario Seguimiento Acción*/
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioSeguimientoAccion = '@Url.Action("FormularioSeguimientoAccion", "Accion", new { Area = "Seguimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Core.Constante.DatosConstantes.EstadoRecord')
+        Pe.ElectroPeru.SGI.Presentacion.Core.Constante.DatosConstantes.EstadoRecord.Cerrado = '@DatosConstantes.EstadoRecord.Cerrado';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Core.Constante.DatosConstantes.ParametrosGenerales')
+        Pe.ElectroPeru.SGI.Presentacion.Core.Constante.DatosConstantes.ParametrosGenerales.CodigoTipoAnexoAdjunto = '@DatosConstantes.ParametrosGenerales.CodigoTipoAnexoAdjunto';
+        Pe.ElectroPeru.SGI.Presentacion.Core.Constante.DatosConstantes.ParametrosGenerales.CodigoTipoAnexoFoto = '@DatosConstantes.ParametrosGenerales.CodigoTipoAnexoFoto';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.SalirRecordAccionGenerico = '@Url.Action("SalirRecordAccionGenerico", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.RegistrarRecordAccionGenerico = '@Url.Action("RegistrarRecordAccionGenerico", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioRecordAccionGenerico = '@Url.Action("FormularioRecordAccionGenerico", "Records", new { Area = "Seguimiento" })';
+        //Mensajes Genericos
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico');
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.SeGuardoInformacionExito = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        /*Validación de Carga de Archivo*/
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.MsjValidaEligeArchivo = '@Html.Raw(MensajeResource.MsjValidaEligeArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.MsjValidaExtensionArchivo = '@Html.Raw(MensajeResource.MsjValidaExtensionArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.MsgValidarTabPrincipal = '@Html.Raw(string.Format(MensajeResource.MsgValidarTabPrincipal, RecordsResource.EtiquetaTabGeneral))';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.MsgValideCampos = '@Html.Raw(MensajeResource.MsgValideCampos)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.ValidarCampos = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.EtiquetaFormatoArchivoNoSoportado = '@Html.Raw(MensajeResource.EtiquetaFormatoArchivoNoSoportado)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.EtiquetaTamanioArchivoFotoMaximo = '@Html.Raw(MensajeResource.EtiquetaTamanioArchivoFotoMaximo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.EtiquetaTamanioArchivoAnexoMaximo = '@Html.Raw(MensajeResource.EtiquetaTamanioArchivoAnexoMaximo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.ValidarCamposAccionCorrectiva = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.MensajeObservacionAuditoria = '@Html.Raw(MensajeResource.MensajeObservacionAuditoria)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.EtiquetaSeleccioneColaborador = '@Html.Raw(AsignacionResource.EtiquetaSeleccioneColaborador)';
+
+
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.TitulosVentanas')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.TitulosVentanas.Anexo = '@Html.Raw(RecordsResource.EtiquetaVentanaAnexo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.TitulosVentanas.Foto = '@Html.Raw(RecordsResource.EtiquetaVentanaFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.TitulosVentanas.Accion = '@Html.Raw(RecordsResource.EtiquetaVentanaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.TitulosVentanas.VistaPreviaFoto = '@Html.Raw(RecordsResource.EtiquetaVistaPreviaFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.TitulosVentanas.FormularioCategoria = '@Html.Raw(RecordsResource.EtiquetaTituloFormularioCategoria)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaMensajeFechaAccionPlanteadaMayorActual = '@Html.Raw(RecordsResource.EtiquetaMensajeFechaAccionPlanteadaMayorActual)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaMensajeFechaVencimientoMenorIgualActual = '@Html.Raw(RecordsResource.EtiquetaMensajeFechaVencimientoMenorIgualActual)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaObsGuardarAccionDocNoPermite = '@Html.Raw(RecordsResource.EtiquetaObsGuardarAccionDocNoPermite)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaObsGuardarAccionSegNoPermite = '@Html.Raw(RecordsResource.EtiquetaObsGuardarAccionSegNoPermite)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidaArchivo = '@Html.Raw(RecordsResource.ValidaArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidarTamañoArchivo3MB = '@Html.Raw(RecordsResource.ValidarTamañoArchivo3MB)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidarTamañoArchivo05MB = '@Html.Raw(RecordsResource.ValidarTamañoArchivo05MB)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ConfirmacionSalirAccion = '@Html.Raw(RecordsResource.ConfirmacionSalirAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.MsjRegitrarEstadoDocumento = '@Html.Raw(RecordsResource.MsjRegitrarEstadoDocumento)';
+        
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Core.Constante.DatosConstantes.ConfiguracionUrlDespliegue')
+        Pe.ElectroPeru.SGI.Presentacion.Core.Constante.DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue = '@Html.Raw(DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource');
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ConfirmacionEliminacion = '@Html.Raw(MensajeResource.ConfirmacionEliminacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ConfirmacionGuardar = '@Html.Raw(MensajeResource.ConfirmacionGuardar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.EtiquetaErrorRegistro = '@Html.Raw(MensajeResource.EtiquetaErrorRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.RegistroInactivo = '@Html.Raw(MensajeResource.MsgRegistroInactivo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeGuardoInformacionExito = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeleccionarRegistroEliminar = '@Html.Raw(MensajeResource.SeleccionarRegistroEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeleccioneFiltro = '@Html.Raw(MensajeResource.SeleccioneFiltro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeEliminoInformacionExito = '@Html.Raw(MensajeResource.SeEliminoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeEnvioConExito = '@Html.Raw(MensajeResource.EtiquetaSeEnvioReporte)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ErrorEnvioReporte = '@Html.Raw(MensajeResource.EtiquetaErrorEnvioReporte)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.DebeSeleccionarRegistro = '@Html.Raw(MensajeResource.DebeSeleccionarRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ConfirmacionAnular = '@Html.Raw(MensajeResource.ConfirmacionAnular)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeAnuloRegistro = '@Html.Raw(MensajeResource.SeAnuloRegistro)';
+               
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ValidarCampos = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.EtiquetaFormularioAgregarPersona = '@Html.Raw(InvestigacionResource.EtiquetaFormularioAgregarPersona)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource');
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.TituloConfirmarGuardar = '@Html.Raw(GenericoResource.EtiquetaTituloConfirmar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.EtiquetaTituloEliminar = '@Html.Raw(GenericoResource.EtiquetaTituloEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.EtiquetaTituloAdvertencia = '@Html.Raw(GenericoResource.EtiquetaTituloAdvertencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.EtiquetaTituloInformacion = '@Html.Raw(GenericoResource.EtiquetaTituloInformacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.EtiquetaFormularioIngresoAcciones = '@Html.Raw(@GenericoResource.EtiquetaFormularioIngresoAcciones)'
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.TituloFormularioCausaRaiz = '@Html.Raw(GenericoResource.EtiquetaFormularioCausaRaiz)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.EtiquetaExportarTablaSinRegistro = '@Html.Raw(GenericoResource.EtiquetaExportarTablaSinRegistro)';
+
+        ns('Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes');
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.SubMenu = '@DatosConstantes.TablaTipoOpcionMenu.SubMenu';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Agregar = '@DatosConstantes.TablaAccionBoton.Agregar';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Editar = '@DatosConstantes.TablaAccionBoton.Editar';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Eliminar = '@DatosConstantes.TablaAccionBoton.Eliminar';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Inactivo = '@DatosConstantes.EstadoRegistro.Inactivo';
+
+        //ConstantesEstado Minimo Acción
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Abierto = '@DatosConstantes.ParametrosEstadoMinimoAccion.Abierto';
+        
+        //Constantes tipo registro
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Auditoria = '@DatosConstantes.TablaTipoRegistro.Auditoria';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Capacitaciones = '@DatosConstantes.TablaTipoRegistro.Capacitaciones';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CharlaInicioGuardia = '@DatosConstantes.TablaTipoRegistro.CharlaInicioGuardia';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ComiteSubComite = '@DatosConstantes.TablaTipoRegistro.ComiteSubComite';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CompromisoSsoma = '@DatosConstantes.TablaTipoRegistro.CompromisoSsoma';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DocumentoRequeridoEquipo = '@DatosConstantes.TablaTipoRegistro.DocumentoRequeridoEquipo';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EvaluacionCumplimientoLegal = '@DatosConstantes.TablaTipoRegistro.EvaluacionCumplimientoLegal';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.HigieneOcupacional = '@DatosConstantes.TablaTipoRegistro.HigieneOcupacional';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Incidente = '@DatosConstantes.TablaTipoRegistro.Incidente';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Inspecciones = '@DatosConstantes.TablaTipoRegistro.Inspecciones';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteRiesgos = '@DatosConstantes.TablaTipoRegistro.ReporteRiesgo';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Iperc = '@DatosConstantes.TablaTipoRegistro.Iperc';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ObjetivoMetaSsoma = '@DatosConstantes.TablaTipoRegistro.ObjetivoMetaSsoma';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ObservacionPlamneadaTarea = '@DatosConstantes.TablaTipoRegistro.ObservacionPlamneadaTarea';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.PlanMejora = '@DatosConstantes.TablaTipoRegistro.PlanMejora';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteRiesgo = '@DatosConstantes.TablaTipoRegistro.ReporteRiesgo';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Reuniones = '@DatosConstantes.TablaTipoRegistro.Reuniones';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Simulacros = '@DatosConstantes.TablaTipoRegistro.Simulacros';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.VisitaGerencial = '@DatosConstantes.TablaTipoRegistro.VisitaGerencial';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ComiteDireccionSig = '@DatosConstantes.TablaTipoRegistro.ComiteDireccionSig';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ComiteDireccionRiesgoAuditoria = '@DatosConstantes.TablaTipoRegistro.ComiteDireccionRiesgoAuditoria';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ComiteEtica = '@DatosConstantes.TablaTipoRegistro.ComiteEtica';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ComiteRiesgoAuditoria = '@DatosConstantes.TablaTipoRegistro.ComiteRiesgoAuditoria';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Investigacion = '@DatosConstantes.TablaTipoRegistro.Investigacion';
+
+        ns('Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoOcurrenciaAccion')
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoOcurrenciaAccion.Hallazgo = '@DatosConstantes.TipoOcurrenciaAccion.Hallazgo';
+
+        //Recurso Genérico
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource');
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDocumento = '@Html.Raw(BuscadorColaboradorResource.GridDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridColaborador = '@Html.Raw(BuscadorColaboradorResource.GridColaborador)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridEmpresa = '@Html.Raw(BuscadorColaboradorResource.GridEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridProyecto = '@Html.Raw(BuscadorColaboradorResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridCorreoElectronico = '@Html.Raw(BuscadorColaboradorResource.GridCorreoElectronico)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridCodigoTipoPlanilla = '@Html.Raw(BuscadorColaboradorResource.GridCodigoTipoPlanilla)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridNombrePuestoTrabajo = '@Html.Raw(BuscadorColaboradorResource.GridNombrePuestoTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaFormularioBuscarColaborador = '@Html.Raw(BuscadorColaboradorResource.EtiquetaFormularioBuscarColaborador)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaFormularioBuscarEmpresa = '@Html.Raw(BuscadorEmpresaResource.EtiquetaFormularioBuscarEmpresa)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridEditar = '@Html.Raw(GenericoResource.GridEditar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridEliminar = '@Html.Raw(GenericoResource.GridEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDescargar = '@Html.Raw(GenericoResource.GridDescargar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDescargarIncidente = '@Html.Raw(GenericoResource.GridDescargarIncidente)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDescargarInvestigacion = '@Html.Raw(GenericoResource.GridDescargarInvestigacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaNo = '@Html.Raw(GenericoResource.EtiquetaNo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaSi = '@Html.Raw(GenericoResource.EtiquetaSi)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaSiEliminar = '@Html.Raw(GenericoResource.EtiquetaSiEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaSiGrabar = '@Html.Raw(GenericoResource.EtiquetaSiGrabar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaSeleccionar = '@Html.Raw(GenericoResource.EtiquetaSeleccionar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaTodos = '@Html.Raw(GenericoResource.EtiquetaTodos)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaDescripcion = '@Html.Raw(RecordsResource.EtiquetaDescripcion)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaNotificar = '@Html.Raw(GenericoResource.EtiquetaNotificar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridReportes = '@Html.Raw(GenericoResource.GridReportes)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridEstadios = '@Html.Raw(GenericoResource.GridEstadios)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridPredecesora = '@Html.Raw(GenericoResource.GridPredecesora)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridPdf = '@Html.Raw(GenericoResource.GridPdf)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridAdjunto = '@Html.Raw(GenericoResource.GridAdjunto)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridObservacion = '@Html.Raw(GenericoResource.GridObservacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridConsulta = '@Html.Raw(GenericoResource.GridConsulta)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridAprobar = '@Html.Raw(GenericoResource.GridAprobar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDetalle = '@Html.Raw(GenericoResource.GridDetalle)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaCopiar = '@Html.Raw(GenericoResource.GridCopiar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridParrafo = '@Html.Raw(GenericoResource.GridParrafo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaCopiarEstadio = '@Html.Raw(GenericoResource.GridCopiarEstadio)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaVerificar = '@Html.Raw(GenericoResource.EtiquetaVerificar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaGridFileUpload = '@Html.Raw(GenericoResource.EtiquetaGridFileUpload)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridValorAlquiler = '@Html.Raw(GenericoResource.GridValorAlquiler)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridVistaPrevia = '@Html.Raw(GenericoResource.GridVistaPrevia)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridContrato = '@Html.Raw(GenericoResource.GridContrato)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridRevisar = '@Html.Raw(GenericoResource.GridRevisar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridVerAccion = '@Html.Raw(GenericoResource.GridVerAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridRegistroSeguimiento = '@Html.Raw(GenericoResource.GridRegistroSeguimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridVerSeguimiento = '@Html.Raw(GenericoResource.GridVerSeguimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDescargarFoto = '@Html.Raw(GenericoResource.GridDescargarFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDescargarAnexo = '@Html.Raw(GenericoResource.GridDescargarAnexo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridReporteRecord = '@Html.Raw(GenericoResource.GridReporteRecord)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridSeleccionarPersonas = '@Html.Raw(GenericoResource.GridSeleccionarPersonas)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridRegistrarNotas = '@Html.Raw(GenericoResource.GridRegistrarNotas)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaFechaActividad = '@Html.Raw(GenericoResource.EtiquetaFechaActividad)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridSeleccionarEquipos = '@Html.Raw(GenericoResource.GridSeleccionarEquipos)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridSeleccionarProcesos = '@Html.Raw(GenericoResource.GridSeleccionarProcesos)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridSeleccionarSubProcesos = '@Html.Raw(GenericoResource.GridSeleccionarSubProcesos)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.ValidarEmpresaCamposObligatorios = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridVerHistorialInvestigacion = '@Html.Raw(GenericoResource.GridVerHistorialInvestigacion)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaEditarContenidoContrato = '@Html.Raw(GenericoResource.EtiquetaEditarContenidoContrato)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaCopiarPlantilla = '@Html.Raw(GenericoResource.EtiquetaCopiarPlantilla)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaResponder = '@Html.Raw(GenericoResource.EtiquetaResponder)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaReenviar = '@Html.Raw(GenericoResource.EtiquetaReenviar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaVisualizar = '@Html.Raw(GenericoResource.EtiquetaVisualizar)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaTituloConfirmar = '@Html.Raw(GenericoResource.EtiquetaTituloConfirmar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.BotonAceptar = '@Html.Raw(GenericoResource.BotonAceptar)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaGrillaTablaSinRegistro = '@Html.Raw(GenericoResource.EtiquetaGrillaTablaSinRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaGrillaBotonAnterior = '@Html.Raw(GenericoResource.EtiquetaGrillaBotonAnterior)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaGrillaBotonSiguiente = '@Html.Raw(GenericoResource.EtiquetaGrillaBotonSiguiente)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaGrillaMostrarFilas = '@Html.Raw(GenericoResource.EtiquetaGrillaMostrarFilas)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaFormularioAnexo = '@Html.Raw(GenericoResource.EtiquetaFormularioAnexo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaFormularioFoto = '@Html.Raw(GenericoResource.EtiquetaFormularioFoto)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaElementoDuplicado = '@Html.Raw(GenericoResource.EtiquetaElementoDuplicado)';
+
+        /*Parametros de Formulario Seguimiento Acción*/
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaTituloFormularioSeguimientoAccion = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaTituloPrincipal)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaVerAccion = '@Html.Raw(AccionResource.EtiquetaVerAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaIngresarAcciones = '@Html.Raw(AccionResource.EtiquetaIngresarAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridCerrarAccion = '@Html.Raw(GenericoResource.GridCerrarAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridVerSeguimiento = '@Html.Raw(GenericoResource.GridVerSeguimiento)';
+
+
+        
+        ///PArametros Genericos de Causa Raiz
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.CodigoTipoCategoriaCausa = '@DatosConstantes.CodigoTipoCategoria.Causa';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.MensajeValidacionEmpresa');
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeValidacionEmpresa.Mensaje1 = '@Html.Raw(BuscadorEmpresaResource.EtiquetaMensajeValidacion1)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeValidacionEmpresa.Mensaje2 = '@Html.Raw(BuscadorEmpresaResource.EtiquetaMensajeValidacion2)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeValidacionEmpresa.Mensaje3 = '@Html.Raw(BuscadorEmpresaResource.EtiquetaMensajeValidacion3)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.MensajeValidacionColaborador');
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeValidacionColaborador.Mensaje1 = '@Html.Raw(BuscadorColaboradorResource.EtiquetaMensajeValidacion1)';
+
+        ns('Pe.GMD.Web.Global.Format');
+        Pe.GMD.Web.Global.Format.Date = "dd/mm/yy";
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioBuscarTrabajador = '@Url.Action("BuscarTrabajador", "BuscadorTrabajador", new { Area = "Base" })';
+
+        //Modal de Cargar Archivo
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.CargarArchivo.Actions');
+        Pe.ElectroPeru.SGI.Presentacion.Base.CargarArchivo.Actions.VistaCargaArchivo = '@Url.Action("FormularioCarga", "CargaArchivo", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.CargarArchivo.Actions.UploadDocument = '@Url.Action("UploadDocument", "CargaArchivo", new { Area = "Base" })';
+
+        //Modal de Busqueda Usuario AD
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Actions');
+        Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Actions.VistaBusquedaUsuarioAD = '@Url.Action("FormularioBusquedaUsuarioAD", "UsuarioAD", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Actions.BuscarUsuarioAD = '@Url.Action("BuscarUsuarioAD", "UsuarioAD", new { Area = "Base" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Resource');
+        Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Resource.EtiquetaTitulo = '@Html.Raw(UsuarioADResource.EtiquetaTitulo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Resource.EtiquetaAgregarUsuario = '@Html.Raw(UsuarioADResource.EtiquetaAgregarUsuario)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Resource.GridSeleccionar = '@Html.Raw(UsuarioADResource.TablaCeldaSeleccionar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Resource.GridUsuario = '@Html.Raw(UsuarioADResource.TablaCeldaUsuario)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Resource.GridNombres = '@Html.Raw(UsuarioADResource.TablaCeldaNombres)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.UsuarioAD.Resource.GridEmail = '@Html.Raw(UsuarioADResource.TablaCeldaEmail)';
+    </script>
+
+    <!--</GmdWrap>-->
+    @Scripts.Render("~/FrameworkStyle/js")
+
+    @Scripts.Render("~/Components/DataTables")
+    @Scripts.Render("~/Components/TinyMCE")
+    @Scripts.Render("~/Components/SumoSelect")
+    @Scripts.Render("~/Components/Gmd")
+    @Scripts.Render("~/Components/SelectCustomJs")
+    @Scripts.Render("~/Components/FancyBoxJs")
+    @Scripts.Render("~/Scripts/baselayout")
+
+    <script>
+        var ajaxConsulta = new Pe.GMD.UI.Web.Components.Ajax({
+            action: "@Url.Action("VerificaSession", "LogOut", new { Area = "Base" })",
+            autoSubmit: false,
+            onSuccess: function (data) {
+                if (data.Result != "") {
+                    location.href = data.Result;
+                }
+            }
+        })
+        ajaxConsulta.submit();
+    </script>
+
+    <!--  If this is an MVC project then use the following -->
+    <!--  <script src="~/signalr/hubs" type="text/javascript"></script> 
+    <script src="~/signalr/hubs" type="text/javascript"></script>-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#slcIdioma').selectpicker();
+        });        
+    </script>
+    @*    <script src="~/Components/ckeditor/ckeditor.js"></script>
+    <script src="~/Components/ckeditor/adapters/jquery.js"></script>*@
+    @CustomHtmlHelper.RenderViewJs()
+    @CustomHtmlHelper.RenderViewJs("seguimientoinvestigacionformularioseleccionarcausaraiz");
+    @RenderSection("scripts", required: false)
+</body>
+</html>

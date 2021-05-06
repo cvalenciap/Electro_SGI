@@ -1,0 +1,350 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Colaborador.FormularioColaboradorPrincipalModel
+
+
+@{
+    bool nullableValueIndicadorActivo = ((Model.Colaborador.IndicadorActivo == null) || (Model.Colaborador.IndicadorActivo == false)) ? false : true;
+    bool nullableValueIndicadorPermanente = ((Model.Colaborador.IndicadorPermanente == null) || (Model.Colaborador.IndicadorPermanente == false)) ? false : true;
+    bool nullableValueIndicadorPermiteCierre = ((Model.Colaborador.IndicadorPermiteCierre == null) || (Model.Colaborador.IndicadorPermiteCierre == false)) ? false : true; 
+    }    
+<div class="modal-body">
+    <form id="frmFormularioColaboradorPrincipal">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>@Html.Raw(ColaboradorResource.EtiquetaNombres): (*)</label>
+                        @Html.TextBox("txtNombres", Model.Colaborador.Nombres, new { id = "txtNombres", @type = "text", @class = "form-control", @maxlength = "50", @validable = "required ValidaNombres" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaEmpresa): (*)</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoEmpresa, Model.ListaEmpresa, new { id = "slcEmpresa", @class = "form-control", @validable = "required ValidaEmpresa" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaProyecto):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoProyecto, Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaApellidoPaterno): (*)</label>
+                                @Html.TextBox("txtApellidoPaterno", Model.Colaborador.ApellidoPaterno, new { id = "txtApellidoPaterno", @type = "text", @class = "form-control", @maxlength = "50", @validable = "required ValidaApellidoPaterno"  })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaApellidoMaterno):</label>
+                                @Html.TextBox("txtApellidoMaterno", Model.Colaborador.ApellidoMaterno, new { id = "txtApellidoMaterno", @type = "text", @class = "form-control", @maxlength = "50" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaDepartamentoEmpresa):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoDepartamento, Model.ListaDepartamento, new { id = "slcDepartamento", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaArea):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoArea, Model.ListaArea, new { id = "slcArea", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaFechaNacimiento):</label>
+                                @Html.TextBox("dtpFechaNacimiento", Model.Colaborador.FechaNacimientoString, new { id = "dtpFechaNacimiento", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaGenero):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoGenero, Model.ListaGenero, new { id = "slcGenero", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaPuestoTrabajo):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoPuestoTrabajo, Model.ListaPuestoTrabajo, new { id = "slcPuestoTrabajo", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaTipoDocumento): (*)</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoTipoDocumento, Model.ListaTipoDocumento, new { id = "slcTipoDocumento", @class = "form-control", @validable = "required ValidaTipoDocumento" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaNroDocumento): (*)</label>
+                                @Html.TextBox("txtNumeroDocumento", Model.Colaborador.NumeroDocumento, new { id = "txtNumeroDocumento", @type = "text", @class = "form-control", @maxlength = "20", @validable = "required ValidaNumeroDocumento" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaTipoPlanilla):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoTipoPlanilla, Model.ListaTipoPlanilla, new { id = "slcTipoPlanilla", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaEstadoCivil):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoEstadoCivil, Model.ListaEstadoCivil, new { id = "slcEstadoCivil", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaGradoInstruccion):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoGradoInstruccion, Model.ListaGradoInstruccion, new { id = "slcGradoInstruccion", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaSistemaTrabajo):</label>
+                                @Html.TextBox("txtSistemaTrabajo", Model.Colaborador.SistemaTrabajo, new { id = "txtSistemaTrabajo", @type = "text", @class = "form-control", @maxlength = "5" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaTurnoMixto):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.TurnoMixto, Model.ListaTurnoMixto, new { id = "slcTurnoMixto", @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaPais):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.CodigoPais, Model.ListaPais, new { id = "slcPais", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaDepartamento):</label>
+                                @Html.TextBox("txtNombreDepartamento", Model.Colaborador.NombreDepartamentoTerritorio, new { id = "txtNombreDepartamento", @type = "text", @class = "form-control", @maxlength = "100" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaExperienciaLaboralNegocio) @Html.Raw(ColaboradorResource.EtiquetaAnios):</label>
+                                @Html.TextBox("txtExperienciaLaboralNegocioAnios", Model.Colaborador.ExperienciaNegocioAnios, new { id = "txtExperienciaLaboralNegocioAnios", @type = "text", @class = "form-control", @maxlength = "2" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaExperienciaLaboralNegocio) @Html.Raw(ColaboradorResource.EtiquetaMeses):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.ExperienciaNegocioMeses, Model.ListaMesesNegocios, new { @class = "form-control", @id = "txtExperienciaLaboralNegocioMeses"})                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaProvincia):</label>
+                                @Html.TextBox("txtNombreProvincia", Model.Colaborador.NombreProvincia, new { id = "txtNombreProvincia", @type = "text", @class = "form-control", @maxlength = "100" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaTiempoProyecto) @Html.Raw(ColaboradorResource.EtiquetaAnios):</label>
+                                @Html.TextBox("txtTiempoProyectoAnios", Model.Colaborador.TiempoProyectoAnios, new { id = "txtTiempoProyectoAnios", @type = "text", @class = "form-control", @maxlength = "2" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaTiempoProyecto) @Html.Raw(ColaboradorResource.EtiquetaMeses):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.TiempoProyectoMeses, Model.ListaMesesProyecto, new { @class = "form-control", @id = "txtTiempoProyectoMeses"})
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaCorreoElectronico):</label>
+                                @Html.TextBox("txtCorreoElectronico", Model.Colaborador.CorreoElectronico, new { id = "txtCorreoElectronico", @type = "text", @class = "form-control", @maxlength = "100" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaTiempoEmpresaContratista) @Html.Raw(ColaboradorResource.EtiquetaAnios):</label>
+                                @Html.TextBox("txtTiempoEmpresaContratistaAnios", Model.Colaborador.TiempoContratistaAnios, new { id = "txtTiempoEmpresaContratistaAnios", @type = "text", @class = "form-control", @maxlength = "2" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaTiempoEmpresaContratista) @Html.Raw(ColaboradorResource.EtiquetaMeses):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.TiempoContratistaMeses, Model.ListaMesesEmpresaContratista, new { @class = "form-control", @id = "txtTiempoEmpresaContratistaMeses"})
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaCodigoUsuarioRed):</label>
+                                @Html.TextBox("txtCodigoUsuarioRed", Model.Colaborador.CodigoUsuarioRed, new { id = "txtCodigoUsuarioRed", @type = "text", @class = "form-control", @maxlength = "50" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaExperienciaLaboralPuestoTrabajo) @Html.Raw(ColaboradorResource.EtiquetaAnios):</label>
+                                @Html.TextBox("txtExperienciaLaboralPuestoTrabajoAnios", Model.Colaborador.ExperienciaPuestoAnios, new { id = "txtExperienciaLaboralPuestoTrabajoAnios", @type = "text", @class = "form-control", @maxlength = "2" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>@Html.Raw(ColaboradorResource.EtiquetaExperienciaLaboralPuestoTrabajo) @Html.Raw(ColaboradorResource.EtiquetaMeses):</label>
+                                @Html.DropDownListFor(model => model.Colaborador.ExperienciaPuestoMeses, Model.ListaMesesExperienciaLaboralPuesto, new { @class = "form-control", @id = "txtExperienciaLaboralPuestoTrabajoMeses"})                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="checkbox-inline">@Html.CheckBox("chkIndicadorActivo", new { id = "chkIndicadorActivo", @value = nullableValueIndicadorActivo })@Html.Raw(ColaboradorResource.EtiquetaIndicadorActivo)</label>                                                
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="checkbox-inline">@Html.CheckBox("chkIndicadorPermanente", new { id = "chkIndicadorPermanente", @value = nullableValueIndicadorPermanente })@Html.Raw(ColaboradorResource.EtiquetaIndicadorPermanente)</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="checkbox-inline">@Html.CheckBox("chkIndicadorPermiteCierre", new { id = "chkIndicadorPermiteCierre", @value = nullableValueIndicadorPermiteCierre })@Html.Raw(ColaboradorResource.EtiquetaIndicadorPermiteCierre)</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>@Html.Raw(ColaboradorResource.GridEstadoColaborador):</label>
+                        @Html.DropDownListFor(model => model.Colaborador.CodigoEstadoColaborador, Model.ListaEstadoColaborador, new { id = "slcEstadoColaborador", @class = "form-control"})
+                    </div>
+                </div>
+                <div class="col-sm-6"></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Resources.Validacion.ValidaNombres = '@(Html.Raw(ColaboradorResource.EtiquetaNombres))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Resources.Validacion.ValidaApellidoPaterno = '@(Html.Raw(ColaboradorResource.EtiquetaApellidoPaterno))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Resources.Validacion.ValidaEmpresa = '@(Html.Raw(ColaboradorResource.EtiquetaEmpresa))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Resources.Validacion.ValidaTipoDocumento = '@(Html.Raw(ColaboradorResource.EtiquetaTipoDocumento))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Resources.Validacion.ValidaNumeroDocumento = '@(Html.Raw(ColaboradorResource.EtiquetaNroDocumento))';
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Models.FormularioColaboradorPrincipal = @(Html.Raw(Json.Encode(Model)))
+
+
+</script>
+
+
+@CustomHtmlHelper.RenderViewJs()

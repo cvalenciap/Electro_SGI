@@ -1,0 +1,27 @@
+﻿using Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base;
+using System;
+
+namespace Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Seguridad
+{
+    public class SistemaRequest : BaseRequest
+    {
+        public int CodigoSistema { get; set; }
+
+        public string Nombre { get; set; }
+
+        public string Descripcion { get; set; }
+
+        public string Ruta { get; set; }
+
+        public string Token { get; set; }
+
+        public int Parametro { get; set; }
+
+        public int ValorParametro { get; set; }
+
+        //Obligacotios
+        public string CodigoIdioma { get; set; }
+
+        public string EstadoRegistroDescripcion { get; set; }
+    }
+}

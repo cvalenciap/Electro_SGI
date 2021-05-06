@@ -1,0 +1,125 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.ColaboradorProyecto.FormularioBandejaModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(ColaboradorProyectoResource.EtiquetaTituloPrincipal)</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+        <form id="frmColaboradorProyecto" onsubmit="return false;" style="padding: 0 8px;">
+            <div class="filter-avanzado">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label style="margin-top: 7px;">@Html.Raw(ColaboradorProyectoResource.EtiquetaColaborador): (*)</label>
+                            <div>
+                                <div class="input-group">
+                                    @Html.Hidden("hdnCodigoColaborador", Model.CodigoColaborador, new { ïd = "hdnCodigoColaborador", @validable = "required ValidarColaborador" })
+                                    @Html.TextBox("txtCodigoColaborador", Model.NombreColaborador, new { id = "txtCodigoColaborador", @class = "form-control", @disabled = "disabled", @validable = "required ValidarColaborador" })
+                                    <div class="input-group-addon">
+                                        <button class="btn-form" id="btnBuscarColaboradorAsociacion" type="button">....</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label style="position: relative; margin-top: 7px;">@Html.Raw(ColaboradorProyectoResource.EtiquetaProyecto): (*)</label>
+                            <div>
+                                @Html.DropDownListFor(model => model.CodigoProyecto, Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control", @validable = "required ValidarProyecto" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            @Html.TextBox("txtEtiquetaDocumento", "", new { id = "txtEtiquetaDocumento", @style = "border:0px;background:white !important;font-family: Arial !important", @class = "form-control", disabled = "disabled", @placeholder = Html.Raw(ColaboradorProyectoResource.EtiquetaDocumento) })                            
+                        </div>
+                        <div class="col-sm-6">
+                            @Html.TextBox("txtEtiquetaCodigoProyecto", "", new { id = "txtEtiquetaCodigoProyecto", @style = "border:0px;background:white !important;font-family: Arial !important", @class = "form-control", disabled = "disabled", @placeholder = Html.Raw(ColaboradorProyectoResource.EtiquetaCodigoProyecto) })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            @Html.TextBox("txtEtiquetaEmpresa", "", new { id = "txtEtiquetaEmpresa", @style = "border:0px;background:white !important;font-family: Arial !important", @class = "form-control", disabled = "disabled", @placeholder = Html.Raw(ColaboradorProyectoResource.EtiquetaEmpresa) })
+                        </div>
+                        <div class="col-sm-6">
+                            @Html.TextBox("txtEtiquetaCodigoTipoUnidad", "", new { id = "txtEtiquetaCodigoTipoUnidad", @style = "border:0px;background:white !important;font-family: Arial !important", @class = "form-control", disabled = "disabled", @placeholder = Html.Raw(ColaboradorProyectoResource.EtiquetaCodigoTipoUnidad) })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            @Html.TextBox("txtEtiquetaPuestoTrabajo", "", new { id = "txtEtiquetaPuestoTrabajo", @style = "border:0px;background:white !important;font-family: Arial !important", @class = "form-control", disabled = "disabled", @placeholder = Html.Raw(ColaboradorProyectoResource.EtiquetaPuestoTrabajo) })
+                        </div>
+                        <div class="col-sm-6">
+                            @Html.TextBox("txtEtiquetaCodigoMeta4", "", new { id = "txtEtiquetaCodigoMeta4", @style = "border:0px;background:white !important;font-family: Arial !important", @class = "form-control", disabled = "disabled", @placeholder = Html.Raw(ColaboradorProyectoResource.EtiquetaCodigoMeta4) })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>         
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnGrabar">@Html.Raw(ColaboradorProyectoResource.BotonAsociar)</button>
+        </div>  
+        
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+            </div>
+            <div class="table-grilla">
+                <div id="divGrdResult">
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Actions.BuscarColaboradorProyecto = '@Url.Action("BuscarColaboradorProyecto", "ColaboradorProyecto", new { Area = "Mantenimiento" })';
+        @*Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Actions.FormularioColaboradorProyecto = '@Url.Action("FormularioColaboradorProyecto", "ColaboradorProyecto", new { Area = "Mantenimiento" })';*@
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Actions.RegistrarColaboradorProyecto = '@Url.Action("RegistrarColaboradorProyecto", "ColaboradorProyecto", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Actions.EliminarColaboradorProyecto = '@Url.Action("EliminarColaboradorProyecto", "ColaboradorProyecto", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources')
+        @*Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.FormularioColaboradorProyecto = '@Html.Raw(ColaboradorProyectoResource.EtiquetaFormularioColaboradorProyecto)';*@
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.EtiquetaRegistrarColaboradorProyecto = '@Html.Raw(ColaboradorProyectoResource.EtiquetaRegistrarColaboradorProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.EtiquetaEditarColaboradorProyecto = '@Html.Raw(ColaboradorProyectoResource.EtiquetaEditarColaboradorProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.GridNumero = '@Html.Raw(ColaboradorProyectoResource.GridNumero)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.GridColaborador = '@Html.Raw(ColaboradorProyectoResource.GridColaborador)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.GridProyecto = '@Html.Raw(ColaboradorProyectoResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.GridEstado = '@Html.Raw(ColaboradorProyectoResource.GridEstado)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.GridFCreacion = '@Html.Raw(ColaboradorProyectoResource.GridFCreacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.GridFEdicion = '@Html.Raw(ColaboradorProyectoResource.GridFEdicion)';               
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Models.ColaboradorProyecto = '@(Html.Raw(Json.Encode(Model)))';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.Validacion')        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.Validacion.ValidarColaborador = '@(Html.Raw(ColaboradorProyectoResource.EtiquetaColaborador))';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.ColaboradorProyecto.Resources.Validacion.ValidarProyecto = '@(Html.Raw(ColaboradorProyectoResource.EtiquetaRegistrarColaboradorProyecto))';
+
+    </script>  
+    @*<style type="text/css">
+        .skin-stracon .form-control {
+        background: white !important;
+        opacity: 0;
+        }
+    </style>*@
+    @*@CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorproyectoformulariocolaboradorproyecto")*@
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");
+}

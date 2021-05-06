@@ -1,0 +1,245 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionCategoriaImpactoComunidadModel
+
+<div class="modal-body">
+    <div class="tab_custom">
+        <div class="tab-interno item03">
+            <ul class="nav nav-tabs" role="tablist" id="cartTabs">
+                <li id="listaPrimero" role="presentation" class="active"><a href="#primero" class="top-tab" aria-controls="primero" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabInformacionGeneral)</a></li>
+                <li id="listaSegundo" role="presentation"><a href="#segundo" class="top-tab" aria-controls="segundo" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabOtrosDetalles)</a></li>
+                <li id="listaTercero" role="presentation"><a href="#tercero" class="top-tab" aria-controls="tercero" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabEvaluacionConsecuencias)</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="primero">
+                    <form onsubmit="return false;" id="frmInformacionGeneralComunidad">
+                        <fieldset id="flsInformacionGeneralComunidad" @(Model.ComunidadInvolucrada.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaComunidadInvolucrada): (*)</label>
+                                         @Html.TextBox("txtDescripcionComunidadInvolucrada", Model.ComunidadInvolucrada.DescripcionComunidadInvolucrada, new { id = "txtDescripcionComunidadInvolucrada", @class = "form-control", maxlength = "35", @validable = "required Validar"  })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label id="lblCheck">@Html.Raw(InvestigacionResource.EtiquetaTipoImpactoComunidad): (*)</label>
+                                        <div class="row">
+                                            @foreach (var item in Model.ListaTipoImpactoComunidad)
+                                            {
+                                                if (item.Value == DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosTipoImpactoComunidad)
+                                                { 
+                                                    <div class="col-sm-4">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="checkbox" style="margin: 2px 0;">
+                                                                    <label>
+                                                                        <input type="checkbox" id="id_@item.Value" value="@item.Value" class="checkboxClass"/>@item.Text
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="txtOtrosComunidad" maxlength="255" disabled="disabled"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="col-sm-4">
+                                                        <div class="checkbox" style="margin: 2px 0;">
+                                                            <label>
+                                                                <input type="checkbox" id="id_@item.Value" value="@item.Value" class="checkboxClass"/>@item.Text
+                                                            </label>
+                                                        </div>
+                                                    </div>                                                                                                    
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title-interna">
+                                    <span>@Html.Raw(InvestigacionResource.EtiquetaRepresentanteComunidad): (*)</span>
+                                    <div class="acciones-form btn-group btn-group-table">
+                                        @if (Model.ComunidadInvolucrada.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                                         {
+                                        <button id="btnAgregarRepresentanteComunidad" type="button" class="btn-table text-line one">
+                                            @Html.Raw(InvestigacionCategoriaResource.EtiquetaBotonAgregarRepresentante)
+                                        </button>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="table-grilla">
+                                    <div id="divGrdRepresentanteComunidad">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title-interna">
+                                    <span>@Html.Raw(InvestigacionResource.EtiquetaPobladoresAfectados): (*)</span>
+                                    <div class="acciones-form btn-group btn-group-table">
+                                         @if (Model.ComunidadInvolucrada.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                                         {
+                                        <button id="btnAgregarPobladorAfectado" type="button" class="btn-table text-line one">
+                                            @Html.Raw(InvestigacionCategoriaResource.EtiquetaBotonAgregarPoblador)
+                                        </button>
+                                         }
+                                    </div>
+                                </div>
+                                <div class="table-grilla">
+                                    <div id="divGrdPobladorAfectado">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarImpactoComunidad" data-dismiss="modal">@GenericoResource.BotonCancelar</button>
+                            @if (Model.ComunidadInvolucrada.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                            {
+                                <button class="btn btn-primary" id="btnGrabarImpactoComunidad">@GenericoResource.BotonGrabar</button>
+                            }
+                        </div>                        
+                    </form>
+
+                </div>
+                <div role="tabpanel" class="tab-pane fade in" id="segundo">
+                    <form onsubmit="return false;" id="frmOtrosDetalles">
+                        <fieldset id="flsOtrosDetallesComunidad" @(Model.ComunidadInvolucrada.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaComunidadOtrosDetallesPreguntaUno): (*)</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                    @Html.DropDownListFor(model => model.ComunidadInvolucrada.CodigoConsecuenciaImpcom, Model.ListaConsecuenciaIncidente, new { @class = "form-control", id = "ddlConsecuenciaIncidenteImpactoOtros", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaComunidadOtrosDetallesPreguntaDos): (*)</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                    @Html.DropDownListFor(model => model.ComunidadInvolucrada.CodigoPotencialImpcom, Model.ListaPotencialIncidente, new { @class = "form-control", @id = "ddlPotencialIncidenteImpactoOtros", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarOtrosDetalles" data-dismiss="modal">@GenericoResource.BotonCancelar</button>
+                            @if (Model.ComunidadInvolucrada.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                            {
+                                <button class="btn btn-primary" id="btnGrabarOtrosDetalles">@GenericoResource.BotonGrabar</button>
+                            }
+                        </div>                        
+                    </form>
+
+                </div>
+                <div role="tabpanel" class="tab-pane fade in" id="tercero">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>@Html.Raw(InvestigacionResource.EtiquetaActual): (*)</strong></label>
+                            </div>
+                            <div>
+                                <table id="tblConsecuencia" class="table table-bordered table-striped">
+                                    <tr>
+                                        <th width="10%"></th>
+                                        <th width="60%">@Html.Raw(InvestigacionResource.EtiquetaDescripcion)</th>
+                                        <th>@Html.Raw(InvestigacionResource.EtiquetaActual)</th>
+                                    </tr>
+                                    @foreach (var item in Model.ListaCategoriaImpactoComunidad)
+                                    {                                                 
+                                        <tr>
+                                            @*<td class="text-center">
+                                                <input type="radio" name="codigoConsecuenciaActual" data-codigo="@item.CodigoConsecuenciaActual" id="radioConsecuenciaActual_@item.CodigoConsecuenciaActual" data-descripcion="@item.DescripcionConsecuenciaActual" checked disabled="disabled" /></td>
+                                            <td>@item.NombreCategoriaDetalleEspaniol</td>
+                                            <td>@item.DescripcionConsecuenciaActual</td>*@
+
+                                            <td class="text-center">
+                                                @if (Model.ComunidadInvolucrada.CodigoConsecuenciaImpcom == item.CodigoConsecuenciaActual)
+                                                {
+                                                    Model.ComunidadInvolucrada.NombreConsecuenciaImpcom = item.DescripcionConsecuenciaActual;                                                 
+                                                    <input type="radio" name="codigoConsecuenciaActualComunidadModal" disabled="disabled" id="radioConsecuenciaActual_@item.CodigoConsecuenciaActual" data-descripcion="@item.DescripcionConsecuenciaActual" data-codigo="@item.CodigoCategoriaTexto" checked/>
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="codigoConsecuenciaActualComunidadModal" disabled="disabled" id="radioConsecuenciaActual_@item.CodigoConsecuenciaActual" data-descripcion="@item.DescripcionConsecuenciaActual" data-codigo="@item.CodigoCategoriaTexto"/>
+                                                }
+                                            </td>
+                                            <td>@item.NombreCategoriaDetalleEspaniol</td>
+                                            <td>@item.DescripcionConsecuenciaActual</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>@Html.Raw(InvestigacionResource.EtiquetaPotencial): (*)</strong></label>
+                            </div>
+                            <div>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th width="10%"></th>
+                                        <th width="60%">@Html.Raw(InvestigacionResource.EtiquetaDescripcion)</th>
+                                        <th>@Html.Raw(InvestigacionResource.EtiquetaActual)</th>
+                                    </tr>
+                                    @foreach (var item in Model.ListaCategoriaImpactoComunidad)
+                                    { 
+                                        <tr>
+                                            <td class="text-center">
+
+                                            @if (Model.ComunidadInvolucrada.CodigoPotencialImpcom == item.CodigoConsecuenciaPotencial)
+                                            {
+                                                Model.ComunidadInvolucrada.NombrePotencialImpcom = item.DescripcionConsecuenciaPotencial;
+                                                    <input type="radio" name="codigoConsecuenciaPotencialComunidadModal" disabled="disabled" id="radioConsecuenciaPotencial_@item.CodigoConsecuenciaPotencial" data-descripcion="@item.DescripcionConsecuenciaPotencial" data-codigo="@item.CodigoCategoriaTexto" checked/>
+                                            }
+                                            else
+                                            {
+                                                    <input type="radio" name="codigoConsecuenciaPotencialComunidadModal" disabled="disabled" id="radioConsecuenciaPotencial_@item.CodigoConsecuenciaPotencial" data-descripcion="@item.DescripcionConsecuenciaPotencial" data-codigo="@item.CodigoCategoriaTexto"/>
+                                            }
+                                            </td>
+                                            <td>@item.NombreCategoriaDetalleEspaniol</td>
+                                            <td>@item.DescripcionConsecuenciaPotencial</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaActualConsecuencia)</label>
+                            @Html.TextBox("txtConsecuenciaOtrosDetalles", Model.ComunidadInvolucrada.NombreConsecuenciaImpcom, new { id = "txtConsecuenciaOtrosDetalles", @class = "form-control", @disabled= "disabled" })                            
+                        </div>
+                        <div class="col-sm-6">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaPotencialConsecuencia)</label>
+                            @Html.TextBox("txPotencialOtrosDetalles", Model.ComunidadInvolucrada.NombrePotencialImpcom, new { id = "txPotencialOtrosDetalles", @class = "form-control", @disabled= "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioComunidadInvolucradaModel = @(Html.Raw(Json.Encode(Model)))
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioComunidadInvolucrada.DatosConstantes')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioComunidadInvolucrada.DatosConstantes.OtrosTipoImpactoComunidad = '@DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosTipoImpactoComunidad';
+     
+</script>
+@CustomHtmlHelper.RenderViewJs()

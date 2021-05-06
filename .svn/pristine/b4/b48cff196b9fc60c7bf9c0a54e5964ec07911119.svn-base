@@ -1,0 +1,14 @@
+FechaHora = 02/11/2015 10:51:53 a.m.
+MensajeError = Nullable object must have a value.
+DetalleError =    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerContratoParrafoVariable(ContratoParrafoVariableLogic data) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 189
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 980
+__________________________________________________
+FechaHora = 02/11/2015 10:52:53 a.m.
+MensajeError = Nullable object must have a value.
+DetalleError =    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerContratoParrafoVariable(ContratoParrafoVariableLogic data) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 189
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 980
+__________________________________________________

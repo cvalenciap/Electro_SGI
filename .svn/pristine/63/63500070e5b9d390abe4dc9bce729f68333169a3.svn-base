@@ -1,0 +1,71 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguridad.Opcion
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguridad.Opcion.OpcionModel
+
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@Html.Raw(OpcionResource.EtiquetaTituloPrincipal)</strong>
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnRegistrar" type="button" class="btn-table text-line one">
+                    @Html.Raw(OpcionResource.EtiquetaBotonRegistrar)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(OpcionResource.EtiquetaLista)</span>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Actions.Buscar = '@Url.Action("Buscar", "Opcion", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Actions.Formulario = '@Url.Action("Formulario", "Opcion", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Actions.Obtener = '@Url.Action("Obtener", "Opcion", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Actions.Registrar = '@Url.Action("Registrar", "Opcion", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Actions.Eliminar = '@Url.Action("Eliminar", "Opcion", new { Area = "Seguridad" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridNombre = '@Html.Raw(OpcionResource.EtiquetaNombre)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridDescripcion = '@Html.Raw(OpcionResource.EtiquetaDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridModulo = '@Html.Raw(OpcionResource.EtiquetaModulo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridOpcionPadre = '@Html.Raw(OpcionResource.EtiquetaOpcionPadre)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridGlyphicon = '@Html.Raw(OpcionResource.EtiquetaGlyphicon)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridControlador = '@Html.Raw(OpcionResource.EtiquetaControlador)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridMetodo = '@Html.Raw(OpcionResource.EtiquetaMetodo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridArea = '@Html.Raw(OpcionResource.EtiquetaArea)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridEstado = '@Html.Raw(OpcionResource.EtiquetaEstado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.EtiquetaMensajeEliminar = '@Html.Raw(OpcionResource.EtiquetaMensajeEliminar)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Models.Opcion = '@(Html.Raw(Json.Encode(Model)))';
+    </script>
+    <style type="text/css">
+        form-control {
+            width: 100%;
+        }
+    </style>
+    @CustomHtmlHelper.RenderViewJs("seguridadopcionformulario")
+}

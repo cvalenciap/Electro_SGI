@@ -1,0 +1,90 @@
+FechaHora = 13/10/2015 01:03:46 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+DetalleError =    at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at Microsoft.SharePoint.Client.SPWebRequestExecutor.GetRequestStream()
+   at Microsoft.SharePoint.Client.ClientContext.GetFormDigestInfoPrivate()
+   at Microsoft.SharePoint.Client.ClientContext.EnsureFormDigest()
+   at Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\SharePointService.cs:line 172
+__________________________________________________
+FechaHora = 13/10/2015 01:03:56 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+__________________________________________________
+FechaHora = 13/10/2015 01:04:11 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+DetalleError =    at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at Microsoft.SharePoint.Client.SPWebRequestExecutor.GetRequestStream()
+   at Microsoft.SharePoint.Client.ClientContext.GetFormDigestInfoPrivate()
+   at Microsoft.SharePoint.Client.ClientContext.EnsureFormDigest()
+   at Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\SharePointService.cs:line 172
+__________________________________________________
+FechaHora = 13/10/2015 01:04:11 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+__________________________________________________
+FechaHora = 13/10/2015 03:07:21 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+DetalleError =    at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at Microsoft.SharePoint.Client.SPWebRequestExecutor.GetRequestStream()
+   at Microsoft.SharePoint.Client.ClientContext.GetFormDigestInfoPrivate()
+   at Microsoft.SharePoint.Client.ClientContext.EnsureFormDigest()
+   at Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\SharePointService.cs:line 172
+__________________________________________________
+FechaHora = 13/10/2015 03:07:21 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+__________________________________________________
+FechaHora = 13/10/2015 04:33:33 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+DetalleError =    at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at Microsoft.SharePoint.Client.ClientContext.GetFormDigestInfoPrivate()
+   at Microsoft.SharePoint.Client.ClientContext.EnsureFormDigest()
+   at Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\SharePointService.cs:line 172
+__________________________________________________
+FechaHora = 13/10/2015 04:33:33 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+__________________________________________________
+FechaHora = 13/10/2015 04:36:48 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+DetalleError =    at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at Microsoft.SharePoint.Client.SPWebRequestExecutor.GetRequestStream()
+   at Microsoft.SharePoint.Client.ClientContext.GetFormDigestInfoPrivate()
+   at Microsoft.SharePoint.Client.ClientContext.EnsureFormDigest()
+   at Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\SharePointService.cs:line 172
+__________________________________________________
+FechaHora = 13/10/2015 04:36:48 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+__________________________________________________
+FechaHora = 13/10/2015 04:43:03 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+DetalleError =    at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at Microsoft.SharePoint.Client.SPWebRequestExecutor.GetRequestStream()
+   at Microsoft.SharePoint.Client.ClientContext.GetFormDigestInfoPrivate()
+   at Microsoft.SharePoint.Client.ClientContext.EnsureFormDigest()
+   at Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\SharePointService.cs:line 172
+__________________________________________________
+FechaHora = 13/10/2015 04:43:03 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+__________________________________________________
+FechaHora = 13/10/2015 04:49:09 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+DetalleError =    at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at Microsoft.SharePoint.Client.SPWebRequestExecutor.GetRequestStream()
+   at Microsoft.SharePoint.Client.ClientContext.GetFormDigestInfoPrivate()
+   at Microsoft.SharePoint.Client.ClientContext.EnsureFormDigest()
+   at Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\SharePointService.cs:line 172
+__________________________________________________
+FechaHora = 13/10/2015 04:49:09 p.m.
+MensajeError = The remote name could not be resolved: 'portalstracondev'
+__________________________________________________

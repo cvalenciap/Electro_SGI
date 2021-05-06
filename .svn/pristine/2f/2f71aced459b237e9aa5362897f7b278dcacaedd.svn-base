@@ -1,0 +1,44 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.ConfiguracionFamiliaEquipoModel
+
+<input id="hidenCodigoFamiliaEquipo" type="hidden"  value="@Model.CodFam_Eq">
+
+<div class="modal-body">
+    <form id="frmAgregarFamiliaEquipoModal" onsubmit="return false;">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ConfiguracionResource.EtiquetaCodigoFamilia): (*)</label>
+                </div>
+                <div class="col-sm-8">                
+                    @Html.TextBox("txtIdentificadorFamiliaEquipo", Model.IdenFam_Eq, Model.CodFam_Eq.HasValue ? (object)new { id = "txtIdentificadorFamiliaEquipo", @class = "form-control", @disabled="disabled",@maxlength="5", @validable = "required Validar", } : new { id = "txtIdentificadorFamiliaEquipo", @class = "form-control",@maxlength="5", @validable = "required Validar", })     
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ConfiguracionResource.EtiquetaDescripcionFamilia): (*)</label>
+                </div>
+                <div class="col-sm-8">
+                    @Html.TextBox("txtFamEquipoDescripcion", Model.NomFam_Eq, new { id = "txtFamEquipoDescripcion", @class = "form-control",@maxlength="100", @validable = "required Validar", })                          
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ConfiguracionResource.EtiquetaDescripcionAbrev): (*)</label>
+                </div>
+                <div class="col-sm-8">
+                    @Html.TextBox("txtFamEquipoDescripcionAbrev", Model.NomFam_Eq_Abrev, new { id = "txtFamEquipoDescripcionAbrev", @class = "form-control", @maxlength="30",@validable = "required Validar", })                       
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarFamiliaEquipo" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarFamiliaEquipo">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>

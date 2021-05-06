@@ -1,0 +1,212 @@
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe.config
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe.manifest
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.application
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Castle.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Castle.Windsor.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\EntityFramework.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\EntityFramework.SqlServer.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.CSharp.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Adapter.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Service.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Model.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Repository.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Configuration.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Configuration.Install.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Data.DataSetExtensions.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Data.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Management.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Net.Http.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Net.Http.WebRequest.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.ServiceProcess.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Helpers.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Mvc.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Optimization.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Razor.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.Razor.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Xml.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Xml.Linq.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.SharePoint.Client.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.SharePoint.Client.Runtime.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\log4net.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Adapter.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Adapter.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Service.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Service.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Model.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Model.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Repository.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Repository.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Castle.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Castle.Windsor.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\EntityFramework.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\EntityFramework.SqlServer.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Helpers.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Mvc.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Optimization.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Razor.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.Razor.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\log4net.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\en-us\Pe.ElectroPeru.SGI.Aplicacion.Core.resources.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\en-us\Pe.ElectroPeru.SGI.Presentacion.Recursos.resources.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.csprojResolveAssemblyReference.cache
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.EnvioNotificaciones.resources
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.ProjectInstaller.resources
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.csproj.GenerateResource.Cache
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe.manifest
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.application
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe.config
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe.manifest
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.application
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\AutoMapper.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Castle.Core.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Castle.Windsor.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\EntityFramework.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\EntityFramework.SqlServer.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.CSharp.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Adapter.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Service.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Core.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Model.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Repository.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Configuration.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Configuration.Install.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Data.DataSetExtensions.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Data.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Management.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Net.Http.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Net.Http.Formatting.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Net.Http.WebRequest.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.ServiceProcess.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Helpers.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Http.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Http.WebHost.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Mvc.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Optimization.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Razor.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.Razor.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Xml.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Xml.Linq.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\log4net.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Adapter.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Adapter.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Core.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Service.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Service.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Core.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Core.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Model.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Model.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Dominio.Service.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Repository.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Repository.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Core.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\AutoMapper.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Castle.Core.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Castle.Windsor.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\EntityFramework.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\EntityFramework.SqlServer.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Net.Http.Formatting.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Helpers.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Http.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Http.WebHost.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Mvc.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Optimization.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.Razor.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\System.Web.WebPages.Razor.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\log4net.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\Pe.ElectroPeru.SGI.Presentacion.Recursos.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\en-us\Pe.ElectroPeru.SGI.Aplicacion.Core.resources.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\bin\Debug\en-us\Pe.ElectroPeru.SGI.Presentacion.Recursos.resources.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.csprojResolveAssemblyReference.cache
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.EnvioNotificaciones.resources
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.ProjectInstaller.resources
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.csproj.GenerateResource.Cache
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe.manifest
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.application
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.exe
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\obj\Debug\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones.pdb

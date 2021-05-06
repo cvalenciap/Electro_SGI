@@ -1,0 +1,304 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Transversal.Core.Util
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    List<PermisosSistemaModel.Modulo> Modules = (List<PermisosSistemaModel.Modulo>)Session[Constantes.Sesion.Permisos.Lista_Modulos]; Modules = (Modules == null ? new List<PermisosSistemaModel.Modulo>() : Modules);
+    List<PermisosSistemaModel.Opciones> Options = (List<PermisosSistemaModel.Opciones>)Session[Constantes.Sesion.Permisos.Lista_Opciones]; Options = (Options == null ? new List<PermisosSistemaModel.Opciones>() : Options);
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+
+    <title>@DatosConstantes.ConfiguracionPresentacion.TituloAplicacion</title>
+    <link href="~/Theme/images/system/empresa_ico.ico" type="image/x-icon" rel="shortcut icon">
+
+    @Styles.Render("~/FrameworkStyle/css")
+    @Styles.Render("~/Template/css")
+    @Styles.Render("~/Components/JQueryCss")
+    @Styles.Render("~/Components/JQuery")
+    @Styles.Render("~/Components/GmdCss")
+    @Styles.Render("~/Components/DataTablesCss")
+    @Styles.Render("~/Components/SelectCustomCss")
+    @Styles.Render("~/Components/FancyBoxCss")   
+    
+    @Styles.Render("~/Components/highcharts/css")
+    @Scripts.Render("~/Components/highcharts/js")
+       
+     
+    @*@Styles.Render("~/Components/Bootstrap/css")
+    @Styles.Render("~/Components/datepicker/css")
+
+    @Scripts.Render("~/Components/datepicker/js")   
+    @Scripts.Render("~/Components/Bootstrap/js")*@
+    @RenderSection("css", required: false)
+    @{
+
+    }
+</head>
+<body class="skin-electroperu bar-dark aside-closed aside-closed-complete show-ui">
+    <section class="wrap-ui">
+        <header class="header">
+            <a class="button-nav" href="#" data-asideslide="button"><i class="fa fa-bars"></i></a>
+            <a href="@Url.Action("Index", "Principal", new { Area="Base"})" class="logo-data"> </a>
+            <h1 class="name-app">@Html.Raw(GenericoResource.NombreSistema)</h1>
+            <div class="pull-right ">
+                <div class="pull-left comp-btn-user btn-group">
+                    <button id="btnGroupDrop2" type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                        @if (Login.Obtener.Usuario.Login() != null)
+                        {
+                            @Html.Hidden("hdnUsuarioLogueo", Login.Obtener.Usuario.Login(), new { id = "hdnUsuarioLogueo" })
+                            <img src="@Url.Content("~/Theme/images/system/usuario.jpg")" alt="@Login.Obtener.Usuario.NombreCompleto()" style="width:30px; height:30px" />
+                            <span class="name">@Login.Obtener.Usuario.NombreCompleto()</span>
+                            <span class="caret"></span>
+                        }
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="btnGroupDrop2">
+                        <li class="first">
+                            <a href="#" id="lnkCerrarSesion">@GenericoResource.BotonCerrarSesion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div id="DivPrincipal">
+            <div class="wrap-content">
+                <aside class="main-aside" data-asideslide="slide">
+                    <nav class="main-nav">
+                        <div class="bl-slide" style="left: 0px;"></div>
+                        <ul id="lstMenu">
+                            @if (Options.Count > 0)
+                            {
+                                foreach (var modulo in Modules)
+                                {
+                                    <li class="menu-dropdown" data-menu="dropdown">
+                                        <a href="#" data-element="button-dropdown">
+                                            <span class="wrap-icon"><i class="fa fa-tasks"></i></span>
+                                            <span class="wrap-text" style="left: 0px;"><span class="text">@modulo.Nombre</span><i class="fa fa-bars"></i></span>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li class="title">@modulo.Nombre</li>
+
+                                            @if (Options.Where(x => x.CodigoModulo == modulo.CodigoModulo).ToList().Count > 0)
+                                            {
+                                                foreach (var opcionNivel0 in Options.Where(x => x.OpcionPadre <= 0 && x.CodigoModulo == modulo.CodigoModulo).ToList())
+                                                {
+                                                    if (opcionNivel0.Controlador == null || opcionNivel0.Controlador == "")
+                                                    {
+                                                        <li class="dropdown">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                <span style="width: 60px; height: 76%; position: absolute; top: 0px; right: 0; text-align: center; line-height: 51px; background: transparent; z-index: 9999;"><i class="caret"></i></span>
+                                                                <span class="wrap-text-inner"><span class="text">@opcionNivel0.Nombre</span></span>
+                                                            </a>
+
+                                                            <ul class="dropdown-menu" role="menu">
+                                                                @foreach (var opcionNivel1 in Options.Where(x => x.OpcionPadre > 0 && x.CodigoModulo == modulo.CodigoModulo).ToList())
+                                                                {
+                                                                    if (opcionNivel1.OpcionPadre == opcionNivel0.CodigoOpcion)
+                                                                    {
+                                                                        <li>
+                                                                            <a href="@Url.Action(opcionNivel1.Metodo, opcionNivel1.Controlador, new { Area = opcionNivel1.Area })">
+                                                                                <span class="wrap-text-inner"><span class="text">@opcionNivel1.Nombre</span></span>
+                                                                            </a>
+                                                                        </li>
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        if (modulo.CodigoModulo == opcionNivel0.CodigoModulo && opcionNivel0.CodigoModulo == modulo.CodigoModulo)
+                                                        {
+                                                            <li>
+                                                                <a href="@Url.Action(opcionNivel0.Metodo, opcionNivel0.Controlador, new { Area = opcionNivel0.Area })">
+                                                                    <span class="wrap-text-inner"><span class="text">@opcionNivel0.Nombre</span></span>
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </aside>
+                <div class="pull-main-content">
+                    <div class="main-content">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="lay-GmdFooter">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="pull-left">Todos los derechos reservados. FONAFE 2018 R.1.0</p>
+                    <ul class="pull-right">
+                        <li class="title">Powered by</li>
+                        <li class="img">
+                            <a href="#">
+                                <img src="@Url.Content("~/Theme/images/system/logo-gmd.png")" alt="GMD">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <div class="nav-UpPage upPage" data-element='btnUp'><span class="glyphicon glyphicon-chevron-up"></span></div>
+    </section>
+    @Scripts.Render("~/Components/JQuery")
+    @Scripts.Render("~/Components/Codemaleon")
+    @Scripts.Render("~/Components/GmdUtil")
+    <script type="text/javascript">
+        ns('Pe.GMD.UI.Web.Formato')
+        Pe.GMD.UI.Web.Formato.Fecha = '@DatosConstantes.Formato.FormatoFechaSelector';
+        Pe.GMD.UI.Web.Formato.FechaMascara = '@DatosConstantes.Formato.FormatoFechaMascara';
+        Pe.GMD.UI.Web.Formato.Decimal = '##0.00';
+        Pe.GMD.UI.Web.Formato.DecimalSeparadorDecimal = '.';
+        Pe.GMD.UI.Web.Formato.DecimalSeparadorMiles = '';
+        Pe.GMD.UI.Web.Formato.EnteroSeparadorMiles = '';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.Index = '@Url.Action("Index", "Principal", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.CambiarIdioma = '@Url.Action("CambiarIdioma", "Principal", new { Area = "Base" })';
+        @*Pe.ElectroPeru.SGI.Presentacion.Base.Actions.Menu = '@Url.Action("GenerarMenu", "OpcionMenu", new { Area = "Mantenimiento" })';*@
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.BuscarResponsable = '@Url.Action("BuscarResponsable", "Responsable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Base.Actions.FormularioBuscarResponsable = '@Url.Action("FormularioBuscarResponsable", "Responsable", new { Area = "Mantenimiento" })';
+
+        //Mensajes Genericos
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico');
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.SeGuardoInformacionExito = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeGenerico.MensajeObservacionAuditoria = '@Html.Raw(MensajeResource.MensajeObservacionAuditoria)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Core.Constante.DatosConstantes.ConfiguracionUrlDespliegue')
+        Pe.ElectroPeru.SGI.Presentacion.Core.Constante.DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue = '@Html.Raw(DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource');
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ConfirmacionEliminacion = '@Html.Raw(MensajeResource.ConfirmacionEliminacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ConfirmacionGuardar = '@Html.Raw(MensajeResource.ConfirmacionGuardar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.EtiquetaErrorRegistro = '@Html.Raw(MensajeResource.EtiquetaErrorRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.RegistroInactivo = '@Html.Raw(MensajeResource.MsgRegistroInactivo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.RegistroActivo = '@Html.Raw(MensajeResource.MsgRegistroActivo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeGuardoInformacionExito = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeleccionarRegistroEliminar = '@Html.Raw(MensajeResource.SeleccionarRegistroEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeleccioneFiltro = '@Html.Raw(MensajeResource.SeleccioneFiltro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeEliminoInformacionExito = '@Html.Raw(MensajeResource.SeEliminoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeReactivoInformacionExito = '@Html.Raw(MensajeResource.SeReactivoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeEnvioConExito = '@Html.Raw(MensajeResource.EtiquetaSeEnvioReporte)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ErrorEnvioReporte = '@Html.Raw(MensajeResource.EtiquetaErrorEnvioReporte)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.DebeSeleccionarRegistro = '@Html.Raw(MensajeResource.DebeSeleccionarRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ConfirmacionAnular = '@Html.Raw(MensajeResource.ConfirmacionAnular)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.SeAnuloRegistro = '@Html.Raw(MensajeResource.SeAnuloRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.EtiquetaMensajeEliminarRegistro = '@Html.Raw(MensajeResource.EtiquetaMensajeEliminarRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.EtiquetaMensajeReactivarRegistro = '@Html.Raw(MensajeResource.EtiquetaMensajeReactivarRegistro)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.ValidarCampos = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource');
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.TituloConfirmarGuardar = '@Html.Raw(GenericoResource.EtiquetaTituloConfirmar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.EtiquetaTituloEliminar = '@Html.Raw(GenericoResource.EtiquetaTituloEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.EtiquetaTituloAdvertencia = '@Html.Raw(GenericoResource.EtiquetaTituloAdvertencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.EtiquetaTituloInformacion = '@Html.Raw(GenericoResource.EtiquetaTituloInformacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.EtiquetaFormularioIngresoAcciones = '@Html.Raw(GenericoResource.EtiquetaFormularioIngresoAcciones)'
+        Pe.ElectroPeru.SGI.Presentacion.Base.TituloResource.TituloFormularioCausaRaiz = '@Html.Raw(GenericoResource.EtiquetaFormularioCausaRaiz)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.MensajeResource.EtiquetaExportarTablaSinRegistro = '@Html.Raw(GenericoResource.EtiquetaExportarTablaSinRegistro)';
+
+        ns('Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes');
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.SubMenu = '@DatosConstantes.TablaTipoOpcionMenu.SubMenu';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Agregar = '@DatosConstantes.TablaAccionBoton.Agregar';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Editar = '@DatosConstantes.TablaAccionBoton.Editar';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Eliminar = '@DatosConstantes.TablaAccionBoton.Eliminar';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Inactivo = '@DatosConstantes.EstadoRegistro.Inactivo';
+        Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Activo = '@DatosConstantes.EstadoRegistro.Activo';
+
+        //Recurso Genérico
+        ns('Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource');
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDocumento = '@Html.Raw(BuscadorResponsableResource.GridDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridResponsable = '@Html.Raw(BuscadorResponsableResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridEmpresa = '@Html.Raw(BuscadorResponsableResource.GridEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridProyecto = '@Html.Raw(BuscadorResponsableResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridCorreoElectronico = '@Html.Raw(BuscadorResponsableResource.GridCorreoElectronico)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridCodigoTipoPlanilla = '@Html.Raw(BuscadorResponsableResource.GridCodigoTipoPlanilla)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridNombrePuestoTrabajo = '@Html.Raw(BuscadorResponsableResource.GridNombrePuestoTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaFormularioBuscarResponsable = '@Html.Raw(BuscadorResponsableResource.EtiquetaFormularioBuscarResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaFormularioBuscarEmpresa = '@Html.Raw(BuscadorEmpresaResource.EtiquetaFormularioBuscarEmpresa)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridEditar = '@Html.Raw(GenericoResource.GridEditar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridEliminar = '@Html.Raw(GenericoResource.GridEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDescargar = '@Html.Raw(GenericoResource.GridDescargar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridReactivar = '@Html.Raw(GenericoResource.GridReactivar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaNo = '@Html.Raw(GenericoResource.EtiquetaNo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaSi = '@Html.Raw(GenericoResource.EtiquetaSi)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaSiEliminar = '@Html.Raw(GenericoResource.EtiquetaSiEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaSiGrabar = '@Html.Raw(GenericoResource.EtiquetaSiGrabar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaSeleccionar = '@Html.Raw(GenericoResource.EtiquetaSeleccionar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaTodos = '@Html.Raw(GenericoResource.EtiquetaTodos)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDetalle = '@Html.Raw(GenericoResource.GridDetalle)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDetalleOEC = '@Html.Raw(GenericoResource.GridDetalleOEC)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDetalleOEE = '@Html.Raw(GenericoResource.GridDetalleOEE)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDetalleAEI = '@Html.Raw(GenericoResource.GridDetalleAEI)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.GridDetalleIndicador = '@Html.Raw(GenericoResource.GridDetalleIndicador)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaNotificar = '@Html.Raw(GenericoResource.EtiquetaNotificar)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaCopiarPlantilla = '@Html.Raw(GenericoResource.EtiquetaCopiarPlantilla)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaResponder = '@Html.Raw(GenericoResource.EtiquetaResponder)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaReenviar = '@Html.Raw(GenericoResource.EtiquetaReenviar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaVisualizar = '@Html.Raw(GenericoResource.EtiquetaVisualizar)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaTituloConfirmar = '@Html.Raw(GenericoResource.EtiquetaTituloConfirmar)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.BotonAceptar = '@Html.Raw(GenericoResource.BotonAceptar)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaGrillaTablaSinRegistro = '@Html.Raw(GenericoResource.EtiquetaGrillaTablaSinRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaGrillaBotonAnterior = '@Html.Raw(GenericoResource.EtiquetaGrillaBotonAnterior)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaGrillaBotonSiguiente = '@Html.Raw(GenericoResource.EtiquetaGrillaBotonSiguiente)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaGrillaMostrarFilas = '@Html.Raw(GenericoResource.EtiquetaGrillaMostrarFilas)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaFormularioAnexo = '@Html.Raw(GenericoResource.EtiquetaFormularioAnexo)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaFormularioFoto = '@Html.Raw(GenericoResource.EtiquetaFormularioFoto)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaElementoDuplicado = '@Html.Raw(GenericoResource.EtiquetaElementoDuplicado)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.MsgValideCampos = '@Html.Raw(GenericoResource.MsgValideCampos)';
+
+        ns('Pe.GMD.Web.Global.Format');
+        Pe.GMD.Web.Global.Format.Date = "dd/mm/yy";
+    </script>
+
+    @Scripts.Render("~/FrameworkStyle/js")
+    @Scripts.Render("~/Components/DataTables")
+    @Scripts.Render("~/Components/TinyMCE")
+    @Scripts.Render("~/Components/SumoSelect")
+    @Scripts.Render("~/Components/Gmd")
+    @Scripts.Render("~/Components/SelectCustomJs")
+    @Scripts.Render("~/Components/FancyBoxJs")
+    @Scripts.Render("~/Scripts/baselayout")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#slcIdioma').selectpicker();
+        });
+
+        @*setTimeOut(@hours, @minutes, @seconds);*@
+
+        $("#lnkCerrarSesion").click(function () {
+            $.post('@Url.Action("LogOutClient", "LogOut", new { Area = "Base" })', {}, function (data) {
+                window.location.href = '@Url.Action("Index", "Logeo", new { Area = "Base" })';
+            });
+        });
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

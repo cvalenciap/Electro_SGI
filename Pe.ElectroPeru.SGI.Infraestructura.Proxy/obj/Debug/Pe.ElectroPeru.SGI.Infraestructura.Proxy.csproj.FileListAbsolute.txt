@@ -1,0 +1,113 @@
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll.config
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.XML
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.csprojResolveAssemblyReference.cache
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll.config
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.XML
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.csprojResolveAssemblyReference.cache
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll.config
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.XML
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.csprojResolveAssemblyReference.cache
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll.config
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.XML
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.csprojResolveAssemblyReference.cache
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb

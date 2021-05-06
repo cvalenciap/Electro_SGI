@@ -1,0 +1,121 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ComiteSSoma
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ObservacionPlaneada
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ObservacionPlaneada.IngresoObservacion.ObservacionPlaneadaModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <h2 class="tituloCapacitacion">
+                <strong>@Html.Raw(ObservacionPlaneadaResource.EtiquetaCierreOPT)</strong>
+            </h2>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaCierre" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaNumeroRegistroOPT):</label> 
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtNumeroRegistroOPT", Model.BandejaObservacion.NumeroRegistroOPT, new { id = "txtNumeroRegistroOPT", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                    <div class="col-sm-1">
+                        <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaProyecto):</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtProyecto",string.IsNullOrEmpty(Model.BandejaObservacion.Proyecto) ? string.Empty : Model.BandejaObservacion.Proyecto, new { id = "txtProyecto", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                    <div class="col-sm-1">
+                        <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaEmpresa):</label>  
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtEmpresa", (string.IsNullOrEmpty(Model.BandejaObservacion.Empresa) || Model.BandejaObservacion.Empresa == "null") ? string.Empty : Model.BandejaObservacion.Empresa, new { id = "txtEmpresa", @class = "form-control", @disabled ="disabled" })                                        
+                    </div>
+                </div>                                
+            </div> 
+            <div class="form-group">
+                <div class="row">  
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaArea):</label> 
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtDescripcionArea",string.IsNullOrEmpty(Model.BandejaObservacion.Area) ? string.Empty : Model.BandejaObservacion.Area, new { id = "txtDescripcionArea", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                    <div class="col-sm-1">
+                        <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaProcedimiento):</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtDescripcionProcedimiento",(string.IsNullOrEmpty(Model.BandejaObservacion.Procedimiento) || Model.BandejaObservacion.Procedimiento == "null") ? string.Empty : Model.BandejaObservacion.Procedimiento, new { id = "txtDescripcionProcedimiento", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                </div>                                
+            </div> 
+            <div class="form-group">
+                <div class="row">    
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaFechaEjecucion):</label> 
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtFechaEjecucion", Model.BandejaObservacion.FechaEjecucionString, new { id = "txtFechaEjecucion", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                </div>                                
+            </div>      
+        </div>    
+        <div class="box-acciones-foot filter">            
+            <button class="btn btn-primary" type="button" id="btnCerrar">@Html.Raw(ObservacionPlaneadaResource.EtiquetaBotonCierre)</button>
+        </div>          
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(ObservacionPlaneadaResource.EtiquetaListaAccionesOPT)</h4>
+                </div>
+            </div>
+            <div class="table-grilla">
+                <div id="divGrdResultAcciones">
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.GridDescripcionCorta = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcionCorta)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.GridNivelRiesgo = '@Html.Raw(ObservacionPlaneadaResource.GridNivelRiesgo)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.GridNumeroAccion = '@Html.Raw(ObservacionPlaneadaResource.GridNumeroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.GridPlanteadaPor = '@Html.Raw(ObservacionPlaneadaResource.GridPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.GridFechaPlanteada = '@Html.Raw(ObservacionPlaneadaResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.GridResponsable = '@Html.Raw(ObservacionPlaneadaResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.GridFechaVencimiento = '@Html.Raw(ObservacionPlaneadaResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.GridDescripcionCortaAccion = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcionCortaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.GridEstadoDeAccion = '@Html.Raw(ObservacionPlaneadaResource.GridEstadoDeAccion)';
+
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.ConfirmacionCerrarComiteSSoma = '@Html.Raw(ComiteSSomaResource.ConfirmacionCerrarComiteSSoma)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Resource.MensajeCierreObservacionPlaneada = '@Html.Raw(ObservacionPlaneadaResource.MensajeCierreObservacionPlaneada)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Models')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Actions.CierreObservacionPlaneada = '@Url.Action("CierreObservacionPlaneada", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Actions.BandejaObservacion = '@Url.Action("Index", "BandejaObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.FormularioCierre.Actions.BandejaCierre = '@Url.Action("BandejaCierre", "BandejaObservacion", new { Area = "ObservacionPlaneada" })';
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformularioseguimientoaccion")
+}

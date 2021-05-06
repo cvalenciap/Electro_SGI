@@ -1,0 +1,140 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ActuaPositivo
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.VisitaGerencial
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.VisitaGerencial.IngresoVisita.IngresoVisitaModel
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@VisitaGerencialResource.EtiquetaBandejaVisitaGerencial</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+        <div class="filter-avanzado">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaProyecto):</label>
+                        @Html.DropDownList("slcProyecto", Model.ListaProyectos, new { @class = "form-control", @id = "slcProyecto" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaFechaDesde):</label>
+                        <input id="dtpFechaVisitaGerencialDesde" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaFechaHasta):</label>
+                        <input id="dtpFechaVisitaGerencialHasta" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoVisita):</label>
+                        @Html.DropDownList("slcEstadoIngresoDocumento", Model.ListaEstadoIngresoDocumento, new { @class = "form-control", @id = "slcEstadoIngresoDocumento" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoIngresoPlanAccion):</label>
+                        @Html.DropDownList("slcEstadoIngresoPlanAccion", Model.ListaEstadoPlanAccion, new { @class = "form-control", @id = "slcEstadoIngresoPlanAccion" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoProcesoPlanAccion):</label>
+                        @Html.DropDownList("slcEstadoProcesoPlanAccion", Model.ListaEstadoProcesoPlanAccion, new { @class = "form-control", @id = "slcEstadoProcesoPlanAccion" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoDocumento):</label>
+                        @Html.DropDownList("slcEstadoDocumento", Model.ListaEstadoDocumento, new { @class = "form-control", @id = "slcEstadoDocumento" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoMinimoAccion):</label>
+                        @Html.DropDownList("slcEstadoMinimoAccion", Model.ListaEstadoMinimoAccion, new { @class = "form-control", @id = "slcEstadoMinimoAccion" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" id="btnLimpiar">@Html.Raw(RecordsResource.EtiquetaLimpiar)</button>
+            <button class="btn btn-primary" id="btnBuscar">@Html.Raw(RecordsResource.EtiquetaBuscar)</button>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+            <div class="col-sm-6 text-right">
+                <button id="btnDescargarExcel" class="btn btn-primary">@ActuaPositivoResource.BtnDescargarExcel</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <div class="table-grilla">
+                        <div id="divGrdResultVisitaGerencial">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridNroVisita = '@Html.Raw(VisitaGerencialResource.GridNroVisita)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridProyecto = '@Html.Raw(VisitaGerencialResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridVisitaFechaDesde = '@Html.Raw(VisitaGerencialResource.GridVisitaFechaDesde)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridVisitaFechaHasta = '@Html.Raw(VisitaGerencialResource.GridVisitaFechaHasta)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridGerenteProyecto = '@Html.Raw(VisitaGerencialResource.GridGerenteProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridVisitante = '@Html.Raw(VisitaGerencialResource.GridVisitante)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridFechaAviso = '@Html.Raw(VisitaGerencialResource.GridFechaAviso)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridFechaTopePlanAccion = '@Html.Raw(VisitaGerencialResource.GridFechaTopePlanAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridNroObservacion = '@Html.Raw(VisitaGerencialResource.GridNroObservacion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridNroAcciones = '@Html.Raw(VisitaGerencialResource.GridNroAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridEstadoVisita = '@Html.Raw(VisitaGerencialResource.GridEstadoVisita)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridEstadoIngresoPlanAccion = '@Html.Raw(VisitaGerencialResource.GridEstadoIngresoPlanAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridEstadoProcesoPlanAccion = '@Html.Raw(VisitaGerencialResource.GridEstadoProcesoPlanAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridEstadoTotalVisitaGerencial = '@Html.Raw(VisitaGerencialResource.GridEstadoTotalVisitaGerencial)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.GridEstadoMinimoAccion = '@Html.Raw(VisitaGerencialResource.GridEstadoMinimoAccion)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions.BuscarVisitaGerencial = '@Url.Action("BuscarVisitaGerencial", "IngresoVisita", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions.FormularioIngresoVisita = '@Url.Action("Index", "IngresoVisita/FormularioIngresoVisita", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions.DescargarReporteIngresoVisita = '@Url.Action("DescargarReporteIngresoVisita", "IngresoVisita", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions.EliminarVisitaGerencial = '@Url.Action("EliminarVisitaGerencial", "IngresoVisita", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions.FormularioIngresoAccion = '@Url.Action("Index", "IngresoAccion", new { Area = "VisitaGerencial" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoIngresoPlanAccion')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoIngresoPlanAccion.NoRequiere = '@DatosConstantes.ParametrosEstadoIngresoPlanAccion.NoRequiere';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoIngresoPlanAccion.SinInformacion = '@DatosConstantes.ParametrosEstadoIngresoPlanAccion.SinInformacion';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoIngresoPlanAccion.Abierto = '@DatosConstantes.ParametrosEstadoIngresoPlanAccion.Abierto';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoIngresoPlanAccion.Cerrado = '@DatosConstantes.ParametrosEstadoIngresoPlanAccion.Cerrado';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoIngresoPlanAccion.AnuladoPorGerencia = '@DatosConstantes.ParametrosEstadoIngresoPlanAccion.AnuladoPorGerencia';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoProcesoPlanAccion')
+
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoProcesoPlanAccion.NoRequiere = '@DatosConstantes.ParametrosEstadoProcesoPlanAccion.NoRequiere';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoProcesoPlanAccion.SinInformacion = '@DatosConstantes.ParametrosEstadoProcesoPlanAccion.SinInformacion';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoProcesoPlanAccion.AbiertoEnFecha = '@DatosConstantes.ParametrosEstadoProcesoPlanAccion.AbiertoEnFecha';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoProcesoPlanAccion.AbiertoFueraDeFecha = '@DatosConstantes.ParametrosEstadoProcesoPlanAccion.AbiertoFueraDeFecha';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoProcesoPlanAccion.CerradoEnFecha = '@DatosConstantes.ParametrosEstadoProcesoPlanAccion.CerradoEnFecha';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoProcesoPlanAccion.CerradoFueraDeFecha = '@DatosConstantes.ParametrosEstadoProcesoPlanAccion.CerradoFueraDeFecha';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.DatosConstantes.ParametrosEstadoProcesoPlanAccion.AnuladoPorGerencia = '@DatosConstantes.ParametrosEstadoProcesoPlanAccion.AnuladoPorGerencia';
+
+    </script>
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordanexoappendix");
+}

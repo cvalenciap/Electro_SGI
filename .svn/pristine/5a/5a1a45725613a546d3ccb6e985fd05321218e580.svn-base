@@ -1,0 +1,994 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pe.ElectroPeru.SGI.Infraestructura.CommandModel</name>
+    </assembly>
+    <members>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.BaseEntityMapping`1">
+            <summary>
+            Clase base para el mapping de entidades
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.BaseEntityMapping`1.ConfigureAuditMapping(System.Boolean)">
+            <summary>
+            Permite configurar los atributos del registro de auditoria.
+            </summary>
+            <param name="isAuditContex">Indicador si es un contexto de auditoria</param>
+            <returns>Indicador si la entidad tiene registro de auditoria</returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.Entity">
+            <summary>
+            Clase base para las entidades
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.Entity.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.Entity.UsuarioCreacion">
+            <summary>
+            Usuario de Creación
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.Entity.FechaCreacion">
+            <summary>
+            Fecha de Creación 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.Entity.TerminalCreacion">
+            <summary>
+            Terminal de Creación 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.Entity.UsuarioModificacion">
+            <summary>
+            Usuario de Modificación
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.Entity.FechaModificacion">
+            <summary>
+            Fecha de Modificación 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.Entity.TerminalModificacion">
+            <summary>
+            Terminal de Modificación
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Base.TraceAuditAttribute">
+            <summary>
+            Define si una entidad va registrar auditoria o no
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.AreaEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.AreaEntity.NombreArea">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.AreaEntity.CodigoResponsable">
+            <summary>
+            Código de Colaborador Responsable
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.AccionEstrategicaInstitucionalDetalleEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.AccionEstrategicaInstitucionalEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.AccionEstrategicaSectorialEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.AccionEstrategicaSectorialDetalleEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableValorEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableValorEntity.CodigoVariableValor">
+            <summary>
+            Codigo Variable Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableValorEntity.CodigoVariable">
+            <summary>
+            Codigo Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableValorEntity.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableValorEntity.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableValorEntity.DescripcionSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableValorEntity.Valor">
+            <summary>
+            Valor Meta
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorMetaEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorMetaEntity.CodigoIndicadorMeta">
+            <summary>
+            Codigo Indicador Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorMetaEntity.CodigoIndicador">
+            <summary>
+            Codigo Indicador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorMetaEntity.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorMetaEntity.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorMetaEntity.ValorMeta">
+            <summary>
+            Valor Meta
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.FormulaDetalleEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.FormulaEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ObjetivoEstrategicoEmpresaAccionEstrategicaInstitucionalEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ObjetivoEstrategicoSectorialDetalleEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ObjetivoEstrategicoSectorialEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorAmbitoEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorAmbitoEntity.CodigoIndicadorAmbito">
+            <summary>
+            Codigo Indicador Ambito
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorAmbitoEntity.CodigoIndicador">
+            <summary>
+            Codigo Indicador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorAmbitoEntity.CodigoAmbito">
+            <summary>
+            Tipo Ambito
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorAmbitoEntity.AmbitoOtros">
+            <summary>
+            Tipo Ambito Otros
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.PerspectivaDetalleEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.PerspectivaEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ObjetivoEstrategicoFonafeDetalleEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ObjetivoEstrategicoFonafeEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ObjetivoEstrategicoEmpresaDetalleEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ObjetivoEstrategicoEmpresaEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorEntity.FechaInicioVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.IndicadorEntity.FechaFinVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity">
+            <summary>
+            Entidad de Responsable
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity.CodigoResponsable">
+            <summary>
+            Código de Responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity.Nombres">
+            <summary>
+            Nombres
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity.ApellidoPaterno">
+            <summary>
+            Apellido Paterno
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity.ApellidoMaterno">
+            <summary>
+            Apellido Materno
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity.CodigoGenero">
+            <summary>
+            Indicador si Permite Cierre
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity.CodigoCargo">
+            <summary>
+            Código de Puesto de Trabajo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity.CorreoElectronico">
+            <summary>
+            Correo Electrónico
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity.CodigoTipoDocumento">
+            <summary>
+            Código de Tipo de Documento
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.ResponsableEntity.NumeroDocumento">
+            <summary>
+            Número de Documento
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableDetalleEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableDetalleEntity.FechaInicioVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableDetalleEntity.FechaFinVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableDetalleEntity.CodigoArea">
+            <summary>
+            Código de Colaborador Responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableDetalleEntity.CodigoResponsable">
+            <summary>
+            Código de Colaborador Responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableDetalleEntity.CodigoPeriodicidad">
+            <summary>
+            Código de Colaborador Responsable
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableEntity">
+            <summary>
+            Entidad de Campo
+            </summary>
+            <remarks>
+            Creación:       GMD 08022017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableEntity.NombreVariable">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableEntity.NombreSiglaVariable">
+            <summary>
+            Código de Colaborador Responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableEntity.DescripcionVariable">
+            <summary>
+            Código de Colaborador Responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mantenimiento.VariableEntity.CodigoTipoVariable">
+            <summary>
+            Código de Colaborador Responsable
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AreaMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AreaMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AccionEstrategicaInstitucionalDetalleMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AccionEstrategicaInstitucionalDetalleMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AccionEstrategicaInstitucionalMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AccionEstrategicaInstitucionalMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AccionEstrategicaSectorialMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AccionEstrategicaSectorialMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AccionEstrategicaSectorialDetalleMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.AccionEstrategicaSectorialDetalleMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.VariableValorMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.VariableValorMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.FormulaDetalleMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.FormulaDetalleMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.FormulaMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.FormulaMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.IndicadorMetaMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.IndicadorMetaMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoEmpresaAccionEstrategicaInstitucionalMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoEmpresaAccionEstrategicaInstitucionalMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoSectorialDetalleMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoSectorialDetalleMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoSectorialMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoSectorialMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.IndicadorAmbitoMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.IndicadorAmbitoMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.PerspectivaDetalleMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.PerspectivaDetalleMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.PerspectivaMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.PerspectivaMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoFonafeDetalleMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoFonafeDetalleMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoFonafeMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoFonafeMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoEmpresaDetalleMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoEmpresaDetalleMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoEmpresaMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ObjetivoEstrategicoEmpresaMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.IndicadorMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.IndicadorMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.VariableDetalleMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.VariableDetalleMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.VariableMapping">
+            <summary>
+            Implementación del mapeo de la entidad ÁREA
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.VariableMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ResponsableMapping">
+            <summary>
+            Implementación del mapeo de la entidad Responsable
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Mantenimiento.ResponsableMapping.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.ParametroMapping">
+            <summary>
+            Implementación del mapeo de la entidad parámetro
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.ParametroMapping.#ctor">
+            <summary>
+            Constuctor del Mapping de Parámetro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.ParametroSeccionMapping">
+            <summary>
+            Implementación del mapeo de la entidad parámetro sección
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.ParametroSeccionMapping.#ctor">
+            <summary>
+            Constructor de la Clase
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.ParametroValorMapping">
+            <summary>
+            Implementación del mapeo de la entidad parámetro valor
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.ParametroValorMapping.#ctor">
+            <summary>
+            Constuctor del Mapping de Parametro Valor
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.PlantillaNotificacionMapping">
+            <summary>
+            Implementación del mapeo de la entidad parámetro
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.PlantillaNotificacionMapping.#ctor">
+            <summary>
+            Constuctor del Mapping de Parámetro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.SistemaMapping">
+            <summary>
+            Implementación del mapeo de la entidad sistema
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Mapping.Politicas.SistemaMapping.#ctor">
+            <summary>
+            Constuctor del Mapping de Sistema
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity">
+            <summary>
+            Clase que representa la entidad parámetro
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.CodigoParametro">
+            <summary>
+            Código de parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.CodigoEmpresa">
+            <summary>
+            Código de Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.CodigoSistema">
+            <summary>
+            Código de sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.CodigoIdentificador">
+            <summary>
+            Código de identificador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.Nombre">
+            <summary>
+            Nombre 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.Descripcion">
+            <summary>
+            Descripción
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.IndicadorPermiteAgregar">
+            <summary>
+            Indicador que permite agregar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.IndicadorPermiteModificar">
+            <summary>
+            Indicador que permite modificar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.IndicadorPermiteEliminar">
+            <summary>
+            Indicador que permite eliminar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.TipoParametro">
+            <summary>
+            Tipo de Parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroEntity.IndicadorEmpresa">
+            <summary>
+            Indicador empresa
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity">
+            <summary>
+            Clase que representa la entidad parámetro sección
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.CodigoParametro">
+            <summary>
+            Código de parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.CodigoSeccion">
+            <summary>
+            Código de Sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.Nombre">
+            <summary>
+            Nombre 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.CodigoTipoDato">
+            <summary>
+            Código de Tipo de Dato
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.IndicadorPermiteModificar">
+            <summary>
+            Indicador que permite modificar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.IndicadorObligatorio">
+            <summary>
+            Indicador Obligatorio
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.IndicadorSistema">
+            <summary>
+            Indicador de sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.CodigoParametroRelacionado">
+            <summary>
+            Código de Parametro Relacionado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.CodigoSeccionRelacionado">
+            <summary>
+            Código de Sección Relacionada
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroSeccionEntity.CodigoSeccionRelacionadoMostrar">
+            <summary>
+            Código de Sección Relacionada a Mostrar
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroValorEntity">
+            <summary>
+            Clase que representa la entidad parámetro valor
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroValorEntity.CodigoParametro">
+            <summary>
+            Código de parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroValorEntity.CodigoSeccion">
+            <summary>
+            Código de sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroValorEntity.CodigoValor">
+            <summary>
+            Código de valor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.ParametroValorEntity.Valor">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity">
+            <summary>
+            Representa el objeto entity de Plantilla Notificacion
+            </summary>
+            <remarks>
+            Creación:   GMD 20150401 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity.CodigoPlantillaNotificacion">
+            <summary>
+            Código Plantilla Notificacion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity.CodigoSistema">
+            <summary>
+            Código de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity.CodigoTipoNotificacion">
+            <summary>
+            Código Tipo de Notificación
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity.Asunto">
+            <summary>
+            Asunto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity.IndicadorActiva">
+            <summary>
+            Indicador Activa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity.Contenido">
+            <summary>
+            Contenido
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity.CodigoTipoDestinatario">
+            <summary>
+            Código del Tipo de Destinatario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity.Destinatario">
+            <summary>
+            Destinatario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.PlantillaNotificacionEntity.DestinatarioCopia">
+            <summary>
+            Destinatario en Copia
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.SistemaEntity">
+            <summary>
+            Clase que representa la entidad de sistema
+            </summary>
+            <remarks>
+            Creación:   GMD 20150107 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.SistemaEntity.Codigo">
+            <summary>
+            Código de sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.CommandModel.Politicas.SistemaEntity.Nombre">
+            <summary>
+            Nombre 
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,43 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Reporte
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Reporte.ReporteIncidente.ReporteIncidenteNoCerradoModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(ReporteIncidenteNoCerrado.EtiquetaTituloReporteIncidenteNoCerrado)</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+        <form method="post" id="frmReporteIncidenteNoCerrado">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>@Html.Raw(ReporteIncidenteNoCerrado.EtiquetaProyecto): </label>
+                        @Html.DropDownList("codigoProyecto", Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(ReporteIncidenteNoCerrado.EtiquetaFechaDesde): </label>
+                        <input type="text" id="dtpFechaDesde" class="form-control" name="FechaDesde" placeholder="DD/MM/YYYY" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>@Html.Raw(ReporteIncidenteNoCerrado.EtiquetaFechaHasta): </label>
+                        <input type="text" id="dtpFechaHasta" class="form-control" name="FechaHasta" placeholder="DD/MMM/YYYY">
+                    </div>
+                </div>
+            </div>
+            <div id="divMostrarReporte" class="box-acciones-foot text-center">
+                <button class="btn btn-primary" id="btnMostrarReporte">@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Base.GenericoResource.BotonMostrar)</button>
+            </div>
+        </form>
+        <br />
+        <div id="divContenedorReportView" style="overflow-x: auto; overflow-y: hidden; width: 100%;">
+            <iframe id="ifrContenedor" src="~/Base/Reporte/Index?Area=Reporte" style="width: 100%; height: 620px"></iframe>
+        </div>
+    </div>
+</div>

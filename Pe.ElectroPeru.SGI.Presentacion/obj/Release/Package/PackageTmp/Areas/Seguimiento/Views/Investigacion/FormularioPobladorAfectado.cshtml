@@ -1,0 +1,43 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionCategoriaImpactoComunidadModel
+<div class="modal-body">
+    <form onsubmit="return false;" id="frmPobladorAfectado">
+        <fieldset @(Model.PobladorAfectado.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaNombresyApellidos): (*)</label>
+                    @Html.TextBox("txtNombrePobladorAfectado", Model.PobladorAfectado.Nombres, new { id = "txtNombrePobladorAfectado", maxlength = 100, @class = "form-control" , @validable = "required Validar"})                   
+                </div>
+            </div>
+         </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaDocumentoIdentidad): (*)</label>
+                    @Html.TextBox("txtNumeroDocumentoPobladorAfectado", Model.PobladorAfectado.NumeroDocumento, new { id = "txtNumeroDocumentoPobladorAfectado", maxlength = 8, @class = "form-control" , @validable = "required Validar"})                      
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaTelefonoContacto): (*)</label>
+                    @Html.TextBox("txtTelefonoPobladorAfectado", Model.PobladorAfectado.Telefono, new { id = "txtTelefonoPobladorAfectado",maxlength = 35, @class = "form-control" , @validable = "required Validar"})                      
+                </div>
+            </div>
+         </div>
+        </fieldset>
+     </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarPobladorAfectado" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    @if (Model.PobladorAfectado.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+    {
+        <button class="btn btn-primary" id="btnGrabarPobladorAfectado">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+    }
+</div>
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioComunidadModel = @(Html.Raw(Json.Encode(Model)))
+</script>

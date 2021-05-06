@@ -1,0 +1,86 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.AsignacionProyectoModel
+
+<div class="modal-body">    
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4"> 
+                <label style="margin-top: 8px"><strong>@Html.Raw(AsignacionResource.EtiquetaAgregarProcesosEquipo): </strong></label>    
+            </div>
+            <div class="col-md-6">                     
+                <input type="text" class="form-control" id="txtNombreEquipo" disabled readonly="true"/>              
+            </div>
+        </div>
+    </div> 
+    <div class="title-interna">
+        <span>@Html.Raw(AsignacionResource.EtiquetaProcesos)</span>
+    </div>    
+    <div class="table-grilla">
+        <div id="divGrdResultadoProcesosModal">
+        </div>
+    </div>
+    <div class="row form-inline">
+        <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-8 text-right"><label style="margin-top:8px;">@Html.Raw(AsignacionResource.EtiquetaCantidadProcesos): </label></div>                     
+                        <div class="col-sm-3"><input type="text" class="form-control" id="txtCantidadProcesos" readonly="true"/></div>
+                    </div>
+                </div>
+         </div>
+         <div class="col-sm-2">
+         </div>
+        <div class="col-sm-5">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-9 text-right"><label style="margin-top: 8px;">@Html.Raw(AsignacionResource.EtiquetaTotales): </label></div>                     
+                    <div class="col-sm-3"><input type="text" style="margin-left: 30px;" class="form-control text-center" id="txtCantidadHorasPlanificadasProceso" readonly="true"/></div>  
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+<div id="blockSubProcesos" class="modal-body" style="display:none; padding-top: 0">
+    <div class="title-interna">
+        <span>@Html.Raw(AsignacionResource.EtiquetaSubProceso)</span> 
+    </div>
+    <div class="table-grilla">
+        <div id="divGrdResultadoSubProcesos"></div>
+    </div>
+    <div class="row form-inline form-group">
+        <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-9 text-right"><label style="margin-top:8px;">@Html.Raw(AsignacionResource.EtiquetaCantidadSubProcesos): </label></div>                     
+                        <div class="col-sm-3"><input type="text" class="form-control" id="txtCantidadSubProcesos" readonly="true"/></div>
+                    </div>
+                </div>
+         </div>
+        <div class="col-sm-5">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-6 text-right"><label style="margin-top:8px;">@Html.Raw(AsignacionResource.EtiquetaTotales): </label></div>                     
+                    <div class="col-sm-3"><input type="text" style="margin-left: 0px;" class="form-control" id="txtCantidadHorasPlanificadas" readonly="readonly"/></div>    
+                    <div class="col-sm-3"><input type="text" style="margin-left: 0px;" class="form-control" id="txtPesoNotasSubProceso" readonly="readonly"/></div>    
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+                    <div class="col-sm-6 text-left"><label style="margin-top:8px;">@Html.Raw(AsignacionResource.EtiquetaNotaMinimaAprobatoria): </label></div>                     
+                    <div class="col-sm-5"><input type="text" maxlength="3" style="margin-left: 0px; text-align: center" class="form-control" id="txtNotaMinimaAprobatoria" /></div>    
+
+        </div>
+    </div>
+</div>
+<div id="blockBtnsSubProcesos" class="box-acciones-foot modal_box" style="display: none;">
+    <button class="btn btn-default" id="btnCancelarEquipoProceso" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarEquipoProceso">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>
+
+<script type="text/javascript">  
+    ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.FormularioAgregarProcesosEquipoModal.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.FormularioAgregarProcesosEquipoModal.Models.AsignacionProyectoModel = @(Html.Raw(Json.Encode(Model)))
+</script>
+
+

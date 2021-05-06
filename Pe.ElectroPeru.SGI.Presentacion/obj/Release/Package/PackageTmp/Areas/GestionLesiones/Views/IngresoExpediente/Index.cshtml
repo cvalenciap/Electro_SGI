@@ -1,0 +1,402 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.GestionLesiones
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.GestionLesiones.IngresoExpediente.ExpedienteMedicoModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto"><strong>@Html.Raw(GestionLesionesResource.EtiquetaTituloIngresoExpedientes)</strong></h2>
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label>@Html.Raw(GestionLesionesResource.EtiquetaNumeroExpedienteMedico):</label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">
+                            @Html.TextBox("txtNumeroExpedienteTecnico", Model.ExpedienteMedico.NumeroExpediente, new { id = "txtNumeroExpedienteTecnico", @class = "form-control", @disabled="disabled" })
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaGestionLesiones" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsIngresoExpediente" style="text-transform: uppercase">
+                    <li role="presentation" class="active">
+                        <a href="#tabCreacionExpediente" class="top-tab" aria-controls="tabCreacionExpediente" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(GestionLesionesResource.EtiquetaTabCreacionExpediente)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabInformacionGeneral" class="top-tab" aria-controls="tabInformacionGeneral" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(GestionLesionesResource.EtiquetaTabInformacionGeneral)</a>
+                    </li>
+                    @if(Model.EstadoAtencion == DatosConstantes.EstadosDeAtencionMedica.Cerrado && Model.ExpedienteMedico.IndicadorCierre)
+                    {
+                        <li role="presentation">
+                            <a href="#tabCierre" class="top-tab" aria-controls="tabCierre" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(GestionLesionesResource.EtiquetaTabCierre)</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabCreacionExpediente">
+                        <form onsubmit="return false;" id="frmInformacionExpediente">
+                            <div class="title-interna">
+                                <span>@Html.Raw(GestionLesionesResource.EtiquetaTituloInformacionIncidente)</span>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaSeleccionarProyecto):</label>
+                                        @Html.DropDownListFor(model => model.ExpedienteMedico.CodigoProyecto, Model.ListaProyectos, new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaNumeroRegistro):</label>
+                                        <div class="row">
+                                            <div class="col-sm-9">
+                                                @Html.TextBox("txtNumeroRegistroIncidente", Model.ExpedienteMedico.NumeroRegistroIncidente, new { id = "txtNumeroRegistroIncidente", @class = "form-control"  })
+                                            </div>
+                                            @if (string.IsNullOrEmpty(Model.EstadoAtencion) || Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado)
+                                            {
+                                                <div class="col-sm-3"><button class="btn btn-primary" id="btnBuscarNumeroRegistro">@Html.Raw(InvestigacionResource.EtiquetaBuscar)</button></div>
+                                            }
+                                        </div>                                           
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaProyecto):</label>
+                                        @Html.TextBox("txtDescripcionProyectoIncidente", Model.ExpedienteMedico.DescripcionProyectoIncidente, new { id = "txtDescripcionProyectoIncidente", @class = "form-control", @disabled="disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaPais):</label>                                        
+                                        @Html.Hidden("hddCodigoPaisIncidente", null, new { ïd = "hddCodigoPaisIncidente" })                                   
+                                        @Html.TextBox("txtDescripcionPaisIncidente", Model.ExpedienteMedico.DescripcionPaisIncidente, new { id = "txtDescripcionPaisIncidente", @class = "form-control", @disabled="disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaFechaIncidente):</label>
+                                        @Html.TextBox("txtFechaIncidente", Model.ExpedienteMedico.FechaIncidenteString, new { id = "txtFechaIncidente", @class = "form-control", @disabled="disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaHoraIncidente):</label>
+                                        @Html.TextBox("txtHoraIncidente", Model.ExpedienteMedico.HoraIncidenteString, new { id = "txtHoraIncidente", @class = "form-control", @disabled="disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaTituloIncidente):</label>
+                                        @Html.TextBox("txtTituloIncidente", Model.ExpedienteMedico.TituloIncidente, new { id = "txtTituloIncidente", @class = "form-control", @disabled="disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form onsubmit="return false;" id="frmInformacionColaborador">
+                            <div class="title-interna">
+                                <span>@Html.Raw(GestionLesionesResource.EtiquetaTituloInformacionColaborador)</span>
+                                <div class="acciones-form btn-group btn-group-table">
+                                    @if (string.IsNullOrEmpty(Model.EstadoAtencion) || Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado)
+                                    {
+                                    <button id="btnAgregarEmpresaColaborador" type="button" class="btn-table text-line one">
+                                        @Html.Raw(InvestigacionResource.EtiquetaAgregarPersona)
+                                    </button>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row">
+                                @Html.Hidden("hdnCodigoColaborador", Model.Colaborador.CodigoColaborador, new { ïd = "hdnCodigoColaborador" })                                         
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaNombreyApellidos):</label>
+                                        @Html.TextBox("txtNombresyApellidosColaborador", Model.Colaborador.NombreCompletoColaborador, new { id = "txtNombresyApellidosColaborador", @class = "form-control", @disabled="disabled" })                                 
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaTipoDocumento):</label>
+                                        @Html.TextBox("txtTipoDocumentoColaborador", Model.Colaborador.DescripcionTipoDocumento, new { id = "txtTipoDocumentoColaborador", @class = "form-control", @disabled="disabled" })                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaNumeroDocumento):</label>
+                                        @Html.TextBox("txtNumeroDocumentoColaborador", Model.Colaborador.NumeroDocumento, new { id = "txtNumeroDocumentoColaborador", @class = "form-control", @disabled="disabled" })                                                                                
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaFechaNacimiento):</label>
+                                        @Html.TextBox("txtFechaNacimientoColaborador", Model.Colaborador.FechaNacimientoString, new { id = "txtFechaNacimientoColaborador", @class = "form-control", @disabled="disabled" })                                                                                
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaEdad):</label>
+                                        @Html.TextBox("txtEdadColaborador", Model.Colaborador.Edad, new { id = "txtEdadColaborador", @class = "form-control", @disabled="disabled" })                                                                                                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaGenero):</label>
+                                        @Html.TextBox("txtGeneroColaborador", Model.Colaborador.DescripcionGenero, new { id = "txtGeneroColaborador", @class = "form-control", @disabled="disabled" })                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaEmpresa):</label>
+                                        @Html.TextBox("txtNombreEmpresaColaborador", Model.Colaborador.NombreEmpresa, new { id = "txtNombreEmpresaColaborador", @class = "form-control", @disabled="disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaPuestoTrabajo):</label>
+                                        @Html.TextBox("txtNombrePuestoTrabajoColaborador", Model.Colaborador.NombrePuestoTrabajo, new { id = "txtNombrePuestoTrabajoColaborador", @class = "form-control", @disabled="disabled" })                                                                                                                                                                
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaProyecto):</label>
+                                        @Html.TextBox("txtNombreProyectoColaborador", Model.Colaborador.NombreProyecto, new { id = "txtNombreProyectoColaborador", @class = "form-control", @disabled="disabled" })                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaTipoPlanilla):</label>
+                                        @Html.TextBox("txtTipoPlanillaColaborador", Model.Colaborador.CodigoTipoPlanilla, new { id = "txtTipoPlanillaColaborador", @class = "form-control", @disabled="disabled" })                                                                                
+                                    </div>
+                                </div>
+                            </div>
+                            @if (string.IsNullOrEmpty(Model.EstadoAtencion) || Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado)
+                            {
+                                <div id="divBotonAccion1" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarInformacionColaborador">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarInformacionColaborador">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div> 
+                            }    
+                        </form>                        
+                    </div>
+                    <div class="tab-pane fade in" id="tabInformacionGeneral">                        
+                        <div class="title-interna">
+                            <span>@Html.Raw(GestionLesionesResource.EtiquetaTituloInformacionIncidente)</span>
+                        </div>
+                        <div id="divInformacionGeneral" class="hidden">                            
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaLesionesAnteriores):</label>
+                                        @Html.DropDownListFor(model => model.ExpedienteMedico.LesionAnterior, Model.ListaLesionesAnteriores, Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado ? (object)new { id = "slcLesionesAnteriores", @class = "form-control"} : new { id = "slcLesionesAnteriores", @class = "form-control", @disabled="disabled"})                                  
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(GestionLesionesResource.EtiquetaComentario):</label>
+                                        @Html.TextBox("txtComentarioLesion", Model.ExpedienteMedico.ComentarioLesion, Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado ? (object)new { id = "txtComentarioLesion", @class = "form-control" } : new { id = "txtComentarioLesion", @class = "form-control", @disabled="disabled" })                                                                           
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    @if (string.IsNullOrEmpty(Model.EstadoAtencion) || Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado)
+                                    {
+                                        <div class="form-group">
+                                            <label>&nbsp;&nbsp;</label><br />
+                                            <button class="btn btn-primary" id="btnGuardarExpediente">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>                            
+                            <form onsubmit="return false;" id="frmInformacionGeneral">
+                                <fieldset @(Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado ? null : "disabled=disabled")>
+                                <div class="row">
+                                    <input type="hidden" id="hddCodigoExpedienteMedicoRestriccion"/>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(GestionLesionesResource.EtiquetaRestricciones): (*)</label>
+                                            @Html.DropDownList("slcRestriccionMedica", Model.ListaRestriccionMedica, new { id = "slcRestriccionMedica", @class = "form-control", @validable = "required Validar" })                                       
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(GestionLesionesResource.EtiquetaDescripcion):</label>
+                                            @Html.TextBox("txtDescripcionRestriccion", string.Empty, new { id ="txtDescripcionRestriccion", @class = "form-control" })                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                </fieldset>
+                            </form>
+                            @if (string.IsNullOrEmpty(Model.EstadoAtencion) || Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado)
+                            {
+                                <div id="divBotonAccion2" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarInformacionGeneral">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarInformacionGeneral">@Html.Raw(GestionLesionesResource.EtiquetaBotonAgregar)</button>
+                                </div>
+                            }
+                            <div class="table-grilla">
+                                <div id="divGrdInformacionIncidente">
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="title-interna">
+                            <span>@Html.Raw(GestionLesionesResource.EtiquetaTituloInformacionIncidente)</span>
+                        </div>
+                        <div id="divInformacionIncidente" class="hidden">
+                            <form onsubmit="return false;" id="frmInformacionIncidente">
+                                <fieldset @(Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado ? null : "disabled=disabled")>                              
+                                <div class="row">
+                                    <input type="hidden" id="hddCodigoExpedienteMedicoLesion"/>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(GestionLesionesResource.EtiquetaParteLesionada): (*)</label>
+                                            @Html.DropDownList("slcParteLesionada", Model.ListaParteCuerpoLesionada, new { id = "slcParteLesionada", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(GestionLesionesResource.EtiquetaNaturalezaLesion): (*)</label>
+                                            @Html.DropDownList("slcNaturalezaLesion", Model.ListaNaturalezaLesion, new { id = "slcNaturalezaLesion", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(GestionLesionesResource.EtiquetaMecanismo): (*)</label>
+                                            @Html.DropDownList("slcMecanismoLesion", Model.ListaMecanismoLesion, new { id = "slcMecanismoLesion", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(GestionLesionesResource.EtiquetaComentario):</label>
+                                            @Html.TextBox("txtComentario", string.Empty, new { id = "txtComentario", @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                                </fieldset>
+                            </form>
+                            @if (string.IsNullOrEmpty(Model.EstadoAtencion) || Model.EstadoAtencion != DatosConstantes.EstadosDeAtencionMedica.Cerrado)
+                            {
+                                <div id="divBotonAccion3" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarInformacionIncidente">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarInformacionIncidente">@Html.Raw(GestionLesionesResource.EtiquetaBotonAgregar)</button>
+                                </div>
+                            }                            
+                            <div class="table-grilla">
+                                <div id="divGrdInformacionGeneralLesion">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @if (Model.EstadoAtencion == DatosConstantes.EstadosDelExpedienteMedico.Cerrado)
+                    {
+                        <div class="tab-pane fade in" id="tabCierre">
+                            <form onsubmit="return false;" id="frmCierre">                             
+                                <div class="title-interna">
+                                    <span>@Html.Raw(GestionLesionesResource.EtiquetaTituloInformacionGeneral)</span>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label style="margin-top: 6px">@Html.Raw(GestionLesionesResource.EtiquetaCambiarEstado): (*)</label>                                            
+                                        </div>
+                                        <div class="col-sm-3">  
+                                           @Html.DropDownList("slcEstadoExpedienteMedico", Model.ListaEstadoExpedienteMedico, new { id = "slcEstadoExpedienteMedico", @class = "form-control", @validable = "required Validar" })                                                                                 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label style="margin-top: 6px">@Html.Raw(GestionLesionesResource.EtiquetaComentario): (*)</label>                                            
+                                        </div>
+                                        @if (Model.ExpedienteMedico.EstadoExpediente == DatosConstantes.EstadosDelExpedienteMedico.Reabierto)
+                                        {
+                                            <div class="col-sm-6"> 
+                                                @Html.TextAreaFor(model => model.ExpedienteMedico.ComentarioCierre, new { @class = "form-control", id="txtComentarioCierre", @maxlength="250", @validable = "required Validar"})                                           
+                                            </div>
+                                        }
+                                        @if (Model.ExpedienteMedico.EstadoExpediente == DatosConstantes.EstadosDelExpedienteMedico.Cerrado)
+                                        {
+                                            <div class="col-sm-6"> 
+                                                @Html.TextAreaFor(model => model.ExpedienteMedico.ComentarioReabierto, new { @class = "form-control", id="txtComentarioReabierto", @maxlength="250", @validable = "required Validar"})                                           
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="divBotonAccion4" class="box-acciones-foot filter">                                
+                                <button class="btn btn-primary" id="btnGuardarCierre">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">       
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions')        
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.RegistrarExpedienteMedico = '@Url.Action("RegistrarExpedienteMedico", "IngresoExpediente", new { Area = "GestionLesiones" })';          
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.RegistrarExpedienteMedicoLesion = '@Url.Action("RegistrarExpedienteMedicoLesion", "IngresoExpediente", new { Area = "GestionLesiones" })';          
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.RegistrarExpedienteMedicoRestriccion = '@Url.Action("RegistrarExpedienteMedicoRestriccion", "IngresoExpediente", new { Area = "GestionLesiones" })';          
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.EliminarExpedienteMedicoLesion = '@Url.Action("EliminarExpedienteMedicoLesion", "IngresoExpediente", new { Area = "GestionLesiones" })';          
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.EliminarExpedienteMedicoRestriccion = '@Url.Action("EliminarExpedienteMedicoRestriccion", "IngresoExpediente", new { Area = "GestionLesiones" })';          
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.BuscarExpedienteMedicoLesion = '@Url.Action("BuscarExpedienteMedicoLesion", "IngresoExpediente", new { Area = "GestionLesiones" })';          
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.BuscarExpedienteMedicoRestriccion = '@Url.Action("BuscarExpedienteMedicoRestriccion", "IngresoExpediente", new { Area = "GestionLesiones" })';          
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.ActualizarExpedienteMedico = '@Url.Action("ActualizarExpedienteMedico", "IngresoExpediente", new { Area = "GestionLesiones" })';          
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.ActualizarEstadoExpedienteMedico = '@Url.Action("ActualizarEstadoExpedienteMedico", "IngresoExpediente", new { Area = "GestionLesiones" })';          
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Actions.AjaxBuscarIncidente = '@Url.Action("BuscarRecords", "Records", new { Area = "Seguimiento" })';          
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Models')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+            
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource.GridDescripcion = '@Html.Raw(GestionLesionesResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource.GridRestriccionMedica = '@Html.Raw(GestionLesionesResource.GridRestriccionMedica)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource.GridParteCuerpoLesionada = '@Html.Raw(GestionLesionesResource.GridParteCuerpoLesionada)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource.GridNaturalezaLesion = '@Html.Raw(GestionLesionesResource.GridNaturalezaLesion)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource.GridMecanismo = '@Html.Raw(GestionLesionesResource.GridMecanismo)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource.GridComentario = '@Html.Raw(GestionLesionesResource.GridComentario)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource.MensajeCierreExpedienteMedico = '@Html.Raw(GestionLesionesResource.MensajeCierreExpedienteMedico)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource.MensajeExisteRegistroDuplicado = '@Html.Raw(GestionLesionesResource.MensajeExisteRegistroDuplicado)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.Resource.MensajeValidacionIncidente = '@Html.Raw(GestionLesionesResource.MensajeValidacionIncidente)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.DatosConstantes.AtencionAbierta = '@DatosConstantes.EstadosDeAtencionMedica.Abierto';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.IngresoExpediente.DatosConstantes.AtencionCerrado = '@DatosConstantes.EstadosDeAtencionMedica.Cerrado';
+        
+    </script>
+    
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");    
+}

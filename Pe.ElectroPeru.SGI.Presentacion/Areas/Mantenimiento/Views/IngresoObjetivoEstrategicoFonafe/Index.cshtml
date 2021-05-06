@@ -1,0 +1,141 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.ObjetivoEstrategicoFonafe
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.IngresoObjetivoEstrategicoFonafe.IngresoObjetivoEstrategicoFonafeModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto"><strong>@Html.Raw(OEFResource.EtiquetaTituloObjetivoEstrategicoFonafe)</strong></h2>
+
+        <div class="pull-right">
+            <a id="btnRegresarBandejaObjetivoEstrategicoFonafe" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body" style="min-height: 650px;">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsObjetivoEstrategicoFonafe">
+                    <li role="presentation" class="active">
+                        <a href="#tabGenerales" class="top-tab" aria-controls="tabGenerales" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(OEFResource.EtiquetaTabGenerales)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabObjetivoEstrategicoFonafeDetalle" class="top-tab" aria-controls="tabObjetivoEstrategicoFonafeDetalle" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(OEFResource.EtiquetaTabObjetivoEstrategicoEmpresaDetalle)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGenerales">
+                        <form onsubmit="return false;" id="frmGenerales">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(OEFResource.EtiquetaNombreObjetivoEstrategicoFonafe): (*)</label>
+                                        <div>
+                                            @Html.TextBox("txtNombreObjetivoEstrategicoFonafeFormulario", Model.ObjetivoEstrategicoFonafe.NombreObjetivoEstrategicoFonafe, new { id = "txtNombreObjetivoEstrategicoFonafeFormulario", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required ValidarNombreObjetivoEstrategicoFonafe" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(OEFResource.EtiquetaDescripcionObjetivoEstrategicoFonafe):</label>
+                                        <div>
+                                            @Html.TextBox("txtDescripcionObjetivoEstrategicoFonafeFormulario", Model.ObjetivoEstrategicoFonafe.DescripcionObjetivoEstrategicoFonafe, new { id = "txtDescripcionObjetivoEstrategicoFonafeFormulario", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required ValidarDescripcionObjetivoEstrategicoFonafe" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">                                    
+                                    <div class="col-sm-6">
+                                        <label style="margin-top: 7px;">@Html.Raw(OEFResource.EtiquetaResponsable): (*)</label>
+                                        <div>
+                                            <div class="input-group">
+                                                @Html.Hidden("hdnCodigoResponsable", Model.ObjetivoEstrategicoFonafe.CodigoResponsable, new { ïd = "hdnCodigoResponsable", @validable = "required ValidarResponsable" })
+                                                @Html.TextBox("txtCodigoResponsable", Model.ObjetivoEstrategicoFonafe.NombreCompletoResponsable, new { id = "txtCodigoResponsable", @class = "form-control", @disabled = "disabled", @validable = "required ValidarResponsable" })
+                                                <div class="input-group-addon">
+                                                    <button class="btn-form" id="btnBuscarResponsable" type="button">....</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </form>
+                        <div id="divBotonAccion1" class="box-acciones-foot filter">
+                            @*<button class="btn btn-default" id="btnEliminar">@Html.Raw(OEFResource.EtiquetaBotonEliminar)</button>*@
+                            <button class="btn btn-primary" id="btnGuardarGenerales"  style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Nuevo || permiso == (int)Constantes.Permisos.Codigo.Escritura || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">@Html.Raw(OEFResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade in" id="tabObjetivoEstrategicoFonafeDetalle">
+                        <form onsubmit="return false;" id="frmObjetivoEstrategicoFonafeDetalle">
+                            <div class="title-interna">
+                                <span>@Html.Raw(OEFResource.EtiquetaTabObjetivoEstrategicoEmpresaDetalle)</span>
+                            </div>
+                            <div id="divControlesVD" class="form-group hidden">                                 
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(OEFResource.EtiquetaObjetivoEstrategicoEmpresa):</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.ObjetivoEstrategicoFonafe.CodigoObjetivoEstrategicoEmpresa, Model.ListaObjetivoEstrategicoEmpresa, new { id = "slcObjetivoEstrategicoEmpresa", @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonObjetivoEstrategicoFonafeDetalle" class="box-acciones-foot filter hidden">
+                            <button class="btn btn-primary" id="btnGuardarObjetivoEstrategicoFonafeDetalle">@Html.Raw(OEFResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(OEFResource.EtiquetaLista)</span>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdObjetivoEstrategicoFonafeDetalle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Actions.BandejaObjetivoEstrategicoFonafe = '@Url.Action("Index", "BandejaObjetivoEstrategicoFonafe", new { Area = "Mantenimiento" })';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Actions.EliminarObjetivoEstrategicoFonafeDetalle = '@Url.Action("EliminarObjetivoEstrategicoFonafeDetalle", "IngresoObjetivoEstrategicoFonafe", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Actions.RegistrarObjetivoEstrategicoFonafe = '@Url.Action("RegistrarObjetivoEstrategicoFonafe", "IngresoObjetivoEstrategicoFonafe", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Actions.RegistrarObjetivoEstrategicoFonafeDetalle = '@Url.Action("RegistrarObjetivoEstrategicoFonafeDetalle", "IngresoObjetivoEstrategicoFonafe", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Actions.BuscarObjetivoEstrategicoFonafeDetalle = '@Url.Action("BuscarObjetivoEstrategicoFonafeDetalle", "IngresoObjetivoEstrategicoFonafe", new { Area = "Mantenimiento" })';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Resource.EtiquetaMensajeAnular = '@Html.Raw(OEFResource.EtiquetaMensajeEliminar)';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Resource.GridResponsable = '@Html.Raw(OEFResource.GridResponsable)';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoObjetivoEstrategicoFonafe.Resource.GridObjetivoEstrategicoEmpresa = '@Html.Raw(OEFResource.GridObjetivoEstrategicoEmpresa)';        
+    </script>
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+            overflow-y: auto !important;
+        }
+        /*.skin-stracon .form-control {
+        width: 100px !important;
+    }*/
+    </style>
+    @CustomHtmlHelper.RenderViewJs("mantenimientoresponsableformulariobuscarresponsable");
+    }

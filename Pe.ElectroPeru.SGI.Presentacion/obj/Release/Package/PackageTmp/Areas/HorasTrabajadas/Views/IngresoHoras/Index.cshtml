@@ -1,0 +1,271 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.HorasTrabajadas
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.HorasTrabajadas.IngresoHoras.IngresoHorasModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto">
+            <strong>@Html.Raw(HorasTrabajadasResource.EtiquetaTituloIngresoHHT)</strong>
+        </h2>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaIngresoHoras" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">        
+        <div class="filter-avanzado">
+            <form onsubmit="return false;" id="frmIngresoHoras">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaSeleccionarProyecto): (*)</label></div>
+                        <div class="col-sm-4">
+                            <input type="hidden" id="hdnExiste" />                             
+                            @Html.DropDownListFor(model => model.Registro.CodigoProyecto, Model.ListaProyectos, new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaAnnio): (*)</label></div>
+                        <div class="col-sm-3">
+                            @Html.DropDownListFor(model => model.Registro.Anio, Model.ListaAnios, new { id = "slcAnios", @class = "form-control", @validable = "required Validar" })
+                        </div>
+                        <div class="col-sm-2 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaMes): (*)</label></div>
+                        <div class="col-sm-3">
+                            @Html.DropDownListFor(model => model.Registro.Mes, Model.ListaMeses, new { id = "slcMeses", @class = "form-control", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaNumeroDias): (*)</label></div>
+                        <div class="col-sm-2">
+                            @Html.TextBox("txtNumeroDiasTrabajados", string.Empty, new { id = "txtNumeroDiasTrabajados", @class = "form-control", @validable = "required Validar", @mask="integer" })                               
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaNumeroPersonal): (*)</label></div>
+                        <div class="col-sm-2">
+                            @Html.TextBox("txtNumeroEmpleadosStracon", string.Empty, new { id = "txtNumeroEmpleadosStracon", @class = "form-control", @validable = "required Validar", @mask="integer" })                               
+                        </div>
+                        <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaHHTEmpleadosStracon): (*)</label></div>
+                        <div class="col-sm-2">
+                            @Html.TextBox("txtHHTEmpleadosStracon", string.Empty, new { id = "txtHHTEmpleadosStracon", @class = "form-control", @validable = "required Validar", @mask="decimal" })                               
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaPersonalObreros): (*)</label></div>
+                        <div class="col-sm-2">
+                            @Html.TextBox("txtNumeroObrerosStracon", string.Empty, new { id = "txtNumeroObrerosStracon", @class = "form-control", @validable = "required Validar", @mask="integer" })                               
+                        </div>
+                        <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaHHTObrerosStracon): (*)</label></div>
+                        <div class="col-sm-2">
+                            @Html.TextBox("txtHHTObrerosStracon", string.Empty, new { id = "txtHHTObrerosStracon", @class = "form-control", @validable = "required Validar", @mask="decimal" })                               
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaFormaIngresoDatos): (*)</label></div>
+                        <div class="col-sm-4">
+                            @Html.DropDownListFor(model => model.Registro.TipoIngresoDatos, Model.ListaFormaIngreso, new { id = "slcFormaIngreso", @class = "form-control", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+                </form>                 
+            </div>
+            <div class="box-acciones-foot filter">
+                <button class="btn btn-default" type="button" id="btnCancelarIngresoHoras">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                <button class="btn btn-primary" type="button" id="btnGuardarIngresoHoras">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+            </div>
+
+            <div id="blockDatosPromedio" class="hide">
+                <div class="title-interna">
+                    <span>@Html.Raw(HorasTrabajadasResource.EtiquetaTituloDatosPromedio)</span> 
+                </div>
+                <div class="filter-avanzado">    
+                    <form onsubmit="return false;" id="frmDatosPromedio"> 
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalPersonalContratista): (*)</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtPersonalSubContratista2", string.Empty, new { id = "txtPersonalSubContratista2", @class = "form-control", @mask="integer", @validable = "required Validar"  })
+                            </div>
+                            <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalHHTContratista): (*)</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtHHTSubContratista2", string.Empty, new { id = "txtHHTSubContratista2", @class = "form-control", @mask="decimal", @validable = "required Validar"  })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalPersonalEmpleadosSubContratistas):</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtNumeroEmpleados2", string.Empty, new { id = "txtNumeroEmpleados2", @class = "form-control", @mask="integer"  })
+                            </div>
+                            <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaHHTEmpleadosSubContratistas):</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtHHTEmpleados2", string.Empty, new { id = "txtHHTEmpleados2", @class = "form-control", @mask="decimal"  })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalPersonalObrerosSubContratistas):</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtNumeroObreros2", string.Empty, new { id = "txtNumeroObreros2", @class = "form-control", @mask="integer"  })
+                            </div>
+                            <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaHHTObrerosSubContratistas):</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtHHTObreros2", string.Empty, new { id = "txtHHTObreros2", @class = "form-control", @mask="decimal"  })
+                            </div>
+                        </div>
+                    </div>
+                    </form>                    
+                </div>
+                <div class="box-acciones-foot filter">
+                    <button class="btn btn-default" type="button" id="btnCancelarDatosPromedio">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                    <button class="btn btn-primary" type="button" id="btnGuardarDatosPromedio">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                </div>
+            </div>
+
+            <div id="blockContratistas" class="hide">
+                <div class="title-interna">
+                    <span>@Html.Raw(HorasTrabajadasResource.EtiquetaTituloDatosDetalle)</span> 
+                </div>
+                <div class="filter-avanzado">  
+                    <form onsubmit="return false;" id="frmContratistas">       
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaSeleccionarContratista): (*)</label></div>
+                            <div class="col-sm-4">
+                                <div class="input-group">                            
+                                    <input type="text" class="form-control" id="txtNombreEmpresaColaborador"/>
+                                    <input type="hidden" id="hddCodigoEmpresaColaborador" />
+                                    <div class="input-group-addon">
+                                        <button class="btn-form" id="btnBuscarEmpresaColaborador" type="button">....</button>
+                                    </div>
+                                </div>                    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalPersonalContratista): (*)</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtPersonalSubContratista", string.Empty, new { id = "txtPersonalSubContratista", @class = "form-control", @mask="integer", @validable = "required Validar"  })
+                            </div>
+                            <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalHHTContratista): (*)</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtHHTSubContratista", string.Empty, new { id = "txtHHTSubContratista", @class = "form-control", @mask="decimal", @validable = "required Validar" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaNumeroEmpleados):</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtNumeroEmpleados", string.Empty, new { id = "txtNumeroEmpleados", @class = "form-control", @mask="integer"  })
+                            </div>
+                            <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaHHTEmpleados):</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtHHTEmpleados", string.Empty, new { id = "txtHHTEmpleados", @class = "form-control", @mask="decimal"  })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaNumeroObreros):</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtNumeroObreros", string.Empty, new { id = "txtNumeroObreros", @class = "form-control", @mask="integer"  })
+                            </div>
+                            <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaHHTObreros):</label></div>
+                            <div class="col-sm-2">
+                                @Html.TextBox("txtHHTObreros", string.Empty, new { id = "txtHHTObreros", @class = "form-control", @mask="decimal" })
+                            </div>
+                        </div>
+                    </div>
+                    </form>                    
+                </div>
+                <div class="box-acciones-foot filter">
+                    <button class="btn btn-default" type="button" id="btnCancelarContratistas">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                    <button class="btn btn-primary" type="button" id="btnGuardarContratistas">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                </div>
+
+                <br />
+                <div class="table-grilla">
+                    <div id="divGrdResultIngreso">
+                    </div>
+                </div>
+            </div>
+            <div class="title-interna">
+                <span>@Html.Raw(HorasTrabajadasResource.EtiquetaTituloTotalesGeneralesProyecto)</span> 
+            </div>
+            <div class="filter-avanzado">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalPersonalStracon):</label></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="txtTotalPersonalStracon" disabled="disabled"/></div>
+                        <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalHHTStracon):</label></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="txtTotalHHTStracon" disabled="disabled"/></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalPersonalContratistas):</label></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="txtTotalPersonalSubContratistas" disabled="disabled"/></div>
+                        <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalHHTContratistas):</label></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="txtTotalHHTSubContratistas" disabled="disabled"/></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-3" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalGeneralPersonal):</label></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="txtTotalGeneralPersonal" disabled="disabled"/></div>
+                        <div class="col-sm-3 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTotalGeneralHHT):</label></div>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="txtTotalGeneralHHT" disabled="disabled"/></div>
+                    </div>
+                </div>
+            </div>     
+         
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">        
+        ns('Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Resource.GridContratista = '@Html.Raw(HorasTrabajadasResource.GridContratista)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Resource.GridTotalPersonal = '@Html.Raw(HorasTrabajadasResource.GridTotalPersonal)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Resource.GridTotalHHT = '@Html.Raw(HorasTrabajadasResource.GridTotalHHT)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Resource.GridCorrelativo = '@Html.Raw(HorasTrabajadasResource.GridCorrelativo)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Resource.ConfirmacionCambioTipoIngresoDet = '@Html.Raw(HorasTrabajadasResource.ConfirmacionCambioTipoIngresoDet)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Resource.ConfirmacionCambioTipoIngresoGen = '@Html.Raw(HorasTrabajadasResource.ConfirmacionCambioTipoIngresoGen)';
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Actions.BuscarRegistroContratista = '@Url.Action("BuscarRegistroContratista", "IngresoHoras", new { Area = "HorasTrabajadas" })';  
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Actions.RegistrarRegistro = '@Url.Action("RegistrarRegistro", "IngresoHoras", new { Area = "HorasTrabajadas" })';  
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Actions.RegistrarRegistroContratista = '@Url.Action("RegistrarRegistroContratista", "IngresoHoras", new { Area = "HorasTrabajadas" })';  
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Actions.ObtenerRegistro = '@Url.Action("ObtenerRegistro", "IngresoHoras", new { Area = "HorasTrabajadas" })';  
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Actions.ObtenerRegistroContratista = '@Url.Action("ObtenerRegistroContratista", "IngresoHoras", new { Area = "HorasTrabajadas" })';  
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Actions.VerificarRegistroContratista = '@Url.Action("VerificarRegistroContratista", "IngresoHoras", new { Area = "HorasTrabajadas" })';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Actions.EliminarRegistroContratista = '@Url.Action("EliminarRegistroContratista", "IngresoHoras", new { Area = "HorasTrabajadas" })';  
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.Actions.EliminarRegistrosContratistas = '@Url.Action("EliminarRegistrosContratistas", "IngresoHoras", new { Area = "HorasTrabajadas" })';  
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.FormaIngreso')
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.FormaIngreso.DatosPromedio = '@DatosConstantes.TipoFormaIngresoContratista.DatosPromedio';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Ingreso.FormaIngreso.DatosEnDetalle = '@DatosConstantes.TipoFormaIngresoContratista.DatosEnDetalle';
+    </script>
+
+
+    @CustomHtmlHelper.RenderViewJs("mantenimientoempresaformulariobuscarempresa");
+}

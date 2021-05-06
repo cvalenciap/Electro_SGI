@@ -1,0 +1,16 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+
+<div class="modal-body">  
+    <div class="title-interna">
+        <span>@Html.Raw(AsignacionResource.EtiquetaSeleccioneProcesos)</span>
+    </div>
+    <div class="table-grilla">
+        <div id="divGrdResultadoProcesosModal">
+        </div>
+    </div>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarProceso" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarProceso">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>

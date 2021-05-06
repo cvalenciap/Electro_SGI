@@ -1,0 +1,91 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.RegistroModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="tituloCapacitacion">
+           <strong>@AsignacionResource.EtiquetaTituloPrincipal</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">         
+            <div class="row pull-right col-sm-5">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-6 text-right">                    
+                    @Html.DropDownList("slcProyecto", Model.ListaProyectos, new { id = "slcProyecto", @class = "form-control" })                    
+                </div>
+                <div class="col-sm-4 text-right">                    
+                    <button class="btn btn-primary" type="submit" id="btnAgregarProyecto">@Html.Raw(AsignacionResource.EtiquetaAgregarProyecto)</button>
+                </div>
+            </div>
+            <div class="row">
+                <span>@Html.Raw(AsignacionResource.EtiquetaLista)</span>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.Index = '@Url.Action("Index", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.BuscarAsignacionProyectos = '@Url.Action("BuscarAsignacionProyectos", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.FormularioSeleccionarProcesos = '@Url.Action("FormularioSeleccionarProcesos", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.FormularioSeleccionarEquipos = '@Url.Action("FormularioSeleccionarEquipos", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.FormularioAsignacionProyecto = '@Url.Action("FormularioAsignacionProyecto", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.BuscarProcesos = '@Url.Action("BuscarProcesos", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.FormularioAgregarProyectoModal = '@Url.Action("FormularioAgregarProyectoModal", "Asignacion", new { Area = "Capacitacion" })';
+
+
+
+
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.ActualizarProyectoIndicadorCapacitacion = '@Url.Action("ActualizarProyectoIndicadorCapacitacion", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.FormularioSeleccionarPersonas = '@Url.Action("FormularioSeleccionarPersonas", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.BuscarAsignacionEquiposProyecto = '@Url.Action("BuscarAsignacionEquiposProyecto", "Asignacion", new { Area = "Capacitacion" })';
+
+
+     
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridProyecto = '@Html.Raw(AsignacionResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridAnnio = '@Html.Raw(AsignacionResource.GridAnnio)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridHorasPlanificadas = '@Html.Raw(AsignacionResource.GridHorasPlanificadas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridHorasEjercidas = '@Html.Raw(AsignacionResource.GridHorasEjercidas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridPorcentajeEfectividad = '@Html.Raw(AsignacionResource.GridPorcentajeEfectividad)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridPersonasActivas = '@Html.Raw(AsignacionResource.GridPersonasActivas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridPersonasCapacitadas = '@Html.Raw(AsignacionResource.GridPersonasCapacitadas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridPais = '@Html.Raw(AsignacionResource.GridPais)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridCentroCosto = '@Html.Raw(AsignacionResource.GridCentroCosto)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.EtiquetaMsjProyectoRegistrado = '@Html.Raw(AsignacionResource.EtiquetaMsjProyectoRegistrado)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridHorasTotales = '@Html.Raw(AsignacionResource.GridHorasTotales)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.MsjValidarAsignacionProyectoEquipo = '@Html.Raw(AsignacionResource.MsjValidarAsignacionProyectoEquipo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridOperadoresCCO = '@Html.Raw(AsignacionResource.GridOperadoresCCO)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridOperadoresVOC = '@Html.Raw(AsignacionResource.GridOperadoresVOC)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridOperadoresFAO = '@Html.Raw(AsignacionResource.GridOperadoresFAO)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridOperadoresMD = '@Html.Raw(AsignacionResource.GridOperadoresMD)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridOperadoresOtros = '@Html.Raw(AsignacionResource.GridOperadoresOtros)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridTotOperadoresCapacitacion = '@Html.Raw(AsignacionResource.GridTotOperadoresCapacitacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Resource.GridTotOperadoresActivos = '@Html.Raw(AsignacionResource.GridTotOperadoresActivos)';
+      
+        
+
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs("capacitacionasignacionformularioagregarproyectomodal");
+}

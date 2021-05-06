@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EtiquetaNo" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="EtiquetaSi" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="EtiquetaSiEliminar" xml:space="preserve">
+    <value>Yes, Delete</value>
+  </data>
+  <data name="EtiquetaSiGrabar" xml:space="preserve">
+    <value>Yes, Save</value>
+  </data>
+  <data name="EtiquetaTamanioArchivo" xml:space="preserve">
+    <value>File size should not exceed {0} MB</value>
+  </data>
+  <data name="EtiquetaTipoArchivoFoto" xml:space="preserve">
+    <value>File types must be BMP, GIF, JPEG, TIF, TIFF o PNG</value>
+  </data>
+  <data name="GridAcciones" xml:space="preserve">
+    <value>Operations</value>
+  </data>
+  <data name="GridDescargarAnexo" xml:space="preserve">
+    <value>Download Attached</value>
+  </data>
+  <data name="GridDescargarFoto" xml:space="preserve">
+    <value>Download Photo</value>
+  </data>
+  <data name="GridEditar" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="GridEliminar" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="EtiquetaTituloAdvertencia" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="EtiquetaTituloConfirmar" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="EtiquetaTituloEliminar" xml:space="preserve">
+    <value>Delete Registry</value>
+  </data>
+  <data name="EtiquetaTituloInformacion" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="GridRegistroSeguimiento" xml:space="preserve">
+    <value>Record Tracking</value>
+  </data>
+  <data name="GridVerAccion" xml:space="preserve">
+    <value>See Action</value>
+  </data>
+  <data name="GridVerSeguimiento" xml:space="preserve">
+    <value>See Tracking</value>
+  </data>
+  <data name="EtiquetaVerificar" xml:space="preserve">
+    <value>Verify</value>
+  </data>
+  <data name="EtiquetaSeleccionar" xml:space="preserve">
+    <value>(SELECT)</value>
+  </data>
+  <data name="EtiquetaTodos" xml:space="preserve">
+    <value>(ALL)</value>
+  </data>
+  <data name="EtiquetaResultadosBusqueda" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
+  <data name="NombreSistema" xml:space="preserve">
+    <value>ACTION MANAGEMENT AND TRAINING</value>
+  </data>
+  <data name="BotonCancelar" xml:space="preserve">
+    <value>CANCEL</value>
+  </data>
+  <data name="BotonGrabar" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
+  <data name="BotonBusquedaAvanzada" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="BotonAceptar" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="EtiquetaMaximoCaracteres" xml:space="preserve">
+    <value>Max. {0} characters</value>
+  </data>
+  <data name="GridRevisar" xml:space="preserve">
+    <value>Review</value>
+  </data>
+  <data name="GridReporteRecord" xml:space="preserve">
+    <value>Record Report</value>
+  </data>
+  <data name="BotonBuscar" xml:space="preserve">
+    <value>SEARCH</value>
+  </data>
+  <data name="EtiquetaGrillaBotonAnterior" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="EtiquetaGrillaBotonSiguiente" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="EtiquetaGrillaMostrarFilas" xml:space="preserve">
+    <value>Show {0} rows</value>
+  </data>
+  <data name="EtiquetaGrillaTablaSinRegistro" xml:space="preserve">
+    <value>No information available in the table</value>
+  </data>
+  <data name="BotonMostrar" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="EtiquetaLista" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="BotonLimpiar" xml:space="preserve">
+    <value>CLEAR</value>
+  </data>
+  <data name="EtiquetaCosto" xml:space="preserve">
+    <value>Cost (US$)</value>
+  </data>
+  <data name="EtiquetaPrecioUnitario" xml:space="preserve">
+    <value>Precio Unitario (US$/h)</value>
+  </data>
+  <data name="EtiquetaTiempo" xml:space="preserve">
+    <value>Time (h)</value>
+  </data>
+  <data name="GridSeleccionarEquipos" xml:space="preserve">
+    <value>Seleccionar Equipos</value>
+  </data>
+  <data name="GridSeleccionarPersonas" xml:space="preserve">
+    <value>Seleccionar Personas</value>
+  </data>
+  <data name="GridSeleccionarProcesos" xml:space="preserve">
+    <value>Seleccionar Procesos</value>
+  </data>
+  <data name="GridReportes" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="GridDescargarIncidente" xml:space="preserve">
+    <value>Download Incident</value>
+  </data>
+  <data name="GridDescargarInvestigacion" xml:space="preserve">
+    <value>Download Investigation</value>
+  </data>
+  <data name="GridSeleccionarSubProcesos" xml:space="preserve">
+    <value>Seleccionar SubProcesos</value>
+  </data>
+  <data name="EtiquetaFormularioAnexo" xml:space="preserve">
+    <value>Form Annex</value>
+  </data>
+  <data name="EtiquetaFormularioFoto" xml:space="preserve">
+    <value>Form Photo</value>
+  </data>
+  <data name="EtiquetaCaracteres" xml:space="preserve">
+    <value>Characters</value>
+  </data>
+  <data name="EtiquetaMaximoAbreviado" xml:space="preserve">
+    <value>Max.</value>
+  </data>
+  <data name="EtiquetaBuscar" xml:space="preserve">
+    <value>SEARCH</value>
+  </data>
+  <data name="EtiquetaLimpiar" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="BotonAnular" xml:space="preserve">
+    <value>UNDO</value>
+  </data>
+  <data name="BotonGuardar" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
+  <data name="EtiquetaFormularioIngresoAcciones" xml:space="preserve">
+    <value>Formulario de Ingreso de Acciones</value>
+  </data>
+  <data name="EtiquetaFormularioCausaRaiz" xml:space="preserve">
+    <value>Formulario Causa Raiz</value>
+  </data>
+  <data name="BotonSalir" xml:space="preserve">
+    <value>EXIT</value>
+  </data>
+  <data name="BotonCerrar" xml:space="preserve">
+    <value>CLOSE</value>
+  </data>
+  <data name="EtiquetaElementoDuplicado" xml:space="preserve">
+    <value>Duplicate element</value>
+  </data>
+  <data name="TituloAdjuntos" xml:space="preserve">
+    <value>Attachments</value>
+  </data>
+  <data name="ValidacionAlmenosUno" xml:space="preserve">
+    <value>You must enter at least one value</value>
+  </data>
+  <data name="ValidacionNumeroNegativo" xml:space="preserve">
+    <value>Ningún Campo puede tener números negativos</value>
+  </data>
+  <data name="BotonDescargarExcel" xml:space="preserve">
+    <value>Download Excel</value>
+  </data>
+  <data name="GridVerHistorialInvestigacion" xml:space="preserve">
+    <value>See Change History</value>
+  </data>
+  <data name="EtiquetaIngresarFotos" xml:space="preserve">
+    <value>Enter Photos</value>
+  </data>
+  <data name="GridCerrarAccion" xml:space="preserve">
+    <value>Close Action</value>
+  </data>
+  <data name="GridDetalle" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="EtiquetaExportarTablaSinRegistro" xml:space="preserve">
+    <value>Not information available to download</value>
+  </data>
+</root>

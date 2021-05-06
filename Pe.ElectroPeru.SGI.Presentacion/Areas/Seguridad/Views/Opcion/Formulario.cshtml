@@ -1,0 +1,90 @@
+﻿@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguridad.Opcion.OpcionModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguridad.Opcion
+
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="modal-body">
+    <form id="frmFormulario">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label style="margin-top: 7px;">@Html.Raw(OpcionResource.EtiquetaModulo): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Opcion.CodigoModulo, Model.ListaModulo, new { id = "slcModulo", @class = "form-control", @validable = "required ValidarModulo" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(OpcionResource.EtiquetaNombre): (*)</label>
+                    <div>
+                        @Html.TextBox("txtNombre", Model.Opcion.Nombre, new { id = "txtNombre", @type = "text", @class = "form-control", @maxlength = "250", @validable = "required ValidarNombre" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(OpcionResource.EtiquetaDescripcion):</label>
+                    <div>
+                        @Html.TextBox("txtDescripcion", Model.Opcion.Descripcion, new { id = "txtDescripcion", @type = "text", @class = "form-control", @maxlength = "250" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label style="margin-top: 7px;">@Html.Raw(OpcionResource.EtiquetaOpcionPadre): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Opcion.OpcionPadre, Model.ListaOpcionPadre, new { id = "slcOpcionPadre", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(OpcionResource.EtiquetaGlyphicon): (*)</label>
+                    <div>
+                        @Html.TextBox("txtGlyphicon", Model.Opcion.Glyphicon, new { id = "txtGlyphicon", @type = "text", @class = "form-control", @maxlength = "100" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label style="margin-top: 7px;">@Html.Raw(OpcionResource.EtiquetaControlador): (*)</label>
+                    <div>
+                        @Html.TextBox("txtControlador", Model.Opcion.Controlador, new { id = "txtControlador", @type = "text", @class = "form-control", @maxlength = "250" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(OpcionResource.EtiquetaMetodo): (*)</label>
+                    <div>
+                        @Html.TextBox("txtMetodo", Model.Opcion.Metodo, new { id = "txtMetodo", @type = "text", @class = "form-control", @maxlength = "250" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(OpcionResource.EtiquetaArea):</label>
+                    <div>
+                        @Html.TextBox("txtArea", Model.Opcion.Area, new { id = "txtArea", @type = "text", @class = "form-control", @maxlength = "250" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.Validacion.ValidarModulo = '@(Html.Raw(OpcionResource.EtiquetaModulo))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Resources.Validacion.ValidarNombre = '@(Html.Raw(OpcionResource.EtiquetaNombre))';
+
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Opcion.Models.Opcion = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

@@ -1,0 +1,4 @@
+FechaHora = 16/11/2015 06:59:00 p.m.
+MensajeError = Exception of type 'System.Exception' was thrown.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 625
+__________________________________________________

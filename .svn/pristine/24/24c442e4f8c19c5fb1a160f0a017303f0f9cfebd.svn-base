@@ -1,0 +1,83 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguridad.Usuarios
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguridad.Usuarios.UsuariosModel
+
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@Html.Raw(UsuariosResource.EtiquetaCambiarContrasena)</strong>
+        </h2>
+        <div class="pull-right">
+            <div class="box-acciones-foot modal_box" style="top: 10px">
+                <button id="btnGrabarContrasena" type="button" class="btn btn-primary">
+                    @Html.Raw(UsuariosResource.EtiquetaBotonRegistrar)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(UsuariosResource.EtiquetaInformacion)</span>
+        </div>
+        <form id="frmCambiarContrasena">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label style="position: relative; margin-top: 7px;">@Html.Raw(UsuariosResource.EtiquetaUsuario):</label>
+                        <div>
+                            @Html.TextBox("txtUsuario", Model.Usuarios.Usuario, new { id = "txtUsuario", @type = "text", @class = "form-control", @maxlength = "30", @readonly = "true" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label style="position: relative; margin-top: 7px;">@Html.Raw(UsuariosResource.EtiquetaContrasenaAntigua): (*)</label>
+                        <div>
+                            @Html.TextBox("txtContrasenaAntigua", Model.Usuarios.Contrasena, new { id = "txtContrasenaAntigua", @type = "password", @class = "form-control", @maxlength = "30", @validable = "required ValidarContrasenaAntigua" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label style="position: relative; margin-top: 7px;">@Html.Raw(UsuariosResource.EtiquetaContrasenaNueva): (*)</label>
+                        <div>
+                            @Html.TextBox("txtContrasenaNueva", Model.Usuarios.ContrasenaNueva, new { id = "txtContrasenaNueva", @type = "password", @class = "form-control", @maxlength = "30", @validable = "required ValidarContrasenaNueva" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Actions.CambiarContrasena = '@Url.Action("CambiarContrasena", "Usuarios", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Actions.RegistrarCambiarContrasena = '@Url.Action("RegistrarCambiarContrasena", "Usuarios", new { Area = "Seguridad" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Resources.EtiquetaUsuarioIncorrecto = '@Html.Raw(UsuariosResource.EtiquetaUsuarioIncorrecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Base.GenericoResource.EtiquetaVerificar = '@Html.Raw(GenericoResource.EtiquetaVerificar)'; //Debe ir obligatorio
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Resources.Validacion')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Resources.Validacion.ValidarUsuario = '@(Html.Raw(UsuariosResource.EtiquetaUsuario))';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Resources.Validacion.ValidarContrasenaAntigua = '@(Html.Raw(UsuariosResource.EtiquetaContrasenaAntigua))';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Resources.Validacion.ValidarContrasenaNueva = '@(Html.Raw(UsuariosResource.EtiquetaContrasenaNueva))';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Usuarios.Models.Usuarios = @(Html.Raw(Json.Encode(Model)));
+    </script>
+    <style type="text/css">
+        form-control {
+            width: 100%;
+        }
+    </style>
+    @CustomHtmlHelper.RenderViewJs()
+}

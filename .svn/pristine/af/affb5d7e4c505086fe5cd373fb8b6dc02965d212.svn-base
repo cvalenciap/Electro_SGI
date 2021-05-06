@@ -1,0 +1,101 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.ConfiguracionModel
+
+<div class="main-content view-wrap">
+    <div role="tabpanel" class="tab-pane fade in" id="tabConfiguracion">
+        <div role="tabpanel" class="tab-pane fade in" id="Configuracion">
+            <div class="content-body">
+                <div class="tab_custom">
+                    <div class="tab-interno item03">
+                        <ul class="nav nav-tabs" role="tablist" id="cartTabsFormularioConfiguracion">
+                            <li id="listaConfiguracionProceso" role="presentation" >
+                                <a id="cProceso" href="#tabConfiguracionProceso" class="top-tab" aria-controls="tabConfiguracionProceso" role="tab" data-toggle="tab">@Html.Raw(AsignacionResource.EtiquetaProcesos)</a>
+                            </li>
+                            <li id="listaConfiguracionSubProceso" role="presentation">
+                                <a id="cSubProceso" href="#tabConfiguracionSubProceso" class="top-tab" aria-controls="tabConfiguracionSubProceso" data-toggle="tab">@Html.Raw(AsignacionResource.EtiquetaSubProceso)</a>
+                            </li>
+                            <li id="listaConfiguracionFamiliaEquipo" role="presentation">
+                                <a id="cFamiliaEquipo" href="#tabConfiguracionFamiliaEquipo" class="top-tab" aria-controls="tabConfiguracinFamiliaEquipo" data-toggle="tab">@Html.Raw(ConfiguracionResource.EtiquetaFamiliaEquipo)</a>
+                            </li>
+                            <li id="listaConfiguracionEquipo" role="presentation" class="active">
+                                <a id="cEquipo" href="#tabConfiguracionEquipo" class="top-tab" aria-controls="tabConfiguracinEquipo" data-toggle="tab">@Html.Raw(ConfiguracionResource.EtiquetaTituloEquipo)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <h2 class="tituloCapacitacion">
+                <strong><i class="fa fa-truck"></i>@Html.Raw(ConfiguracionResource.EtiquetaTituloEquipo)</strong></h2>
+        </div>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnAgregarEquipo" type="button" class="btn-table text-line one">
+                    @Html.Raw(ConfiguracionResource.EtiquetaAgregarEquipo)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="row" >
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+        </div>
+        <div class="table-grilla" >
+            <div id="divGrdResultEquipo">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridProyecto = '@Html.Raw(AsignacionResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.ValidarCampos = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridEquipoFamilia = '@Html.Raw(ConfiguracionResource.GridEquipoFamilia)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridCodigoEquipo = '@Html.Raw(ConfiguracionResource.GridCodigoEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridDescripcionEquipo = '@Html.Raw(ConfiguracionResource.GridDescripcionEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridVigente = '@Html.Raw(ConfiguracionResource.GridVigente)';  
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaAgregarEquipo = '@Html.Raw(ConfiguracionResource.EtiquetaAgregarEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaFamilia = '@Html.Raw(ConfiguracionResource.EtiquetaFamilia)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaCodigoEquipo = '@Html.Raw(ConfiguracionResource.EtiquetaCodigoEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaEquipoDescripcion = '@Html.Raw(ConfiguracionResource.EtiquetaEquipoDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaTituloEquipo = '@Html.Raw(ConfiguracionResource.EtiquetaTituloEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaTituloFormularioEquipo = '@Html.Raw(ConfiguracionResource.EtiquetaTituloFormularioEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaEquipoFamilia = '@Html.Raw(ConfiguracionResource.EtiquetaFamiliaEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaVigente = '@Html.Raw(ConfiguracionResource.EtiquetaVigente)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.MsjValidaEquipoExiste = '@Html.Raw(ConfiguracionResource.MsjValidaEquipoExiste)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.MsjValidarEquipoAsignadoProyecto = '@Html.Raw(ConfiguracionResource.MsjValidarEquipoAsignadoProyecto)';
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.Index = '@Url.Action("Index", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioAgregarEquipoModal = '@Url.Action("FormularioAgregarEquipoModal", "Configuracion", new { Area = "Capacitacion" })';          
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.BuscarEquipos = '@Url.Action("BuscarEquipos", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.ActualizarEstadoEquipo = '@Url.Action("ActualizarEstadoEquipo", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.EliminarEquipo = '@Url.Action("EliminarEquipo", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.RegistrarEquipo = '@Url.Action("RegistrarEquipo", "Configuracion", new { Area = "Capacitacion" })';
+        
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioMantenimientoProceso = '@Url.Action("Proceso", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioMantenimientoSubProceso = '@Url.Action("SubProceso", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioMantenimientoFamiliaEquipo = '@Url.Action("FamiliaEquipo", "Configuracion", new { Area = "Capacitacion" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Models.Index = @(Html.Raw(Json.Encode(Model)))
+
+    </script>
+    @CustomHtmlHelper.RenderViewJs("capacitacionconfiguracionformularioagregarequipomodal");
+
+}

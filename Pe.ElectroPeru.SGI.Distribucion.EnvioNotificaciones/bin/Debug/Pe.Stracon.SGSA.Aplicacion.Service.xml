@@ -1,0 +1,1154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pe.ElectroPeru.SGI.Aplicacion.Service</name>
+    </assembly>
+    <members>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.Service.Automaticas.NotificacionAutomaticaService">
+            <summary>
+            Implementación de tareas automáticas
+            </summary>
+            <remarks>
+            Creación:       GMD 05042017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.GenericService">
+            <summary>
+            Implementación base generica de servicios de aplicación
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.GenericService.Dispose(System.Boolean)">
+            <summary>
+            Finaliza el objeto
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.GenericService.Dispose">
+            <summary>
+            Finaliza el objeto
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Automaticas.NotificacionAutomaticaService.ImprimirDocumento(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest)">
+            <summary>
+            Realiza la generacion de los reportes
+            para el envio por correo de las tareas automaticas
+            </summary>
+            <param name=""></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Automaticas.NotificacionAutomaticaService.RetornarMes(System.Int32)">
+            <returns>Descripción de un mes en español</returns>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Automaticas.NotificacionAutomaticaService.plantillaNotificacionLogicRepository">
+            <summary>
+            Servicio plantilla de notificacion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Automaticas.NotificacionAutomaticaService.parametroValorService">
+            <summary>
+            Servicio de Parámetro Valor
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService">
+            <summary>
+            Clase para Interacción con un servidor SharePoint
+            GRC: 09-06-2015
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RetornaCredencialesServer">
+            <summary>
+            Retorna las credenciales de acceso al SharePoint
+            </summary>
+            <returns>Credenciales de acceso a sharepoint</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RetornaSiteUrlSharePoint">
+            <summary>
+            Retorna el Site del Servidor SharePoint configurado
+            </summary>
+            <returns>Url Sharepoint</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.DescargaArchivoPorId(System.String@,System.Int64,System.String)">
+            <summary>
+            Retorna el arreglo de bytes del documento SharePoint
+            </summary>
+            <param name="hayError">Cadena para ver si hay errores al retornar el documento.</param>
+            <param name="idItem">Código del Archivo en el SharePoint</param>
+            <param name="siteUrl">URL del Site SharePoint</param>
+            <param name="listName">Lista de biblioteca.</param>
+            <returns>Indicador con el resultado de la operación</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RegistraArchivoSharePoint(System.String@,System.String,System.String,System.String,System.IO.MemoryStream,System.String,System.Net.NetworkCredential)">
+            <summary>
+            Registra un nuevo archivo en el servidor de SharePoint
+            </summary>        
+            <param name="hayError">variable que contiene el mensaje de error al registrar</param>
+            <param name="listName">biblioteca de donde se encontrará el archivo</param>
+            <param name="folderName">nombre de carpeta del archivo</param>
+            <param name="fileName">nombre del archivo</param>
+            <param name="myFile">stream del archivo</param>
+            <param name="prmSiteURL">URL del servidor SharePoint</param>
+            <param name="prmCredenciales">Credenciales de acceso al servidor SharePoint</param>
+            <returns>Indicador con el resultado de la operación</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.EliminaArchivoSharePoint(System.Collections.Generic.List{System.Int32},System.String,System.String@)">
+            <summary>
+            Método para eliminar los archivos del repositorio SharePoint.
+            </summary>
+            <param name="lstArchivosSHP">lista que contiene los ID de los archivos</param>
+            <param name="listName">nombre del directorio dentro del cual se buscan los archivos</param>
+            <param name="hayError">parámetro para capturar los errores del procedimiento</param>
+            <returns>Indicador con el resultado de la operación</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.CreateCarpeta(Microsoft.SharePoint.Client.Web,System.String,System.String)">
+            <summary>
+            Crear una carpeta dentro de un directorio SharePoint.
+            </summary>
+            <param name="web">contexto cliente web sharepoint</param>
+            <param name="listTitle">titutlo de la carpeta</param>
+            <param name="fullFolderUrl">ruta del directorio a crear la carpeta</param>
+            <returns>Indicador con el resultado de la operación</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.CreateCarpetaInterna(Microsoft.SharePoint.Client.Web,Microsoft.SharePoint.Client.Folder,System.String)">
+            <summary>
+            Crear una carpeta dentro de un directorio SharePoint.
+            </summary>
+            <param name="web">contexto cliente web sharepoint</param>
+            <param name="parentFolder">carpeta padrea que contendra carpeta actual</param>
+            <param name="fullFolderUrl">ruta del directorio a crear la carpeta</param>
+            <returns>Indicador con el resultado de la operación</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.GetFolder(Microsoft.SharePoint.Client.Web,System.String)">
+            <summary>
+            Obtiene la carpeta de acuerdo a una ruta
+            </summary>
+            <param name="web">contexto cliente web sharepoint</param>
+            <param name="fullFolderUrl">ruta del directorio que contiene la carpeta</param>
+            <returns>Ruta de carpeta</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RetornaDirectorioFile">
+            <summary>
+            Retorna la ruta del directorio SharePoint para escribir el archivo.
+            </summary>
+            <param name="CodigoFile">Código de archivo, será el nombre del file.</param>
+            <param name="PrmFile">Código de parámetro de archivo.</param>
+            <returns>Ruta de directorio de sharepoint para escribir archivo</returns>
+            Proyecto Pe.ElectroPeru.SGI
+            20-03-2017
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.politicaService">
+            <summary>
+            Interfaz de comunicación con parámetro de políticas.
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.parametroValorService">
+            <summary>
+            Interfaz de comunicación con parámetro de valores.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.Service.Correo.CorreoService">
+            <summary>
+            Servicio de aplicación Correo
+            </summary>
+            <remarks>
+            Creación:   GMD 05042017 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Correo.CorreoService.Enviar(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.EmailRequest)">
+            <summary>
+            Realiza el envio de Correo a Demanda
+            </summary>
+            <param name="filtro">Configuracion del correo a Enviar</param>
+            <returns>Conformidad de ejecución</returns>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Correo.CorreoService.correoLogicProxy">
+            <summary>
+            Repositorio de Envio de Correos
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroSeccionService">
+            <summary>
+            Implementación base generica de servicios de aplicación
+            </summary>
+            <remarks>
+            Creación:   GMD 20150327 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroSeccionService.BuscarParametroSeccion(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest)">
+            <summary>
+            Realiza la busqueda de Sección Parámetro
+            </summary>
+            <param name="filtro">Filtro de Sección Parámetro</param>
+            <returns>Listado de Parámetro Sección</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroSeccionService.RegistrarParametroSeccion(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest)">
+            <summary>
+            Realiza el registro de un Parámetro Sección
+            </summary>
+            <param name="filtro">Parámetro Sección a Registrar</param>
+            <returns>Indicador de Error</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroSeccionService.EliminarParametroSeccion(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest,System.Boolean)">
+            <summary>
+            Realiza la eliminación de una sección de parámetro
+            </summary>
+            <param name="filtro">Sección a Eliminar</param>
+            <returns>Indicador de Error</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroSeccionService.EliminarMasivoParametroSeccion(System.Collections.Generic.List{Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest})">
+            <summary>
+            Realiza la eliminación masiva de secciones de parámetro
+            </summary>
+            <param name="filtro">Lista de secciones a Eliminar</param>
+            <returns>Indicador de Error</returns>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroSeccionService.parametroSeccionLogicRepository">
+            <summary>
+            Repositorio de parametro seccion logic
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroSeccionService.parametroSeccionEntityRepository">
+            <summary>
+            Repositorio de parametro sección
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroService">
+            <summary>
+            Implementación base generica de servicios de aplicación
+            </summary>
+            <remarks>
+            Creación:   GMD 20150327 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroService.BuscarParametro(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest)">
+            <summary>
+            Realiza la busqueda de Parámetro
+            </summary>
+            <param name="filtro">Filtro de Parametro</param>
+            <returns>Listado de Parametro</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroService.RegistrarParametro(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest)">
+            <summary>
+            Realiza el registro de un Parámetro 
+            </summary>
+            <param name="filtro">Parametro a Registrar</param>
+            <returns>Indicador de Error</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroService.EliminarParametro(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest)">
+            <summary>
+            Realiza la eliminación de un Parámetro
+            </summary>
+            <param name="filtro">Parametro Eliminar</param>
+            <returns>Indicador de Error</returns>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroService.parametroLogicRepository">
+            <summary>
+            Repositorio de parametro seccion logic
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroService.parametroEntityRepository">
+            <summary>
+            Repositorio de parametro entidad
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService">
+            <summary>
+            Implementación base generica de servicios de aplicación
+            </summary>
+            <remarks>
+            Creación:   GMD 20150327 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.BuscarParametroValor(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Realiza la busqueda de Parametro Valor
+            </summary>
+            <param name="filtro">Filtro de Parametro Valor</param>
+            <returns>Listado de parametro valor</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.BuscarMultipleParametroValor(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Realiza la busqueda de Multiple Parametro Valor
+            </summary>
+            <param name="filtro">Filtro de Parametro Valor</param>
+            <returns>Listado de Multiple parametro valor</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.BuscarParametroValorDirecto(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Realiza la busqueda de Parametro Valor
+            </summary>
+            <param name="filtro">Filtro de Parametro Valor</param>
+            <returns>Listado de parametro valor</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.BuscarParametroValorDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Realiza la busqueda de Parametro Valor
+            </summary>
+            <param name="filtro">Filtro de Parametro Valor</param>
+            <returns>Listado de parametro valor dinamico</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.RegistrarParametroValor(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Realiza el registro de un de Parametro Valor
+            </summary>
+            <param name="filtro">Parametro Valor a Registrar</param>
+            <returns>Indicador de Error</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.EliminarParametroValor(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Realiza el eliminar de un de Parametro Valor
+            </summary>
+            <param name="filtro">Parametro Valor a Eliminar</param>
+            <returns>Indicador de Error</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.EliminarMasivoParametroValor(System.Collections.Generic.List{Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest})">
+            <summary>
+            Realiza el eliminar de un de Parametro Valor
+            </summary>
+            <param name="filtro">Lista de Parametro Valor a Eliminar</param>
+            <returns>Indicador de Error</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.BuscarValorPorSeccionParametro(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Realiza el eliminar de un de Parametro Valor
+            </summary>
+            <param name="filtro">Lista de Parametro Valor a Eliminar</param>
+            <returns>Indicador de Error</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.BuscarValorSeccionAdicionalParametro(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Realiza la búsqueda de Valores de las Secciones Adicionales de Parámetro
+            </summary>
+            <param name="filtro">Filtro de búsqueda</param>
+            <returns>Lista de Valores de las Secciones Adicionales de Parámetro</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.BuscarValorSeccionAdicionalRetornaCincoParametros(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Realiza la búsqueda de Valores de las Secciones Adicionales de Parámetro 5 parametros de retorno
+            </summary>
+            <param name="filtro">Filtro de búsqueda</param>
+            <returns>Lista de Valores de las Secciones Adicionales de Parámetro</returns>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.parametroValorLogicRepository">
+            <summary>
+            Repositorio de parametro valor logic
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.parametroSeccionService">
+            <summary>
+            Service de Parametro Sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.ParametroValorService.parametroService">
+            <summary>
+            Service de Parametro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService">
+            <summary>
+            Implementación de servicios para Politica
+            </summary>
+            <remarks>
+            Creación:   GMD 20150327 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarNivelUnidadOperativaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarNivelUnidadOperativaDinamico: método dinámico para listar Jerarquías de Unidad Operativa
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica Unidad Operativa</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarNivelUnidadOperativa(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarNivelUnidadOperativa: método para listar Jerarquías de Unidad Operativa
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista Unidad Operativa</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoUnidadOperativaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarTipoUnidadOperativaDinamico: método dinámico para listar de Tipos de Unidad Operativa
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Tipo Unidad Operativa Dinamica</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoUnidadOperativa(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarTipoUnidadOperativa: método para listar de Tipos de Unidad Operativa
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista Tipo Unidad Operativa</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.BuscarTipoUnidadOperativaPorCodigoNivel(System.String)">
+            <summary>
+            Busca los tipo de unidad operativa en base al nivel
+            </summary>
+            <param name="codigoNivel">Filtro codigo Nivel</param>
+            <returns>Resultado de busqueda</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoDocumentoIdentidadDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarTipoDocumentoIdentidadDinamico: método dinámico para Lista de Tipos de Documento de Identidad
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Tipo Documento Identidad Dinamica</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoDocumentoIdentidad(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarTipoDocumentoIdentidad: método para listar de Tipos de Documento de Identidad
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de Tipo Documento de identidad</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoArchivoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarTipoArchivoDinamico: método dinámico para listar Formatos de Archivo Permitido
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista de Tipo archivo dinamico</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoArchivo(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarTipoArchivo: método para listar Formatos de Archivo Permitido
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Resultado de busqueda</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarFormaGeneracionDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarFormaGeneracionDinamico: método dinámico para listar formas de generación de tareas
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Forma Gneracion Dinamico</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarFormaGeneracion(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarFormaGeneracion: método para listar formas de generación de tareas
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de Forma de generación</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarSistemasIntegracionDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarSistemasIntegracionDinamico: método dinámico para listar de Sistemas con los que SCC se puede integrar
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista de Sistemas de integracion Dinamica</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarSistemasIntegracion(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarSistemasIntegracion: método para listar de Sistemas con los que SCC se puede integrar
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de Sistemas de integración</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarOperacionIntegracionDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarOperacionIntegracionDinamico: método dinámico para Lista de Operaciones por cada Sistemas con los que SCC se puede integrar
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista de Operaciones de integracion dinamica</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarOperacionIntegracion(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarTipoEvidencia: método para Lista de Operaciones por cada Sistemas con los que SCC se puede integrar
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de operación integración</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.BuscarOperacionIntegracionPorCodigoFuenteIntegracion(System.String)">
+            <summary>
+            Busca los tipo de operación de integración en base a la fuente de integración
+            </summary>
+            <param name="codigoFuenteIntegracion">Filtro de codigo fuente de integración</param>
+            <returns>Lista con resultados de busqueda</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoEvidenciaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarTipoEvidenciaDinamico: método dinámico para listar Tipos de Evidencia
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista de Tipo evidencia dinamico</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoEvidencia(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarTipoEvidencia: método que lista los Tipos de Evidencia
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de tipos de evidencia</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoActividadDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarTipoActividadDinamico: método dinámico para listar Tipos de Actividad
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Tipo Actividad dinamica</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoActividad(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarTipoActividad: método que retorna los Tipos de Actividad
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista Tipo Actividad</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoCalendarizacionDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica los Estados de Calendarización
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista de estado calendarizacion dinamica</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoCalendarizacion(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de los Estados de Calendarización
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Lista de estado de calendarización</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoActividadDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica los Estados de Actividades
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista con estado actividad dinamica</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoActividad(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de los Estados de Actividades
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Lista con estado de actividad</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoCumplimientoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica los Estados de Cumplimiento de las Actividades
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Resultado de Listas con estado de cumplimiento de actividades</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoCumplimiento(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de los Estados de Cumplimiento de las Actividades
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Lista Codigo y Descripción de los estados de cumplimiento de actividades</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoEvidenciaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica los Estados de Evidencias
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista estados de evidencia</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoEvidencia(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de los Estados de Evidencias
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Lista Codigo y descripción de los estados de evidencia</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoContratoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica los Tipos de Servicio.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista los tipos de servicio</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoContrato(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de los Tipos de Servicio.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Lista Codigo y descripción de los tipos de servicio</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoServicioDinamico(System.String,Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica los Tipos de Requerimiento.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista con tipos de requerimientos</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoServicio(System.String,Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de los Tipos de Requerimiento.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Lista código y descripción de los tipos de requerimiento</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarFormaContratoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica las Formas de Contrato.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista las formas de contrato</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarFormaContrato(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de las Formas de Contrato.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Lista con código y descripcíón</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarDominioEmpresaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica los Dominios de las empresas.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista dominios de empresas</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarDominioEmpresa(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de los Dominios de las empresas.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Lista código y descripción</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarRepositorioSharePointDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica las Rutas de los Repositorios de SharePoint.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarRepositorioSharePoint(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de las Rutas de los Repositorios de SharePoint.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoNotificacionContableDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica los Tipos de Notificación de SCC.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoNotificacionContable(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de los Tipos de Notificación de SCC.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarConfiguracionSharePointDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica la configuraciones de SharePoint.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarConfiguracionSharePoint(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de la configuraciones de SharePoint.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarCredencialesAccesoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica Credenciales de Acceso.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarCredencialesAcceso(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de las Credenciales de Acceso.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoDocumentoContratoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica Tipos de Documentos de Contratos.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoDocumentoContrato(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de las Credenciales de Acceso.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoVigenciaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica Estados de Vigencia.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoVigencia(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de los Estados de Vigencia.
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ObtenerFiltroParametro(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String,System.String,System.String,System.Nullable{System.Boolean})">
+            <summary>
+            Método para crear el filtro de parámetro general
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="codigoIdentificador">Código de Identificación del Parámetro General</param>
+            <param name="codigoSistema">Código del Sistema al que pertenece el parámetro</param>
+            <param name="indicadorGlobal">Indica si el parámetro es global (de todos los sistemas)</param>
+            <returns>Filtro de Parámetro Valor</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ProcesaListaDinamica(System.Collections.Generic.List{System.Object},System.String)">
+            <summary>
+            ProcesaListaDinamica: método que procesa las lista dinámicas y filtra de acuerdo a seccion.
+            </summary>
+            <param name="listaDinamica"> Lista dinámica con información de parámetros. </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista dinamica</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoRespuestaObservacionDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarTipoRespuestaObservacionDinamico: método dinámico para listar Tipos de Respuesta de Observacion
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista tipos de respuesta de observación</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoRespuestaObservacion(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarTipoRespuestaObservacion: método para listar Tipos de Respuesta de Observacion
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de respuesta de observación</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarMontoMinimoControlDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarMontoMinimoControlDinamico: método dinámico para listar los montos mínimos del control de flujo de aprobación.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista con montos minimos del control de flujo de aprobación</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarMontoMinimoControl(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarMontoMinimoControl: método para listar los montos mínimos del control de flujo de aprobación.
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista con montos minimos del control de flujo de aprobacion</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoContratoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarEstadoContratoDinamico: método dinámico para listar Estados de Contrato
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de Estados de Contrato</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoContrato(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarEstadoContrato: método que lista los Estados de Contrato
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Por defecto la sección 2, se puede cambiar de valor caso sea necesario.</param>
+            <returns>Lista de Estados de Contrato</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoEdicionDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarEstadoEdicionDinamico: método dinámico para listar Estados de Edición
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de Estados de Edición</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoEdicion(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarEstadoEdicion: método que lista los Estados de Edición
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Por defecto la sección 2, se puede cambiar de valor caso sea necesario.</param>
+            <returns>Lista de Estados de Edición</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarMonedaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarMonedaDinamico: método dinámico para listar Moneda
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de Monedas</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarMoneda(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarMoneda: método que lista Moneda
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Por defecto la sección 2, se puede cambiar de valor caso sea necesario.</param>
+            <returns>Lista de Monedas</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarRepositorioSharePointDinamicoSGSA(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            Método para listar de manera dinámica las Rutas de los Repositorios de SharePoint de SGSA.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarRepositorioSharePointSGSA(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            Método para listar Código y Descripción de las Rutas de los Repositorios de SharePoint de SGSA.
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <param name="seccion">Sección a mostrar</param>
+            <returns>Resultado del Proceso</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarAlertaVencimientoContratoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarAlertaVencimientoContratoDinamico: método dinámico para listar Alertas de Vencimiento de Contrato
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de Alertas con vencimientos de contrato</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarAlertaVencimientoContrato(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarAlertaVencimientoContrato: método que lista Alertas de Vencimiento de Contrato
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Por defecto la sección 2, se puede cambiar de valor caso sea necesario.</param>
+            <returns>Lista de Alertas con vencimientos de contrato</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoOrdenDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarTipoOrdenDinamico: método dinámico para listar Tipo de Orden
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de Tipo Orden</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoOrden(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarTipoOrden: método que lista Tipo Orden
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Por defecto la sección 2, se puede cambiar de valor caso sea necesario.</param>
+            <returns>Lista de Tipo Orden</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarMontoAcumuladoParaContratoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarMontoAcumuladoParaContratoDinamico: método dinámico para listar Monto Acumulado para contrato
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de monto acumulado para contrato</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarMontoAcumuladoParaContrato(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarMontoAcumuladoParaContrato: método que lista los Montos acumulados para contrato
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Por defecto la sección 2, se puede cambiar de valor caso sea necesario.</param>
+            <returns>Lista de monto acumulado para contrato</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaCuentaNotificacionSGSA(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListaCuentaNotificacionSGSA: método que lista las configuraciones de cuenta de correo
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Por defecto la sección 2, se puede cambiar de valor caso sea necesario.</param>
+            <returns>Lista de Cuenta de Notificacion SGSA</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaCuentaNotificacionSGSADinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListaCuentaNotificacionSGSADinamico: método dinámico que lista las configuraciones de cuenta de correo
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de Cuenta de Notificacion SGSA</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaCuentaNotificacionSCC(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListaCuentaNotificacionSCC: método que lista las configuraciones de cuenta de correo
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Por defecto la sección 2, se puede cambiar de valor caso sea necesario.</param>
+            <returns>Lista de Cuenta de Notificacion SGSA</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaCuentaNotificacionSCCDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListaCuentaNotificacionSCCDinamico: método dinámico que lista las configuraciones de cuenta de correo
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de Cuenta de Notificacion SGSA</returns>
+        </member>
+        <!-- El comentario XML con formato incorrecto se omite para el miembro "M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaUrlSistemas(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)" -->
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaUrlSistemasDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListaUrlSistemasDinamico: método dinámico que lista las URL de los sistemas
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de URLS de los Sistemas</returns>
+        </member>
+        <!-- El comentario XML con formato incorrecto se omite para el miembro "M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaTipoTarifaBien(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)" -->
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaTipoTarifaBienDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListaTipoTarifaBienDinamico: método dinámico que lista los Tipos de Tarifa de un bien.
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de URLS de los Sistemas</returns>
+        </member>
+        <!-- El comentario XML con formato incorrecto se omite para el miembro "M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaPeriodoAlquilerBien(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)" -->
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaPeriodoAlquilerDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListaPeriodoAlquilerDinamico: método dinámico que lista los periodos de alquiler de un bien.
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista los periodos de alquiler de un bien</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaTipoBien(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListaTipoBien: método que lista los tipos de un bien.
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <param name="seccion">Por defecto la sección 2, se puede cambiar de valor caso sea necesario.</param>
+            <returns>Lista los tipos de un bien</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaTipoBienDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListaTipoBienDinamico: método dinámico que lista los tipos de un bien.
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista los tipos de un bien</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaConfiguracionGeneracionContrato(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListaConfiguracionGeneracionContrato: método dinámico que lista las configuraciones en la generación de contratos.
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de configuraciones en la generación de Contratos.</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListaValor(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListaConfiguracionGeneracionContrato: método dinámico que lista los valores.
+            </summary>
+            <param name="filtro">Filtro de Parámetro Valor</param>
+            <returns>Lista dinámica de valores.</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoConsultaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarTipoConsultaDinamico: método dinámico para listar Jerarquías de Tipo de consulta
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica Tipo Consulta</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoConsulta(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarNivelUnidadOperativa: método para listar Jerarquías de Unidad Operativa
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista Unidad Operativa</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarAreaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarAreaDinamico: método dinámico para listar las áreas
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica área</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarArea(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarArea: método para listar areas
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista Unidad Operativa</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoConsultaDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarEstadoConsultaDinamico: método dinámico para listar los estados de consulta
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica área</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoConsulta(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarEstadoConsulta: método para listar los estados de consulta
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista Unidad Operativa</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarTipoRecords(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarArea: método para listar areas
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista Unidad Operativa</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarProject(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarArea: método para listar areas
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista Unidad Operativa</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarCompanyDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarCompanyDinamico: método dinámico para listar las company
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica company</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarCompany(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarCompany: método para listar company
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de company</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarClasificationDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarClasificationDinamico: método dinámico para listar las clasification
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica clasification</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarClasification(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarClasification: método para listar clasification
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de clasification</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarRiskDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarRiskDinamico: método dinámico para listar las Risk
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica Risk</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarRisk(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarRisk: método para listar risk
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de Risk</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarOperatingDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarOperatingDinamico: método dinámico para listar los Operating Area
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica Operating Area</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarOperating(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarOperating: método para listar Operating Area
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de Operating Area</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarIdiomasDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarIdiomasDinamico: método dinámico para listar los Idiomas
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica Idiomas</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarIdiomas(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarIdiomas: método para listar Idiomas
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de Idiomas</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarConfiguracionIdiomaPorDefectoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarIdiomasDinamico: método dinámico para listar los Idiomas
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica Idiomas</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarConfiguracionIdiomaPorDefecto(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarIdiomas: método para listar Idiomas
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de Idiomas</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarPrioridadDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarPrioridadDinamico: método dinámico para listar las Prioridades
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica Prioridades</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarPrioridad(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarPrioridad: método para listar Prioridad
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de Prioridad</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstadoDinamico(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest)">
+            <summary>
+            ListarEstadoDinamico: método dinámico para listar los Estados
+            </summary>
+            <param name="filtro">filtro de Parámetro Valor</param>
+            <returns>Lista Dinamica Estado</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.ListarEstado(Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest,System.String)">
+            <summary>
+            ListarEstado: método para listar Estado
+            </summary>
+            <param name="filtro"> filtro de Parámetro Valor  </param>
+            <param name="seccion"> por defecto la sección 2, se puede cambiar de valor caso sea necesario. </param>
+            <returns>Lista de Estado</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.BuscarRepositorioFileServer(System.Nullable{System.Int32})">
+            <summary>
+            BuscarRepositorioFileServer
+            </summary>
+            <param name="codigoRepositorioFileServer"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.Service.Politicas.PoliticaService.parametroValorService">
+            <summary>
+            Servicio de manejo de parametro valor
+            </summary>        
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,27 @@
+FechaHora = 04/02/2016 12:26:27 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ContratoParrafoVariableAdapter.RegistrarContratoParrafoVariable(ContratoParrafoVariableRequest data) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ContratoParrafoVariableAdapter.cs:line 61
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 590
+__________________________________________________
+FechaHora = 04/02/2016 12:32:19 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ContratoParrafoVariableAdapter.RegistrarContratoParrafoVariable(ContratoParrafoVariableRequest data) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ContratoParrafoVariableAdapter.cs:line 61
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 590
+__________________________________________________
+FechaHora = 04/02/2016 01:42:35 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ContratoParrafoVariableAdapter.RegistrarContratoParrafoVariable(ContratoParrafoVariableRequest data) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ContratoParrafoVariableAdapter.cs:line 61
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 590
+__________________________________________________
+FechaHora = 04/02/2016 01:42:44 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 379
+__________________________________________________

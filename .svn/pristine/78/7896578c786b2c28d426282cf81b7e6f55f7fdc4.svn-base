@@ -1,0 +1,33 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionAccionInmediataModel
+<div class="main-content">
+    <div class="modal-body">
+        <form id="frmInvestigacionAccionInmediata" onsubmit="return false;">
+            <fieldset id="flsInvestigacionAccionInmediata" @(ViewBag.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaDescripcion) (*)</label>
+                            <textarea id="txtDescripcion" class="form-control" maxlength="255">@ViewBag.Descripcion</textarea>
+                            <div class="text-right">
+                                <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, 255))</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </fieldset>
+            <div class="box-acciones-foot modal_box">
+                <button class="btn btn-default" id="btnCancelarRecordAccion" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                @if (ViewBag.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                {
+                    <button class="btn btn-primary" id="btnGrabarInvestigacionAccionInmediata">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                }
+           </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,35 @@
+FechaHora = 27/10/2015 10:52:47 a.m.
+MensajeError = Value cannot be null.
+Parameter name: source
+DetalleError =    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerListadoContratoPaginado(ListadoContratoLogic listadoContratoLogic, List`1 tipoServicio, List`1 tipoRequerimiento, List`1 tipoDocumento, List`1 estadoContrato, List`1 estadoEdicion, List`1 listaTrabajador, List`1 listaUnidadOperativa) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 84
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ListadoContratoPrincipal(ListadoContratoRequest filtro) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 1035
+__________________________________________________
+FechaHora = 27/10/2015 10:52:52 a.m.
+MensajeError = Value cannot be null.
+Parameter name: source
+DetalleError =    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerListadoContratoPaginado(ListadoContratoLogic listadoContratoLogic, List`1 tipoServicio, List`1 tipoRequerimiento, List`1 tipoDocumento, List`1 estadoContrato, List`1 estadoEdicion, List`1 listaTrabajador, List`1 listaUnidadOperativa) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 84
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ListadoContratoPrincipal(ListadoContratoRequest filtro) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 1035
+__________________________________________________
+FechaHora = 27/10/2015 10:52:59 a.m.
+MensajeError = Value cannot be null.
+Parameter name: source
+DetalleError =    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerListadoContratoPaginado(ListadoContratoLogic listadoContratoLogic, List`1 tipoServicio, List`1 tipoRequerimiento, List`1 tipoDocumento, List`1 estadoContrato, List`1 estadoEdicion, List`1 listaTrabajador, List`1 listaUnidadOperativa) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 84
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ListadoContratoPrincipal(ListadoContratoRequest filtro) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 1035
+__________________________________________________
+FechaHora = 27/10/2015 10:53:08 a.m.
+MensajeError = Value cannot be null.
+Parameter name: source
+DetalleError =    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerListadoContratoPaginado(ListadoContratoLogic listadoContratoLogic, List`1 tipoServicio, List`1 tipoRequerimiento, List`1 tipoDocumento, List`1 estadoContrato, List`1 estadoEdicion, List`1 listaTrabajador, List`1 listaUnidadOperativa) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 84
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ListadoContratoPrincipal(ListadoContratoRequest filtro) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 1035
+__________________________________________________
+FechaHora = 27/10/2015 10:53:30 a.m.
+MensajeError = Value cannot be null.
+Parameter name: source
+DetalleError =    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerListadoContratoPaginado(ListadoContratoLogic listadoContratoLogic, List`1 tipoServicio, List`1 tipoRequerimiento, List`1 tipoDocumento, List`1 estadoContrato, List`1 estadoEdicion, List`1 listaTrabajador, List`1 listaUnidadOperativa) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 84
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ListadoContratoPrincipal(ListadoContratoRequest filtro) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 1035
+__________________________________________________

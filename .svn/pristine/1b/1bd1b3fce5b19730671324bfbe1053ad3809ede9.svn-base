@@ -1,0 +1,109 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+
+<div class="main-content view-wrap">
+        <div role="tabpanel" class="tab-pane fade in" id="tabConfiguracion">
+        <div role="tabpanel" class="tab-pane fade in" id="Configuracion">
+            <div class="content-body">
+                <div class="tab_custom">
+                    <div class="tab-interno item03">
+                        <ul class="nav nav-tabs" role="tablist" id="cartTabsFormularioConfiguracion">
+                            <li id="listaConfiguracionProceso" role="presentation" >
+                                <a id="cProceso" href="#tabConfiguracionProceso" class="top-tab" aria-controls="tabConfiguracionProceso" role="tab" data-toggle="tab">@Html.Raw(AsignacionResource.EtiquetaProcesos)</a>
+                            </li>
+                            <li id="listaConfiguracionSubProceso" role="presentation">
+                                <a id="cSubProceso" href="#tabConfiguracionSubProceso" class="top-tab" aria-controls="tabConfiguracionSubProceso" data-toggle="tab">@Html.Raw(AsignacionResource.EtiquetaSubProceso)</a>
+                            </li>
+                            <li id="listaConfiguracionFamiliaEquipo" role="presentation" class="active">
+                                <a id="cFamiliaEquipo" href="#tabConfiguracionFamiliaEquipo" class="top-tab" aria-controls="tabConfiguracinFamiliaEquipo" data-toggle="tab">@Html.Raw(ConfiguracionResource.EtiquetaFamiliaEquipo)</a>
+                            </li>
+                            <li id="listaConfiguracionEquipo" role="presentation">
+                                <a id="cEquipo" href="#tabConfiguracionEquipo" class="top-tab" aria-controls="tabConfiguracinEquipo" data-toggle="tab">@Html.Raw(ConfiguracionResource.EtiquetaTituloEquipo)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <h2 class="tituloCapacitacion">
+                <strong><i class="fa fa-truck"></i>@Html.Raw(ConfiguracionResource.EtiquetaPrincipalFamiliaEquipo)</strong></h2>
+        </div>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnAgregarFamiliaEquipo" type="button" class="btn-table text-line one">
+                    @Html.Raw(ConfiguracionResource.EtiquetaAgregarFamiliaEquipo)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="row" >
+            <div class="col-sm-6">
+                <h4>@Html.Raw(ConfiguracionResource.EtiquetaResultadosBusquedaProceso)</h4>
+            </div>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResultFamiliaEquipo">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridProceso = '@Html.Raw(AsignacionResource.GridProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridSubProceso = '@Html.Raw(AsignacionResource.GridSubProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridDescripcionProceso = '@Html.Raw(AsignacionResource.GridDescripcionProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.GridTipo = '@Html.Raw(AsignacionResource.GridTipo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaTituloFormularioAgregarFam = '@Html.Raw(ConfiguracionResource.EtiquetaTituloFormularioAgregarFam)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaCodigoFamilia = '@Html.Raw(ConfiguracionResource.EtiquetaCodigoFamilia)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaDescripcionFamilia = '@Html.Raw(ConfiguracionResource.EtiquetaDescripcionFamilia)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.EtiquetaDescripcionAbrev = '@Html.Raw(ConfiguracionResource.EtiquetaDescripcionAbrev)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Resource.MsjValidarFamiliaAsignadoEquipo = '@Html.Raw(ConfiguracionResource.MsjValidarFamiliaAsignadoEquipo)';
+             
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioAgregarFamiliaEquipoModal = '@Url.Action("FormularioAgregarFamiliaEquipoModal", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioConfigProcesosFamiliaEquipoModal = '@Url.Action("FormularioConfigProcesosFamiliaEquipoModal", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.BuscarFamiliaEquipo = '@Url.Action("BuscarFamiliaEquipo", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.BuscarProcesos = '@Url.Action("BuscarAsignacionProcesosPorProyecto", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.RegistrarFamiliaEquipo = '@Url.Action("RegistrarFamiliaEquipo", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.EliminarFamiliaEquipo = '@Url.Action("EliminarFamiliaEquipo", "Configuracion", new { Area = "Capacitacion" })';
+        
+
+
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.BandejaFamiliaEquipo = '@Url.Action("Index", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.Index = '@Url.Action("Index", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioMantenimientoProceso = '@Url.Action("Proceso", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioMantenimientoSubProceso = '@Url.Action("SubProceso", "Configuracion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Configuracion.Actions.FormularioMantenimientoFamiliaEquipo = '@Url.Action("FamiliaEquipo", "Configuracion", new { Area = "Capacitacion" })';
+ 
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions')    
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Asignacion.Actions.FormularioSeleccionarProcesos = '@Url.Action("FormularioSeleccionarProcesos", "Asignacion", new { Area = "Capacitacion" })';
+        
+      
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioProceso.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioProceso.Resource.GridProceso = '@Html.Raw(AsignacionResource.GridProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioProceso.Resource.GridSubProceso = '@Html.Raw(AsignacionResource.GridSubProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioProceso.Resource.GridDescripcionProceso = '@Html.Raw(AsignacionResource.GridDescripcionProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioProceso.Resource.GridTipo = '@Html.Raw(AsignacionResource.GridTipo)';
+
+    </script>
+
+
+    @CustomHtmlHelper.RenderViewJs("capacitacionconfiguracionformularioagregarfamiliaequipomodal");
+    @CustomHtmlHelper.RenderViewJs("capacitacionconfiguracionformularioconfigprocesosfamiliaequipomodal");
+
+}

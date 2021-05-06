@@ -1,0 +1,94 @@
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll.config
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.XML
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Tiraggo.DynamicQuery.EF.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.csprojResolveAssemblyReference.cache
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ElectroPeru\Nueva Arquitectura\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll.config
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.XML
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\AutoMapper.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Tiraggo.DynamicQuery.EF.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\AutoMapper.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ELP-006\fuentes\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.csprojResolveAssemblyReference.cache
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll.config
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.XML
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\AutoMapper.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Tiraggo.DynamicQuery.EF.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.Mvc.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\log4net.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.Razor.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\AutoMapper.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.Mvc.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\log4net.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.Razor.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\Aplicaciones - AO\Proyecto Fonafe\Indicadores\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll.config
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.XML
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\AutoMapper.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Tiraggo.DynamicQuery.EF.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.Mvc.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\log4net.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.Razor.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.Razor.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\AutoMapper.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.Mvc.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\log4net.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.Razor.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.Razor.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.csprojResolveAssemblyReference.cache
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ProyectosCV\GESTION_INDICADORES\GEST_IND_SVN\ELECTRO_SGI_SVN\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb

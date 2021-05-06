@@ -1,0 +1,52 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionCategoriaLesionModel
+
+<div class="modal-body">
+    <form onsubmit="return false;" id="frmSubModalInformacionGeneralLesion">
+        <fieldset @(Model.CategoriaLesion.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaParteCuerpoLesionada): (*)</label>  
+                        @Html.DropDownListFor(model => model.CategoriaLesion.CodigoParteCuerpoLesionada, Model.ListaParteCuerpoLesionada, new { @class = "form-control", @id = "slcParteCuerpoLesionada", @validable = "required Validar" })                  
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaNaturalezaLesion): (*)</label>  
+                        @Html.DropDownListFor(model => model.CategoriaLesion.CodigoNaturalezaLesion, Model.ListaNaturalezaLesion, new { @class = "form-control", @id = "slcNaturalezaLesion", @validable = "required Validar" })                  
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaMecanismo): (*)</label>  
+                        @Html.DropDownListFor(model => model.CategoriaLesion.CodigoMecanismo, Model.ListaMecanismoLesion, new { @class = "form-control", @id = "slcMecanismoLesion", @validable = "required Validar" })                  
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaComentario): </label>  
+                        @Html.TextBox("txtComentarioInformacionLesion", Model.CategoriaLesion.Comentario, string.Empty, new { @class = "form-control",  @id = "txtComentarioInformacionLesion", @maxlength="255" })
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarInformacionGeneral" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    @if (Model.CategoriaLesion.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+    {
+        <button class="btn btn-primary" id="btnGrabarInformacionGeneral">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+    }
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioInformacionGeneralLesion = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

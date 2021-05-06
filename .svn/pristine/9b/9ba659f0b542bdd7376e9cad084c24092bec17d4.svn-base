@@ -1,0 +1,499 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador
+
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.IngresoIndicador.IngresoIndicadorModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="modal-body">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-12">                 
+                <h6><strong><label id="txtSeguimientoValInd" style="position: relative; margin-top: 7px;"></label></strong></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                @Html.Hidden("hdnCodigoIndicador")
+                @Html.Hidden("hdnCodigoPeriodicidad")
+                @Html.Hidden("hdnCodigoAmbito")
+                <label style="position: relative; margin-top: 7px;"><b>@Html.Raw(IndicadorResource.GridNombre):</b></label>
+                <div>
+                    <input id="txtNombreIndicador" style="background-color: yellow; color: blue" name="txtNombreObjetivoEstrategicoEmpresa" type="text" class="form-control" disabled="disabled">
+                </div>
+            </div>
+        </div>        
+    </div>    
+    <div class="panel-group" id ="divFormula">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">@Html.Raw(IndicadorResource.EtiquetaFormulaIngreso)</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse ">
+                <div class="panel-body">
+                    <form onsubmit="return false;" id="frmIndicadorDetalle">
+                        <div class="title-interna">
+                            <span>@Html.Raw(IndicadorResource.EtiquetaFormulaIngreso)</span>
+                            <div id="divBotonFormula" class="acciones-form btn-group btn-group-table">
+                                <button class="btn btn-primary" id="btnAgregarFormula">
+                                    @if (Model.Indicador.NombreFormula == null)
+                                    { 
+                                        @Html.Raw(IndicadorResource.EtiquetaAgregarFormula)
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(IndicadorResource.EtiquetaEditarFormula)
+                                    }
+                                </button>
+                            </div>
+                        </div>
+                        <div id="divControlesIngresoFormula" class="form-group hidden">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="table-grilla">
+                                        <div id="divGrdResultVariable">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-12 container">
+                                        <div style="width: 98.5%; margin-bottom: 0px" class="well">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <button style="background: white; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnAbreP">(</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: white; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnCierraP">)</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: white; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnBack">«</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: white; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnCE">CE</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-12 container">
+                                        <div style="width: 98.5%; margin-bottom: 0px" class="well">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnSiete">7</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnOcho">8</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnNueve">9</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: white; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnSlash">/</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-12 container">
+                                        <div style="width: 98.5%; margin-bottom: 0px" class="well">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnCuatro">4</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnCinco">5</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnSeis">6</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: white; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnAsterico">*</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-12 container">
+                                        <div style="width: 98.5%; margin-bottom: 0px" class="well">
+                                            <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnUno">1</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnDos">2</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnTres">3</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: white; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnResta">-</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-12 container">
+                                        <div style="width: 98.5%; margin-bottom: 0px" class="well">
+                                            <div class="form-group">
+                                                <div class="col-sm-6">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnCero">0</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: #e3e3e3; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnPunto">.</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <button style="background: white; color: black; border-color: #e3e3e3; width: 100%" class="btn btn-primary" id="btnMas">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(IndicadorResource.EtiquetaTabFormula)</span>
+                        </div>
+                        <div id="divControlesExpresionFormula" class="form-group hidden">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaFormula):</label>
+                                    <div>
+                                        @Html.Hidden("hdnCodigoFormula", Model.Indicador.CodigoFormula, new { ïd = "hdnCodigoFormula", @validable = "required Validar" })
+                                        @Html.TextArea("txtNombreFormula", Model.Indicador.NombreFormula, new { id = "txtNombreFormula", @class = "form-control", @maxlength = "255", @rows = "4", @validable = "required Validar", @disabled = "disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="divBotonIndicadorDetalle" class="box-acciones-foot filter">
+                        <button class="btn btn-primary" id="btnGuardarIndicadorDetalle"  style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Nuevo || permiso == (int)Constantes.Permisos.Codigo.Escritura || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">@Html.Raw(IndicadorResource.EtiquetaBotonGuardar)</button>
+                    </div>
+                    <div class="table-grilla">
+                        <div id="divGrdIndicadorDetalle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-group hidden" id ="divMetaAnual">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse5">@Html.Raw(IndicadorResource.EtiquetaMetaAnual)</a>
+                </h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <form onsubmit="return false;" id="frmIndicadorMetaAnual">
+                        <div class="title-interna">
+                            <span>@Html.Raw(IndicadorResource.EtiquetaMetaAnual)</span>
+                        </div>
+                        <div id="divControlesIndicadorMetaAnual" class="form-group">
+                            <div class="row">                                
+                                <div class="col-sm-6" id="divtxtAnioAnual">
+                                    <label style="margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaAnual): (*)</label>
+                                    <div>
+                                        <div class="input-group">
+                                            @Html.TextBox("txtAnioMetaAnual", Model.IndicadorMetaAnual.Anio, new { id = "txtAnioMetaAnual", @class = "form-control", @validable = "required Validar"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" id="divtxtValorMetaAnual">
+                                    <label style="margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaValorMeta): (*)</label>
+                                    <div>
+                                        <div class="input-group">
+                                            @Html.TextBox("txtValorMetaAnual", Model.IndicadorMetaAnual.ValorMetaAnual, new { id = "txtValorMetaAnual", @class = "form-control", @validable = "required Validar"})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="divBotonIndicadorMetaAnual" class="box-acciones-foot filter">
+                        <button class="btn btn-primary" id="btnGuardarIndicadorMetaAnual">@Html.Raw(IndicadorResource.EtiquetaBotonGuardar)</button>
+                    </div>
+                    <div class="title-interna">
+                        <span>@Html.Raw(IndicadorResource.EtiquetaLista)</span>
+                    </div>
+                    <div class="table-grilla">
+                        <div id="divGrdIndicadorMetaAnual">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="panel-group hidden" id ="divMeta">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse2">@Html.Raw(IndicadorResource.EtiquetaMetas)</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <form onsubmit="return false;" id="frmIndicadorMeta">
+                        <div class="title-interna">
+                            <span>@Html.Raw(IndicadorResource.EtiquetaMetas)</span>
+                        </div>
+                        <div id="divControlesIndicadorMeta" class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="hidden" id="divdtpFechaMeta">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaDiario): (*)</label>
+                                        <div>
+                                            @Html.TextBox("dtpFechaMeta", Model.IndicadorMeta.CodigoSubTipoPeriodicidad, new { id = "dtpFechaMeta", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcSemana">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaSemana): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorMeta.CodigoSubTipoPeriodicidad, Model.ListaSemana, new { id = "slcSemana", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcMes">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaMes): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorMeta.CodigoSubTipoPeriodicidad, Model.ListaMes, new { id = "slcMes", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcTrimestre">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaTrimestre): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorMeta.CodigoSubTipoPeriodicidad, Model.ListaTrimestre, new { id = "slcTrimestre", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcSemestre">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaSemestre): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorMeta.CodigoSubTipoPeriodicidad, Model.ListaSemestre, new { id = "slcSemestre", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 hidden" id="divtxtAnio">
+                                    <label style="margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaAnual): (*)</label>
+                                    <div>
+                                        <div class="input-group">
+                                            @Html.TextBox("txtAnio", Model.IndicadorMeta.Anio, new { id = "txtAnio", @class = "form-control", @validable = "required Validar"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 hidden" id="divtxtValorMeta">
+                                    <label style="margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaValorMeta): (*)</label>
+                                    <div>
+                                        <div class="input-group">
+                                            @Html.TextBox("txtValorMeta", Model.IndicadorMeta.ValorMeta, new { id = "txtValorMeta", @class = "form-control", @validable = "required Validar"})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="divBotonIndicadorMeta" class="box-acciones-foot filter">
+                        <button class="btn btn-primary" id="btnGuardarIndicadorMeta">@Html.Raw(IndicadorResource.EtiquetaBotonGuardar)</button>
+                    </div>
+                    <div class="title-interna">
+                        <span>@Html.Raw(IndicadorResource.EtiquetaLista)</span>
+                    </div>
+                    <div class="table-grilla">
+                        <div id="divGrdIndicadorMeta">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-group hidden" id ="divValor">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse3">@Html.Raw(IndicadorResource.EtiquetaValor)</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <form onsubmit="return false;" id="frmIndicadorValor">
+                        <div class="title-interna">
+                            <span>@Html.Raw(IndicadorResource.EtiquetaValor)</span>
+                        </div>
+                        <div id="divControlesIndicadorValor" class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="hidden" id="divdtpFechaValor">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaDiario): (*)</label>
+                                        <div>
+                                            @Html.TextBox("dtpFechaValor", Model.IndicadorValor.CodigoSubTipoPeriodicidad, new { id = "dtpFechaValor", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcSemanaValor">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaSemana): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorValor.CodigoSubTipoPeriodicidad, Model.ListaSemana, new { id = "slcSemanaValor", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcMesValor">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaMes): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorValor.CodigoSubTipoPeriodicidad, Model.ListaMes, new { id = "slcMesValor", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcTrimestreValor">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaTrimestre): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorValor.CodigoSubTipoPeriodicidad, Model.ListaTrimestre, new { id = "slcTrimestreValor", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcSemestreValor">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaSemestre): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorValor.CodigoSubTipoPeriodicidad, Model.ListaSemestre, new { id = "slcSemestreValor", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 hidden" id="divtxtAnioValor">
+                                    <label style="margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaAnual): (*)</label>
+                                    <div>
+                                        <div class="input-group">
+                                            @Html.TextBox("txtAnio", Model.IndicadorValor.Anio, new { id = "txtAnioValor", @class = "form-control", @validable = "required Validar"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 hidden" id="divtxtValorReal">
+                                    <label style="margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaValorReal): (*)</label>
+                                    <div>
+                                        <div class="input-group">
+                                            @Html.TextBox("txtValorReal", Model.IndicadorValor.ValorReal, new { id = "txtValorReal", @class = "form-control", @validable = "required Validar"})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="divBotonIndicadorValor" class="box-acciones-foot filter">
+                        <button class="btn btn-primary" id="btnGuardarIndicadorValor">@Html.Raw(IndicadorResource.EtiquetaBotonGuardar)</button>
+                    </div>
+                    <div class="title-interna">
+                        <span>@Html.Raw(IndicadorResource.EtiquetaLista)</span>
+                    </div>
+                    <div class="table-grilla">
+                        <div id="divGrdIndicadorValor">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-group hidden" id ="divEvaluacion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse4">@Html.Raw(IndicadorResource.EtiquetaEvaluacion)</a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <form onsubmit="return false;" id="frmIndicadorEvaluacion">
+                        <div class="title-interna">
+                            <span>@Html.Raw(IndicadorResource.EtiquetaEvaluacion)</span>
+                        </div>
+                        <div id="divControlesIndicadorEvaluacion" class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="hidden" id="divdtpFechaEvaluacion">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaDiario): (*)</label>
+                                        <div>
+                                            @Html.TextBox("dtpFechaEvaluacion", Model.IndicadorEvaluacion.CodigoSubTipoPeriodicidad, new { id = "dtpFechaEvaluacion", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcSemanaEvaluacion">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaSemana): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorEvaluacion.CodigoSubTipoPeriodicidad, Model.ListaSemana, new { id = "slcSemanaEvaluacion", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcMesEvaluacion">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaMes): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorEvaluacion.CodigoSubTipoPeriodicidad, Model.ListaMes, new { id = "slcMesEvaluacion", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcTrimestreEvaluacion">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaTrimestre): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorEvaluacion.CodigoSubTipoPeriodicidad, Model.ListaTrimestre, new { id = "slcTrimestreEvaluacion", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="hidden" id="divslcSemestreEvaluacion">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaSemestre): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.IndicadorEvaluacion.CodigoSubTipoPeriodicidad, Model.ListaSemestre, new { id = "slcSemestreEvaluacion", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 hidden" id="divtxtAnioEvaluacion">
+                                    <label style="margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaAnual): (*)</label>
+                                    <div>
+                                        <div class="input-group">
+                                            @Html.TextBox("txtAnioEvaluacion", Model.IndicadorEvaluacion.Anio, new { id = "txtAnioEvaluacion", @class = "form-control", @validable = "required Validar"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 hidden" id="divtxtEvaluacionReal">
+                                    <label style="margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaEvaluacion): (*)</label>
+                                    <div>
+                                        <div class="input-group">
+                                            @Html.TextBox("txtValorEvaluacion", Model.IndicadorEvaluacion.ValorEvaluacion, new { id = "txtValorEvaluacion", @class = "form-control", @validable = "required Validar"})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="divBotonIndicadorEvaluacion" class="box-acciones-foot filter">
+                        <button class="btn btn-primary" id="btnGuardarIndicadorEvaluacion">@Html.Raw(IndicadorResource.EtiquetaBotonGuardar)</button>
+                    </div>
+                    <div class="title-interna">
+                        <span>@Html.Raw(IndicadorResource.EtiquetaLista)</span>
+                    </div>
+                    <div class="table-grilla">
+                        <div id="divGrdIndicadorEvaluacion">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{   
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+            overflow-y: auto !important;
+        }
+    </style>
+}

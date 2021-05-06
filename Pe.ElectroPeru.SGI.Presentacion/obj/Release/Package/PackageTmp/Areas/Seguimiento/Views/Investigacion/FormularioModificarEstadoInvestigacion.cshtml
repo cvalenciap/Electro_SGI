@@ -1,0 +1,33 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionEstadoModel
+
+<div class="modal-body">
+    <form onsubmit="return false;" id="frmEstadoInvestigacionModal">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label id="lblCheckEstado">@Html.Raw(InvestigacionResource.EtiquetaSeleccioneEstado): </label> 
+                    @if (Model.ListaEstadoInvestigacion != null && Model.ListaEstadoInvestigacion.Count > 0) { 
+                        foreach (var item in Model.ListaEstadoInvestigacion){
+                            <input type="radio" class="checkEstadoInvestigacion" name="checkEstadoInvestigacion" value="@item.Value" style="vertical-align: middle; margin: 3px;" data-nombreestado="@item.Text" validable="required Validar"/> @Html.Raw(item.Text)                            
+                        }
+                    }
+                </div>
+            </div>
+         </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaComentarioJustificacion): </label>  
+                    @Html.TextArea("txtComentarioJustificacion", string.Empty, new { @class = "form-control" })                    
+                </div>
+            </div>
+         </div>
+     </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarEstadoInvestigacionModal">@Html.Raw(GenericoResource.BotonAceptar)</button>
+</div>

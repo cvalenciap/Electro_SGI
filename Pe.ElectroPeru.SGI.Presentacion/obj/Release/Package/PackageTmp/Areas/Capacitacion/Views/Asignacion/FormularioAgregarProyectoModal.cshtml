@@ -1,0 +1,33 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.AsignacionProyectoModel
+
+<div class="modal-body">
+    <form onsubmit="return false;" id="frmAgregarProyecto">
+        <div class="row">
+            <div class="col-sm-12" style="display: none">
+                <div class="form-group">
+                    <input type="hidden" id="hdnCodigoProyecto" />
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(AsignacionResource.EtiquetaProyecto): </label>
+                    <input type="text" class="form-control" id="txtNombreProyecto" disabled readonly="true" />                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(AsignacionResource.GridFechaPreparacion):</label>
+                    <input type="text" class="form-control" id="dtpFechaRegistro" disabled readonly="true" />                  
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarProyecto" type="button" data-dismiss="modal">@Html.Raw(AsignacionResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarProyecto">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>

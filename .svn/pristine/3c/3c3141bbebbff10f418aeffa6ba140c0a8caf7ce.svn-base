@@ -1,0 +1,79 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.EmpresaColaborador.EmpresaColaboradorModel
+<div class="modal-body">
+    <form id="frmEmpresaColaborador" onsubmit="return false;">
+        @*<div class="title-interna">
+            <span>@Html.Raw(InvestigacionResource.EtiquetaInformacionTrabajadoresInvolucrados)</span>
+            <div class="acciones-form btn-group btn-group-table">
+            </div>
+        </div>*@
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaEmpresa)</label>
+                    <div class="input-group">
+                        @Html.Hidden("hdnEmpresaColaboradorCodigoEmpresa", Model.Empresa.CodigoEmpresa, new { ïd = "hdnEmpresaColaboradorCodigoEmpresa" })
+                        @Html.TextBox("txtEmpresaColaboradorNombreEmpresa", Model.Empresa.RazonSocial, string.Empty, new { id = "txtEmpresaColaboradorNombreEmpresa", @class = "form-control", disabled = "disabled" })
+                        <div class="input-group-addon">
+                            <button class="btn-form" id="btnBuscarEmpresaInvolucrado" type="button">....</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(BuscadorEmpresaResource.EtiquetaRuc):</label>
+                    @Html.TextBox("txtEmpresaColaboradorRucEmpresa", Model.Empresa.Ruc, string.Empty, new { id = "txtEmpresaColaboradorRucEmpresa", @class = "form-control", disabled = "disabled" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(BuscadorEmpresaResource.EtiquetaRazonSocial):</label>
+                    @Html.TextBox("txtEmpresaColaboradorRazonSocial", Model.Empresa.RazonSocial, string.Empty, new { id = "txtEmpresaColaboradorRazonSocial", @class = "form-control", disabled = "disabled" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaNombresApellidos)</label>
+                    <div class="input-group">
+                        @Html.Hidden("hdnEmpresaColaboradorCodigoColaborador", Model.Colaborador.CodigoColaborador, new { ïd = "hdnEmpresaColaboradorCodigoColaborador" })
+                        @Html.TextBox("txtEmpresaColaboradorNombreColaborado", Model.Colaborador.NombreCompletoColaborador, string.Empty, new { id = "txtEmpresaColaboradorNombreColaborado", @class = "form-control", disabled = "disabled" })
+                        <div class="input-group-addon">
+                            <button class="btn-form" id="btnBuscarColaboradorInvolucrado" type="button">....</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaDniPasaporte):</label>                    
+                    @Html.Hidden("hdnEmpresaColaboradorCorreoColaborador", string.Empty, new { ïd = "hdnEmpresaColaboradorCorreoColaborador" })
+                    @Html.TextBox("txtEmpresaColaboradorNumeroDocumento", Model.Colaborador.NumeroDocumento, string.Empty, new { id = "txtEmpresaColaboradorNumeroDocumento", @class = "form-control", disabled = "disabled" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaPuestoTrabajo):</label>
+                    @Html.Hidden("hdnEmpresaColaboradorCodigoPuestoTrabajador", Model.Colaborador.CodigoPuestoTrabajo, new { ïd = "hdnEmpresaColaboradorCodigoPuestoTrabajador" })
+                    @Html.TextBox("txtEmpresaColaboradorPuestoTrabajo", Model.Colaborador.NombrePuestoTrabajo, string.Empty, new { id = "txtEmpresaColaboradorPuestoTrabajo", @class = "form-control", disabled = "disabled" })
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarInvestigacionColaboradorInvolucrado" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarInvestigacionColaboradorInvolucrado">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>
+
+@CustomHtmlHelper.RenderViewJs()

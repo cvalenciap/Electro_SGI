@@ -1,0 +1,154 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Responsable.FormularioBandejaModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //var disabledEscritura = (Model.ControlPermisos.ControlTotal || Model.ControlPermisos.Escritura) ? false : true;
+    //var disabledEliminar = (Model.ControlPermisos.ControlTotal) ? false : true; 
+}
+       
+<div class="GmdBody-header">
+    <h2>@ResponsableResource.EtiquetaTituloPrincipal</h2>
+</div>
+<div class="GmdBody-body">
+    <form id="frmResponsableRegistrar">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@ResponsableResource.EtiquetaNombreCompleto</label>
+                    @Html.TextBox("txtNombreCompleto", string.Empty, new { @id = "txtNombreCompleto", @class = "form-control", @maxlength = "50", onkeyup = "Pe.GMD.UI.Web.Components.Util.ToUpperCase(event)" })
+                </div>
+                <div class="form-group">
+                    <input id="cboxSolicitante" type="checkbox" />
+                    <label>@ResponsableResource.EtiquetaSolicitante</label>
+                    @*@Html.TextBox("txtNombreCompleto", string.Empty, new { @id = "txtNombreCompleto", @class = "form-control", @maxlength = "50", onkeyup = "Pe.GMD.UI.Web.Components.Util.ToUpperCase(event)" })*@
+                </div>
+                <div class="form-group">
+                    <input id="cboxAprobador" type="checkbox" />
+                    <label>@ResponsableResource.EtiquetaAprobador</label>
+                    @*@Html.TextBox("txtNombreCompleto", string.Empty, new { @id = "txtNombreCompleto", @class = "form-control", @maxlength = "50", onkeyup = "Pe.GMD.UI.Web.Components.Util.ToUpperCase(event)" })*@
+            </div>          
+            </div>          
+
+        </div>
+        
+        
+    </form>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <button id="btnLimpiar" class="btn btn-info" type="reset">@GenericoResource.BotonLimpiar</button>
+                <button id="btnBuscar" class="btn btn-default" type="button">@GenericoResource.BotonMostrar</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>@GenericoResource.EtiquetaResultadosBusqueda</h3>
+            </div>
+            <div class="col-sm-6 text-right">
+                <button id="btnAgregar" class="btn btn-primary">@GenericoResource.BotonAñadir</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 align-left">
+                <div id="divGrdResult">
+                </div>
+            </div>
+        </div>
+        @*        <div class="row">
+            <div class="col-sm-12">
+        <div class="table-responsive">
+            <div id="divGrdResult">
+            </div>
+        </div>        
+            </div>
+        </div>*@
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions.BuscarResponsable = '@Url.Action("BuscarResponsable", "Responsable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions.BuscarResponsableAD = '@Url.Action("BuscarResponsableAD", "Responsable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions.FormularioResponsable = '@Url.Action("FormularioResponsable", "Responsable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions.RegistrarResponsable = '@Url.Action("RegistrarResponsable", "Responsable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions.EliminarResponsable = '@Url.Action("EliminarResponsable", "Responsable", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Actions.BuscarUnidadOrganizativa = '@Url.Action("BuscarUnidadOrganizativa", "UnidadOrganizativa", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridDni = '@Html.Raw(ResponsableResource.GridDni)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridNombres = '@Html.Raw(ResponsableResource.GridNombres)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridApeMaterno = '@Html.Raw(ResponsableResource.GridApellidoMaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridApePaterno = '@Html.Raw(ResponsableResource.GridApellidoPaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridCelular = '@Html.Raw(ResponsableResource.GridCelular)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridEmpresa = '@Html.Raw(ResponsableResource.GridEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridNombreUO = '@Html.Raw(ResponsableResource.GridNombreUO)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridEmail = '@Html.Raw(ResponsableResource.GridEmail)';
+        
+
+       @* ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.EtiquetaFormularioResponsable = '@Html.Raw(ResponsableResource.EtiquetaFormularioResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.EtiquetaTituloAdvertencia = '@Html.Raw(MensajeResource.EtiquetaTituloAdvertencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.EtiquetaTituloEliminar = '@Html.Raw(GenericoResource.EtiquetaEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.EtiquetaMensajeEliminarRegistro = '@Html.Raw(MensajeResource.ConfirmacionEliminacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.EtiquetaMensajeEliminarRegistros = '@Html.Raw(MensajeResource.MsgEliminacionList)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.ConfirmacionEliminacion = '@Html.Raw(MensajeResource.SeEliminoInformacionExito)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.EtiquetaRegistrarResponsable = '@Html.Raw(ResponsableResource.EtiquetaRegistrarResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.EtiquetaEditarResponsable = '@Html.Raw(ResponsableResource.EtiquetaEditarResponsable)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridNombreResponsable = '@Html.Raw(ResponsableResource.GridNombreResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridApeMaterno = '@Html.Raw(ResponsableResource.GridApeMaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridApePaterno = '@Html.Raw(ResponsableResource.GridApePaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridCelular = '@Html.Raw(ResponsableResource.GridCelular)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridContactoResponsable = '@Html.Raw(ResponsableResource.GridContactoResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridDni = '@Html.Raw(ResponsableResource.GridDni)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridCorreoResponsable = '@Html.Raw(ResponsableResource.GridCorreoResponsable)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridEmailPersonal = '@Html.Raw(ResponsableResource.GridEmailPersonal)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridPlaca = '@Html.Raw(ResponsableResource.GridPlaca)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridIdResponsable = '@Html.Raw(ResponsableResource.GridIdResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridIdFacebook = '@Html.Raw(ResponsableResource.GridIdFacebook)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridRolResponsable = '@Html.Raw(ResponsableResource.GridRolResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridEmailEmpresa = '@Html.Raw(ResponsableResource.GridEmailEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridServicio = '@Html.Raw(ResponsableResource.GridServicio)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridTelefonoResponsable = '@Html.Raw(ResponsableResource.GridTelefonoResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridActivo = '@Html.Raw(ResponsableResource.GridActivo)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion')
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.TituloConfirmarGuardar = '@Html.Raw(GenericoResource.EtiquetaTituloConfirmar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ConfirmacionGuardar = '@Html.Raw(MensajeResource.ConfirmacionGuardar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarNombre = '@Html.Raw(ResponsableResource.EtiquetaNombreResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarApellidoPaterno = '@Html.Raw(ResponsableResource.EtiquetaApellidoPaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarApellidoMaterno = '@Html.Raw(ResponsableResource.EtiquetaApellidoMaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarDni = '@Html.Raw(ResponsableResource.EtiquetaDni)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarEmailEmpresa = '@Html.Raw(ResponsableResource.EtiquetaEmailEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarEmailPersonal = '@Html.Raw(ResponsableResource.EtiquetaEmailPersona)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarPlaca = '@Html.Raw(ResponsableResource.EtiquetaPlaca)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarResponsable = '@Html.Raw(ResponsableResource.EtiquetaResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarContacto = '@Html.Raw(ResponsableResource.EtiquetaContactoResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarTelefono = '@Html.Raw(ResponsableResource.EtiquetaTelefonoResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ValidarCelular = '@Html.Raw(ResponsableResource.EtiquetaCelular)'; 
+
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaEjecutoNingunProceso = '@Html.Raw(MensajeResource.EtiquetaNoEjecutoNingunProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaErrorRegistro = '@Html.Raw(MensajeResource.EtiquetaErrorRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ActualizacionConforme = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaConfirmacion = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaEliminacionExitosa = '@Html.Raw(MensajeResource.SeEliminoInformacionExito)';*@
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Models.Responsable = '@(Html.Raw(Json.Encode(Model)))';
+    </script>
+  @CustomHtmlHelper.RenderViewJs("mantenimientoresponsableformularioresponsable")
+}

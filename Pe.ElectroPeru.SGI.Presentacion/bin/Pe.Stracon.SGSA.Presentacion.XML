@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pe.ElectroPeru.SGI.Presentacion</name>
+    </assembly>
+    <members>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl">
+            <summary>
+            Clase de Report View Control
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.Page_Init(System.Object,System.EventArgs)">
+            <summary>
+            Método para inicializar la página
+            </summary>
+            <param name="sender">Envio</param>
+            <param name="e">Evento</param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Método para cargar la página
+            </summary>
+            <param name="sender">Envio</param>
+            <param name="e">Evento</param>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.form1">
+            <summary>
+            Control form1.
+            </summary>
+            <remarks>
+            Campo generado automáticamente.
+            Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+            </remarks>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.ScriptManager1">
+            <summary>
+            Control ScriptManager1.
+            </summary>
+            <remarks>
+            Campo generado automáticamente.
+            Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+            </remarks>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.ReportViewer">
+            <summary>
+            Control ReportViewer.
+            </summary>
+            <remarks>
+            Campo generado automáticamente.
+            Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+            </remarks>
+        </member>
+    </members>
+</doc>

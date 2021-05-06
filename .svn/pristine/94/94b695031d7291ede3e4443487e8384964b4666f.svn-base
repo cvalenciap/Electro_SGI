@@ -1,0 +1,142 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.AccionEstrategicaSectorial
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.IngresoAccionEstrategicaSectorial.IngresoAccionEstrategicaSectorialModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto"><strong>@Html.Raw(AESResource.EtiquetaTituloAccionEstrategicaSectorial)</strong></h2>
+
+        <div class="pull-right">
+            <a id="btnRegresarBandejaAccionEstrategicaSectorial" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body" style="min-height: 650px;">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsAccionEstrategicaSectorial">
+                    <li role="presentation" class="active">
+                        <a href="#tabGenerales" class="top-tab" aria-controls="tabGenerales" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(AESResource.EtiquetaTabGenerales)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabAccionEstrategicaSectorialDetalle" class="top-tab" aria-controls="tabAccionEstrategicaSectorialDetalle" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(AESResource.EtiquetaTabAccionEstrategicaSectorialDetalle)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGenerales">
+                        <form onsubmit="return false;" id="frmGenerales">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(AESResource.EtiquetaNombreAccionEstrategicaSectorial): (*)</label>
+                                        <div>
+                                            @Html.TextBox("txtNombreAccionEstrategicaSectorialFormulario", Model.AccionEstrategicaSectorial.NombreAccionEstrategicaSectorial, new { id = "txtNombreAccionEstrategicaSectorialFormulario", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required ValidarNombreAccionEstrategicaSectorial" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(AESResource.EtiquetaDescripcionAccionEstrategicaSectorial):</label>
+                                        <div>
+                                            @Html.TextBox("txtDescripcionAccionEstrategicaSectorialFormulario", Model.AccionEstrategicaSectorial.DescripcionAccionEstrategicaSectorial, new { id = "txtDescripcionAccionEstrategicaSectorialFormulario", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required ValidarDescripcionAccionEstrategicaSectorial" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">                                    
+                                    <div class="col-sm-6">
+                                        <label style="margin-top: 7px;">@Html.Raw(AESResource.EtiquetaResponsable): (*)</label>
+                                        <div>
+                                            <div class="input-group">
+                                                @Html.Hidden("hdnCodigoResponsable", Model.AccionEstrategicaSectorial.CodigoResponsable, new { ïd = "hdnCodigoResponsable", @validable = "required ValidarResponsable" })
+                                                @Html.TextBox("txtCodigoResponsable", Model.AccionEstrategicaSectorial.NombreCompletoResponsable, new { id = "txtCodigoResponsable", @class = "form-control", @disabled = "disabled", @validable = "required ValidarResponsable" })
+                                                <div class="input-group-addon">
+                                                    <button class="btn-form" id="btnBuscarResponsable" type="button">....</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6"></div>
+                                </div>                                
+                            </div>
+                        </form>
+                        <div id="divBotonAccion1" class="box-acciones-foot filter">
+                            @*<button class="btn btn-default" id="btnEliminar">@Html.Raw(AESResource.EtiquetaBotonEliminar)</button>*@
+                            <button class="btn btn-primary" id="btnGuardarGenerales"  style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Nuevo || permiso == (int)Constantes.Permisos.Codigo.Escritura || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">@Html.Raw(AESResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade in" id="tabAccionEstrategicaSectorialDetalle">
+                        <form onsubmit="return false;" id="frmAccionEstrategicaSectorialDetalle">
+                            <div class="title-interna">
+                                <span>@Html.Raw(AESResource.EtiquetaTabAccionEstrategicaSectorialDetalle)</span>
+                            </div>
+                            <div id="divControlesVD" class="form-group hidden">                                 
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(AESResource.EtiquetaObjetivoEstrategicoFonafe):</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.AccionEstrategicaSectorialDetalle.CodigoObjetivoEstrategicoFonafe, Model.ListaObjetivoEstrategicoFonafe, new { id = "slcObjetivoEstrategicoFonafe", @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonAccionEstrategicaSectorialDetalle" class="box-acciones-foot filter hidden">
+                            <button class="btn btn-primary" id="btnGuardarAccionEstrategicaSectorialDetalle">@Html.Raw(AESResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(AESResource.EtiquetaLista)</span>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdAccionEstrategicaSectorialDetalle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Actions.BandejaAccionEstrategicaSectorial = '@Url.Action("Index", "BandejaAccionEstrategicaSectorial", new { Area = "Mantenimiento" })';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Actions.EliminarAccionEstrategicaSectorialDetalle = '@Url.Action("EliminarAccionEstrategicaSectorialDetalle", "IngresoAccionEstrategicaSectorial", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Actions.RegistrarAccionEstrategicaSectorial = '@Url.Action("RegistrarAccionEstrategicaSectorial", "IngresoAccionEstrategicaSectorial", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Actions.RegistrarAccionEstrategicaSectorialDetalle = '@Url.Action("RegistrarAccionEstrategicaSectorialDetalle", "IngresoAccionEstrategicaSectorial", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Actions.BuscarAccionEstrategicaSectorialDetalle = '@Url.Action("BuscarAccionEstrategicaSectorialDetalle", "IngresoAccionEstrategicaSectorial", new { Area = "Mantenimiento" })';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Resource.EtiquetaMensajeAnular = '@Html.Raw(AESResource.EtiquetaMensajeEliminar)';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Resource.GridResponsable = '@Html.Raw(AESResource.GridResponsable)';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoAccionEstrategicaSectorial.Resource.GridObjetivoEstrategicoFonafe = '@Html.Raw(AESResource.GridObjetivoEstrategicoFonafe)';        
+    </script>
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+            overflow-y: auto !important;
+        }
+        /*.skin-stracon .form-control {
+        width: 100px !important;
+    }*/
+    </style>
+    @CustomHtmlHelper.RenderViewJs("mantenimientoresponsableformulariobuscarresponsable");
+    }

@@ -1,0 +1,103 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <h2 class="tituloCapacitacion"><strong><i class="fa fa-truck"></i>
+                @Html.Raw(AsignacionResource.EtiquetaTituloEquipoAsignados)</strong></h2>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaCapacitacion" class="nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="List of Records">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+        <div class="pull-right">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label><strong>@Html.Raw(AsignacionResource.EtiquetaProyecto)</strong></label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">
+                            <input type="text" class="form-control" value="@ViewBag.NombreProyecto"/ disabled>
+                            <input type="hidden" id="hdnCodigoProyecto" value="@ViewBag.CodigoProyecto"/>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div id="divRenderRecordSeccionCampo" class="tab_custom">
+        <div class="content-body">
+            <div class="filter-avanzado" >
+                <div class="form-group">   
+                    <div class="col-md-1"><button class="btn btn-primary" type="submit" id="btnBuscarEquipo">@Html.Raw(AsignacionResource.EtiquetaAgregarEquipo)</button></div>
+                </div>
+            </div>
+            <div class="title-interna">
+                <span>@Html.Raw(AsignacionResource.EtiquetaEquiposSeleccionados): </span>
+            </div>
+            <div class="table-grilla">
+                <div id="divGrdResultadoHerramientas"></div>
+            </div>
+            <div class="filter-avanzado" id="blockSeleccionarEquipos" style="display: none;">
+                <div class="form-group">
+                    <div class="col-md-2"><label style="margin-top: 8px;"><strong>@Html.Raw(AsignacionResource.EtiquetaCantidadEquipos):</strong></label></div>
+                    <div class="col-md-1"><input type="text" class="form-control" id="txtCantidadEquipos" disabled /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">      
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.BuscarEquipos = '@Url.Action("BuscarEquipos", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.BuscarAsignacionEquiposProyecto = '@Url.Action("BuscarAsignacionEquiposProyecto", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.FormularioAgregarEquiposModal = '@Url.Action("FormularioAgregarEquiposModal", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.FormularioAgregarProcesoModal = '@Url.Action("FormularioAgregarProcesosEquipoModal", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.BandejaCapacitacion = '@Url.Action("Index", "Asignacion", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.BuscarAsignacionProcesoProyecto = '@Url.Action("BuscarAsignacionProcesoSubProcesoPorCodigoProyecto", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.EliminarEquipoProyecto = '@Url.Action("EliminarEquipoProyecto", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.BuscarEquipoProcesosPorProyecto = '@Url.Action("BuscarEquipoProcesosPorProyecto", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.BuscarEquipoSubProcesosPorProyecto = '@Url.Action("BuscarEquipoSubProcesosPorProyecto", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.RegistrarAsignacionEquipoProceso = '@Url.Action("RegistrarAsignacionEquipoProceso", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.RegistrarAsignacionEquipoSubProceso = '@Url.Action("RegistrarAsignacionEquipoSubProceso", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.ActualizarEstadoEquipoProyecto = '@Url.Action("ActualizarEstadoEquipoProyecto", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.EliminarAsignacionEquipoSubProceso = '@Url.Action("EliminarAsignacionEquipoSubProceso", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.ActualizarAsignacionEquipoSubProceso = '@Url.Action("ActualizarAsignacionEquipoSubProceso", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.ActualizarEstadoEquipoSubProceso = '@Url.Action("ActualizarEstadoEquipoSubProceso", "Asignacion", new { Area = "Capacitacion" })';      
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Actions.ActualizarEstadoEquipoProceso = '@Url.Action("ActualizarEstadoEquipoProceso", "Asignacion", new { Area = "Capacitacion" })';      
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridDescripcionEquipo = '@Html.Raw(AsignacionResource.GridDescripcionEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridModeloEquipo = '@Html.Raw(AsignacionResource.GridModeloEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridModeloDescripcion = '@Html.Raw(AsignacionResource.GridModeloDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridHorasPlanificadas = '@Html.Raw(AsignacionResource.GridHorasPlanificadas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridPesoNotaSubProceso = '@Html.Raw(AsignacionResource.GridPesoNotaSubProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridIndicadorAplicaEquipo = '@Html.Raw(AsignacionResource.GridIndicadorAplicaEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridOperacion = '@Html.Raw(RegistroResource.GridOperacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridEquipoDescripcion = '@Html.Raw(AsignacionResource.GridEquipoDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridProceso = '@Html.Raw(AsignacionResource.GridProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridDescripcionProceso = '@Html.Raw(AsignacionResource.GridDescripcionProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridIndicadorAplicaProceso = '@Html.Raw(AsignacionResource.GridIndicadorAplicaProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.EtiquetaFormularioAgregarEquipo = '@Html.Raw(AsignacionResource.EtiquetaFormularioAgregarEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridComposicionCurso = '@Html.Raw(AsignacionResource.GridComposicionCurso)';   
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridIndicadorAplicaSubProceso = '@Html.Raw(AsignacionResource.GridIndicadorAplicaSubProceso)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.MsjValidarGuardarSubProcesoEquipo = '@Html.Raw(AsignacionResource.MsjValidarGuardarSubProcesoEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.EtiquetaSeleccioneEquipo = '@Html.Raw(AsignacionResource.EtiquetaSeleccioneEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.EtiquetaVentanaAgregarProcesoEquipo = '@Html.Raw(AsignacionResource.EtiquetaVentanaAgregarProcesoEquipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarEquipos.Resource.GridFamiliaEquipo = '@Html.Raw(AsignacionResource.GridFamiliaEquipo)';
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioProceso.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioProceso.Actions.RegistrarAsignacionEquiposProyecto = '@Url.Action("RegistrarAsignacionEquiposProyecto", "Asignacion", new { Area = "Capacitacion" })';              
+    </script>    
+
+      @CustomHtmlHelper.RenderViewJs("capacitacionasignacionformularioagregarequiposmodal");
+      @CustomHtmlHelper.RenderViewJs("capacitacionasignacionformularioagregarprocesosequipomodal");
+}

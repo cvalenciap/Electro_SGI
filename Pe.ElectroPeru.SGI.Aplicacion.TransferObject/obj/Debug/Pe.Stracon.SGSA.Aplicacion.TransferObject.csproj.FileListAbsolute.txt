@@ -1,0 +1,54 @@
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.XML
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\AutoMapper.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\log4net.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\System.Web.Mvc.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.GyM.Security.Account.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\AutoMapper.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\log4net.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\System.Web.Mvc.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.GyM.Security.Account.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.GyM.Security.Account.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.csprojResolveAssemblyReference.cache
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.XML
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\log4net.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\System.Web.Mvc.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.GyM.Security.Account.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\log4net.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\System.Web.Mvc.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.GyM.Security.Account.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.GyM.Security.Account.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.csprojResolveAssemblyReference.cache
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.XML
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\log4net.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\System.Web.Mvc.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.GyM.Security.Account.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\log4net.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\System.Web.Mvc.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.GyM.Security.Account.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Debug\Pe.GyM.Security.Account.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.csprojResolveAssemblyReference.cache
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb

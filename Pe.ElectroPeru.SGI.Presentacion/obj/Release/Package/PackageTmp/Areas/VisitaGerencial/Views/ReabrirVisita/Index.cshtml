@@ -1,0 +1,65 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.VisitaGerencial
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.VisitaGerencial.ReabrirVisita.ReabrirVisitaModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@VisitaGerencialResource.EtiquetaReabrirVisita</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+@*        <div class="title-interna">
+            <span>@Html.Raw(VisitaGerencialResource.EtiquetaLista)</span>
+        </div>*@
+        <div class="filter-avanzado">
+            <div class="row">
+                <div class="col-sm-5 text-right" style="margin-top: 7px;">
+                    <div class="form-group">
+                        <label>@Html.Raw(VisitaGerencialResource.EtiquetaNumeroVisitaGerencial):</label>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="form-group">
+                        <div class="col-sm-5">
+                            @Html.TextBox("txtNumeroVisitaGerencial", "", new { id = "txtNumeroVisitaGerencial", @class = "form-control", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" id="btnLimpiar">@Html.Raw(RecordsResource.EtiquetaLimpiar)</button>
+            <button class="btn btn-primary" id="btnBuscar">@Html.Raw(RecordsResource.EtiquetaBuscar)</button>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.MsjSinResultados = '@Html.Raw(VisitaGerencialResource.MsjSinResultados)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.ConfirmacionCerrar = '@Html.Raw(VisitaGerencialResource.ConfirmacionCerrar)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.MsjIngresaNumeroVisitaGerencial = '@Html.Raw(VisitaGerencialResource.MsjIngresaNumeroVisitaGerencial)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Resource.MsjValidarNumeroVisita = '@Html.Raw(VisitaGerencialResource.MsjValidarNumeroVisita)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.DocReabiertoGerencia.Seguimiento.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.DocReabiertoGerencia.Seguimiento.Resource.MsgNoExisteDocumento = '@Html.Raw(SeguimientoResource.MsgNoExisteDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.DocReabiertoGerencia.Seguimiento.Resource.MsgEstadoAbiertoGerencia = '@Html.Raw(SeguimientoResource.MsgEstadoAbiertoGerencia)';
+        Pe.ElectroPeru.SGI.Presentacion.DocReabiertoGerencia.Seguimiento.Resource.MsgEstadoReabiertoGerencia = '@Html.Raw(SeguimientoResource.MsgEstadoReabiertoGerencia)';
+        Pe.ElectroPeru.SGI.Presentacion.DocReabiertoGerencia.Seguimiento.Resource.MsgEstadoAnuladoGerencia = '@Html.Raw(SeguimientoResource.MsgEstadoAnuladoGerencia)';
+        Pe.ElectroPeru.SGI.Presentacion.DocReabiertoGerencia.Seguimiento.Resource.MsgEstadoAnulado = '@Html.Raw(SeguimientoResource.MsgEstadoAnulado)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions.FormularioReabrirVisita = '@Url.Action("Index", "ReabrirVisita/FormularioReabrirVisita", new { Area = "VisitaGerencial" })';       
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions.ExisteNumeroVisitaGerencial = '@Url.Action("Index", "CerradoGerencia/ExisteNumeroVisitaGerencial", new { Area = "VisitaGerencial" })';       
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.Index.Actions.ObtenerDocumento = '@Url.Action("Index", "CerradoGerencia/ObtenerDocumento", new { Area = "VisitaGerencial" })';       
+                
+        </script>
+}

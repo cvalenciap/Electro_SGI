@@ -1,0 +1,4207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pe.ElectroPeru.SGI.Transversal.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Base.GenericException`1">
+            <summary>
+            Exception base
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Base.IEntornoActualAplicacion">
+            <summary>
+            Objecto que representa un entorno de usuario en la aplicación
+            </summary>
+            <remarks>
+            Creación:       GMD 20150319
+            Modificación:   
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Base.IEntornoActualAplicacion.UsuarioSession">
+            <summary>
+            Alias del usaurio en sesión
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Base.IEntornoActualAplicacion.Terminal">
+            <summary>
+            Terminal de donde se accedio
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Base.IEntornoActualAplicacion.CodigoSistema">
+            <summary>
+            Codigo actual del sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Base.IEntornoActualAplicacion.CodigoEmpresa">
+            <summary>
+            Codigo actual de la empresa del sistema
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Base.ReporteCredencial">
+            <summary>
+            Clase My Credencial
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Base.ReporteCredencial.GetFormsCredentials(System.Net.Cookie@,System.String@,System.String@,System.String@)">
+            <summary>
+            Método pa obtener las credenciales de forma
+            </summary>
+            <param name="authCookie">Creador de la cookie</param>
+            <param name="userName">Nombre del usuario</param>
+            <param name="password">Contraseña</param>
+            <param name="authority">Cargo</param>
+            <returns>Verdadero o Falso</returns>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Base.ReporteCredencial.ImpersonationUser">
+            <summary>
+            ImpersonationUser
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Base.ReporteCredencial.NetworkCredentials">
+            <summary>
+            NetworkCredentials
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes">
+            <summary>
+            Clase de datos constantes de la Base datos
+            </summary>
+            <remarks>
+            Creación:   GMD 20150424 <br />
+            Modificación:            <br />
+            </remarks> 
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ObtenerOrdenEstadosInvestigacion">
+            <summary>
+            Orden de Estados de Investigacion
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaAccionBoton">
+            <summary>
+            Valores de Tipos de Acción de Botones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaAccionBoton.Agregar">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaAccionBoton.Editar">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaAccionBoton.Eliminar">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoOpcionMenu">
+            <summary>
+            Valores de Tipos de Opción de Menú
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoOpcionMenu.Menu">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoOpcionMenu.SubMenu">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoOpcionMenu.OpcionMenu">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.NivelBarreraInvestigacion">
+            <summary>
+            Valores del nivel de barrera de Investigacion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.NivelBarreraInvestigacion.CodigoNivelBarrera">
+            <summary>
+            codigo nivel de Informacion Barrera
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.NivelBarreraInvestigacion.CodigoNivelFallos">
+            <summary>
+            codigo nivel de Informacion Fallos
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro">
+            <summary>
+            Valores de Tipo de Registros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.Auditoria">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.Capacitaciones">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.CharlaInicioGuardia">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.ComiteSubComite">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.CompromisoSsoma">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.DocumentoRequeridoEquipo">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.EvaluacionCumplimientoLegal">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.HigieneOcupacional">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.Incidente">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.Inspecciones">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.Iperc">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.ObjetivoMetaSsoma">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.ObservacionPlamneadaTarea">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.PlanMejora">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.ReporteRiesgo">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.Reuniones">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.Simulacros">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.VisitaGerencial">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.ComiteDireccionSig">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.ComiteDireccionRiesgoAuditoria">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.ComiteEtica">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.ComiteRiesgoAuditoria">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaTipoRegistro.Investigacion">
+            <summary>
+            codigo de investigacion 
+            proviene de anuncio
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaNivelAcceso">
+            <summary>
+            Valores de Nivel de Acceso
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaNivelAcceso.ControlTotal">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaNivelAcceso.Escritura">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TablaNivelAcceso.Lectura">
+            <summary>
+            codigo de elemento de maestro tabla
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresIniciales">
+            <summary>
+            Valores Iniciales
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresIniciales.Value">
+            <summary>
+            Codigo Value de Guid Por Defecto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresIniciales.Ninguno">
+            <summary>
+            Codigo de Ninguno
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresIniciales.TextSeleccione">
+            <summary>
+            Valor Seleccione para usar en Listas del Combobox
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresIniciales.TextOtros">
+            <summary>
+            Valor Textos Otros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresIniciales.TextTodos">
+             <summary>
+            Valor Todos para usar en Listas del Combobox
+             </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresIniciales.FechaMinimaCadena">
+            <summary>
+            Fecha Mínimo de cadena por Defecto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresIniciales.Todos">
+            <summary>
+            Valor que indica Todos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresIniciales.FechaMinima">
+            <summary>
+            Valor que Obtiene la Fecha Minima de la cadena
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.InformeFinalIncidente">
+            <summary>
+            Constantes de Informe Final de Indicente
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoUnidadOrganizativa">
+            <summary>
+            Constantes de Tipo de Unidad Organizativa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoUnidadOrganizativa.UnidadOrganizativa">
+            <summary>
+            Tipo de Unidad Organizativa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoUnidadOrganizativa.UnidadOrgSistema">
+            <summary>
+            Tipo de Unidad Organizativa Sistema
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.AccionSistema">
+            <summary>
+            Constantes de Tipo de Unidad Organizativa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.AccionSistema.Nuevo">
+            <summary>
+            Tipo de Unidad Organizativa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.AccionSistema.Editar">
+            <summary>
+            Tipo de Unidad Organizativa Sistema
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRenovacion">
+            <summary>
+            Constantes de Estado de Renovación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRenovacion.Pendiente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRenovacion.Edicion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRenovacion.EnProceso">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRenovacion.Aprobado">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRenovacion.Rechazado">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRenovacion.Observado">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRenovacion.Finalizado">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoContrato.Vigente">
+            <summary>
+            Estado Vigente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoContrato.Historico">
+            <summary>
+            Estado Terminado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRegistro">
+            <summary>
+            Constantes de Estado de Registro
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRegistro.Activo">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRegistro.Inactivo">
+            <summary>
+            Estado Inactivo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoColaboradorAsignacion">
+            <summary>
+            Referencia: Modulo Capacitación
+            Constantes de Estado del Colaborador para Asignación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoColaboradorAsignacion.Activo">
+            <summary>
+            Estado Activo del Colaborador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoColaboradorAsignacion.Inactivo">
+            <summary>
+            Estado Inactivo del Colaborador
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionColaboradorAsignacion">
+            <summary>
+            Referencia: Modulo Asignación
+            Constantes de Condición del Colaborador para Asignación Persona Proyecto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionColaboradorAsignacion.Pendiente">
+            <summary>
+            Estado Pendiente: En Asignación. Cuando se asigna la persona al proyecto.(PRIMERO)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionColaboradorAsignacion.Planificado">
+            <summary>
+            Estado Planificado: En Asignación. Cuando se detecta que la persona tiene al menos
+            un equipo asignado.(SEGUNDO)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionColaboradorAsignacion.EnProceso">
+            <summary>
+            Estado en proceso: En Ejecución. Cuando se detecta que la persona ha recibido horas de capacitación
+            de al menos un equipo asignado.(TERCERO) 
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionColaboradorAsignacion.STO">
+            <summary>
+            Estado STO (Safe to Operate): En Ejecución. Cuando se detecta que la persona terminó la capacitación
+            de todos sus equipos asignados.(CUARTO)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionColaboradorAsignacion.Competente">
+            <summary>
+            Estado Competente cuando la Ejecución es al 100% y esta aprobado.(QUINTO)
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionEquipoAsignacion">
+            <summary>
+            Referencia: Modulo Asignación
+            Constantes de Condición del Equipo para Asignación Persona Equipo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionEquipoAsignacion.Planificado">
+            <summary>
+            Estado Planificado: En Asignación. Cuando se asigna el equipo a la persona. (PRIMERO) 
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionEquipoAsignacion.EnProceso">
+            <summary>
+            Estado en proceso: En Ejecución. Cuando se registra horas de capacitación al equipo de la persona.(SEGUNDO) 
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CondicionEquipoAsignacion.Terminado">
+            <summary>
+            Estado Terminado: En Ejecución. Cuando se finaliza todas las horas de capacitación del equipo de la persona.(TERCERO) 
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.VistasAsignacion">
+            <summary>
+            Referencia: Modulo Asignación
+            Constantes de Vistas de Cursos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.VistasAsignacion.Cursos">
+            <summary>
+            Vista: Listado de Participantes para cursos 
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoOcurrenciaAccion">
+            <summary>
+            Constantes de Tipo Ocurrencia Acción
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoOcurrenciaAccion.Hallazgo">
+            <summary>
+            Hallazgo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoVigencia">
+            <summary>
+            Constantes de Estado de Vigencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoVigencia.Vigente">
+            <summary>
+            Estado Vigente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoVigencia.Proximo">
+            <summary>
+            Estado Próximo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoVigencia.Historico">
+            <summary>
+            Estado Histórico
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato">
+            <summary>
+            Constantes Formato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.FormatoFecha">
+            <summary>
+            Formato de Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.FormatoFechaSelector">
+            <summary>
+            Formato de Fecha de Selector
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.FormatoFechaMascara">
+            <summary>
+            Formato de Fecha de Mascara
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.FormatoHora">
+            <summary>
+            Formato de Hora
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.Formato24Horas">
+            <summary>
+            Formato de 24 Horas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.FormatoNumeroEntero">
+            <summary>
+            Formato de Número Entero
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.FormatoNumeroDecimal">
+            <summary>
+            Formato de Número Decimal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.FormatoNumeroContrato">
+            <summary>
+            Formato de número de contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.SeparadorFormatoNumeroContrato">
+            <summary>
+            Formato de número de contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.SeparadorNumeroDecimal">
+            <summary>
+            Separador de Número Decimal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Formato.FormatoNumeroAdenda">
+            <summary>
+            Formato de número de adenda
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.OperacionObtenerProveedorServicioOracle">
+            <summary>
+            Constantes del metodo de obtener proveedor del servicio de oracle
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.OperacionObtenerProveedorServicioOracle.ColumnaRuc">
+            <summary>
+            Columna Ruc
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.OperacionObtenerProveedorServicioOracle.ColumnaNombre">
+            <summary>
+            Formato de Fecha de Selector
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoModuloSGATE">
+            <summary>
+            Abreviatura de los modulos de SGATE
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoModuloSGATE.Record">
+            <summary>
+            Módulo Record
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoModuloSGATE.Investigacion">
+            <summary>
+            Módulo Investigación
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoFormaIngresoContratista">
+            <summary>
+            Lista de Tipo de Ingreso de datos Contratista
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoFormaIngresoContratista.DatosPromedio">
+            <summary>
+            Por datos promedio
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoFormaIngresoContratista.DatosEnDetalle">
+            <summary>
+            Por datos en detalle
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Nivel">
+            <summary>
+            Constantes de Niveles
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Nivel.EmpresaMatriz">
+            <summary>
+            Nivel de Empresa Matriz
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Nivel.Empresa">
+            <summary>
+            Nivel de Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Nivel.Proyecto">
+            <summary>
+            Nivel de Proyecto
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sesiones">
+            <summary>
+            Constantes de Sesiones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sesiones.SessionParrafoContrato">
+            <summary>
+            Sesión para Parrafos por Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sesiones.SessionTipoServicio">
+            <summary>
+            Sesión para los tipos de servicio de contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sesiones.SessionTipoRequerimiento">
+            <summary>
+            Sesión para los tipos de requerimiento del contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sesiones.SessionTipoBien">
+            <summary>
+            Sesión para Tipos de Bien
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sesiones.SessionTipoTarifaBien">
+            <summary>
+            Sesión para tipos de tarifa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sesiones.SessionPeriodoAlquilerBien">
+            <summary>
+            Sesión para Periodo de Alquiler
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sesiones.SessionMonedaBien">
+            <summary>
+            Sesión para Periodo de Alquiler
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sesiones.SessionContenidoBien">
+            <summary>
+            Sesión para el tipo de contenido de datos del bien
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDocumento">
+            <summary>
+            Constantes de Tipos de Documentos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDocumento.Contrato">
+            <summary>
+            Tipo de Documento Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDocumento.Adenda">
+            <summary>
+            Tipo de Documento Adenda
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable">
+            <summary>
+            Constantes de Tipos de Variables
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.Texto">
+            <summary>
+            Variable de Tipo Texto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.Numero">
+            <summary>
+            Variable de Tipo Número
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.Fecha">
+            <summary>
+            Variable de Tipo Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.Imagen">
+            <summary>
+            Variable de Tipo Imagen
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.Lista">
+            <summary>
+            Variable de Tipo Lista
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.ListaEquipo">
+            <summary>
+            Variable de Tipo Lista de Equipos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.Tabla">
+            <summary>
+            Variable de Tipo Tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.Bien">
+            <summary>
+            Variable de Tipo Bien
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.Firmante">
+            <summary>
+            Variable de tipo firmante
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVariable.FirmanteStracon">
+            <summary>
+            Variable de tipo firmante Stracon
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable">
+            <summary>
+            Constantes de Descripción de Tipos de Variables
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.Texto">
+            <summary>
+            Descripción de Variable de Tipo Texto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.Numero">
+            <summary>
+            Descripción de Variable de Tipo Número
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.Fecha">
+            <summary>
+            Descripción de Variable de Tipo Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.Imagen">
+            <summary>
+            Descripción de Variable de Tipo Imagen
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.Lista">
+            <summary>
+            Descripción de Variable de Tipo Lista
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.ListaEquipo">
+            <summary>
+            Descripción de Variable de Tipo Lista de Equipos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.Tabla">
+            <summary>
+            Descripción de Variable de Tipo Tabla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.Bien">
+            <summary>
+            Descripción de Variable de Tipo Bien
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.Firmante">
+            <summary>
+            Descripción de variable de Tipo Firmante
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.DescripcionTipoVariable.FirmanteStracon">
+            <summary>
+            Descripción de variable de Tipo Firmante stracon
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion">
+            <summary>
+            Constantes de Estados de Edición de Contratos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion.Creacion">
+            <summary>
+            Codigo de Estado de Edición Creación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion.Solicitada">
+            <summary>
+            Código de Estado de Edición Solicitada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion.SolicitudAutorizada">
+            <summary>
+            Código de Estado de Edición Solicitud Autorizada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion.SolicitudDenegada">
+            <summary>
+            Código de Estado de Edición Solicitud Denegada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion.Editada">
+            <summary>
+            Código de Estado de Edición Editada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion.EdicionAprobada">
+            <summary>
+            Código de Estado de Edición Aprobada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion.EdicionRechazada">
+            <summary>
+            Código de Estado de Edición Rechazada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion.ApelarRechazo">
+            <summary>
+            Código de Estado de Edición Apelar Rechazo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoEdicion.EdicionParcial">
+            <summary>
+            Código de Estado de Edición parcial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoArchivoCarga">
+            <summary>
+            Características de los archivos del contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoArchivoCarga.Foto">
+            <summary>
+            Extension de archivo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoArchivoCarga.Apendice">
+            <summary>
+            Extension de archivo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ArchivosContrato">
+            <summary>
+            Características de los archivos del contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ArchivosContrato.ExtensionValidaCarga">
+            <summary>
+            Extension de archivo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ArchivosContrato.DescripcionBibliotecaSHP">
+            <summary>
+            Descripción de la biblioteca de Documentos
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ContenidoPiePaginaContrato">
+            <summary>
+            Etiquetas HTML del contenido del Footer
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ContenidoPiePaginaContrato.EtiquetaResponsable">
+            <summary>
+            Contenido del Responsable
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ContenidoPiePaginaContrato.EtiquetaFechaAprobacion">
+            <summary>
+            Contenido de la fecha de aprobación.
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ContenidoPiePaginaContrato.EtiquetaCopiaNoOficial">
+            <summary>
+            Etiqueta COPIA NO OFICIAL
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ContenidoPiePaginaContrato.ClassDivPiePagina">
+            <summary>
+            Clase HTML que contiene al párrafo de pie de página del contrato.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoSolicitudEstadio">
+            <summary>
+            Constantes de los Estados de Contratos Estadio
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoSolicitudEstadio.Aprobado">
+            <summary>
+            Estado de Aprobado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoSolicitudEstadio.Iniciado">
+            <summary>
+            Estado de Iniciado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoSolicitudEstadio.Observado">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.FormaEdicion">
+            <summary>
+            Constantes de las Formas de Edición de Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.FormaEdicion.Flexible">
+            <summary>
+            Forma de Edición Flexible
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.FormaEdicion.Cerrado">
+            <summary>
+            Forma de Edición Cerrado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoContrato2">
+            <summary>
+            Constantes de los Estados de Contratos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoContrato2.Edicion">
+            <summary>
+            Estado de Edición
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoContrato2.Aprobacion">
+            <summary>
+            Estado de Aprobación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoContrato2.Vigente">
+            <summary>
+            Estado Vigente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoContrato2.Terminado">
+            <summary>
+            Estado Terminado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoContrato2.Vencido">
+            <summary>
+            Estado Vencido
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDocumentoIdentificacion">
+            <summary>
+            Constantes de los Tipos de Documentos de Identificación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDocumentoIdentificacion.Ruc">
+            <summary>
+            Tipo de Documento Ruc
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.MontoMinimoControl">
+            <summary>
+            Constantes de los Montos Mínimos de Control
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.MontoMinimoControl.Dolares">
+            <summary>
+            Monto Mínimo en Dólares
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.MontoMinimoControl.Soles">
+            <summary>
+            Monto Mínimo en Soles
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoTarifa">
+            <summary>
+            Constantes de Tipo de Tarifa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoTarifa.Escalonado">
+            <summary>
+            Escalonado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoTarifa.Fijo">
+            <summary>
+            Fijo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariable">
+            <summary>
+            Constantes de Identificador de variables
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariable.Almohadilla">
+            <summary>
+            Almohadilla
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo">
+            <summary>
+            Clase de enumerado que contiene los nombres de archivo para los reportes del sistema
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteIncidentesNoCerrados">
+            <summary>
+            Nombre del Reporte de Incidentes no cerrados
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteTiempoAtencion">
+            <summary>
+            Nombre del Reporte de Tiempos de Atención
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteHojaRuta">
+            <summary>
+            Nombre del Reporte de Hoja de Ruta
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteEstadioActualContrato">
+            <summary>
+            Nombre del Reporte de Estadio Actual de Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteContratoPendienteElaborar">
+            <summary>
+            Nombre del Reporte de Contrato Pendiente de Elaborar
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteContratoPorVencer">
+            <summary>
+            Nombre del Reporte de Contrato por Vencer
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteContratoPorEstadio">
+            <summary>
+            Nombre del Reporte de Contrato por Estadio
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteBienesContrato">
+            <summary>
+            Nombre del Reporte de Bienes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteListadoContrato">
+            <summary>
+            Nombre del Reporte Listado de Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteContratoPorFinalizar">
+            <summary>
+            Nombre del Reporte de Contrato por Finalizar
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteConsulta">
+            <summary>
+            Nombre del Reporte de Consultas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteRecord">
+            <summary>
+            Nombre del Reporte de Record
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.Reporte_General_Incidentes">
+            <summary>
+            Reporte_General_Incidentes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteInvestigacion">
+            <summary>
+            ReporteInvestigacion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteInvestigacionAprobados">
+            <summary>
+            ReporteInvestigacion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.Reporte_General_Registros">
+            <summary>
+            Reporte_General_Registros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteIncidente">
+            <summary>
+            Nombre del Reporte de Incidente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteCapacitacionPorColaborador">
+            <summary>
+            Nombre del Reporte de Capacitación Por Colaborador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteEjecucionCapacitacionPorProyectoEquipo">
+            <summary>
+            Nombre del Reporte de Ejecución Capacitación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteHorasCapacitacionProyectoEquipo">
+            <summary>
+            Nombre del Reporte de Horas Capacitación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.Reporte_General_Acciones">
+            <summary>
+            Reporte_General_Registros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReportePorProyectoPersonaAsistencia">
+            <summary>
+            Nombre del Reporte Por Proyecto Persona Ejecucion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteBandejaHHT">
+            <summary>
+            Nombre del Reporte para la bandeja de HHT
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteBandejaLesiones">
+            <summary>
+            Nombre del Reporte para la bandeja de Lesiones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteLesiones">
+            <summary>
+            Nombre del Reporte para el Reporte de Lesiones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteBandejaAtenciones">
+            <summary>
+            Nombre del Reporte para la bandeja de Atenciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteBandejaOPT">
+            <summary>
+            Nombre del Reporte para la bandeja de Observaciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteOPT">
+            <summary>
+            Nombre del Reporte para la bandeja de Observaciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.Reporte_BandejaAP_A">
+            <summary>
+            Nombre del Reporte de BandejaAP_A
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.Reporte_BandejaAP_B">
+            <summary>
+            Nombre del Reporte de BandejaAP_B
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteIngresoVisita">
+            <summary>
+            /Nombre del Reporte de IngresoVisita
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteComiteSSOMA">
+            <summary>
+            /Nombre del Reporte de Comite SSOMA
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteOtrosRegistros">
+            <summary>
+            /Nombre del Reporte de Otros Registros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteInspecciones">
+            <summary>
+            /Nombre del Reporte de Inspeccion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteBandejaInspecciones">
+            <summary>
+            /Nombre del Reporte de la Bandeja de Inspecciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteInspeccionesXLS">
+            <summary>
+            /Nombre del Reporte de la Bandeja de Inspecciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteBandejaReporteRiesgos">
+            <summary>
+            /Nombre del Reporte de Bandeja Reporte de Riesgos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteReporteRiesgos">
+            <summary>
+            /Nombre del Reporte de Reporte de Riesgos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteReporteRiesgosXLS">
+            <summary>
+            /Nombre del Reporte de la Bandeja de Inspecciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ReporteNombreArchivo.ReporteResumenColaborador">
+            <summary>
+            /Nombre del Reporte de Resumen por Colaborador para el reporte de Riesgos
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto">
+            <summary>
+            Constantes de los Identificadores de las Variables por Defecto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.NombreProyecto">
+            <summary>
+            Identificador para Nombre de Proyecto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.NumeroContrato">
+            <summary>
+            Identificador para Número de Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.NombreEmpresa">
+            <summary>
+            Identificador para Nombre de Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.DniPrimerRepresentanteEmpresa">
+            <summary>
+            Identificador para DNI del Primer Representante de Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.PrimerRepresentanteEmpresa">
+            <summary>
+            Identificador para Primer Representante de Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.DniSegundoRepresentanteEmpresa">
+            <summary>
+            Identificador para DNI del Segundo Representante de Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.SegundoRepresentanteEmpresa">
+            <summary>
+            Identificador para Segundo Representante de Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.RucProveedor">
+            <summary>
+            Identificador para RUC de Proveedor
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.NombreProveedor">
+            <summary>
+            Identificador para Nombre de Proveedor
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.ProveedorNombre">
+            <summary>
+            Identificador para Nombre de Proveedor
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.MonedaContrato">
+            <summary>
+            Identificador para Moneda del Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.MontoContrato">
+            <summary>
+            Identificador para Monto del Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.FechaInicioContrato">
+            <summary>
+            Identificador para Fecha de Inicio de Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.FechaFinContrato">
+            <summary>
+            Identificador para Fecha de Fin de Contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.FechaActual">
+            <summary>
+            Identificador para Fecha Actual
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.FechaActualLetra">
+            <summary>
+            Identificador para Fecha Actual en Letras
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.DireccionEmpresa">
+            <summary>
+            Identificador para Dirección de Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.DireccionProyecto">
+            <summary>
+            Identificador para Dirección de Proyecto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorVariableDefecto.FirmaSGSA">
+            <summary>
+            Identificador para los firmantes por defecto de STRACON
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Iternacionalizacion">
+            <summary>
+            Constantes de las culturas de país
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Iternacionalizacion.ES_PE">
+            <summary>
+            Cultura para Perú
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRespuestaObservacion">
+            <summary>
+            Clase de enumerado que contiene los códigos de tipos de respuesta observación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRespuestaObservacion.Aplica">
+            <summary>
+            Observación Aplica
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRespuestaObservacion.NoAplica">
+            <summary>
+            Observación No Aplica
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion">
+            <summary>
+            Clase enumerado que contiene los códigos de los tipos de notificación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion.ContratosPorVencer">
+            <summary>
+            [SGSA] Contratos por Vencer
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion.NuevoContratoBandeja">
+            <summary>
+            [SGSA] Nuevo Contrato en Bandeja
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion.NuevaConsulta">
+            <summary>
+            [SGSA] Nueva Consulta
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion.RespuestaConsulta">
+            <summary>
+            [SGSA] Respuesta de Consulta
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion.ContratosObservado">
+            <summary>
+            [SGSA] Contrato Observado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion.ObservacionRechazada">
+            <summary>
+            [SGSA] Observación Rechazada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion.ContratosPorGenerar">
+            <summary>
+            [SGSA] Contratos por Generar
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion.RegistroConsultas">
+            <summary>
+            [SGSA] Registro o reenvio de Consulta
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoNotificacion.RespuestaConsultas">
+            <summary>
+            [SGSA] Respuesta de Consulta
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorSistema">
+            <summary>
+            Clase enumerado que contiene los códigos de los sistemas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IdentificadorSistema.IdentificadorSGSA">
+            <summary>
+            Codigo del Identificador SGSA
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.UrlOpcionesSistema">
+            <summary>
+            Clase enumerado que las rutas de Opciones de la Aplicación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.UrlOpcionesSistema.RutaBandejaContrato">
+            <summary>
+            Codigo del Identificador SGSA
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.UrlOpcionesSistema.RutaConsulta">
+            <summary>
+            Codigo del Identificador SGSA
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.AlertaVencimientoContrato">
+            <summary>
+            Clase de enumerado que contiene los códigos de color para la alerta del contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.AlertaVencimientoContrato.Ambar">
+            <summary>
+            Código Color Ámbar
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.AlertaVencimientoContrato.Rojo">
+            <summary>
+            Código Color Rojo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoContenidoBienRegistro">
+            <summary>
+            Clase enumerado que contiene los Tipos del Contenio Bien Registro
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoContenidoBienRegistro.NumeroSerie">
+            <summary>
+            Tipo número de serie
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoContenidoBienRegistro.Descripcion">
+            <summary>
+            Tipo Descripción
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoContenidoBienRegistro.Marca">
+            <summary>
+            Tipo de Marca
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoContenidoBienRegistro.Modelo">
+            <summary>
+            Tipo de Modelo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Moneda">
+            <summary>
+            Clase de enumerado que contiene los códigos de moneda
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Moneda.Soles">
+            <summary>
+            Código de Moneda Soles
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Moneda.Dolares">
+            <summary>
+            Código de Moneda Dólares
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRegistro">
+            <summary>
+            Clase de enumerado que contiene los tipos de registro de un contrato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRegistro.Parcial">
+            <summary>
+            Tipo de guardado parcial
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRegistro.Total">
+            <summary>
+            Tipo de guardado Total
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.OrdenFirmante">
+            <summary>
+            Clase de enumerado que contiene el orden de los firmantes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.OrdenFirmante.PrimerFirmante">
+            <summary>
+            Primer Representante
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.OrdenFirmante.SegundoFirmante">
+            <summary>
+            Segundo Representante
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionPresentacion">
+            <summary>
+            Configuración de la capa de presentación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionPresentacion.TituloAplicacion">
+            <summary>
+            Titulo de la aplicación
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionUrlDespliegue">
+            <summary>
+            Parametro de Web Config
+            de la  Url de despliegue
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue">
+            <summary>
+            Titulo de la aplicación
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Recursos">
+            <summary>
+            Clase de enumerado que contiene el orden de los firmantes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Recursos.RepresentanteLegal">
+            <summary>
+            Representante Legal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Recursos.RevisadoPor">
+            <summary>
+            Revisado por
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionGeneracionContrato">
+            <summary>
+            Clase de enumerado que contiene las configuraciones de generación de contratos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionGeneracionContrato.IntervaloTiempoAutoguardado">
+            <summary>
+            Intervalo de Tiempo de Autoguardado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionGeneracionContrato.UrlLogoElectroPeru">
+            <summary>
+            Url del logo de STRACON
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionGeneracionContrato.WidthLogo">
+            <summary>
+            Width del logo STRACON
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionGeneracionContrato.HeightLogo">
+            <summary>
+            Height de Logo STRACON
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoConsulta">
+            <summary>
+            Estados de la consulta
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoConsulta.Enviado">
+            <summary>
+            Enviado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoConsulta.Reenviado">
+            <summary>
+            Reenviado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoConsulta.Contestado">
+            <summary>
+            Contestado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoConsulta.NoAplica">
+            <summary>
+            No aplica
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoUsuario">
+            <summary>
+            Tipo de usuario
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoUsuario.Destinatario">
+            <summary>
+            Enviado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoUsuario.Remitente">
+            <summary>
+            Reenviado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Empresa">
+            <summary>
+            Constantes de Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Empresa.CodigoElectroPeru">
+            <summary>
+            Codigo de la Stracon
+            </summary>
+        </member>
+        <!-- El comentario XML con formato incorrecto se omite para el miembro "T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales" -->
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.CodigoNivel">
+            <summary>
+            Código de parametro general tipo nivel
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.NumeroPagina">
+            <summary>
+            NumeroPagina
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.CantidadRegistros">
+            <summary>
+            CantidadRegistros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.TipoObservador">
+            <summary>
+            Codigo de Tipos de Observador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.CorreoNotificacionIncidente">
+            <summary>
+            Parámetro que representa la lista de Correos para Notificar el Incidente
+            </summary>                   
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.ProcesoAnuncio">
+            <summary>
+            Parámetro que representa la lista de Procesos del Anuncio
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.ListaInspeccionGestion">
+            <summary>
+            Parámetro que representa la lista de Inspeccion Gestion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.ListaTipoReporte">
+            <summary>
+            Parámetro que representa la lista de Tipos de Reporte de Riesgos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.ListaClasificacionPerdida">
+            <summary>
+            Parámetro que representa la lista de Clasificación de Pérdida
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.ListaCausasInmediatas">
+            <summary>
+            Parámetro que representa la lista de Causas Inmediatas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGenerales.ListaClasificacionReporteRiesgo">
+            <summary>
+            Parámetro que representa la lista de Clasificación de Reporte de Riesgo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosActuaPositivo">
+            <summary>
+            Valores de Actúa Positivo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosActuaPositivo.CodigoParametroCondicionValores">
+            <summary>
+            Codigo Parametro de Condición
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosActuaPositivo.CodigoHerramientaTareaOtros">
+            <summary>
+            Codigo Idenficador de Herramienta Tarea Otros
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma">
+            <summary>
+            Valores de Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoTipoComite">
+            <summary>
+            Codigo Tipo Comité
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoComite">
+            <summary>
+            Codigo Comité Establecido
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoTipoReunion">
+            <summary>
+            Codigo Tipo de Reunión
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoEstadoMinimoAccionDocumento">
+            <summary>
+            Codigo Estado Mínimo Accion del Documento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoEstadoIngresoDocumento">
+            <summary>
+            Codigo Estado Ingreso del Documento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoEstadoDocumento">
+            <summary>
+            Codigo Estado del Documento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.EsquemaTablaComiteSSoma">
+            <summary>
+            Esquema de Tabla Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.NombreCampoSecuenciaComiteSSoma">
+            <summary>
+            Nombre del Campo de la Tabla Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoTiposAnexosComiteSSoma">
+            <summary>
+            Codigo de Tipos de Anexos de Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoTipoAlerta">
+            <summary>
+            Codigo de Tipos de Alertas de Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoTipoParticipante">
+            <summary>
+            Codigo de Tipos de Participantes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoTipoMiembro">
+            <summary>
+            Codigo de Tipos de Miembros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoTipoCargoEmpresa">
+            <summary>
+            Codigo de Tipos de Cargos en la Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosComiteSSoma.CodigoTipoCargoComite">
+            <summary>
+            Codigo de Tipos de Cargos en el comité
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposParticipanteComiteSSoma">
+            <summary>
+            Valores de Tipos de Participantes de Comite SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposParticipanteComiteSSoma.Empresa">
+            <summary>
+            Valor Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposParticipanteComiteSSoma.Colaborador">
+            <summary>
+            Valor Colaborador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposParticipanteComiteSSoma.Invitado">
+            <summary>
+            Valor Invitado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposParticipanteOtrosRegistros">
+            <summary>
+            Valores de Tipos de Participantes de Comite SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposParticipanteOtrosRegistros.Empresa">
+            <summary>
+            Valor Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposParticipanteOtrosRegistros.Colaborador">
+            <summary>
+            Valor Colaborador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposParticipanteOtrosRegistros.Invitado">
+            <summary>
+            Valor Invitado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros">
+            <summary>
+            Valores de Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.CodigoEstadoMinimoAccionDocumento">
+            <summary>
+            Codigo Estado Mínimo Accion del Documento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.CodigoEstadoIngresoDocumento">
+            <summary>
+            Codigo Estado Ingreso del Documento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.CodigoEstadoDocumento">
+            <summary>
+            Codigo Estado del Documento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.EsquemaTablaOtrosRegistros">
+            <summary>
+            Esquema de Tabla Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.NombreCampoSecuenciaOtrosRegistros">
+            <summary>
+            Nombre del Campo de la Tabla Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.CodigoTiposAnexosOtrosRegistros">
+            <summary>
+            Codigo de Tipos de Anexos de Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.CodigoTipoAlerta">
+            <summary>
+            Codigo de Tipos de Alertas de Otros Registros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.CodigoTipoRegistro">
+            <summary>
+            Codigo de Tipos de Registro
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.CodigoTipoParticipante">
+            <summary>
+            Codigo de Tipos de Participantes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosOtrosRegistros.CodigoTipoCargoEmpresa">
+            <summary>
+            Codigo de Tipos de Cargos en la Empresa
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposAlertas">
+            <summary>
+            Valores de Tipos de Alertas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposAlertas.RequiereCierre">
+            <summary>
+            Código valor Requiere Cierre
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposAlertas.NoRequiereCierre">
+            <summary>
+            Código valor No Requiere Cierre
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposAlertas.AnuladaPorGerencia">
+            <summary>
+            Código valor Anulado por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTiposAlertas.CombinacionNoDefinida">
+            <summary>
+            Código valor Combinación No Definida
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosColorSemaforo">
+            <summary>
+            Valores de Colores de Semaforos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosColorSemaforo.Verde">
+            <summary>
+            Color verde fdsfsdfsd
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosColorSemaforo.Rojo">
+            <summary>
+            Código valor No Requiere Cierre
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosColorSemaforo.Plomo">
+            <summary>
+            Código valor Anulado por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosColorSemaforo.Ambar">
+            <summary>
+            Código valor Combinación No Definida
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGestionLesiones">
+            <summary>
+            Valores de Gestion Lesiones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGestionLesiones.ValorSi">
+            <summary>
+            Valor SI
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGestionLesiones.ValorNo">
+            <summary>
+            Valor NO
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGestionLesiones.ExpedientePorCerrarSi">
+            <summary>
+            Valor SI
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosGestionLesiones.ExpedientePorCerrarNo">
+            <summary>
+            Valor NO
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosRequiereSiguienteCita">
+            <summary>
+            Valores de Gestion Lesiones
+            POL.PARAMETRO CODIGO_PARAMETRO 202
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosRequiereSiguienteCita.RequiereCita_Si">
+            <summary>
+            Valor SI
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosRequiereSiguienteCita.RequiereCita_No">
+            <summary>
+            Valor NO
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosRequiereSiguienteCita.RequiereCita_PorEvaluar">
+            <summary>
+            Valor Por Evaluar
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial">
+            <summary>
+            Valores de Visita Gerencial
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoNivelRiesgo">
+            <summary>
+            Codigo Nivel de Riesgo
+            </summary>
+        </member>
+        <!-- El comentario XML con formato incorrecto se omite para el miembro "F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoEstadoIngresoDocumento" -->
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoEstadoPlanAccion">
+            <summary>
+            Codigo Parametro Estado Ingreso Plan Acción
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoEstadoProcesoPlanAccion">
+            <summary>
+            Codigo Parametro Estado proceso Plan Acción
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoEstadoDocumento">
+            <summary>
+            Codigo Estado del Documento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoEstadoMinimoAccionDocumento">
+            <summary>
+            Codigo Estado Mínimo Accion del Documento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoRegistroVisitaGerencial">
+            <summary>
+            Codigo Registro Visita Gerencial
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoIngresarInformacionSi">
+            <summary>
+            Codigo de  Ingresar Información SI
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoIngresarInformacionNo">
+            <summary>
+            Codigo de  Ingresar Información NO
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.EsquemaTablaVisitaGerencial">
+            <summary>
+            Esquema de Tabla Visita Gerencial
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.NombreCampoSecuenciaVisitaGerencial">
+            <summary>
+            Nombre del Campo de la Tabla Comité SSoma
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.CodigoTiposAnexosVisitaGerencial">
+            <summary>
+            Codigo de Tipos de Anexos de Visita Gerencial
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.ListaConfirmacion">
+            <summary>
+            Valores de Lista de Confirmación Espaniol
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosVisitaGerencial.ListaConfirmacionIngles">
+            <summary>
+            Valores de Lista de Confirmación Ingles
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTipoHallazgo">
+            <summary>
+            Valores de Tipo de Hallazgo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTipoHallazgo.Observacion">
+            <summary>
+            Valor Observación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTipoHallazgo.Fortaleza">
+            <summary>
+            Valor Fortaleza
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTipoHallazgo.Oportunidad">
+            <summary>
+            Valor Oportunidad
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosTipoHallazgo.PasoProcedimiento">
+            <summary>
+            Valor Paso Procedimiento
+            Modulo Observacion Planeada Tarea (OPT)
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoRegistro">
+            <summary>
+            Valores de Estado de registro
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoRegistro.Activo">
+            <summary>
+            Valor No Requiere PA 
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoRegistro.Inactivo">
+            <summary>
+            Valor Pendiente Observación 
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoVisita">
+            <summary>
+            Valores de Estado de Visita  (Visita Gerencial)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoVisita.NoRequiere">
+            <summary>
+            Valor No Requiere  
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoVisita.PendienteHallazgo">
+            <summary>
+            Valor Pendiente de Hallazgo 
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoVisita.PendienteAcciones">
+            <summary>
+            Valor Pendiente de Acciones 
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoVisita.Cerrado">
+            <summary>
+            Valor Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoVisita.AnuladoPorGerencia">
+            <summary>
+            Valor Anulado Por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoVisita.Anulado">
+            <summary>
+            Valor Anulado 
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoPlanAccion">
+            <summary>
+            Valores de Estado de Ingreso Plan Acción  (Visita Gerencial)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoPlanAccion.NoRequiere">
+            <summary>
+            No Requiere
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoPlanAccion.SinInformacion">
+            <summary>
+            Sin Información
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoPlanAccion.Abierto">
+            <summary>
+            Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoPlanAccion.Cerrado">
+            <summary>
+            Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoPlanAccion.AnuladoPorGerencia">
+            <summary>
+            Anulado por Gerencia
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoProcesoPlanAccion">
+            <summary>
+            Valores de Estado de Proceso Plan Acción  (Visita Gerencial)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoProcesoPlanAccion.NoRequiere">
+            <summary>
+            No Requiere
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoProcesoPlanAccion.SinInformacion">
+            <summary>
+            Sin Información
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoProcesoPlanAccion.AbiertoEnFecha">
+            <summary>
+            Abierto En Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoProcesoPlanAccion.AbiertoFueraDeFecha">
+            <summary>
+            Valor Abierto Fuera de Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoProcesoPlanAccion.CerradoEnFecha">
+            <summary>
+            Valor Cerrado en Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoProcesoPlanAccion.CerradoFueraDeFecha">
+            <summary>
+            Valor Abierto en Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoProcesoPlanAccion.AnuladoPorGerencia">
+            <summary>
+            Valor Anulado por Gerencia
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccion">
+            <summary>
+            Valores de Estado Minimo Acción del (Record Acción) Transversal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccion.Abierto">
+            <summary>
+            Estado Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccion.Reabierto">
+            <summary>
+            Estado Reabierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccion.Cerrado">
+            <summary>
+            Estado Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccion.CerradoPorGerencia">
+            <summary>
+            Estado Cerrado Por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccion.AnuladoPorGerencia">
+            <summary>
+            Estado Anulado Por Gerencia
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoDocumento">
+            <summary>
+            Valores de Estado Ingreso del Documento 
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoDocumento.NoRequiere">
+            <summary>
+            Estado No Requiere
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteHallazgo">
+            <summary>
+            Estado Pendiente de Hallazgo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteAcciones">
+            <summary>
+            Estado Pendiente de Acciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoDocumento.Cerrado">
+            <summary>
+            Estado Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoDocumento.AnuladoPorGerencia">
+            <summary>
+            Estado Anulado Por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoIngresoDocumento.Anulado">
+            <summary>
+            Estado Anulado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccionDocumento">
+            <summary>
+            Valores de Estado Minimo Acción del Documento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccionDocumento.Abierto">
+            <summary>
+            Estado Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccionDocumento.Reabierto">
+            <summary>
+            Estado Reabierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccionDocumento.Cerrado">
+            <summary>
+            Estado Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccionDocumento.CerradoPorGerencia">
+            <summary>
+            Estado Cerrado Por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccionDocumento.AnuladoPorGerencia">
+            <summary>
+            Estado Anulado Por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccionDocumento.NoRequiere">
+            <summary>
+            Estado No Requiere
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoMinimoAccionDocumento.SinInformacion">
+            <summary>
+            Estado Sin Información
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoDocumento">
+            <summary>
+            Valores de Estado del Documento  
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoDocumento.Abierto">
+            <summary>
+            Estado Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoDocumento.Cerrado">
+            <summary>
+            Estado Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoDocumento.CerradoPorGerencia">
+            <summary>
+            Estado Cerrado Por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoDocumento.AnuladoPorGerencia">
+            <summary>
+            Estado Anulada Por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoDocumento.Reabierto">
+            <summary>
+            Estado Reabierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ParametrosEstadoDocumento.Anulado">
+            <summary>
+            Estado Anulado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoPerfilUsuario">
+            <summary>
+            valores de los Codigos de tipo de perfiles para los usuarios SGATE
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoPerfilUsuario.EsAdministrador">
+            <summary>
+            Es Administrador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoPerfilUsuario.EsColaborador">
+            <summary>
+            Es Colaborador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoPerfilUsuario.EsInstructor">
+            <summary>
+            Es Instructor
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoFrecuenciaEjecucion">
+            <summary>
+            valores de los Códigos de Tipo de Frecuencia de Ejecución
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoFrecuenciaEjecucion.Diario">
+            <summary>
+            Diario
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoFrecuenciaEjecucion.Semanal">
+            <summary>
+            Semanal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoFrecuenciaEjecucion.Mensual">
+            <summary>
+            Mensual
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TitulosTareaNotificacion">
+            <summary>
+            valores de los Códigos de Titulos de Tareas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TitulosTareaNotificacion.TituloTareaHHT">
+            <summary>
+            Título para las Tareas de Notificación de HHT
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TitulosTareaNotificacion.TituloTareaVisitaGerencial">
+            <summary>
+            Título para las Tareas de Notificación de Visita Gerencial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sistema">
+            <summary>
+            Constantes de Sistema
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sistema.CodigoSCC">
+            <summary>
+            Codigo del Sistema SCC
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sistema.CodigoTRA">
+            <summary>
+            Codigo del Sistema Trasciende
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Sistema.CodigoSGI">
+            <summary>
+            Codigo del Sistema SGSA
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoAnexo">
+            <summary>
+            Valores de la tabla MNT.TIPO_ANEXO
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoAnexo.AnuncioIncidente">
+            <summary>
+            Tipo Decimal
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoConsecuenciaCategoria">
+            <summary>
+            valores de los Codigos de tipo de consecuencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoConsecuenciaCategoria.Actual">
+            <summary>
+            Código consecuencia actual
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoConsecuenciaCategoria.Potencial">
+            <summary>
+            Código consecuencia potencial
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Periodicidad.Diario">
+            <summary>
+            Código Dia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Periodicidad.Semana">
+            <summary>
+            Código Semana
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Periodicidad.Mensual">
+            <summary>
+            Código Mes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Periodicidad.Trimestral">
+            <summary>
+            Código Trimestre
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Periodicidad.Semestral">
+            <summary>
+            Código Semestre
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.Periodicidad.Anual">
+            <summary>
+            Código Semestre
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoConsecuenciaIncidente">
+            <summary>
+            Valores de la tabla POL.PARAMETRO where CODIGO_PARAMETRO = 183
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoConsecuenciaIncidente.Insignificante">
+            <summary>
+            Consecuencia Insignificante
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoConsecuenciaIncidente.Menor">
+            <summary>
+            Consecuencia Menor
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoConsecuenciaIncidente.Moderado">
+            <summary>
+            Consecuencia Moderado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoConsecuenciaIncidente.Mayor">
+            <summary>
+            Consecuencia Mayor
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoConsecuenciaIncidente.Critico">
+            <summary>
+            Consecuencia Crítico
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionActualTrabajadorLesionado">
+            <summary>
+            Valores de la lista de LesionActual FormularioLesionTrabajador        
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionActualTrabajadorLesionado.Fatalidad">
+            <summary>
+            Fatalidad
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionActualTrabajadorLesionado.LesionTiempoPerdido">
+            <summary>
+            Lesion Tiempo Perdido
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionActualTrabajadorLesionado.LesionTrabajoRestringido">
+            <summary>
+            Lesion Trabajo Restringido
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionActualTrabajadorLesionado.LesionTratamientoMedico">
+            <summary>
+            Lesion Tratamiento Medico
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionActualTrabajadorLesionado.LesionPrimerosAuxilios">
+            <summary>
+            Lesion Primeros Auxilios
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoValoresHPI">
+            <summary>
+            Valores de la tabla POL.PARAMETRO where CODIGO_PARAMETRO = 8
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoValoresHPI.SI">
+            <summary>
+            Valor SI
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoValoresHPI.NO">
+            <summary>
+            Valor NO
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDato">
+            <summary>
+            Constantes de Tipo de Dato
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDato.Decimal">
+            <summary>
+            Tipo Decimal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDato.Encriptado">
+            <summary>
+            Tipo Encriptado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDato.Entero">
+            <summary>
+            Tipo Entero
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDato.Fecha">
+            <summary>
+            Tipo Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDato.Texto">
+            <summary>
+            Tipo Texto
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoParametro">
+            <summary>
+            Constantes de Tipo de Parámetro
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoParametro.Comun">
+            <summary>
+            Tipo de Parámetro Común
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoParametro.Sistema">
+            <summary>
+            Tipo de Parámetro Sistema
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoParametro.Funcional">
+            <summary>
+            Tipo de Parámetro Funcional
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionFileServer.UbicacionFotoColaborador">
+            <summary>
+            Ubicacion de fotos del colaborador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDocumentoIdentidad.Dni">
+            <summary>
+            Tipo Dni
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoDocumentoIdentidad.Ruc">
+            <summary>
+            Tipo RUC
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVisualizacionUnidadOperativa.Responsable">
+            <summary>
+            Responsable
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVisualizacionUnidadOperativa.RepresentanteDireccion">
+            <summary>
+            Representantes y Dirección
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoSeccion">
+            <summary>
+            Constantes de Tipo de Sección
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoSeccion.Izquierda">
+            <summary>
+            Tipo de Sección Izquierda
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoSeccion.Cuerpo">
+            <summary>
+            Tipo de Sección Cuerpo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoSeccion.Tab">
+            <summary>
+            Tipo de Sección Tab
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoSeccion.Panel">
+            <summary>
+            Tipo de Sección Panel
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoSeccion.Contenido">
+            <summary>
+            Tipo de Sección Contenido
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoLlenadoCombo">
+            <summary>
+            Constantes de Tipo de Llenado Combo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoLlenadoCombo.LlenadoParametro">
+            <summary>
+            Tipo de Llenado Parametro
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoLlenadoCombo.LlenadoTabla">
+            <summary>
+            Tipo de Llenado tabla
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl">
+            <summary>
+            Constantes de Tipo de Control
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.TextBoxTexto">
+            <summary>
+            Tipo de Control TextBox Texto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.TextBoxNumero">
+            <summary>
+            Tipo de Control TextBox Número
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.ComboBox">
+            <summary>
+            Tipo de Control Lista Desplegable
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.FileUpload">
+            <summary>
+            Tipo de Control Carga de Archivo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.CheckBox">
+            <summary>
+            Tipo de Control CheckBox
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.RadioButton">
+            <summary>
+            Tipo de Control RadioButton
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.DatePicker">
+            <summary>
+            Tipo de Control Calendario
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.Time">
+            <summary>
+            Tipo de Control Hora
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.TextArea">
+            <summary>
+            Tipo de Control Área de Texto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoControl.Button">
+            <summary>
+            Tipo de Control Botón
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVista">
+            <summary>
+            Constantes de Tipo de Vista
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVista.VistaApendice">
+            <summary>
+            Tipo de Vista Apendice
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVista.VistaFoto">
+            <summary>
+            Tipo de Vista Fotos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoVista.VistaAccion">
+            <summary>
+            Tipo de Vista Accion
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRecord">
+            <summary>
+            Constantes de Estado de Record
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRecord.Generado">
+            <summary>
+            Estado de Record Generado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRecord.Enviado">
+            <summary>
+            Estado de Record Enviado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRecord.Reenviado">
+            <summary>
+            Estado de Record Reenviado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRecord.Cerrado">
+            <summary>
+            Estado de Record Cerrado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRecordSustento">
+            <summary>
+            Constantes de Estado de Record Sustento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRecordSustento.Generado">
+            <summary>
+            Estado de Record Generado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoRecordSustento.Cerrado">
+            <summary>
+            Estado de Record Cerrado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionMenuOpciones">
+            <summary>
+            Constantes de Configuración del Menú de Opciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionMenuOpciones.ModuloRecord">
+            <summary>
+            Código del Módulo de Records
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionMenuOpciones.ModuloAccion">
+            <summary>
+            Código del Módulo de Acciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionMenuOpciones.ModuloCapacitacion">
+            <summary>
+            Código del Módulo de Capacitacion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionMenuOpciones.ModuloConfiguracion">
+            <summary>
+            Código del Módulo de Configuraciones
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoAnexo">
+            <summary>
+            Constantes de Tipo de Anexo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoAnexo.TipoAnexoFoto">
+            <summary>
+            Tipo de Anexo Foto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoAnexo.TipoAnexoAdjunto">
+            <summary>
+            Tipo de Anexo Adjunto
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoAccion">
+            <summary>
+            Constantes de Estados de Acción
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoAccion.Abierto">
+            <summary>
+            Estado de Acción Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoAccion.Reabierto">
+            <summary>
+            Estado de Acción En Reabierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoAccion.Cerrado">
+            <summary>
+            Estado de Acción Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoAccion.CerradoPorGerencia">
+            <summary>
+            Estado de Acción CerradoPorGerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoAccion.AnuladoPorGerencia">
+            <summary>
+            Estado de Acción CerradoPorGerencia
+            </summary>            
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoInvestigacion">
+            <summary>
+            Constantes de Estados de Investigacion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoInvestigacion.PorElaborar">
+            <summary>
+            Estado de Acción Pendiente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoInvestigacion.PorRevisar">
+            <summary>
+            Estado de Acción En Proceso
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoInvestigacion.PorAprobar">
+            <summary>
+            Estado de Acción Completado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadoInvestigacion.Aprobado">
+            <summary>
+            Estado de Acción Completado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.AprobacionExtraordinariaInvestigacion">
+            <summary>
+            Indicador para listar las Investigaciones y permitir Aprobaciones Extraordinarias
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.AprobacionExtraordinariaInvestigacion.AprobacionExtraordinaria">
+            <summary>
+            Indicador para listar las Aprobaciones Extraordinarias
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.AprobacionExtraordinariaInvestigacion.ComentarioAprobacionExtraordinaria">
+            <summary>
+            Comentario de las Aprobaciones Extraordinarias
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionSendMail">
+            <summary>
+            Variables de Configuración de Servicio
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionSendMail.ConexionSegura_SMTP">
+            <summary>
+            ConexionSegura_SMTP
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionSendMail.ServidorSMTP">
+            <summary>
+            ServidorSMTP
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionSendMail.NombreUsuarioSMTP">
+            <summary>
+            NombreUsuarioSMTP
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionSendMail.UsuarioSMTP">
+            <summary>
+            UsuarioSMTP
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionSendMail.EmailUsuarioSMTP">
+            <summary>
+            EmailUsuarioSMTP
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionSendMail.PasswordSMTP">
+            <summary>
+            PasswordSMTP
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionSendMail.Puerto_SMTP">
+            <summary>
+            Puerto_SMTP
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionReporting">
+            <summary>
+            Variables de Configuración de Reporting
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionReporting.ReporteServerUrl">
+            <summary>
+            ReporteServerUrl
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ConfiguracionReporting.ReporteRuta">
+            <summary>
+            ReporteRuta
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoReporte">
+            <summary>
+            Variables de Configuración para el tipo de Reporte
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoReporte.Responsable">
+            <summary>
+            Reporte responsable
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoReporte.ProyectoDepartamento">
+            <summary>
+            Reporte proyecto departamento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoReporte.AutomaticaTotal">
+            <summary>
+            Reporte automática total
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoPlantillaCorreo">
+            <summary>
+            Variables de para el tipo de plantilla de correo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoPlantillaCorreo.AutomaticaPorResponsable">
+            <summary>
+            Reporte responsable pendientes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoPlantillaCorreo.AutomaticaPorProyectoDepartamento">
+            <summary>
+            Reporte responsable vencidas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoPlantillaCorreo.AutomaticaTotal">
+            <summary>
+            Reporte proyecto departamento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoPlantillaCorreo.CorreoFlashdelIncidente">
+            <summary>
+            Correo del flash de incidente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoPlantillaCorreo.PrimeraNotificacionHorasTrabajadas">
+            <summary>
+            Notificacion Tarea Responsables
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoPlantillaCorreo.SegundaNotificacionHorasTrabajadas">
+            <summary>
+            Notificacion Tarea Personas a Notificar
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionTiempoPerdido">
+            <summary>
+            Variables de para Lesion con tiempo perdido
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionTiempoPerdido.ParcialTemporal">
+            <summary>
+            Lesion Tiempo Perdido Parcial Temporal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionTiempoPerdido.TotalTemporal">
+            <summary>
+            Lesion Tiempo Perdido Total Temporal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionTiempoPerdido.ParcialPermanente">
+            <summary>
+            Lesion Tiempo Perdido Parcial Permanente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoLesionTiempoPerdido.TotalPermanente">
+            <summary>
+            Lesion Tiempo Perdido Total Permanente
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCategoriaAbreviado">
+            <summary>
+            Variables de para el código categoria abreviado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCategoriaAbreviado.CategoriaLesion">
+            <summary>
+            Categoria Lesión
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCategoriaAbreviado.CategoriaImpactoAmbiental">
+            <summary>
+            Categoria Impacto Ambiental 
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCategoriaAbreviado.CategoriaImpactoComunidad">
+            <summary>
+            Categoria Impacto Comunidad
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCategoriaAbreviado.CategoriaDanioPropiedad">
+            <summary>
+            Categoria Danio Propiedad
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCategoriaAbreviado.CategoriaPerdidaProceso">
+            <summary>
+            Categoria Perdida Proceso
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCategoriaAbreviado.CategoriaCuasiIncidente">
+            <summary>
+            Categoria Cuasi Incidente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCategoriaAbreviado.CategoriaOtros">
+            <summary>
+            Categoria Otros
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoCategoria">
+            <summary>
+            Variables de para el tipo de código 
+            de Categoria
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoCategoria.Causa">
+            <summary>
+            Categoria de tipo CAUSA
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoOtrosCategoriaInvestigacion">
+            <summary>
+            Codigo de otros para las diferentes categorias de investigacion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosTipoImpactoComunidad">
+            <summary>
+            Categoria Otros de Pérdida Proceso
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosPerdidaProceso">
+            <summary>
+            Categoria Otros de Pérdida Proceso
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosCuerpoReceptorAfectado">
+            <summary>
+            Categoria Otros de Impacto MedioAmbiental
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosAgenteContaminante">
+            <summary>
+            Categoria Otros de Agente Contaminante
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosEstadoAgenteContaminante">
+            <summary>
+            Categoria Otros de Estado de Agente Contaminante
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCuerpoReceptorAfectado">
+            <summary>
+            Codigo de cuerpo receptor afectado de Impacto MedioAmbiental
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoAgua">
+            <summary>
+            Codigo de cuerpo receptor agua
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoAire">
+            <summary>
+            Codigo de cuerpo receptor aire
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoSuelo">
+            <summary>
+            Codigo de cuerpo receptor suelo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoFauna">
+            <summary>
+            Codigo de cuerpo receptor fauna
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoTSoil">
+            <summary>
+            Codigo de cuerpo receptor T Soil
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoCuerpoReceptorAfectado.CodigoOtros">
+            <summary>
+            Codigo de cuerpo receptor Otros
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoAbreviado">
+            <summary>
+            Variables del tipo de Costo de incidencia abreviado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoAbreviado.CostoInvestigacion">
+            <summary>
+            Costos de Investigación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoAbreviado.CostoPersonal">
+            <summary>
+            Costos por Personal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoAbreviado.CostoMedioambiental">
+            <summary>
+            Costos por Impacto Medioambiental
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoAbreviado.CostoImpactoComunidad">
+            <summary>
+            Costos por Impacto a la Comunidad
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoAbreviado.CostoDaniosPropiedad">
+            <summary>
+            Costos por Daño a la Propiedad
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoAbreviado.CostoPerdidaProceso">
+            <summary>
+            Costos por Perdida de proceso
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoAbreviado.CostoPrevencion">
+            <summary>
+            Costos de prevención
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoAbreviado.CostoOtros">
+            <summary>
+            Otros costos
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado">
+            <summary>
+            Variables del tipo de Costo de incidencia Detalle abreviado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoInvestigacionTrabajadorInvolucrado">
+            <summary>
+            Costos por trabajadores involucrados (CostoInvestigacion)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoInvestigacionSupervisor">
+            <summary>
+            Costos por supervisores (CostoInvestigacion)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoInvestigacionDeclaracionTestigo">
+            <summary>
+            Costos por declaraciones de Testigos (CostoInvestigacion)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoInvestigacionOtros">
+            <summary>
+            Otros (CostoInvestigacion)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPersonalTrabajadorInvolucrado">
+            <summary>
+            Horas perdidas por los trabajadores involucrados (el día del incidente) (CostoPersonal)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPersonalSupervisor">
+            <summary>
+            Horas perdidas por los supervisores (el día del incidente) (CostoPersonal)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPersonalOtros">
+            <summary>
+            Otros (CostoPersonal)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoMedioambientalPersonalUtilizado">
+            <summary>
+            Personal utilizado (limpieza,remediación, etc.) (CostoMedioambiental)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoMedioambientalMaterialUtilizado">
+            <summary>
+            Materiales utilizados (kit antiderrames, etc.) (CostoMedioambiental)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoMedioambientalDisposicionCosto">
+            <summary>
+            Disposición (residuos generados, etc.) (CostoMedioambiental)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoMedioambientalRecuperacionCosto">
+            <summary>
+            Recuperación (suelo, agua, etc.) (CostoMedioambiental)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoMedioambientalOtros">
+            <summary>
+            Otros (CostoMedioambiental)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoDaniosPropiedadPersonalUtilizado">
+            <summary>
+            Personal utilizado (reparación, etc.) (CostoDaniosPropiedad)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoDaniosPropiedadEquipoUtilizado">
+            <summary>
+            Equipos utilizados (Equipos de recaste, etc.) (CostoDaniosPropiedad)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoDaniosPropiedadMaterialUtilizado">
+            <summary>
+            Materiales y repuestos utilizados (Materiales para rescate, etc.) (CostoDaniosPropiedad)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoDaniosPropiedadCostoAlquiler">
+            <summary>
+            Costo de alquiler por reemplazo (CostoDaniosPropiedad)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoDaniosPropiedadCostoServicioExterno">
+            <summary>
+            Costo por servicio externo (CostoDaniosPropiedad)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoDaniosPropiedadOtros">
+            <summary>
+            Otros (CostoDaniosPropiedad)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPerdidaProcesoCostoProducto">
+            <summary>
+            Personal utilizado (reparación, etc.) (CostoPerdidaProceso)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPerdidaProcesoCostoServicio">
+            <summary>
+            Equipos utilizados (Equipos de recaste, etc.) (CostoPerdidaProceso)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPerdidaProcesoCostoOcasionadoEquipo">
+            <summary>
+            Materiales y repuestos utilizados (Materiales para rescate, etc.) (CostoPerdidaProceso)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPerdidaProcesoCostoOcasionadoPersonal">
+            <summary>
+            Costo de alquiler por reemplazo (CostoPerdidaProceso)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPerdidaProcesoIncrementoSubContratacionCosto">
+            <summary>
+            Costo por servicio externo (CostoPerdidaProceso)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPerdidaProcesoOtros">
+            <summary>
+            Otros (CostoPerdidaProceso)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPrevencionMedidasCosto">
+            <summary>
+            Costos de las medidas adoptadas para evitar la repetición del incidente (CostoPrevencion)
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoTipoInvestigacionCostoDetalleAbreviado.CostoPrevencionOtros">
+            <summary>
+            Otros (Ejemplo: costo por difusión de incidente) (CostoPrevencion)
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo">
+            <summary>
+            Codigo de cuerpo receptor afectado de Impacto MedioAmbiental
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoSnapChart">
+            <summary>
+            Codigo de cuerpo receptor agua
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoAnuncioIncidente">
+            <summary>
+            Codigo de cuerpo receptor aire
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoPresentacionTabRoot">
+            <summary>
+            Codigo de cuerpo receptor suelo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoDeclaracionTetigo">
+            <summary>
+            Codigo de cuerpo receptor fauna
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoBocetoMapa">
+            <summary>
+            Codigo de cuerpo receptor T Soil
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoRegistroEntrenamiento">
+            <summary>
+            Codigo de cuerpo receptor Otros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoPruebaAlcoholemia">
+            <summary>
+            Codigo de cuerpo receptor agua
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoPruebaDroga">
+            <summary>
+            Codigo de cuerpo receptor aire
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoCopiaActaReunionExtraordinaria">
+            <summary>
+            Codigo de cuerpo receptor suelo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoInformePeritaje">
+            <summary>
+            Codigo de cuerpo receptor fauna
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoPermisoTrabajo">
+            <summary>
+            Codigo de cuerpo receptor T Soil
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoMatricesRiesgo">
+            <summary>
+            Codigo de cuerpo receptor Otros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoHerramientaGestionRiesgo">
+            <summary>
+            Codigo de cuerpo receptor Otros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoRegistroReunionInvestigador">
+            <summary>
+            Codigo de cuerpo receptor agua
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoListaEstandaresProcedimientos">
+            <summary>
+            Codigo de cuerpo receptor aire
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoRegistroDifusionIncidente">
+            <summary>
+            Codigo de cuerpo receptor suelo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoOtros">
+            <summary>
+            Codigo de cuerpo receptor fauna
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoCertificadoAutopsia">
+            <summary>
+            Codigo de cuerpo receptor T Soil
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoCertificadoDefunsion">
+            <summary>
+            Codigo de cuerpo receptor Otros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoCopiaLevantamientoCadaver">
+            <summary>
+            Codigo de cuerpo receptor Otros
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoActoInspeccionIncidenteFatal">
+            <summary>
+            Codigo de cuerpo receptor agua
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoInformeMedico">
+            <summary>
+            Codigo de cuerpo receptor aire
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoCertificadoDescansoMedico">
+            <summary>
+            Codigo de cuerpo receptor suelo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoLicenciaInterna">
+            <summary>
+            Codigo de cuerpo receptor fauna
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoLicenciaConducir">
+            <summary>
+            Codigo de cuerpo receptor T Soil
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoInvestigacionTipoAnexo.CodigoFoto">
+            <summary>
+            Codigo de cuerpo receptor Otros
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.NivelResponsable">
+            <summary>
+            Nivel de Responsable
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.NivelResponsable.NivelProyecto">
+            <summary>
+            Nivel proyecto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.NivelResponsable.NivelDepartamento">
+            <summary>
+            Nivel departamento
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.NivelResponsable.NivelArea">
+            <summary>
+            Nivel area
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.NivelResponsable.NivelGuardia">
+            <summary>
+            Nivel guardia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.NivelResponsable.NivelTotal">
+            <summary>
+            Nivel total
+            </summary>
+        </member>
+        <!-- El comentario XML con formato incorrecto se omite para el miembro "T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ModuloHerramienta" -->
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ModuloHerramienta.HorasHombreTrabajadas">
+            <summary>		
+            Modulo Horas Hombre Trabajadas		
+            </summary>		
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ModuloHerramienta.GestionLesiones">
+            <summary>		
+            Modulo Gestion esiones		
+            </summary>		
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ModuloHerramienta.GestionActuaPositivo">
+            <summary>		
+            Modulo Gestion de Actua Positivo		
+            </summary>		
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ModuloHerramienta.GestionVisitaGerencial">
+            <summary>		
+            Modulo Gestion de Actua Positivo		
+            </summary>		
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRecord">
+            <summary>
+            Constantes que representan el Tipo de Record
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRecord.Incidente">
+            <summary>
+            Tipo de Record Incidente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRecord.Inspecciones">
+            <summary>
+            Tipo de Record Inspecciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoRecord.ReportesDeRiesgo">
+            <summary>
+            Tipo de Record Reportes de Riesgo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoEmpresa">
+            <summary>
+            Constantes que representan el Tipo de Empresa
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoEmpresa.TipoEmpresaGrupo">
+            <summary>
+            Tipo de Empresa del Grupo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoEmpresa.TipoEmpresaSubcontratista">
+            <summary>
+            Tipo de Empresa Subcontratista
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IndicadorSufrioLesion">
+            <summary>
+            Constantes que representan el Indicador si Sufrió Lesión
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IndicadorSufrioLesion.SiSufrioLesion">
+            <summary>
+            Indicador Sí Sufrió Lesión
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IndicadorSufrioLesion.NoSufrioLesion">
+            <summary>
+            Indicador No Sufrió Lesión
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IndicadorObligatorio">
+            <summary>
+            Variables de para el tipo de plantilla de correo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IndicadorObligatorio.Afirmativo">
+            <summary>
+            Reporte responsable pendientes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IndicadorObligatorio.Negativo">
+            <summary>
+            Reporte responsable vencidas
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoAnexo">
+            <summary>
+            Variables de para el tipo de plantilla de correo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoAnexo.Obligatorio">
+            <summary>
+            Reporte responsable pendientes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoAnexo.Opcional">
+            <summary>
+            Reporte responsable vencidas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoAnexo.Depende">
+            <summary>
+            Reporte responsable vencidas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEstadoAnexo.Pasivo">
+            <summary>
+            Reporte responsable vencidas
+            </summary>
+        </member>
+        <!-- El comentario XML con formato incorrecto se omite para el miembro "T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEvaluacion" -->
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEvaluacion.Si">
+            <summary>
+            Reporte responsable pendientes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEvaluacion.No">
+            <summary>
+            Reporte responsable vencidas
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.CodigoEvaluacion.Nulo">
+            <summary>
+            Reporte responsable vencidas
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IndicadorActuaPositivo">
+            <summary>
+            Variables de para el tipo de Actua Positivo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IndicadorActuaPositivo.LadoA">
+            <summary>
+            Reporte responsable pendientes
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.IndicadorActuaPositivo.LadoB">
+            <summary>
+            Reporte responsable vencidas
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresGridsAtencionMedica">
+            <summary>
+            Valores para las Grids de Atencion Medica
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresGridsAtencionMedica.TrabajoRestringido">
+            <summary>
+            Tab Trabajo Restringido
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresGridsAtencionMedica.LesionTiempoPerdido1">
+            <summary>
+            Tab Lesion tiempo Perdido
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresGridsAtencionMedica.LesionTiempoPerdido2">
+            <summary>
+            Tab Lesion tiempo Perdido
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresGridsAtencionMedica.Fatalidad">
+            <summary>
+            Tab Fatalidad
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDelExpedienteMedico">
+            <summary>
+            Valores de los estados del expediente medico
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDelExpedienteMedico.Abierto">
+            <summary>
+            Estado Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDelExpedienteMedico.Cerrado">
+            <summary>
+            Estado Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDelExpedienteMedico.Reabierto">
+            <summary>
+            Estado Reabierto
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionNumeroExpedienteMedico">
+            <summary>
+            Valores para la Generación del 
+            Expediente Médico
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionNumeroExpedienteMedico.PrimerExpediente">
+            <summary>
+            Primer Expediente Médico
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionNumeroExpedienteMedico.AbreviaturaExpedienteMedico">
+            <summary>
+            Abreviatura del Expediente Médico
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionNumeroExpedienteMedico.CantidadDigitosExpedienteMedico">
+            <summary>
+            Cantidad de digitos para la generación
+            del Expediente Médico
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionFactorCausal">
+            <summary>
+            Valores para la Generación del 
+            Factor Causal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionFactorCausal.PrimerRegistro">
+            <summary>
+            Primer Registro
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionFactorCausal.AbreviaturaFactorCausal">
+            <summary>
+            Abreviatura Factor Causal
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionCausaRaiz">
+            <summary>
+            Valores para la Generación de 
+            Causa Raiz
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionCausaRaiz.PrimerRegistro">
+            <summary>
+            Primer Registro
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.GeneracionCausaRaiz.AbreviaturaCausaRaiz">
+            <summary>
+            Abreviatura Factor Causal
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeAtencionMedica">
+            <summary>
+            Valores de los estados de la atencion medica
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeAtencionMedica.Abierto">
+            <summary>
+            Estado Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeAtencionMedica.Cerrado">
+            <summary>
+            Estado Cerrado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoColaboradorObservacionPlaneada">
+            <summary>
+            Valores de los tipos de colaboradores 
+            Observacion Planeada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoColaboradorObservacionPlaneada.Trabajador">
+            <summary>
+            Trabajador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoColaboradorObservacionPlaneada.Supervisor">
+            <summary>
+            Supervisor
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoColaboradorObservacionPlaneada.ObservadorInterno">
+            <summary>
+            Observador Interno
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoTestigosInvestigacion">
+            <summary>
+            Valores de los tipos de Testigos 
+            Investigacion
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoTestigosInvestigacion.TestigoInterno">
+            <summary>
+            Testigo Interno
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoTestigosInvestigacion.TestigoExterno">
+            <summary>
+            Testigo Externo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoOportunidadAccionObservacionPlaneada">
+            <summary>
+            Valores de los tipos de acciones y oportunidades  
+            Observacion Planeada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoOportunidadAccionObservacionPlaneada.AccionInmediata">
+            <summary>
+            Accion Inmediata
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoOportunidadAccionObservacionPlaneada.OportunidadMejora">
+            <summary>
+            Oportunidad Mejora
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.TipoOportunidadAccionObservacionPlaneada.PasosProcedimiento">
+            <summary>
+            Pasos del Procedimiento
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeObservacionPlaneada">
+            <summary>
+            Valores de los estados de la 
+            Observacion Planeada
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeObservacionPlaneada.Abierto">
+            <summary>
+            Estado Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeObservacionPlaneada.Cerrado">
+            <summary>
+            Estado Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeObservacionPlaneada.Anulado">
+            <summary>
+            Estado Anulado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeObservacionPlaneada.CerradoPorGerencia">
+            <summary>
+            Estado Cerrado por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeObservacionPlaneada.AnuladoPorGerencia">
+            <summary>
+            Estado Anulado por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeObservacionPlaneada.Reabierto">
+            <summary>
+            Reabierto
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresEmpleadorSubContratista">
+            <summary>
+            Valores de Empleador y SubContratistas
+            Inspecciones
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresEmpleadorSubContratista.Empleador">
+            <summary>
+            Empleador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresEmpleadorSubContratista.SubContratista">
+            <summary>
+            SubContratista
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValorOtrosInspeccionCheck">
+            <summary>
+            Valor para el Check Otros
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValorOtrosReporteRiesgosCheck">
+            <summary>
+            Valor para el Check Otros Reporte de Riesgos
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresTipoObservador.Lider">
+            <summary>
+            Empleador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresTipoObservador.Ejecutor">
+            <summary>
+            SubContratista
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresTipoInspector.Interno">
+            <summary>
+            Empleador
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresTipoInspector.Externo">
+            <summary>
+            SubContratista
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresTipoReportante.Interno">
+            <summary>
+            Reportante Interno
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresTipoReportante.Externo">
+            <summary>
+            Reportante Externo
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ValoresTipoReportante.EmpresaReportada">
+            <summary>
+            Empresa Reportada
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeInspeccion">
+            <summary>
+            Valores de los estados de la 
+            inspección
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeInspeccion.Abierto">
+            <summary>
+            Estado Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeInspeccion.Cerrado">
+            <summary>
+            Estado Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeInspeccion.Anulado">
+            <summary>
+            Estado Anulado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeInspeccion.CerradoPorGerencia">
+            <summary>
+            Estado Cerrado por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeInspeccion.AnuladoPorGerencia">
+            <summary>
+            Estado Anulado por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeInspeccion.Reabierto">
+            <summary>
+            Reabierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeReporteRiesgos.Abierto">
+            <summary>
+            Estado Abierto
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeReporteRiesgos.Cerrado">
+            <summary>
+            Estado Cerrado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeReporteRiesgos.Anulado">
+            <summary>
+            Estado Anulado
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeReporteRiesgos.CerradoPorGerencia">
+            <summary>
+            Estado Cerrado por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeReporteRiesgos.AnuladoPorGerencia">
+            <summary>
+            Estado Anulado por Gerencia
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EstadosDeReporteRiesgos.Reabierto">
+            <summary>
+            Reabierto
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ProcesoAnuncio">
+            <summary>
+            Valores del Proceso de Anuncio
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ProcesoAnuncio.EnFecha">
+            <summary>
+            Anuncio En Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ProcesoAnuncio.FueraFecha">
+            <summary>
+            Anuncio Fuera de Fecha
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EtapaIncidente">
+            <summary>
+            Valores de Etapas del Incidente
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EtapaIncidente.Anuncio">
+            <summary>
+            Etapa de Anuncio
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.EtapaIncidente.Investigacion">
+            <summary>
+            Etapa de Investigación
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ProcesoInvestigacion">
+            <summary>
+            Valores de los Procesos de la Investigación
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ProcesoInvestigacion.EnFecha">
+            <summary>
+            Investigación En Fecha
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ProcesoInvestigacion.EnProceso">
+            <summary>
+            Investigación En Proceso
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ProcesoInvestigacion.FueraFecha">
+            <summary>
+            Investigación Fuera de Fecha
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ModoCargaPantalla">
+            <summary>
+            Modos de carga para visualización de pantalla
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ModoCargaPantalla.Modal">
+            <summary>
+            Modal
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ModoCargaPantalla.Bandeja">
+            <summary>
+            Bandeja
+            </summary>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Constante.DatosConstantes.ModoCargaPantalla.VerTodo">
+            <summary>
+            Ver Todo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Exception.ApplicationLayerException`1">
+            <summary>
+            Application Exception
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Exception.InfrastructureLayerException`1">
+            <summary>
+            Infrastructure Exception
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Extension.Extension">
+            <summary>
+            Entidad de Negocio que representa la clase estatica Extension
+            </summary>
+            <remarks>
+            Creación:       GMD 18/03/2015 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Extension.Extension.ToDataTable``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Método que permite listar una tabla
+            </summary>
+            <returns> tabla </returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Extension.Extension.SetValue``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>
+            Extensión para setar un valor en un diccionario.
+            </summary>
+            <typeparam name="TKey">Tipo de la llave</typeparam>
+            <typeparam name="TValue">Tipo del valor a setear</typeparam>
+            <param name="data">Diccionario en el cual se buscará</param>
+            <param name="llave">Llave para la búsqueda</param>
+            <param name="valor">valor a setear</param>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Security.EntornoActualAplicacion">
+            <summary>
+            Objecto que representa un entorno de usuario en la aplicación
+            </summary>
+            <remarks>
+            Creación:       GMD 20150319
+            Modificación:   
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Security.EntornoActualAplicacion.UsuarioSession">
+            <summary>
+            Alias del usaurio en sesión
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Security.EntornoActualAplicacion.Terminal">
+            <summary>
+            Terminal de donde se accedio
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Security.EntornoActualAplicacion.CodigoSistema">
+            <summary>
+            Codigo actual del sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Transversal.Core.Security.EntornoActualAplicacion.CodigoEmpresa">
+            <summary>
+            Codigo actual de la empresa del sistema
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario">
+            <summary>
+            Clase Utilitaria
+            </summary>
+            <remarks>
+            Creación:       GMD 20150319
+            Modificación:   
+            </remarks>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.key">
+            <summary>
+            llave para la encriptacion 
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.CadenaFormatoFecha(System.String,System.String)">
+            <summary>
+            Permite convertir de String a DateTime con su respectivo formato de fecha
+            </summary>
+            <param name="valor">Fecha</param>
+            <param name="formato">Formato</param>
+            <returns>Retorna de Fecha</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.FechaFormatoCadena(System.Nullable{System.DateTime},System.String)">
+            <summary>
+            Permite convertir DateTime a String con su respectivo formato de fecha
+            </summary>
+            <param name="valor">Fecha</param>
+            <param name="formato">Formato</param>
+            <returns>Retorna la fecha formateada</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.CadenaFormatoDecimal(System.String,System.String,System.String)">
+            <summary>
+            Permite convertir de String a Decimal con su respectivo formato de decimal
+            </summary>
+            <param name="value">Decimal</param>
+            <param name="format">Formato</param>
+            <param name="numberFormat">Formato de Número</param>
+            <returns>Retorna de Decimal</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.DecimalFormatoCadena(System.Nullable{System.Decimal},System.String,System.String)">
+            <summary>
+            Permite convertir Decimal a String con su respectivo formato de decimal
+            </summary>
+            <param name="value">Decimal</param>
+            <param name="format">Formato</param>
+            <param name="numberFormat">Formato de Número</param>
+            <returns>Retorna el decimal formateado</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.ObtenerNombreMes(System.Int32)">
+            <summary>
+            Obtiene el nombre de un mes calendario.
+            </summary>
+            <param name="mes">Número de Mes</param>
+            <returns>Nombre del Mes</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.ObtenerListaMeses">
+            <summary>
+            Obtiene la lista de meses
+            </summary>
+            <returns>Retorna la lista de meses</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.RetornaIniciales(System.String)">
+            <summary>
+            Retorna las iniciales de un nombre
+            </summary>
+            <param name="nombre">nombre a evaluar</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.HtmlACadena(System.String)">
+            <summary>
+            Retorna las iniciales de un nombre
+            </summary>
+            <param name="nombre">nombre a evaluar</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.ApellidoCompuesto(System.String)">
+            <summary>
+            Obtiene los permisos de Lectura, Escritura y Control Total de la Opción seleccionada
+            </summary>
+            <param name="user">Cuenta de usuario de la sesión</param>
+            <param name="url">Dirección Url de la opción seleccionada</param>
+            <returns>Permisos de Lectura, Escritura y Control Total de la Opción seleccionada</returns>
+            COMENTADO POR ANGEL
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Transversal.Core.Util.Utilitario.GeneraArchivoDesdeReporting(System.String,System.String,System.String,System.String,System.Collections.Generic.List{Microsoft.Reporting.WebForms.ReportParameter})">
+            <summary>
+            Permite generar un Archivo desde un Reporting Service
+            </summary>
+            <param name="reporteServerUrl">Servidor del reporting</param>
+            <param name="rutaReporte">Carpeta donde se ubica el reporte</param>
+            <param name="nombreReporte">Nombre del reporte</param>
+            <param name="formatoReporte">Formato a exportar</param>
+            <returns>Archivo en un arreglo de bytes</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,365 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.VisitaGerencial
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ActuaPositivo
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.VisitaGerencial.IngresoVisita.IngresoVisitaModel
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label><strong>@Html.Raw(VisitaGerencialResource.EtiquetaTituloVisitaGerencial):</strong></label>
+                    </div>
+                    <div class="cell-line">
+                        <label>@Html.Raw(RecordsResource.EtiquetaNumeroRecord):</label>
+                    </div>
+                    <div class="cell-line">
+                        @Html.TextBox("txtNumeroRegistroVisitaGerencial", Model.VisitaGerencial.NumeroVisitaGerencial, new { id = "txtNumeroRegistroVisitaGerencial", @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaVisitaGerencial" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="@Html.Raw(AccionResource.EtiquetaListaAcciones)">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsFormularioIngresoVisita">
+                    <li role="presentation" class="active validateVisitaGerencial">
+                        <a href="#tabGeneral" class="top-tab" aria-controls="tabGeneral" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(VisitaGerencialResource.EtiquetaTabGeneral)</a>
+                    </li>
+                    <li role="presentation" class="validateVisitaGerencial">
+                        <a href="#tabHallazgo" class="top-tab" aria-controls="tabHallazgo" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(VisitaGerencialResource.EtiquetaTabHallazgo)</a>
+                    </li>
+                    <li role="presentation" class="validateVisitaGerencial">
+                        <a href="#tabAnexo" class="top-tab" aria-controls="tabAnexo" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(VisitaGerencialResource.EtiquetaTabAnexos)</a>
+                    </li>
+                    <li role="presentation" class="validateVisitaGerencial">
+                        <a href="#tabFoto" class="top-tab" aria-controls="tabFoto" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(VisitaGerencialResource.EtiquetaTabFotos)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGeneral">
+                        <form onsubmit="return false;" id="frmInformacionGeneral">
+                            <fieldset id="flsInformacionGeneral">
+                                <div class="title-interna">
+                                    <span>@Html.Raw(VisitaGerencialResource.EtiquetaTituloInformacionGeneral)</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaPersonaQueReporta): (*)</label>
+                                            <div class="input-group">
+                                                @Html.Hidden("hdnCodigoColaboradorQueReporta", Model.VisitaGerencial.CodigoColaboradorReporta, new { ïd = "hdnCodigoColaboradorQueReporta" })
+                                                @Html.TextBox("txtNombreColaboradorQueReporta", Model.VisitaGerencial.NombreCompletoColaboradorQueReporta, Model.VisitaGerencial.CodigoColaboradorReporta.HasValue ? (object)new { id = "txtNombreColaboradorQueReporta", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorQueReporta", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                                                <div class="input-group-addon">
+                                                    <button class="btn-form" id="btnBuscarColaboradorQueReporta" type="button">....</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaEstadoVisita): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    @Html.DropDownListFor(model => model.VisitaGerencial.CodigoEstadoDocumento, Model.ListaEstadoIngresoDocumento, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "slcEstadoVisita", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "slcEstadoVisita", @class = "form-control", @disabled = "disabled", @validable = "required Validar", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaVisitante): (*)</label>
+                                            <div class="input-group">
+
+                                                @Html.Hidden("hdnCodigoColaboradorVisitante", Model.VisitaGerencial.CodigoColaboradorVisitante, new { ïd = "hdnCodigoColaboradorVisitante" })
+                                                @Html.TextBox("txtNombreColaboradorVisitante", Model.VisitaGerencial.NombreCompletoColaboradorVisitante, Model.VisitaGerencial.CodigoColaboradorVisitante.HasValue ? (object)new { id = "txtNombreColaboradorVisitante", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorVisitante", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                                                <div class="input-group-addon">
+                                                    <button class="btn-form" id="btnBuscarColaboradorVisitante" type="button">....</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaFechaDesde): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("dtpFechaVisitaGerencialDesde", Model.VisitaGerencial.FechaVisitaDesdeString, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "dtpFechaVisitaGerencialDesde", @class = "form-control", @validable = "required Validar" } : new { id = "dtpFechaVisitaGerencialDesde", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaFechaHasta): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("dtpFechaVisitaGerencialHasta", Model.VisitaGerencial.FechaVisitaHastaString, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "dtpFechaVisitaGerencialHasta", @class = "form-control", @validable = "required Validar" } : new { id = "dtpFechaVisitaGerencialHasta", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaProyecto): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.VisitaGerencial.CodigoProyecto, Model.ListaProyectos, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" } : new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaGerenteProyecto): (*)</label>
+                                            <div class="input-group">
+                                                @Html.Hidden("hdnCodigoColaboradorGerenteProyecto", Model.VisitaGerencial.CodigoColaboradorGerente, new { ïd = "hdnCodigoColaboradorGerenteProyecto" })
+                                                @Html.TextBox("txtNombreColaboradorGerenteProyecto", Model.VisitaGerencial.NombreCompletoColaboradorGerente, Model.VisitaGerencial.CodigoColaboradorGerente.HasValue ? (object)new { id = "txtNombreColaboradorGerenteProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorGerenteProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                                                <div class="input-group-addon">
+                                                    <button class="btn-form" id="btnBuscarColaboradorGerenteProyecto" type="button">....</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaJefeSSOMAProyecto): (*)</label>
+                                            <div class="input-group">
+                                                @Html.Hidden("hdnCodigoColaboradorJefeSSOMAProyecto", Model.VisitaGerencial.CodigoColaboradorJefe, new { ïd = "hdnCodigoColaboradorJefeSSOMAProyecto" })
+                                                @Html.TextBox("txtNombreColaboradorJefeSSOMAProyecto", Model.VisitaGerencial.NombreCompletoColaboradorJefe, Model.VisitaGerencial.CodigoColaboradorJefe.HasValue ? (object)new { id = "txtNombreColaboradorJefeSSOMAProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorJefeSSOMAProyecto", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                                                <div class="input-group-addon">
+                                                    <button class="btn-form" id="btnBuscarColaboradorJefeSSOMAProyecto" type="button">....</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaTituloRegistro): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("txtTituloRegistro", Model.VisitaGerencial.TituloRegistro, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "txtTituloRegistro", @class = "form-control", @validable = "required Validar", @maxlength = "50" } : new { id = "txtTituloRegistro", @class = "form-control", @maxlength = "50", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaDeseaIngresarInformacion): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    @Html.DropDownListFor(model => model.VisitaGerencial.CodigoIngresarInformacion, Model.ListaConfirmacionSiNo, Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? (object)new { id = "slcDeseaIngresarInformacion", @class = "form-control", @validable = "required Validar" } : new { id = "slcDeseaIngresarInformacion", @class = "form-control", @validable = "required Validar", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                        <div id="divBotonAccion" class="box-acciones-foot text-center">
+                            @if (Model.VisitaGerencial.CodigoVisitaGerencial.HasValue && (Model.VisitaGerencial.CodigoEstadoDocumento != DatosConstantes.ParametrosEstadoDocumento.Cerrado))
+                            { 
+                                <button class="btn btn-primary" id="btnAnularInformacionGeneral">@Html.Raw(VisitaGerencialResource.EtiquetaBotonAnular)</button>   
+                            }
+
+                            <button class="btn btn-primary" id="btnGuardarInformacionGeneral">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabHallazgo">
+                        <form onsubmit="return false;" id="frmHallazgo">
+                            <fieldset id="flsHallazgo">
+                                <div class="title-interna">
+                                    <span>@Html.Raw(VisitaGerencialResource.EtiquetaTituloIngresoHallazgo)</span>
+                                </div>                
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaFecha): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("dtpFechaIngresoHallazgo", Model.Hallazgo.FechaIngresoHallazgoString, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "dtpFechaIngresoHallazgo", @class = "form-control", @placeholder = "dd/MM/yyyy", @validable = "required Validar" } : new { id = "dtpFechaIngresoHallazgo", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaLugarTrabajo): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownList("slcLugarTrabajo", Model.ListaLugarTrabajo, new { @class = "form-control", @id = "slcLugarTrabajo", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaNivelRiesgo): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownList("slcNivelRiesgo", Model.ListaNivelRiesgo, new { @class = "form-control", @id = "slcNivelRiesgo", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaDescripcionCortaHallazgo): (*)</label>
+                                            @Html.TextArea("txtDescripcionCortaHallazgo", Model.Hallazgo.DescripcionCorta, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionCortaHallazgo", @class = "form-control", @validable = "required Validar", @maxlength = "255" } : new { id = "txtDescripcionCortaHallazgo", @class = "form-control", @maxlength = "255", @validable = "required Validar" })
+                                        </div>
+                                        <div class="form-group text-right">
+                                            <label style="font-size: 11px">@Html.Raw(VisitaGerencialResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(VisitaGerencialResource.EtiquetaCaracteres)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(VisitaGerencialResource.EtiquetaDescripcionLargaHallazgo): (*)</label>
+                                            @Html.TextArea("txtDescripcionLargaHallazgo", Model.Hallazgo.DescripcionLarga, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionLargaHallazgo", @class = "form-control", @validable = "required Validar", @maxlength = "2500", @rows = "3", @style = "resize:none;" } : new { id = "txtDescripcionLargaHallazgo", @class = "form-control", @maxlength = "2500", @rows = "3", @validable = "required Validar", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 2500 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div class="box-acciones-foot text-center">
+                            <button class="btn btn-default" @(Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? "" : "hidden") id="btnLimpiarHallazgo">@Html.Raw(GenericoResource.EtiquetaLimpiar)</button>
+                            <button class="btn btn-default" @(Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? "" : "hidden") id="btnSalirHallazgo">@Html.Raw(GenericoResource.BotonSalir)</button>
+                            <button class="btn btn-primary" @(Model.VisitaGerencial.CodigoVisitaGerencial.HasValue ? "" : "hidden") id="btnGuardarHallazgo">@Html.Raw(GenericoResource.BotonGuardar)</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="table-grilla">
+                                    <div id="divGrdResultadoHallazgo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabAnexo">
+                        <div role="tabpanel" class="tab-pane fade in" id="anexo">
+                            <div class="title-interna">
+                                <span>@Html.Raw(VisitaGerencialResource.EtiquetaInformacionAnexos)</span>
+                                <div class="acciones-form btn-group btn-group-table">
+                                    @* @if (Model.Investigacion.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                                    {
+                                        *@
+                                    <button id="btnAgregarVisitaGerencialAnexoArchivo" type="button" class="btn-table text-line one">
+                                        @Html.Raw(RecordsResource.EtiquetaAgregarArchivo)
+                                    </button>
+                                    @*    }*@
+                                </div>
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultadoVisitaGerencialAnexoApendice">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabFoto">
+                        <div role="tabpanel" class="tab-pane fade in" id="foto">
+
+                            <div class="title-interna">
+                                <span>@Html.Raw(VisitaGerencialResource.EtiquetaInformacionFotos)</span>
+                                <div class="acciones-form btn-group btn-group-table">
+                                    @* @if (Model.Investigacion.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                                    {
+                                        *@
+                                    <button id="btnAgregarVisitaGerencialAnexoFoto" type="button" class="btn-table text-line one">
+                                        @Html.Raw(RecordsResource.EtiquetaAgregarFoto)
+                                    </button>
+                                    @* }*@
+                                </div>
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultadoVisitaGerencialAnexoFoto">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridTipoHallazgo = '@Html.Raw(VisitaGerencialResource.GridTipoHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridFechaHallazgo = '@Html.Raw(VisitaGerencialResource.GridFechaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridLugarTrabajo = '@Html.Raw(VisitaGerencialResource.GridLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridDescripcionCortaHallazgo = '@Html.Raw(VisitaGerencialResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridDescripcionLargaHallazgo = '@Html.Raw(VisitaGerencialResource.GridDescripcionLargaHallazgo)';        
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridNivelRiesgo = '@Html.Raw(VisitaGerencialResource.GridNivelRiesgo)';
+        
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridItem = '@Html.Raw(VisitaGerencialResource.GridItem)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridNombreArchivo = '@Html.Raw(VisitaGerencialResource.GridNombreArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridTipo = '@Html.Raw(VisitaGerencialResource.GridTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridDescripcion = '@Html.Raw(VisitaGerencialResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridVistaPreviaFoto = '@Html.Raw(VisitaGerencialResource.GridVistaPreviaFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.GridDescargar = '@Html.Raw(VisitaGerencialResource.GridDescargar)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.MsjAnulaVisitaGerencialHallazgo = '@Html.Raw(VisitaGerencialResource.MsjAnulaVisitaGerencialHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.MsjNoPuedeActualizarHallazgo = '@Html.Raw(VisitaGerencialResource.MsjNoPuedeActualizarHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.ConfirmacionSalirHallazgo = '@Html.Raw(VisitaGerencialResource.ConfirmacionSalirHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Resource.MsjAnulaHallazgoAccionAsociada = '@Html.Raw(VisitaGerencialResource.MsjAnulaHallazgoAccionAsociada)';
+                                            
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Actions.SeguimientoAccionIndex = '@Url.Action("Index", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Actions.RegistrarVisitaGerencialGeneral = '@Url.Action("RegistrarVisitaGerencialGeneral", "IngresoVisita", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Actions.AnularVisitaGerencialGeneral = '@Url.Action("AnularVisitaGerencialGeneral", "IngresoVisita", new { Area = "VisitaGerencial" })';      
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Actions.BandejaVisitaGerencial = '@Url.Action("Index", "IngresoVisita", new { Area = "VisitaGerencial" })';             
+
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Actions.BuscarHallazgo =  '@Url.Action("BuscarHallazgo", "IngresoVisita", new { Area = "VisitaGerencial" })';    
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Actions.ObtenerHallazgoPorCodigo =  '@Url.Action("ObtenerHallazgoPorCodigo", "IngresoVisita", new { Area = "VisitaGerencial" })';            
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Actions.EliminarHallazgo =  '@Url.Action("EliminarHallazgo", "IngresoVisita", new { Area = "VisitaGerencial" })';    
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Actions.SalirHallazgoVisitaGerencial =  '@Url.Action("SalirHallazgoVisitaGerencial", "IngresoVisita", new { Area = "VisitaGerencial" })';    
+       
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoVisita.FormularioIngresoVisita.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.IngresoVisita.FormularioIngresoVisita.DatosConstantes.CodigoTiposAnexosVisitaGerencial = '@DatosConstantes.ParametrosVisitaGerencial.CodigoTiposAnexosVisitaGerencial';
+    
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Models')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioIngresoVisita.Models.IngresoVisitaModel = @(Html.Raw(Json.Encode(Model)))
+    
+    </script>
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicearchivo");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicefoto");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariovistapreviafotogenerico");
+    
+}
+

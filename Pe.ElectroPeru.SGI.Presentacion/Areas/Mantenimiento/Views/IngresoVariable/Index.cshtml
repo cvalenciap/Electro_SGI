@@ -1,0 +1,258 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Variable
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.IngresoVariable.IngresoVariableModel
+
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto"><strong>@Html.Raw(VariableResource.EtiquetaTituloVariable)</strong></h2>
+
+        <div class="pull-right">
+            <a id="btnRegresarBandejaVariable" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body" style="min-height: 650px;">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsVariable">
+                    <li role="presentation" class="active">
+                        <a href="#tabGenerales" class="top-tab" aria-controls="tabGenerales" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(VariableResource.EtiquetaTabGenerales)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabVariableDetalle" class="top-tab" aria-controls="tabVariableDetalle" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(VariableResource.EtiquetaDetalleVariable)</a>
+                   </li>                                       
+                    <li role="presentation">
+                        <a href="#tabValores" class="top-tab" aria-controls="tabValores" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(VariableResource.EtiquetaValorVariable)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGenerales">
+                        <form onsubmit="return false;" id="frmGenerales">
+                            <div class="title-interna">
+                                <span>@Html.Raw(VariableResource.EtiquetaTituloInformacionGeneral)</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaTipo): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.Variable.CodigoTipoVariable, Model.ListaTipoVariable, new { id = "slcTipoVariable", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaSigla):</label>
+                                        <div>
+                                            @Html.TextBox("txtNombreSiglaVariable", Model.Variable.NombreSiglaVariable, new { id = "txtNombreSiglaVariable", @type = "text", @class = "form-control", @maxlength = "100" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaNombre): (*)</label>
+                                        <div>
+                                            @Html.TextBox("txtNombreVariable", Model.Variable.NombreVariable, new { id = "txtNombreVariable", @type = "text", @class = "form-control", @maxlength = "100", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaDescripcion):</label>
+                                        <div>
+                                            @Html.TextBox("txtDescripcionVariable", Model.Variable.DescripcionVariable, new { id = "txtDescripcionVariable", @type = "text", @class = "form-control", @maxlength = "200" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonAccion1" class="box-acciones-foot filter">
+                            <button class="btn btn-primary" id="btnGuardarGenerales" style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Nuevo || permiso == (int)Constantes.Permisos.Codigo.Escritura || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)" >@Html.Raw(VariableResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade in" id="tabVariableDetalle">
+                        <form onsubmit="return false;" id="frmVariableDetalle">
+                            <div class="title-interna">
+                                <span>@Html.Raw(VariableResource.EtiquetaDetalleVariable)</span>
+                            </div>
+                            <div id="divControlesVD" class="form-group hidden">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaArea): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.VariableDetalle.CodigoArea, Model.ListaArea, new { id = "slcArea", @class = "form-control", @validable = "required ValidaArea" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label style="margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaResponsable): (*)</label>
+                                        <div>
+                                            <div class="input-group">
+                                                @Html.Hidden("hdnCodigoResponsable", new { ïd = "hdnCodigoResponsable", @validable = "required ValidarResponsable" })
+                                                @Html.TextBox("txtResponsable", Model.VariableDetalle.NombreCompletoResponsable, new { id = "txtResponsable", @class = "form-control", @disabled = "disabled", @validable = "required ValidarResponsable" })
+                                                <div class="input-group-addon">
+                                                    <button class="btn-form" id="btnBuscarResponsable" type="button">....</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaFechaInicioVigencia): (*)</label>
+                                        <div>
+                                            @Html.TextBox("dtpFechaInicioVigencia", Model.VariableDetalle.FechaInicioVigenciaString, new { id = "dtpFechaInicioVigencia", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaFechaFinVigencia): (*)</label>
+                                        <div>
+                                            @Html.TextBox("dtpFechaFinVigencia", Model.VariableDetalle.FechaFinVigenciaString, new { id = "dtpFechaFinVigencia", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaPeriodicidad): (*)</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.VariableDetalle.CodigoPeriodicidad, Model.ListaPeriodicidad, new { id = "slcPeriodicidad", @class = "form-control", @validable = "required Validar" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6"></div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonVariableDetalle" class="box-acciones-foot filter hidden">
+                            <button class="btn btn-primary" id="btnGuardarVariableDetalle" style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Nuevo || permiso == (int)Constantes.Permisos.Codigo.Escritura || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)" >@Html.Raw(VariableResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(VariableResource.EtiquetaLista)</span>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdVariableDetalle">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade in" id="tabVariables">
+                        <form onsubmit="return false;" id="frmValorVariable">
+                            <div class="title-interna">
+                                <span>@Html.Raw(VariableResource.EtiquetaValor)</span>
+                            </div>
+                            <div id="divControlesValorVariable" class="form-group hidden">                               
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="hidden" id="divdtpFechaVariable">
+                                            <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaDiario): (*)</label>
+                                            <div>
+                                                @Html.TextBox("dtpFechaVariable", Model.VariableValor.CodigoSubTipoPeriodicidad, new { id = "dtpFechaVariable", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                                            </div>
+                                        </div>
+                                        <div class="hidden" id="divslcSemana">
+                                            <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaSemana): (*)</label>
+                                            <div>
+                                                @Html.DropDownListFor(model => model.VariableValor.CodigoSubTipoPeriodicidad, Model.ListaSemana, new { id = "slcSemana", @class = "form-control", @validable = "required Validar" })
+                                            </div>
+                                        </div>
+                                        <div class="hidden" id="divslcMes">
+                                            <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaMes): (*)</label>
+                                            <div>
+                                                @Html.DropDownListFor(model => model.VariableValor.CodigoSubTipoPeriodicidad, Model.ListaMes, new { id = "slcMes", @class = "form-control", @validable = "required Validar" })
+                                            </div>
+                                        </div>
+                                        <div class="hidden" id="divslcTrimestre">
+                                            <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaTrimestre): (*)</label>
+                                            <div>
+                                                @Html.DropDownListFor(model => model.VariableValor.CodigoSubTipoPeriodicidad, Model.ListaTrimestre, new { id = "slcTrimestre", @class = "form-control", @validable = "required Validar" })
+                                            </div>
+                                        </div>
+                                        <div class="hidden" id="divslcSemestre">
+                                            <label style="position: relative; margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaSemestre): (*)</label>
+                                            <div>
+                                                @Html.DropDownListFor(model => model.VariableValor.CodigoSubTipoPeriodicidad, Model.ListaSemestre, new { id = "slcSemestre", @class = "form-control", @validable = "required Validar" })
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-sm-4 hidden" id="divtxtAnio">
+                                        <label style="margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaAnual): (*)</label>
+                                        <div>
+                                            <div class="input-group">
+                                                @Html.TextBox("txtAnio", Model.VariableValor.Anio, new { id = "txtAnio", @class = "form-control", @validable = "required Validar", @style = "width:360px" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 hidden" id="divtxtValorVariable">
+                                        <label style="margin-top: 7px;">@Html.Raw(VariableResource.EtiquetaValor): (*)</label>
+                                        <div>
+                                            <div class="input-group">
+                                                @Html.TextBox("txtValorVariable", Model.VariableValor.Valor, new { id = "txtValorVariable", @class = "form-control", @validable = "required Validar", @style = "width:360px"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </form>
+                        <div id="divBotonValorVariable" class="box-acciones-foot filter hidden">
+                            <button class="btn btn-primary" id="btnGuardarValorVariable">@Html.Raw(VariableResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(VariableResource.EtiquetaLista)</span>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdValorVariable">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Actions.BandejaVariable = '@Url.Action("Index", "BandejaVariable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Actions.EliminarVariable = '@Url.Action("EliminarVariable", "IngresoVariable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Actions.EliminarVariableDetalle = '@Url.Action("EliminarVariableDetalle", "IngresoVariable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Actions.RegistrarVariable = '@Url.Action("RegistrarVariable", "IngresoVariable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Actions.RegistrarVariableDetalle = '@Url.Action("RegistrarVariableDetalle", "IngresoVariable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Actions.BuscarVariableDetalle = '@Url.Action("BuscarVariableDetalle", "IngresoVariable", new { Area = "Mantenimiento" })';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Resource.EtiquetaMensajeAnular = '@Html.Raw(VariableResource.EtiquetaMensajeEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Resource.GridFechaInicioVigencia = '@Html.Raw(VariableResource.GridFechaInicioVigencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Resource.GridFechaFinVigencia = '@Html.Raw(VariableResource.GridFechaFinVigencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Resource.GridArea = '@Html.Raw(VariableResource.GridArea)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Resource.GridResponsable = '@Html.Raw(VariableResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Resource.GridPeriodicidad = '@Html.Raw(VariableResource.GridPeriodicidad)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoVariable.Resource.MensajeErrorAnulacion = '@Html.Raw(VariableResource.MensajeErrorAnulacion)';                   
+    </script>
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+            overflow-y: auto !important;
+        }
+        /*.skin-stracon .form-control {
+        width: 100px !important;
+    }*/
+    </style>
+    @CustomHtmlHelper.RenderViewJs("mantenimientoresponsableformulariobuscarresponsable");
+    }

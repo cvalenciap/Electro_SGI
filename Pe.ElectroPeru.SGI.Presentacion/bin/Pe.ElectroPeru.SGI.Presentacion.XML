@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pe.ElectroPeru.SGI.Presentacion</name>
+    </assembly>
+    <members>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl">
+            <summary>
+            Clase de Report View Control
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.Page_Init(System.Object,System.EventArgs)">
+            <summary>
+            Método para inicializar la página
+            </summary>
+            <param name="sender">Envio</param>
+            <param name="e">Evento</param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Método para cargar la página
+            </summary>
+            <param name="sender">Envio</param>
+            <param name="e">Evento</param>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.form1">
+            <summary>
+            Control form1.
+            </summary>
+            <remarks>
+            Campo generado automáticamente.
+            Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+            </remarks>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.ScriptManager1">
+            <summary>
+            Control ScriptManager1.
+            </summary>
+            <remarks>
+            Campo generado automáticamente.
+            Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+            </remarks>
+        </member>
+        <member name="F:Pe.ElectroPeru.SGI.Presentacion.Areas.Base.Views.Reporte.ReportViewControl.ReportViewer">
+            <summary>
+            Control ReportViewer.
+            </summary>
+            <remarks>
+            Campo generado automáticamente.
+            Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamiento">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamiento.USP_ALINEAMIENTO_OEC_OES_RPTDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamiento.USP_ALINEAMIENTO_OEC_OES_RPTRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamiento.USP_ALINEAMIENTO_OEC_OES_RPTRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamientoTableAdapters.USP_ALINEAMIENTO_OEC_OES_RPTTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamientoTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamientoTableAdapters.TableAdapterManager.UpdateUpdatedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamiento,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamientoTableAdapters.TableAdapterManager.UpdateInsertedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamiento,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamientoTableAdapters.TableAdapterManager.UpdateDeletedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamiento,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamientoTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamientoTableAdapters.TableAdapterManager.UpdateAll(Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamiento)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamientoTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.AlineamientoOECyOES.dsAlineamientoTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEI">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEI.USP_MATRIZ_ESTRATEGICA_RPTDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEI.USP_MATRIZ_ESTRATEGICA_RPTRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEI.USP_MATRIZ_ESTRATEGICA_RPTRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEITableAdapters.USP_MATRIZ_ESTRATEGICA_RPTTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEITableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEITableAdapters.TableAdapterManager.UpdateUpdatedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEI,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEITableAdapters.TableAdapterManager.UpdateInsertedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEI,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEITableAdapters.TableAdapterManager.UpdateDeletedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEI,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEITableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEITableAdapters.TableAdapterManager.UpdateAll(Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEI)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEITableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.MatrizAEI.dsMatrizAEITableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategico">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategico.USP_PLAN_ESTRATEGICO_RPTDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategico.USP_PLAN_ESTRATEGICO_RPTRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategico.USP_PLAN_ESTRATEGICO_RPTRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategicoTableAdapters.USP_PLAN_ESTRATEGICO_RPTTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategicoTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategicoTableAdapters.TableAdapterManager.UpdateUpdatedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategico,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategicoTableAdapters.TableAdapterManager.UpdateInsertedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategico,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategicoTableAdapters.TableAdapterManager.UpdateDeletedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategico,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategicoTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategicoTableAdapters.TableAdapterManager.UpdateAll(Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategico)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategicoTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanEstrategico.dsPlanEstrategicoTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativo">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativo.USP_PLAN_OPERATIVO_RPTDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativo.USP_PLAN_OPERATIVO_RPTRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativo.USP_PLAN_OPERATIVO_RPTRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativoTableAdapters.USP_PLAN_OPERATIVO_RPTTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativoTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativoTableAdapters.TableAdapterManager.UpdateUpdatedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativo,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativoTableAdapters.TableAdapterManager.UpdateInsertedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativo,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativoTableAdapters.TableAdapterManager.UpdateDeletedRows(Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativo,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativoTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativoTableAdapters.TableAdapterManager.UpdateAll(Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativo)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativoTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Presentacion.Reports.PlanOperativo.dsPlanOperativoTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
+    </members>
+</doc>

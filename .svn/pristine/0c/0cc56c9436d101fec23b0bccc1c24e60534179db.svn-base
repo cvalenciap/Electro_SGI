@@ -1,0 +1,80 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Responsable
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Responsable.FormularioBandejaResponsableModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@Html.Raw(ResponsableResource.EtiquetaTituloPrincipal)</strong>
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnAgregar" type="button" class="btn-table text-line one" style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Nuevo || permiso == (int)Constantes.Permisos.Codigo.Escritura || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">
+                    @Html.Raw(ResponsableResource.BotonAgregarResponsable)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(ResponsableResource.EtiquetaLista)</span>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions.BuscarResponsable = '@Url.Action("BuscarResponsable", "Responsable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions.FormularioResponsablePrincipal = '@Url.Action("FormularioResponsablePrincipal", "Responsable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions.RegistrarResponsable = '@Url.Action("RegistrarResponsable", "Responsable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Actions.EliminarResponsable = '@Url.Action("EliminarResponsable", "Responsable", new { Area = "Mantenimiento" })';
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.FormularioResponsable = '@Html.Raw(ResponsableResource.EtiquetaTituloPrincipal)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.EtiquetaEditarResponsable = '@Html.Raw(ResponsableResource.EtiquetaEditarResponsable)';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridNombres = '@Html.Raw(ResponsableResource.GridNombres)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridApellidoPaterno = '@Html.Raw(ResponsableResource.GridApellidoPaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridApellidoMaterno = '@Html.Raw(ResponsableResource.GridApellidoMaterno)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridGenero = '@Html.Raw(ResponsableResource.GridGenero)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridCorreoElectronico = '@Html.Raw(ResponsableResource.GridCorreoElectronico)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridTipoDocumento = '@Html.Raw(ResponsableResource.GridTipoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridNumeroDocumento = '@Html.Raw(ResponsableResource.GridNumeroDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridCargo = '@Html.Raw(ResponsableResource.GridCargo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridEstadoRegistroDescripcion = '@Html.Raw(ResponsableResource.GridEstadoRegistroDescripcion)';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Models.Responsable = '@(Html.Raw(Json.Encode(Model)))';
+    </script>
+    
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+        overflow-y:auto !important;
+    }
+        /*.skin-stracon .form-control {
+        width: 100px !important;
+    }*/
+    </style>
+
+    @CustomHtmlHelper.RenderViewJs("mantenimientoresponsableformularioresponsableprincipal")
+}

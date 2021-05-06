@@ -1,0 +1,56 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.GestionLesiones
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.GestionLesiones.FormularioAtencion.FormularioAnexoModel
+
+<div class="modal-body">
+    <form id="frmAnexo">
+        <fieldset @(Model.EstadoAtencionMedica != DatosConstantes.EstadosDeAtencionMedica.Cerrado ? null : "disabled=disabled")>                                
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaTypeAnexo): (*)</label>
+                    @Html.DropDownListFor(m => m.AtencionMedicaAnexo.CodigoTipoApendice, Model.ListaTipoAnexo, new { id = "slcTipoAnexo", @class = "form-control", @validable = "required Validar" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group" id="NombreArchivoApendice">
+                    <label>@Html.Raw(RecordsResource.EtiquetaNombreArchivo): (*)</label>
+                    <input id="fileApendice" type="file" name="fileApendice" class="form-control" multiple="true">
+                    @Html.TextBox("txtAnexoFotoString", ViewData["AnexoString"], new { @id = "txtAnexoFotoString", @class = "hidden" })
+                    <div class="text-right">
+                        <label>@Html.Raw(string.Format(MensajeResource.EtiquetaTamanioArchivoAnexoMaximo, Model.AtencionMedicaAnexo.PesoMaximoArchivoAnexoSharePointString))</label>
+                    </div>
+                    <div class="ClsNombreArchivoApendice"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(GestionLesionesResource.EtiquetaDescripcion): (*)</label>
+                    @Html.TextBox("txtDescripcionApendice", Model.AtencionMedicaAnexo.Descripcion, new { id = "txtDescripcionApendice", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required Validar" })
+                </div>
+            </div>
+        </div>
+        </fieldset>
+    </form>
+</div>
+@if(Model.EstadoAtencionMedica != DatosConstantes.EstadosDeAtencionMedica.Cerrado)
+{
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarAnexo" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarAnexo">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>    
+</div>
+}
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.FormularioAtencion.FormularioAnexo.Models')
+    Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.FormularioAtencion.FormularioAnexo.Models.FormularioModelo = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

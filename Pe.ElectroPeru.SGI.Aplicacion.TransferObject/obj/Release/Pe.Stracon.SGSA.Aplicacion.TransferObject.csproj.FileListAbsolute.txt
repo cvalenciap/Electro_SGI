@@ -1,0 +1,15 @@
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\AutoMapper.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\log4net.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\System.Web.Mvc.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\Pe.GyM.Security.Account.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\AutoMapper.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\log4net.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\System.Web.Mvc.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\bin\Release\Pe.GyM.Security.Account.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Release\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.csprojResolveAssemblyReference.cache
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Release\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\obj\Release\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb

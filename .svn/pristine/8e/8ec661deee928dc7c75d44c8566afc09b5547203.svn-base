@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EtiquetaActions" xml:space="preserve">
+    <value>Solo acciones</value>
+  </data>
+  <data name="EtiquetaActionsMenu" xml:space="preserve">
+    <value>Comportamiento</value>
+  </data>
+  <data name="EtiquetaAgregarCambiarFoto" xml:space="preserve">
+    <value>Agregar / Cambiar foto</value>
+  </data>
+  <data name="EtiquetaArea" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="EtiquetaBotonAgregarFoto" xml:space="preserve">
+    <value>Añadir foto</value>
+  </data>
+  <data name="EtiquetaBotonCancelar" xml:space="preserve">
+    <value>CANCELAR</value>
+  </data>
+  <data name="EtiquetaBotonGuardar" xml:space="preserve">
+    <value>GUARDAR</value>
+  </data>
+  <data name="EtiquetaBuscar" xml:space="preserve">
+    <value>BUSCAR</value>
+  </data>
+  <data name="EtiquetaBusquedaA" xml:space="preserve">
+    <value>Búsqueda Avanzada</value>
+  </data>
+  <data name="EtiquetaBusquedaRapida" xml:space="preserve">
+    <value>Búsqueda Rápida</value>
+  </data>
+  <data name="EtiquetaClassification" xml:space="preserve">
+    <value>Clasificación:</value>
+  </data>
+  <data name="EtiquetaClosed" xml:space="preserve">
+    <value>Cerrado</value>
+  </data>
+  <data name="EtiquetaClosedOn" xml:space="preserve">
+    <value>Cerrado en</value>
+  </data>
+  <data name="EtiquetaCompCont" xml:space="preserve">
+    <value>Empresa / Contratista:</value>
+  </data>
+  <data name="EtiquetaConfiguracion" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="EtiquetaCountry" xml:space="preserve">
+    <value>Pais:</value>
+  </data>
+  <data name="EtiquetaD" xml:space="preserve">
+    <value>Desde:</value>
+  </data>
+  <data name="EtiquetaDate" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="EtiquetaDescripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="EtiquetaFormMaintenance" xml:space="preserve">
+    <value>Mantenimiento de formularios</value>
+  </data>
+  <data name="EtiquetaGroupMaintenance" xml:space="preserve">
+    <value>Mantenimiento de Grupo</value>
+  </data>
+  <data name="EtiquetaH" xml:space="preserve">
+    <value>Hasta:</value>
+  </data>
+  <data name="EtiquetaLista" xml:space="preserve">
+    <value>Lista</value>
+  </data>
+  <data name="EtiquetaMensajeEliminarRegistro" xml:space="preserve">
+    <value>Desea eliminar el registro seleccionado</value>
+  </data>
+  <data name="EtiquetaNombreFoto" xml:space="preserve">
+    <value>Nombre de Foto</value>
+  </data>
+  <data name="EtiquetaOpenR" xml:space="preserve">
+    <value>Abrir solo informes</value>
+  </data>
+  <data name="EtiquetaOperating" xml:space="preserve">
+    <value>Área de operación</value>
+  </data>
+  <data name="EtiquetaOutstanding" xml:space="preserve">
+    <value>Acciones Pendientes</value>
+  </data>
+  <data name="EtiquetaOverActions" xml:space="preserve">
+    <value>Sobre Acciones</value>
+  </data>
+  <data name="EtiquetaPageMaintenance" xml:space="preserve">
+    <value>Mantenimiento de la Página</value>
+  </data>
+  <data name="EtiquetaPersonal" xml:space="preserve">
+    <value>Personal</value>
+  </data>
+  <data name="EtiquetaPosition" xml:space="preserve">
+    <value>Posición</value>
+  </data>
+  <data name="EtiquetaProject" xml:space="preserve">
+    <value>Proyecto</value>
+  </data>
+  <data name="EtiquetaRecord" xml:space="preserve">
+    <value>Tipo de recurso:</value>
+  </data>
+  <data name="EtiquetaRecordMenu" xml:space="preserve">
+    <value>Recursos</value>
+  </data>
+  <data name="EtiquetaRecordN" xml:space="preserve">
+    <value>Recurso #</value>
+  </data>
+  <data name="EtiquetaEliminarFoto" xml:space="preserve">
+    <value>Eliminar Foto</value>
+  </data>
+  <data name="EtiquetaReporting" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
+  <data name="EtiquetaRequires" xml:space="preserve">
+    <value>Requiere cheque</value>
+  </data>
+  <data name="EtiquetaRequiring" xml:space="preserve">
+    <value>Requiriendo revision solamente</value>
+  </data>
+  <data name="EtiquetaRisk" xml:space="preserve">
+    <value>Calificación de riesgo:</value>
+  </data>
+  <data name="EtiquetaTitulo" xml:space="preserve">
+    <value>SEGUIMIENTO DE ACCIONES</value>
+  </data>
+  <data name="EtiquetaTituloEliminar" xml:space="preserve">
+    <value>Eliminación de Registro</value>
+  </data>
+  <data name="EtiquetaTituloFotografia" xml:space="preserve">
+    <value>Fotografías</value>
+  </data>
+  <data name="EtiquetaTituloPrincipal" xml:space="preserve">
+    <value>ACCIONES</value>
+  </data>
+  <data name="EtiquetaTracking" xml:space="preserve">
+    <value>Rastreo</value>
+  </data>
+  <data name="EtiquetaTraining" xml:space="preserve">
+    <value>Formación</value>
+  </data>
+  <data name="GridAccionCriadoEn" xml:space="preserve">
+    <value>Criado en</value>
+  </data>
+  <data name="GridAcciones" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="GridAccionPlanteadaPor" xml:space="preserve">
+    <value>Acción Planteada por</value>
+  </data>
+  <data name="GridArea" xml:space="preserve">
+    <value>Operacion Area</value>
+  </data>
+  <data name="GridClassification" xml:space="preserve">
+    <value>Clasificacióm</value>
+  </data>
+  <data name="GridClosed" xml:space="preserve">
+    <value>Cerrado</value>
+  </data>
+  <data name="GridClosedOn" xml:space="preserve">
+    <value>Cerrado en</value>
+  </data>
+  <data name="GridDate" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="GridDescription" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="GridDownload" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="GridFechaVencimiento" xml:space="preserve">
+    <value>Fecha de vencimiento</value>
+  </data>
+  <data name="GridItem" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="GridOutstanding" xml:space="preserve">
+    <value>Acciones Pendientes</value>
+  </data>
+  <data name="GridOveractions" xml:space="preserve">
+    <value>Sobre Acciones</value>
+  </data>
+  <data name="GridPhotoName" xml:space="preserve">
+    <value>Nombre de la foto</value>
+  </data>
+  <data name="GridPosition" xml:space="preserve">
+    <value>Posición</value>
+  </data>
+  <data name="GridPreviewPhoto" xml:space="preserve">
+    <value>Vista Previa de Foto</value>
+  </data>
+  <data name="GridPrioridad" xml:space="preserve">
+    <value>Prioridad</value>
+  </data>
+  <data name="GridProject" xml:space="preserve">
+    <value>Proyecto</value>
+  </data>
+  <data name="GridRecord" xml:space="preserve">
+    <value>Recurso #</value>
+  </data>
+  <data name="GridRecordType" xml:space="preserve">
+    <value>Tipo de recurso</value>
+  </data>
+  <data name="GridReporting" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
+  <data name="GridRequiresCheck" xml:space="preserve">
+    <value>Requiere cheque</value>
+  </data>
+  <data name="GridResponsable" xml:space="preserve">
+    <value>Responsable</value>
+  </data>
+  <data name="GridRiskrating" xml:space="preserve">
+    <value>Calificación de riesgo</value>
+  </data>
+  <data name="GridDescripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="GridState" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="GridStateDate" xml:space="preserve">
+    <value>Fecha Estado</value>
+  </data>
+  <data name="GridApendiceName" xml:space="preserve">
+    <value>Nombre Apendice</value>
+  </data>
+  <data name="EtiquetaFoto" xml:space="preserve">
+    <value>Foto</value>
+  </data>
+  <data name="EtiquetaVistaPreviaFoto" xml:space="preserve">
+    <value>Vista Previa de Foto</value>
+  </data>
+  <data name="EtiquetaActionRaised" xml:space="preserve">
+    <value>Acción Planteada Por</value>
+  </data>
+  <data name="EtiquetaRaisedOn" xml:space="preserve">
+    <value>Criado en</value>
+  </data>
+  <data name="EtiquetaRepeatAction" xml:space="preserve">
+    <value>Repita esta acción cada</value>
+  </data>
+  <data name="EtiquetaDueDate" xml:space="preserve">
+    <value>Fecha de vencimiento</value>
+  </data>
+  <data name="EtiquetaPrioridad" xml:space="preserve">
+    <value>Prioridad</value>
+  </data>
+  <data name="EtiquetaResponsable" xml:space="preserve">
+    <value>Responsable</value>
+  </data>
+  <data name="EtiquetaEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="EtiquetaFechaEstado" xml:space="preserve">
+    <value>Fecha Estado</value>
+  </data>
+  <data name="EtiquetaClosedBy" xml:space="preserve">
+    <value>Cerrado por</value>
+  </data>
+  <data name="EtiquetaComment" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="EtiquetaNombreArchivo" xml:space="preserve">
+    <value>Nombre de Archivo</value>
+  </data>
+  <data name="EtiquetaAgregarArchivo" xml:space="preserve">
+    <value>Agregar Archivo</value>
+  </data>
+  <data name="EtiquetaMeses" xml:space="preserve">
+    <value>Months</value>
+  </data>
+  <data name="EtiquetaSiglas" xml:space="preserve">
+    <value>Siglas</value>
+  </data>
+  <data name="EtiquetaNumRecord" xml:space="preserve">
+    <value>Nro. Record</value>
+  </data>
+  <data name="GridTypeAnexo" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="EtiquetaTypeAnexo" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="GridActionNumber" xml:space="preserve">
+    <value>Numero Acción</value>
+  </data>
+  <data name="EtiquetaDepartamento" xml:space="preserve">
+    <value>Departamento</value>
+  </data>
+  <data name="EtiquetaEmpresa" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="EtiquetaAccionesCorrectivas" xml:space="preserve">
+    <value>Acciones correctivas</value>
+  </data>
+  <data name="GridComentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="GridDescripcionCorta" xml:space="preserve">
+    <value>Descripción Corta Acción</value>
+  </data>
+  <data name="GridEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="GridFechaEstado" xml:space="preserve">
+    <value>Fecha Estado</value>
+  </data>
+  <data name="GridLink" xml:space="preserve">
+    <value>Link Revisar record</value>
+  </data>
+  <data name="GridNumeroRegistro" xml:space="preserve">
+    <value>Nro. Registro</value>
+  </data>
+  <data name="GridPlanteadoEn" xml:space="preserve">
+    <value>Planteado En</value>
+  </data>
+  <data name="GridTipoRegistro" xml:space="preserve">
+    <value>Tipo de Registro</value>
+  </data>
+  <data name="GridVencimiento" xml:space="preserve">
+    <value>Vencimiento</value>
+  </data>
+  <data name="GridAccionNumero" xml:space="preserve">
+    <value>Acción No.</value>
+  </data>
+  <data name="GridPlanteadaDia" xml:space="preserve">
+    <value>Planteada el día</value>
+  </data>
+  <data name="GridPlanteadaPor" xml:space="preserve">
+    <value>Acción planteada por</value>
+  </data>
+  <data name="GridNumeroAccion" xml:space="preserve">
+    <value>Nro. Acción</value>
+  </data>
+  <data name="EtiquetaAnexo" xml:space="preserve">
+    <value>Anexo</value>
+  </data>
+  <data name="EtiquetaCerradoPor" xml:space="preserve">
+    <value>Cerrado por</value>
+  </data>
+  <data name="EtiquetaComentario" xml:space="preserve">
+    <value>Comentario (Especificar a detalle)</value>
+  </data>
+  <data name="EtiquetaFechaCierre" xml:space="preserve">
+    <value>Fecha de Cierre</value>
+  </data>
+  <data name="EtiquetaNumeroAccion" xml:space="preserve">
+    <value>Nro. Acción</value>
+  </data>
+  <data name="GridSeguimientoAnexo" xml:space="preserve">
+    <value>Anexo</value>
+  </data>
+  <data name="GridSeguimientoCerradoPor" xml:space="preserve">
+    <value>Usuario que realizó el cambio de estado</value>
+  </data>
+  <data name="GridSeguimientoComentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="GridSeguimientoEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="GridSeguimientoFechaCierre" xml:space="preserve">
+    <value>Fecha Cierre</value>
+  </data>
+  <data name="GridSeguimientoFechaEstado" xml:space="preserve">
+    <value>Fecha Estado</value>
+  </data>
+  <data name="GridSeguimientoFoto" xml:space="preserve">
+    <value>Foto</value>
+  </data>
+  <data name="EtiquetaNumeroRecord" xml:space="preserve">
+    <value>Nro. Registro</value>
+  </data>
+  <data name="EtiquetaTipoRecord" xml:space="preserve">
+    <value>Tipo de Registro</value>
+  </data>
+  <data name="EtiquetaTituloRevisionAccion" xml:space="preserve">
+    <value>REVISAR REGISTRO</value>
+  </data>
+  <data name="EtiquetaEstadoAccion" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="EtiquetaFechaVencimientoDesde" xml:space="preserve">
+    <value>Fecha Vencimiento Desde</value>
+  </data>
+  <data name="EtiquetaFechaVencimientoHasta" xml:space="preserve">
+    <value>Fecha Vencimiento Hasta</value>
+  </data>
+  <data name="EtiquetaTituloFormularioVerAccion" xml:space="preserve">
+    <value>Ver Acción</value>
+  </data>
+  <data name="EtiquetaTituloFormularioVerSeguimientoAccion" xml:space="preserve">
+    <value>Seguimiento de Acción</value>
+  </data>
+  <data name="EtiquetaListaAcciones" xml:space="preserve">
+    <value>Lista de Acciones</value>
+  </data>
+  <data name="EtiquetaCategoriaIncidente" xml:space="preserve">
+    <value>Categoría o Clasificación Principal del Incidente</value>
+  </data>
+  <data name="EtiquetaDescripcionIncidente" xml:space="preserve">
+    <value>Descripción de Incidente</value>
+  </data>
+  <data name="EtiquetaFechaIncidente" xml:space="preserve">
+    <value>Fecha de Incidente</value>
+  </data>
+  <data name="EtiquetaHoraIncidente" xml:space="preserve">
+    <value>Hora de Incidente</value>
+  </data>
+  <data name="EtiquetaLugarExacto" xml:space="preserve">
+    <value>Lugar Exacto</value>
+  </data>
+  <data name="EtiquetaNivelIncidente" xml:space="preserve">
+    <value>Actual Consecuencia del Incidente</value>
+  </data>
+  <data name="EtiquetaNuevaEmpresa" xml:space="preserve">
+    <value>Nueva Empresa</value>
+  </data>
+  <data name="EtiquetaNumeroReportePortal" xml:space="preserve">
+    <value>Reporte de Incidente Portal</value>
+  </data>
+  <data name="EtiquetaPotencialIncidente" xml:space="preserve">
+    <value>Potencial del incidente</value>
+  </data>
+  <data name="EtiquetaProyecto" xml:space="preserve">
+    <value>Proyecto</value>
+  </data>
+  <data name="EtiquetaRequiereInformeFinal" xml:space="preserve">
+    <value>¿Requiere Informe Final?</value>
+  </data>
+  <data name="EtiquetaTituloCuerpoTabGeneral" xml:space="preserve">
+    <value>¿Cuáles son los detalles del incidente?</value>
+  </data>
+  <data name="EtiquetaTituloIncidente" xml:space="preserve">
+    <value>Título del Incidente</value>
+  </data>
+  <data name="EtiquetaDescripcionAnexo" xml:space="preserve">
+    <value>Descripción de Anexo</value>
+  </data>
+  <data name="EtiquetaNombreArchivoAnexo" xml:space="preserve">
+    <value>Nombre de Archivo</value>
+  </data>
+  <data name="EtiquetaTipoApendice" xml:space="preserve">
+    <value>Tipo de Anexo</value>
+  </data>
+  <data name="EtiquetaTituloFormularioRecordAnexoAccion" xml:space="preserve">
+    <value>Formulario Anexo</value>
+  </data>
+  <data name="EtiquetaTituloFormularioConsultaRegistro" xml:space="preserve">
+    <value>Formulario Consulta Registro</value>
+  </data>
+  <data name="EtiquetaHerramienta" xml:space="preserve">
+    <value>Herramienta</value>
+  </data>
+  <data name="EtiquetaAlertaPlomo" xml:space="preserve">
+    <value>Anulado por Gerencia</value>
+  </data>
+  <data name="EtiquetaAlertaRojo" xml:space="preserve">
+    <value>Fuera de fecha</value>
+  </data>
+  <data name="EtiquetaAlertaVerde" xml:space="preserve">
+    <value>En fecha</value>
+  </data>
+  <data name="GridAlerta" xml:space="preserve">
+    <value>Alerta</value>
+  </data>
+  <data name="EtiquetaAlerta" xml:space="preserve">
+    <value>Alerta</value>
+  </data>
+  <data name="GridDescripcionCortaHallazgo" xml:space="preserve">
+    <value>Descripción Corta Hallazgo</value>
+  </data>
+  <data name="EtiquetaCompletoAccion" xml:space="preserve">
+    <value>Ya completó la acción. ¿Desea cerrarla?</value>
+  </data>
+  <data name="EtiquetaColaborador" xml:space="preserve">
+    <value>Usuario que realizó el seguimiento</value>
+  </data>
+  <data name="EtiquetaTituloAccionCerradoGerencia" xml:space="preserve">
+    <value>ACCIÓN CERRADA POR GERENCIA</value>
+  </data>
+  <data name="EtiquetaTituloAccionAnuladoGerencia" xml:space="preserve">
+    <value>ACCIÓN ANULADA POR GERENCIA</value>
+  </data>
+  <data name="EtiquetaTituloAccionReabrirGerencia" xml:space="preserve">
+    <value>ACCIÓN REABRIR POR GERENCIA</value>
+  </data>
+  <data name="BotonCerradoGerencia" xml:space="preserve">
+    <value>CERRAR POR GERENCIA</value>
+  </data>
+  <data name="BotonAnuladoGerencia" xml:space="preserve">
+    <value>ANULAR POR GERENCIA</value>
+  </data>
+  <data name="BotonReabiertoGerencia" xml:space="preserve">
+    <value>REABIERTO POR GERENCIA</value>
+  </data>
+  <data name="EtiquetaIngresarAcciones" xml:space="preserve">
+    <value>Ingresar Acciones</value>
+  </data>
+  <data name="EtiquetaVerAccion" xml:space="preserve">
+    <value>Ver Acción</value>
+  </data>
+  <data name="MensajeArchivoValido" xml:space="preserve">
+    <value>No existe un archivo válido para descarga.</value>
+  </data>
+</root>

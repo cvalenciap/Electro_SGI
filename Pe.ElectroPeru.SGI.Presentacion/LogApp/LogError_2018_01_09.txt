@@ -1,0 +1,69 @@
+FechaHora = 09/01/2018 12:02:07 p.m.
+MensajeError = Acceso denegado. No tiene el permiso necesario para realizar esta acción o tener acceso a este recurso.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 203
+__________________________________________________
+FechaHora = 09/01/2018 12:04:21 p.m.
+MensajeError = Acceso denegado. No tiene el permiso necesario para realizar esta acción o tener acceso a este recurso.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 203
+__________________________________________________
+FechaHora = 09/01/2018 12:24:55 p.m.
+MensajeError = La lista '03.03.24 SGATE 2018' no existe en el sitio con la dirección URL 'http://portalstracongymdev.gym.com.pe/sitios/sgate'.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.DescargaArchivoPorId(String& hayError, Int64 idItem, String listName) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 111
+__________________________________________________
+FechaHora = 09/01/2018 12:25:14 p.m.
+MensajeError = La lista '03.03.24 SGATE 2018' no existe en el sitio con la dirección URL 'http://portalstracongymdev.gym.com.pe/sitios/sgate'.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.DescargaArchivoPorId(String& hayError, Int64 idItem, String listName) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 111
+__________________________________________________
+FechaHora = 09/01/2018 12:26:36 p.m.
+MensajeError = Acceso denegado. No tiene el permiso necesario para realizar esta acción o tener acceso a este recurso.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 203
+__________________________________________________
+FechaHora = 09/01/2018 12:31:09 p.m.
+MensajeError = Acceso denegado. No tiene el permiso necesario para realizar esta acción o tener acceso a este recurso.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 203
+__________________________________________________
+FechaHora = 09/01/2018 05:38:37 p.m.
+MensajeError = Error en el servidor remoto: (401) No autorizado.
+DetalleError =    en System.Net.HttpWebRequest.GetResponse()
+   en Microsoft.SharePoint.Client.SPWebRequestExecutor.Execute()
+   en Microsoft.SharePoint.Client.ClientContext.GetFormDigestInfoPrivate()
+   en Microsoft.SharePoint.Client.ClientContext.EnsureFormDigest()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 192
+__________________________________________________

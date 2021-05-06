@@ -1,0 +1,209 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Records.RecordAccionModel
+
+<div class="main-content">
+    <div class="modal-body">
+        <form id="frmRecordAccion" onsubmit="return false;">
+            <fieldset id="flsRecordAccion" @(Model.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaNota):</label>
+                            <label>@Html.Raw(RecordsResource.EtiquetaNotaCuatro)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaNumeroAccion):</label>
+                            @Html.TextBox("txtFrmNumeroAccion", Model.RecordAccion.NumeroAccion, new { id = "txtFrmNumeroAccion", @type = "text", @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaAccionPlanteadaPor): (*)</label>
+                            <div class="input-group">
+                                @Html.Hidden("hdnFrmCodigoColaboradorPlanteaAccion", Model.RecordAccion.CodigoColaboradorPlanteaAccion, new { id = "hdnFrmCodigoColaboradorPlanteaAccion" })
+                                @Html.TextBox("txtFrmNombreColaboradorPlanteaAccion", Model.RecordAccion.NombreColaboradorPlanteaAccion, new { id = "txtFrmNombreColaboradorPlanteaAccion", @class = "form-control", disabled = "disabled" })
+                                <div class="input-group-addon">
+                                    <button class="btn-form" id="btnBuscarColaboradorPlanteaAccion" type="button">....</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaPlanteadaEn): (*)</label>
+                            @Html.TextBox("dtpFrmFechaAccionPlanteada", Model.RecordAccion.FechaAccionPlanteadaString, new { id = "dtpFrmFechaAccionPlanteada", @class = "form-control", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaTipoControl): (*)</label>
+                            @Html.DropDownListFor(x => x.RecordAccion.CodigoTipoControl, Model.ListaTipoControl, new { @class = "form-control", @id = "slcFrmTipoControl", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaDescripcionCorta): (*)</label>
+                            @Html.TextBox("txtFrmDescripcionCorta", Model.RecordAccion.DescripcionCorta, new { id = "txtFrmDescripcionCorta", @type = "text", @class = "form-control", @maxlength = "50", @validable = "required Validar" })
+                            <div class="text-right">
+                                <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, 50))</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaDescripcion): (*)</label>
+                            @Html.TextArea("txtFrmDescripcionAccion", Model.RecordAccion.Descripcion, new { id = "txtFrmDescripcionAccion", @rows = "2", @cols = "10", @type = "text", @class = "form-control", @maxlength = "2000", @validable = "required Validar" })
+                            <div class="text-right">
+                                <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, "2,000"))</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaRepetirAccionCada):</label>
+                            @Html.TextBox("txtFrmRepetirAccionCada", Model.RecordAccion.CantidadRepetirAccion, new { id = "txtFrmRepetirAccionCada", @type = "text", @class = "form-control", @maxlength = "4" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group check-form">
+                            @if (Model.RecordAccion.IndicadorMes == true)
+                            {
+                                <label>@Html.Raw(RecordsResource.EtiquetaMeses):</label>
+                                <input type="checkbox" id="chkFrmIndicadorMes" name="" checked />
+                            }
+                            else
+                            {
+                                <label>@Html.Raw(RecordsResource.EtiquetaMeses):</label>
+                                <input type="checkbox" id="chkFrmIndicadorMes" name="" />
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaFechaVencimiento): (*)</label>
+                            @Html.TextBox("dtpFrmFechaVencimiento", Model.RecordAccion.FechaVencimientoString, new { id = "dtpFrmFechaVencimiento", @class = "form-control", @validable = "required Validar" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaPrioridad): (*)</label>
+                            @Html.DropDownListFor(x => x.RecordAccion.CodigoPrioridad, Model.ListaPrioridad, new { @class = "form-control", @id = "slcFrmPrioridad", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaResponsable): (*)</label>
+                            <div class="input-group">
+                                @Html.Hidden("hdnFrmCodigoColaboradorResponsableAccion", Model.RecordAccion.CodigoColaboradorResponsable, new { ïd = "hdnFrmCodigoColaboradorResponsableAccion" })
+                                @Html.TextBox("txtFrmNombreColaboradorResponsableAccion", Model.RecordAccion.NombreColaboradorResponsable, new { id = "txtFrmNombreColaboradorResponsableAccion", @class = "form-control", disabled = "disabled" })
+                                <div class="input-group-addon">
+                                    <button class="btn-form" id="btnBuscarColaboradorResponsableAccion" type="button">....</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaProyecto): (*)</label>
+                            @Html.DropDownListFor(x => x.RecordAccion.CodigoProyecto, Model.ListaProyecto, new { @class = "form-control", @id = "slcFrmProyectoAccion", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaDepartamento): (*)</label>
+                            @Html.DropDownListFor(x => x.RecordAccion.CodigoDepartamento, Model.ListaDepartamento, new { @class = "form-control", @id = "slcFrmDepartamentoAccion" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaArea): (*)</label>
+                            @Html.DropDownListFor(x => x.RecordAccion.CodigoArea, Model.ListaArea, new { @class = "form-control", @id = "slcFrmAreaAccion" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaEmpresa): (*)</label>
+                            @Html.DropDownListFor(x => x.RecordAccion.CodigoEmpresa, Model.ListaEmpresa, new { @class = "form-control", @id = "slcFrmEmpresaAccion", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group" id="divNombreArchivoFotoAccion">
+                            <label>@Html.Raw(RecordsResource.EtiquetaFoto):</label>
+                            <input type="file" class="upload" id="fileFrmFotoAccion" name="fileFrmFotoAccion" style="width: 417px;" />
+                            <label>@Html.Raw(GenericoResource.EtiquetaTipoArchivoFoto)</label>
+                            <label>@Html.Raw(string.Format(GenericoResource.EtiquetaTamanioArchivo, Model.RecordAccion.PesoMaximoArchivoFotoSharePointString))</label>
+                            <div class="clsNombreArchivoFotoAccion"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group" id="divNombreArchivoApendiceAccion">
+                            <label>@Html.Raw(RecordsResource.EtiquetaAnexo):</label>
+                            <input type="file" class="upload" id="fileFrmApendiceAccion" name="fileFrmApendiceAccion" style="width: 417px;" />
+                            <label>@Html.Raw(string.Format(GenericoResource.EtiquetaTamanioArchivo, Model.RecordAccion.PesoMaximoArchivoAnexoSharePointString))</label>
+                            <div class="clsNombreArchivoApendiceAccion"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>@Html.Raw(RecordsResource.EtiquetaAsociada): (*)</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <input type="checkbox" id="chkCausaRaiz" style="margin: 5px; vertical-align: middle;" />
+                            <label>@Html.Raw(RecordsResource.EtiquetaSeleccionarCausaRaiz):</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="txtNombreCausasRaices" validable="required Validar" value="@Model.DescripcionAccionCorrectivaCausa"/>
+                        </div>
+                    </div>
+                    @*@Html.TextBox("txtNombreCausasRaices", Model.DescripcionAccionCorrectivaCausa, new { id = "txtNombreCausasRaices", @class = "form-control"})*@
+                    @*<input type="text" class="form-control" id="txtNombreCausasRaices" validable="required Validar" value="@Model.DescripcionAccionCorrectivaCausa"/>*@
+                    @*<input type="text" class="form-control" id="txtNombreCausasRaices" validable="required Validar" readonly="true" disabled value="@Model.DescripcionAccionCorrectivaCausa"/>*@
+
+                </div>
+           </fieldset>
+            <div class="box-acciones-foot modal_box">
+                <button class="btn btn-default" id="btnCancelarRecordAccion" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                @if (Model.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                {
+                    <button class="btn btn-primary" id="btnGrabarRecordAccion">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                }
+            </div>            
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models.RecordsModel = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

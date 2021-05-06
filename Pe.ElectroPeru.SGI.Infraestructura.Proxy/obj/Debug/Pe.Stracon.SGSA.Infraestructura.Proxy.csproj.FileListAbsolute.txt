@@ -1,0 +1,93 @@
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll.config
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.XML
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.GyM.Security.Account.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.GyM.Security.Account.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.GyM.Security.Account.xml
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.csprojResolveAssemblyReference.cache
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll.config
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.XML
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.GyM.Security.Account.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.GyM.Security.Account.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.GyM.Security.Account.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.csprojResolveAssemblyReference.cache
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll.config
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.XML
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.GyM.Security.Account.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\AutoMapper.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\EntityFramework.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.ElectroPeru.SGI.Transversal.Core.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\log4net.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\System.Web.Mvc.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.GyM.Security.Account.pdb
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\bin\Debug\Pe.GyM.Security.Account.xml
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.csprojResolveAssemblyReference.cache
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.dll
+D:\ElectroPeru\Nueva Arquitectura\1.9.1.B0 - Copy\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.Proxy\obj\Debug\Pe.ElectroPeru.SGI.Infraestructura.Proxy.pdb

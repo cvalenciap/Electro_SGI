@@ -1,0 +1,105 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ingreso al Sistema</title>
+    <link href="~/Theme/css/login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="contenedor">
+        <div class="filaContenedor">
+            <img src="~/Theme/images/imagenlogeo.jpg" style="width:100%;"/>
+        </div>
+        <div class="filaContenedor">
+            <div class="filaControl"><input type="text" id="txtUsuario" alt="Usuario" placeholder="Usuario" class="controlLogueo" /></div>
+            <div class="cerrarFila"></div>
+        </div>
+        <div class="filaContenedor">
+            <div class="filaControl">
+                <input type="password" id="txtContrasena" alt="Contraseña" placeholder="Contraseña" class="controlLogueo" />
+            </div>
+            <div class="cerrarFila"></div>
+        </div>
+        <div class="filaContenedor">
+            <div class="filaControl"><input id="btnIngresar" type="button" value="Ingresar" class="boton" /></div>
+            <div class="cerrarFila"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    window.onload = function () {
+    var btnIngresar = document.getElementById('btnIngresar');
+    btnIngresar.onclick = ingresarSistema;
+    };
+
+    function metodoAsincrono(metodo, ruta, parametros, es_asincrono, resultado) {
+    var xmlhttp = new window.XMLHttpRequest();
+    xmlhttp.open(metodo, ruta, es_asincrono);
+
+    if (es_asincrono == true) {
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (resultado != undefined)
+                {
+                    resultado(this.responseText);
+                }
+
+            }
+        };
+        xmlhttp.send(parametros);
+    }
+    else {
+        xmlhttp.send(parametros);
+        resultado(xmlhttp.responseText);
+    }
+
+}
+
+function ingresarSistema() {
+    if (validarSeguridad() == 0)
+    {
+        var usuario = document.getElementById('txtUsuario').value;
+        var contrasena = document.getElementById('txtContrasena').value;
+        var parametros = "parametros=";
+        parametros += usuario + '|';
+        parametros += contrasena;
+        metodoAsincrono('POST', 'Logeo/validarSeguridad', parametros, true, redireccionarModulo);
+    }
+
+    function redireccionarModulo(respuesta)
+    {
+        window.location.href = 'Principal/Index';
+    }
+}
+
+function validarSeguridad() {
+    var txtUsuario = document.getElementById('txtUsuario').value;
+    var txtContrasena = document.getElementById('txtContrasena').value;
+
+    var estado = 0;
+    var mensaje = '';
+    if (txtUsuario == '') {
+        estado += 1;
+        Notificacion('Error: Digitar Usuario');
+    }
+
+    if (txtContrasena == '') {
+        estado += 1;
+        mensaje += 'Error: Digitar Clave\n';
+    }
+
+    if (estado > 0) {
+        alert(mensaje);
+    }
+
+    return estado;
+}
+</script>

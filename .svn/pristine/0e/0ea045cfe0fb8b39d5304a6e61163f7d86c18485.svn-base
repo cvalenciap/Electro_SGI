@@ -1,0 +1,168 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ComiteSSoma
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ComiteSSoma.IngresoComiteSSoma.ComiteSSomaModel
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@ComiteSSomaResource.EtiquetaTituloCierreComiteSSoma</strong>
+        </h2>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaCierreComiteSSoma" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="@Html.Raw(AccionResource.EtiquetaListaAcciones)">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="filter-avanzado">
+            <fieldset id="flsInformacionComiteSSoma" @(Model.ComiteSSoma.IndicadorEsLectura == true ? "disabled=disabled" : null)>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaNroRegistro): (*)</label>
+                            @Html.TextBox("txtNumeroComiteSoma", Model.ComiteSSoma.NumeroComiteSSoma, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "txtNumeroComiteSoma", @class = "form-control", @disabled = "disabled" } : new { id = "txtNumeroComiteSoma", @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(ComiteSSomaResource.GridEstadoDocumento):</label>
+                            @Html.DropDownListFor(model => model.ComiteSSoma.CodigoEstadoDocumento, Model.ListaEstadoDocumento, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcEstadoDocumento", @class = "form-control" } : new { id = "slcEstadoDocumento", @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaPais):</label>
+                            @Html.DropDownListFor(model => model.ComiteSSoma.CodigoPais, Model.ListaPais, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcPais", @class = "form-control" } : new { id = "slcPais", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaEmpresa):</label>
+                            @Html.DropDownListFor(model => model.ComiteSSoma.CodigoEmpresaPais, Model.ListaEmpresa, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcEmpresaPais", @class = "form-control" } : new { id = "slcEmpresaPais", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaProyecto):</label>
+                            @Html.DropDownListFor(model => model.ComiteSSoma.CodigoProyecto, Model.ListaProyectos, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcProyecto", @class = "form-control" } : new { id = "slcProyecto", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaTipoComite):</label>
+                            @Html.DropDownListFor(model => model.ComiteSSoma.CodigoTipoComite, Model.ListaTipoComites, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcTipoComite", @class = "form-control" } : new { id = "slcTipoComite", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaNombreComite):</label>
+                            @Html.DropDownListFor(model => model.ComiteSSoma.CodigoComite, Model.ListaComites, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcComite", @class = "form-control" } : new { id = "slcComite", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaTipoReunion):</label>
+                            @Html.DropDownListFor(model => model.ComiteSSoma.CodigoTipoReunion, Model.ListaTipoReuniones, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcTipoReunion", @class = "form-control" } : new { id = "slcTipoReunion", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaAnioEvaluado):</label>
+                                        @Html.DropDownListFor(model => model.ComiteSSoma.CodigoMesEvaluado, Model.ListaMeses, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcAnioEvaluado", @class = "form-control" } : new { id = "slcAnioEvaluado", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaMesEvaluado):</label>
+                                        @Html.DropDownListFor(model => model.ComiteSSoma.CodigoMesEvaluado, Model.ListaMeses, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcMesEvaluado", @class = "form-control" } : new { id = "slcMesEvaluado", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaFechaReunion):</label>
+                                        @Html.TextBox("dtpFechaReunion", Model.ComiteSSoma.FechaReunionString, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "dtpFechaReunion", @class = "form-control" } : new { id = "dtpFechaReunion", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaHora):</label>
+                                        @Html.DropDownListFor(model => model.ComiteSSoma.HoraReunion, Model.ListaHoras, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcHoraReunion", @class = "form-control" } : new { id = "slcHoraReunion", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(ComiteSSomaResource.EtiquetaMinuto):</label>
+                                        @Html.DropDownListFor(model => model.ComiteSSoma.MinutoReunion, Model.ListaMinutos, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "slcMinutoReunion", @class = "form-control" } : new { id = "slcMinutoReunion", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Html.Raw(ComiteSSomaResource.EtiquetaLugarReunion):</label>
+                            @Html.TextBox("txtDescripcionLugarReunion", Model.ComiteSSoma.DescripcionLugarReunion, Model.ComiteSSoma.CodigoComiteSSoma.HasValue ? (object)new { id = "txtDescripcionLugarReunion", @class = "form-control" } : new { id = "txtDescripcionLugarReunion", @class = "form-control" })
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+
+        </div>
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-primary" id="btnCerrarComiteSSoma">@Html.Raw(GenericoResource.BotonCerrar)</button>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-grilla">
+                    <div id="divGrdResultadoHallazgoAccion">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridPlanteadaPor = '@Html.Raw(ComiteSSomaResource.GridPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridFechaPlanteada = '@Html.Raw(ComiteSSomaResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridResponsableEjecucion = '@Html.Raw(ComiteSSomaResource.GridResponsableEjecucion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridFechaVencimiento = '@Html.Raw(ComiteSSomaResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridDescripcionCortaHallazgo = '@Html.Raw(ComiteSSomaResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridDescripcionCortaAccion = '@Html.Raw(ComiteSSomaResource.GridDescripcionCortaAccion)';       
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridNumeroAccion = '@Html.Raw(ComiteSSomaResource.GridNumeroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridEstadoAccion = '@Html.Raw(ComiteSSomaResource.GridEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.ConfirmacionCerrarComiteSSoma = '@Html.Raw(ComiteSSomaResource.ConfirmacionCerrarComiteSSoma)';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Resource.GridNivelRiesgo = '@Html.Raw(ComiteSSomaResource.GridNivelRiesgo)';
+                                                 
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Actions.BuscarRecordAccionHallazgo = '@Url.Action("BuscarRecordAccionHallazgo", "IntegradorTipoRegistro", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Actions.CerrarComiteSSoma = '@Url.Action("CerrarComiteSSoma", "CierreComiteSSoma", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Actions.FormularioBandejaCierreComiteSSoma = '@Url.Action("Index", "BandejaCierreComiteSSoma", new { Area = "ComiteSSoma" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Models')
+        Pe.ElectroPeru.SGI.Presentacion.ComiteSSoma.Index.Models.IngresoComiteSSomaModel = @(Html.Raw(Json.Encode(Model)))
+    </script>
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformularioseguimientoaccion")
+}

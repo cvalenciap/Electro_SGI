@@ -1,0 +1,87 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.HorasTrabajadas
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.HorasTrabajadas.BandejaHoras.BandejaHorasModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(HorasTrabajadasResource.EtiquetaTituloBandejaHHT)</strong>
+        </h2>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+        <div class="form-group">
+                     <div class="row">
+                        <div class="col-sm-2"  style="margin-top: 6px;"> <label>@Html.Raw(HorasTrabajadasResource.EtiquetaSeleccionarProyecto): (*)</label></div>
+                        <div class="col-sm-2"> @Html.DropDownList("slcProyecto", Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control" })</div>                                            
+                        <div class="col-sm-1 text-right"  style="margin-top: 6px;"> <label>@Html.Raw(HorasTrabajadasResource.EtiquetaAnnio): (*)</label></div>
+                        <div class="col-sm-1">@Html.DropDownListFor(model => model.Registro.Anio, Model.ListaAnios, new { id = "slcAnio", @class = "form-control", @validable = "required Validar" })</div>
+                        <div class="col-sm-2 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaMesDesde): (*)</label></div>
+                        <div class="col-sm-1">@Html.DropDownListFor(model => model.Registro.Mes, Model.ListaMesDesde, new { id = "slcMesDesde", @class = "form-control", @validable = "required Validar" })</div>
+                        <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaMesHasta): (*)</label></div>
+                        <div class="col-sm-1">@Html.DropDownListFor(model => model.Registro.Mes, Model.ListaMesHasta, new { id = "slcMesHasta", @class = "form-control", @validable = "required Validar" })</div>
+                    </div>                                
+            </div>            
+        </div>    
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnBuscar">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>  
+        
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <button id="btnDescargarExcel" class="btn btn-primary">@InformeResource.BtnDescargarExcel</button>
+                </div>
+            </div>
+            <div style="overflow-x: scroll;">
+                <div class="table-grilla">
+                    <div id="divGrdResultIngreso">
+                    </div>
+                </div>    
+            </div>  
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Actions.BuscarIngresos = '@Url.Action("BuscarCombosEjecucion", "Registro", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Actions.ConsultarRegistroHHT = '@Url.Action("ConsultarRegistroHHT", "BandejaHoras", new { Area = "HorasTrabajadas" })';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Actions.DescargarReporteBandejaHHT = '@Url.Action("DescargarReporteBandejaHHT", "BandejaHoras", new { Area = "HorasTrabajadas" })';
+                
+        ns('Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridNombreProyecto = '@Html.Raw(HorasTrabajadasResource.GridNombreProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridAnio = '@Html.Raw(HorasTrabajadasResource.GridAnio)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridMes = '@Html.Raw(HorasTrabajadasResource.GridMes)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridNumeroEmpleadosStracon = '@Html.Raw(HorasTrabajadasResource.GridNumeroEmpleadosStracon)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridNumeroObrerosStracon = '@Html.Raw(HorasTrabajadasResource.GridNumeroObrerosStracon)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalPersonalStracon = '@Html.Raw(HorasTrabajadasResource.GridTotalPersonalStracon)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridEmpleadosContratistas = '@Html.Raw(HorasTrabajadasResource.GridEmpleadosContratistas)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridNumeroObrerosContratistas = '@Html.Raw(HorasTrabajadasResource.GridNumeroObrerosContratistas)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalPersonalContratistas = '@Html.Raw(HorasTrabajadasResource.GridTotalPersonalContratistas)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridHHTEmpleadosStracon = '@Html.Raw(HorasTrabajadasResource.GridHHTEmpleadosStracon)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridHHTObrerosStracon = '@Html.Raw(HorasTrabajadasResource.GridHHTObrerosStracon)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalHHTStracon = '@Html.Raw(HorasTrabajadasResource.GridTotalHHTStracon)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridHHTEmpleadosContratistas = '@Html.Raw(HorasTrabajadasResource.GridHHTEmpleadosContratistas)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridHHTObrerosContratistas = '@Html.Raw(HorasTrabajadasResource.GridHHTObrerosContratistas)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalHHTContratistas = '@Html.Raw(HorasTrabajadasResource.GridTotalHHTContratistas)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalEmpleados = '@Html.Raw(HorasTrabajadasResource.GridTotalEmpleados)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalObreros = '@Html.Raw(HorasTrabajadasResource.GridTotalObreros)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalGeneralpersonal = '@Html.Raw(HorasTrabajadasResource.GridTotalGeneralpersonal)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalHHTEmpleados = '@Html.Raw(HorasTrabajadasResource.GridTotalHHTEmpleados)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalHHTObreros = '@Html.Raw(HorasTrabajadasResource.GridTotalHHTObreros)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.GridTotalGeneralHHT = '@Html.Raw(HorasTrabajadasResource.GridTotalGeneralHHT)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Bandeja.Resource.MsjSinResultados = '@Html.Raw(HorasTrabajadasResource.MsjSinResultados)';
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs("seguimientoinvestigacionformulariohistorialcambios")
+}

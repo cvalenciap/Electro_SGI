@@ -1,0 +1,50 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.GestionLesiones
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Reporte
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.GestionLesiones.ReporteLesiones.ReporteLesionesModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(GestionLesionesResource.EtiquetaTituloReporteLesiones)</strong>
+        </h2>
+    </div>
+    <div class="content-body">  
+        <form id="frmReporteLesiones" onsubmit="return false;" >
+            <div class="filter-avanzado">
+                <div class="form-group">
+                         <div class="row">
+                            <div class="col-sm-2"  style="margin-top: 6px;"> <label>@Html.Raw(GestionLesionesResource.EtiquetaSeleccionarProyecto): (*)</label></div>
+                            <div class="col-sm-2"> @Html.DropDownList("slcProyecto", Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control" })</div>                                            
+                            <div class="col-sm-1 text-right"  style="margin-top: 6px;"> <label>@Html.Raw(GestionLesionesResource.EtiquetaAnnio): (*)</label></div>
+                            <div class="col-sm-1">@Html.DropDownList("slcAnio", Model.ListaAnios, new { id = "slcAnio", @class = "form-control" })</div>
+                            <div class="col-sm-2 text-right" style="margin-top: 6px;"><label>@Html.Raw(GestionLesionesResource.EtiquetaMesDesde): (*)</label></div>
+                            <div class="col-sm-1">@Html.DropDownList("slcMesDesde", Model.ListaMesDesde, new { id = "slcMesDesde", @class = "form-control" })</div>
+                            <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(GestionLesionesResource.EtiquetaMesHasta): (*)</label></div>
+                            <div class="col-sm-1">@Html.DropDownList("slcMesHasta", Model.ListaMesHasta, new { id = "slcMesHasta", @class = "form-control" })</div>
+                        </div>                                
+                </div>            
+            </div>    
+           <div id="divMostrarReporte" class="box-acciones-foot text-center">
+                <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+                <button class="btn btn-primary" id="btnMostrarReporte">@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Base.GenericoResource.BotonMostrar)</button>
+            </div>
+        </form>
+        <br />
+        <div id="divContenedorReportView" style="overflow-x: auto; overflow-y: hidden; width: 100%; display: none;">
+            <iframe id="ifrContenedor" src="@DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue/Base/Reporte/Index?Area=GestionLesiones" style="width: 100%; height: 620px"></iframe>
+        </div>  
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.ReporteLesiones.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.ReporteLesiones.Index.Actions.VistaPreviaReporteGestionLesiones = '@Url.Action("VistaPreviaReporteGestionLesiones", "ReporteLesiones", new { Area = "GestionLesiones" })';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.ReporteLesiones.Index.Actions.ConfiguracionUrlDespliegue = '@DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue';
+        @*Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.ReporteLesiones.Index.ValidarCampos = '@Html.Raw(GestionLesionesResource.ValidarCampos)';*@
+       
+    </script>
+}

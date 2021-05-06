@@ -1,0 +1,809 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pe.ElectroPeru.SGI.Infraestructura.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1">
+            <summary>
+            Repository contract: for persisting an entity.
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.Insertar(`0,Pe.ElectroPeru.SGI.Transversal.Core.Base.IEntornoActualAplicacion)">
+            <summary>
+            Save an entity.
+            </summary>
+            <param name="obj">The entity to save.</param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.Editar(`0,Pe.ElectroPeru.SGI.Transversal.Core.Base.IEntornoActualAplicacion)">
+            <summary>
+            Update an entity.
+            </summary>
+            <param name="obj">The entity to update.</param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.Actualizar(System.Object[])">
+            <summary>
+            Actualzar an entity
+            </summary>
+            <param name="obj">The entity to update.</param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.Eliminar(System.Object[])">
+            <summary>
+            Delete an entity
+            </summary>
+            <param name="obj">The entity to update.</param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.Reactivar(System.Object[])">
+            <summary>
+            Delete an entity
+            </summary>
+            <param name="obj">The entity to update.</param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.EliminarEntorno(Pe.ElectroPeru.SGI.Transversal.Core.Base.IEntornoActualAplicacion,System.Object[])">
+            <summary>
+            Delete an entity
+            </summary>
+            <param name="entorno">Environment with the session</param>
+            <param name="llaves">Code of The entity to delete.</param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.GetById(System.Object[])">
+            <summary>
+            Get Entity by primary key
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.GetAll">
+            <summary>
+            Get All Entity
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.GetFiltered(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Get Filtered Entity
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IComandRepository`1.GuardarCambios">
+            <summary>
+            Save all changes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.Base.IQueryRepositoryLogic`1">
+            <summary>
+            Repository contract: for Read a DTO.
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.CommandContract.Mantenimiento.IResponsableEntityRepository">
+            <summary>
+            Implementación del repositorio de Responsable
+            </summary>
+            <remarks>
+            Creación:       GMD 20032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.CommandContract.Politicas.IParametroEntityRepository">
+            <summary>
+            Interface del repositorio de Parametro
+            </summary>
+            <remarks>
+            Creación:   GMD 20140310 <br />
+            Modificación:            <br />
+            </remarks> 
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.CommandContract.Politicas.IParametroSeccionEntityRepository">
+            <summary>
+            Interface del repositorio de Parametro Sección
+            </summary>
+            <remarks>
+            Creación:   GMD 20140310 <br />
+            Modificación:            <br />
+            </remarks> 
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.CommandContract.Politicas.IParametroValorEntityRepository">
+            <summary>
+            Interface del repositorio de Parametro Valor
+            </summary>
+            <remarks>
+            Creación:   GMD 20140310 <br />
+            Modificación:            <br />
+            </remarks> 
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.CommandContract.Politicas.IPlantillaNotificacionEntityRepository">
+            <summary>
+            Interface del repositorio de Plantilla Notificacion
+            </summary>
+            <remarks>
+            Creación:   GMD 20140310 <br />
+            Modificación:            <br />
+            </remarks> 
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider">
+            <summary>
+            Proveedor de contexto
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.LazyLoadingEnabled">
+            <summary>
+            Indicador de carga perezosa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.ProxyCreationEnabled">
+            <summary>
+            Inidicador de implementación de proxy
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.DataBase">
+            <summary>
+            Base de datos asociado al contexto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.ConnectionString">
+            <summary>
+            Cadena de conexión
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.DbSet``1">
+            <summary>
+            genera el DbSet de una entidad
+            </summary>
+            <typeparam name="T">entidad asociada</typeparam>
+            <returns>DbSet de la entidad asociada</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.Modified``1(``0)">
+            <summary>
+            Setea el estado de la entidad a modificado
+            </summary>
+            <typeparam name="T">Tipo entidad</typeparam>
+            <param name="entidad">Entidad</param>
+            <returns>Entidad modificada</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.Persist">
+            <summary>
+            Persiste los cambios
+            </summary>
+            <returns>Registros afectados</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.ExecuteStoreProcedure``1(System.String,System.Object[])">
+            <summary>
+            Ejecuta un store procedure del tipo consulta
+            </summary>
+            <typeparam name="T">Tipo de entidad de resultado</typeparam>
+            <param name="query">Nombre del store procedure</param>
+            <param name="parameters">Parametros</param>
+            <returns>Resultado</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.ExecuteStoreProcedureScalar``1(System.String,System.Object[])">
+            <summary>
+            Ejecuta un store procedure del tipo escalar
+            </summary>
+            <param name="query">Nombre del store procedure</param>
+            <param name="parameters">Parametros</param>
+            <returns>Resultado</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.IDbContextProvider.ExecuteStoreProcedureNonQuery(System.String,System.Object[])">
+            <summary>
+            Ejecuta un store procedure del tipo transacción
+            </summary>
+            <param name="query">Nombre del store procedure</param>
+            <param name="parameters">Parametros</param>
+            <returns>Resultado</returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider">
+            <summary>
+            Proveedor del contexto de base de datos
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.OnModelCreating(System.Data.Entity.DbModelBuilder)">
+            <summary>
+            Establece la configuración de creación de la base de datos
+            </summary>
+            <param name="modelBuilder">contructor del modelo de base de datos</param>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.MapEntitiesFromMappingConfigurations(System.Data.Entity.DbModelBuilder)">
+            <summary>
+            Permite inicializar el mapping de cada entidad
+            </summary>
+            <param name="modelBuilder">contructor del modelo de base de datos</param>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.LazyLoadingEnabled">
+            <summary>
+            Indicador de carga perezosa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.ProxyCreationEnabled">
+            <summary>
+            Inidicador de implementación de proxy
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.ConnectionString">
+            <summary>
+            Cadena de conexión
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.DataBase">
+            <summary>
+            Base de datos asociado al contexto
+            </summary>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.DbSet``1">
+            <summary>
+            genera el DbSet de una entidad
+            </summary>
+            <typeparam name="T">entidad asociada</typeparam>
+            <returns>DbSet de la entidad asociada</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.Modified``1(``0)">
+            <summary>
+            Setea el estado de la entidad a modificado
+            </summary>
+            <typeparam name="T">Tipo entidad</typeparam>
+            <param name="entidad">Entidad</param>
+            <returns>Entidad modificada</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.Persist">
+            <summary>
+            Persiste los cambios
+            </summary>
+            <returns>Registros afectados</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.ExecuteStoreProcedure``1(System.String,System.Object[])">
+            <summary>
+            Ejecuta un store procedure del tipo consulta
+            </summary>
+            <typeparam name="T">Tipo de entidad de resultado</typeparam>
+            <param name="query">Nombre del store procedure</param>
+            <param name="parameters">Parametros</param>
+            <returns>Resultado</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.ExecuteStoreProcedureScalar``1(System.String,System.Object[])">
+            <summary>
+            Ejecuta un store procedure del tipo escalar
+            </summary>
+            <param name="query">Nombre del store procedure</param>
+            <param name="parameters">Parametros</param>
+            <returns>Resultado</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.ExecuteStoreProcedureNonQuery(System.String,System.Object[])">
+            <summary>
+            Ejecuta un store procedure del tipo transacción
+            </summary>
+            <param name="query">Nombre del store procedure</param>
+            <param name="parameters">Parametros</param>
+            <returns>Resultado</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGIDbContextProvider.GenerateQueryString(System.String,System.Object[])">
+            <summary>
+            Permite generar la sentencia a ejecutar
+            </summary>
+            <param name="query">nombre de store procedure</param>
+            <param name="parameters">parametros de entrada del store procedure</param>
+            <returns>Sentencia a ejecutar</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Correo.ICorreoLogicProxy.Enviar(Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Correo.EmailLogic)">
+            <summary>
+            Envia Email
+            </summary>
+            <param name="logic">EmailLogic</param>
+            <returns>Resultado del proceso</returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IIndicadorMetaAnualLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoSectorial
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IIndicadorMetaAnualLogicRepository.BuscarIndicadorMetaAnual(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoSectorial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IIndicadorEvaluacionLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoSectorial
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IIndicadorEvaluacionLogicRepository.BuscarIndicadorEvaluacion(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoSectorial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IIndicadorValorLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoSectorial
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IIndicadorValorLogicRepository.BuscarIndicadorValor(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoSectorial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IVariableValorLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoSectorial
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IVariableValorLogicRepository.BuscarVariableValor(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoSectorial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IIndicadorMetaLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoSectorial
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IIndicadorMetaLogicRepository.BuscarIndicadorMeta(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoSectorial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoEmpresaAccionEstrategicaInstitucionalLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoEmpresa
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoEmpresaAccionEstrategicaInstitucionalLogicRepository.BuscarObjetivoEstrategicoEmpresaAccionEstrategicaInstitucional(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoEmpresa
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoSectorialDetalleLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoSectorial
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoSectorialDetalleLogicRepository.BuscarObjetivoEstrategicoSectorialDetalle(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoSectorial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoSectorialLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoSectorial
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoSectorialLogicRepository.BuscarObjetivoEstrategicoSectorial(System.Nullable{System.Guid},System.String,System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoSectorial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IAccionEstrategicaSectorialDetalleLogicRepository">
+            <summary>
+            Interface del repositorio logic de AccionEstrategicaSectorial
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IAccionEstrategicaSectorialDetalleLogicRepository.BuscarAccionEstrategicaSectorialDetalle(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de AccionEstrategicaSectorial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IAccionEstrategicaSectorialLogicRepository">
+            <summary>
+            Interface del repositorio logic de AccionEstrategicaSectorial
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IAccionEstrategicaSectorialLogicRepository.BuscarAccionEstrategicaSectorial(System.Nullable{System.Guid},System.String,System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de AccionEstrategicaSectorial
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IAccionEstrategicaInstitucionalDetalleLogicRepository">
+            <summary>
+            Interface del repositorio logic de AccionEstrategicaInstitucional
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IAccionEstrategicaInstitucionalDetalleLogicRepository.BuscarAccionEstrategicaInstitucionalDetalle(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de AccionEstrategicaInstitucional
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IAccionEstrategicaInstitucionalLogicRepository">
+            <summary>
+            Interface del repositorio logic de AccionEstrategicaInstitucional
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IAccionEstrategicaInstitucionalLogicRepository.BuscarAccionEstrategicaInstitucional(System.Nullable{System.Guid},System.String,System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de AccionEstrategicaInstitucional
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IPerspectivaDetalleLogicRepository">
+            <summary>
+            Interface del repositorio logic de Perspectiva
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IPerspectivaDetalleLogicRepository.BuscarPerspectivaDetalle(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de Perspectiva
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IPerspectivaLogicRepository">
+            <summary>
+            Interface del repositorio logic de Perspectiva
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IPerspectivaLogicRepository.BuscarPerspectiva(System.Nullable{System.Guid},System.String,System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de Perspectiva
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoFonafeDetalleLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoFonafe
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoFonafeDetalleLogicRepository.BuscarObjetivoEstrategicoFonafeDetalle(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoFonafe
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoFonafeLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoFonafe
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoFonafeLogicRepository.BuscarObjetivoEstrategicoFonafe(System.Nullable{System.Guid},System.String,System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoFonafe
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoEmpresaDetalleLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoEmpresa
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoEmpresaDetalleLogicRepository.BuscarObjetivoEstrategicoEmpresaDetalle(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Int32},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoEmpresa
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoEmpresaLogicRepository">
+            <summary>
+            Interface del repositorio logic de ObjetivoEstrategicoEmpresa
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IObjetivoEstrategicoEmpresaLogicRepository.BuscarObjetivoEstrategicoEmpresa(System.Nullable{System.Guid},System.String,System.String,System.String,System.Nullable{System.Int32},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de ObjetivoEstrategicoEmpresa
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IResponsableLogicRepository">
+            <summary>
+            Interface del repositorio logic de Responsable
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IResponsableLogicRepository.BuscarResponsable(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de Responsablees
+            </summary>
+            <param name="codigoResponsable">Código de Responsable</param>
+            <param name="nombres">Nombre de Responsable</param>
+            <param name="apellidoPaterno">Apellido Paterno</param>
+            <param name="apellidoMaterno">Apellido Materno</param>
+            <param name="nombreCompleto">Nombre Completo de Responsable</param>
+            <param name="nombrePuestoTrabajo">Nombre Puesto Trabajo</param>
+            <param name="codigoTipoDocumento">Código de Tipo de Documento</param>
+            <param name="numeroDocumento">Número de Documento</param>
+            <param name="codigoEmpresa">Código de Empresa</param>
+            <param name="codigoProyecto">Código de Proyecto</param>
+            <param name="codigoUsuarioRed">Código de Usuario de Red</param>
+            <param name="codigoEmpresaSistema">Código de Empresa del Sistema</param>
+            <param name="codigoSistema">Código de Sistema</param>
+            <param name="codigoIdioma">Código de Idioma</param>
+            <param name="estadoRegistro">Estado de Registro</param>
+            <param name="codigoResponsableLogin">Código de Responsable logueado</param>
+            <param name="numeroPagina">Número de Página</param>
+            <param name="tamanioPagina">Tamaño de Página</param>
+            <returns>Lista de Responsablees</returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IVariableDetalleLogicRepository">
+            <summary>
+            Interface del repositorio logic de Variable
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IVariableDetalleLogicRepository.BuscarVariableDetalle(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de Variable
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IVariableLogicRepository">
+            <summary>
+            Interface del repositorio logic de Variable
+            </summary>
+            <remarks>
+            Creación:       GMD 29112017 <br />   
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantenimiento.IVariableLogicRepository.BuscarVariable(System.Nullable{System.Guid},System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Guid},System.Nullable{System.Int32},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de los registros de Variable
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantimiento.IIndicadorLogicRepository">
+            <summary>
+            Interface del repositorio logic de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantimiento.IIndicadorLogicRepository.BuscarIndicador(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Guid,System.Guid,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de Áreas
+            </summary>
+            <param name="codigoIndicador">Código de Área</param>
+            <param name="nombreResponsable">Nombre del Responsable</param>  
+            <param name="nombreIndicador">Nombre de Área</param>        
+            <param name="codigoIdioma">Código del Idioma</param>
+            <param name="estadoRegistro">Estado de Registro</param>
+            <param name="numeroPagina">Número de Página</param>
+            <param name="tamanioPagina">Tamaño de Página</param>
+            <returns>Lista de Áreas</returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantimiento.IAreaLogicRepository">
+            <summary>
+            Interface del repositorio logic de Área
+            </summary>
+            <remarks>
+            Creación:       GMD 17032017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Mantimiento.IAreaLogicRepository.BuscarArea(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Permite la búsqueda de Áreas
+            </summary>
+            <param name="codigoArea">Código de Área</param>
+            <param name="nombreResponsable">Nombre del Responsable</param>  
+            <param name="nombreArea">Nombre de Área</param>        
+            <param name="codigoIdioma">Código del Idioma</param>
+            <param name="estadoRegistro">Estado de Registro</param>
+            <param name="numeroPagina">Número de Página</param>
+            <param name="tamanioPagina">Tamaño de Página</param>
+            <returns>Lista de Áreas</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.PlantillaNotificacion.IPlantillaNotificacionLogicRepository.BuscarPlantillaNotificacion(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Realiza la busqueda de Plantilla 
+            </summary>
+            <param name="codigoPlantillaNotificacion">Código Plantilla Notificacion</param>
+            <param name="codigoSistema">Código Sistema</param>
+            <param name="codigoTipoNotificacion">Código Tipo Notificacion</param>
+            <param name="asunto">Asunto</param>
+            <param name="indicadorActiva">Indicador Activa</param>
+            <param name="contenido">Contenido</param>
+            <param name="estadoRegistro">Estado Registro</param>
+            <returns>Lista con el resultado de la operación</returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroLogicRepository">
+            <summary>
+            Interface de Parametro de Valor Repository
+            </summary>
+            <remarks>
+            Creación:   GMD <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroLogicRepository.BuscarParametro(System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.Int32,System.Int32)">
+            <summary>
+            Permite buscar Parametros
+            </summary>
+            <param name="codigoParametro">Código de Parametro</param>
+            <param name="indicadorGlobal">Indicador Global</param>
+            <param name="codigoEmpresa">Código de Empresa</param>
+            <param name="codigoSistema">Código de Sistema</param>
+            <param name="codigoIdentificador">Código Identificador</param>
+            <param name="tipoParametro">Código de Tipo de Parámetro</param>
+            <param name="nombre">Nombre</param>
+            <param name="descripcion">Descripción</param>
+            <param name="indicadorPermiteAgregar">Indicador de Permite Agregar</param>
+            <param name="indicadorPermiteModificar">Indicador de Permite Modificar</param>
+            <param name="indicadorPermiteEliminar">Indicador de Permite Eliminar</param>
+            <param name="estadoRegistro">Estado de Registro</param>
+            <returns>Lista de Parametros</returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroSeccionLogicRepository">
+            <summary>
+            Interface de Parametro de Valor Repository
+            </summary>
+            <remarks>
+            Creación:   GMD <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroSeccionLogicRepository.BuscarParametroSeccion(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Realiza la busqueda de Parametro Seccion
+            </summary>
+            <param name="codigoParametro">Código de Parametro</param>
+            <param name="codigoSeccion">Código de Sección</param>
+            <param name="nombre">Nombre</param>
+            <param name="codigoTipoDato">Código de Tipo de Dato</param>
+            <param name="indicadorPermiteModificar">Identificador de Permite Modificar</param>
+            <param name="indicadorObligatorio">Indicador de Sección Obligatorio</param>
+            <param name="indicadorSistema">Indicador de Sistema</param>
+            <param name="estadoRegistro">Estado de Registro</param>
+            <returns>Lista de secciones de parametro</returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroValorLogicRepository">
+            <summary>
+            Interface de Parametro de Valor Repository
+            </summary>
+            <remarks>
+            Creación:   GMD <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroValorLogicRepository.BuscarParametroValor(System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Realiza la busqueda de Parametro Valor
+            </summary>
+            <param name="codigoParametro">Código de Parametro</param>
+            <param name="indicadorGlobal">Indicador de Global</param>
+            <param name="codigoEmpresa">Código de Empresa</param>
+            <param name="codigoSistema">Código de Sistema</param>
+            <param name="codigoIdentificador">Código Identificador</param>
+            <param name="tipoParametro">Tipo de Parámetro</param>
+            <param name="codigoSeccion">Código de Sección</param>
+            <param name="codigoValor">Código de Valor</param>
+            <param name="valor">Valor</param>
+            <param name="estadoRegistro">Estado de Registro</param>
+            <returns>Lista de valores de parametro</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroValorLogicRepository.BuscarParametroValorSeccion(System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Realiza la busqueda de Parametro Valor
+            </summary>
+            <param name="codigoParametro">Código de Parametro</param>
+            <param name="indicadorEmpresa">Indicador de Global</param>
+            <param name="codigoEmpresa">Código de Empresa</param>
+            <param name="codigoSistema">Código de Sistema</param>
+            <param name="codigoIdentificador">Código Identificador</param>
+            <param name="tipoParametro">Tipo de Parámetro</param>
+            <param name="codigoSeccion">Código de Sección</param>
+            <param name="codigoValor">Código de Valor</param>
+            <param name="valor">Valor</param>
+            <param name="estadoRegistro">Estado de Registro</param>
+            <returns>Lista de valores de parametro</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroValorLogicRepository.RegistrarParametroValor(Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic)">
+            <summary>
+            Realiza el registro de un parametro valor
+            </summary>
+            <param name="parametroValorLogic">Entidad logica de parametro valor</param>
+            <returns>Cantidad de registros registrados</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroValorLogicRepository.ModificarParametroValor(Pe.ElectroPeru.SGI.Infraestructura.QueryModel.Politicas.ParametroValorLogic)">
+            <summary>
+            Realiza la modificación de un parametro valor
+            </summary>
+            <param name="parametroValorLogic">Entidad logica de parametro valor</param>
+            <returns>Cantidad de registros modificados</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroValorLogicRepository.BuscarValorPorSeccionParametro(System.Guid,System.Boolean,System.Guid,System.String,System.String)">
+            <summary>
+            Realiza la búsqueda de Valores de las Secciones de un Parámetro
+            </summary>
+            <param name="codigoEmpresa">Código de Empresa</param>
+            <param name="indicadorEmpresa">Indicador de Empresa</param>
+            <param name="codigoSistema">Código de Sistema</param>
+            <param name="codigoIdentificadorParametro">Código de Identificador de Parámetro</param>
+            <param name="codigoIdioma">Código de Idioma</param>
+            <returns>Lista de Valores de las Secciones de un Parámetro</returns>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IParametroValorLogicRepository.BuscarValorSeccionAdicionalParametro(System.Guid,System.Boolean,System.Guid,System.String,System.String)">
+            <summary>
+            Realiza la búsqueda de Valores de las Secciones Adicionales de un Parámetro
+            </summary>
+            <param name="codigoEmpresa">Código de Empresa</param>
+            <param name="indicadorEmpresa">Indicador de Empresa</param>
+            <param name="codigoSistema">Código de Sistema</param>
+            <param name="codigoIdentificadorParametro">Código de Identificador de Parámetro</param>
+            <param name="codigoIdioma">Código de Idioma</param>
+            <returns>Lista de Valores de las Secciones Adicionales de un Parámetro</returns>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IPlantillaNotificacionLogicRepository">
+            <summary>
+            Interface de Plantilla Notificación 
+            </summary>
+            <remarks>
+            Creación:   GMD <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Infraestructura.Core.QueryContract.Politicas.IPlantillaNotificacionLogicRepository.BuscarPlantillaNotificacion(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Nullable{System.Boolean},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Realiza la busqueda de Plantilla 
+            </summary>
+            <param name="codigoPlantillaNotificacion">Código Plantilla Notificacion</param>
+            <param name="codigoSistema">Código Sistema</param>
+            <param name="codigoTipoNotificacion">Código Tipo Notificacion</param>
+            <param name="asunto">Asunto</param>
+            <param name="indicadorActiva">Indicador Activa</param>
+            <param name="contenido">Contenido</param>
+            <param name="estadoRegistro">Estado Registro</param>
+            <returns>Lista con el resultado de la operación</returns>
+        </member>
+    </members>
+</doc>

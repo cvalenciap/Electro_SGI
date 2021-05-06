@@ -1,0 +1,292 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Accion.RecordAccionModel
+
+@if (Model.Record != null && Model.Record.CodigoTipoRecord == DatosConstantes.TipoRecord.Incidente)
+{
+    <form id="frmTabGeneral">
+        <div class="title-interna">
+            <span>@Html.Raw(AccionResource.EtiquetaTituloCuerpoTabGeneral)</span>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaNumeroReportePortal):</label>
+                    @Html.TextBox("txtReporteIncidente", Model.Record.CodigoReporteIncidente, new { id = "txtReporteIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaNivelIncidente):</label>
+                    @Html.TextBox("txtNivelIncidente", Model.Record.DescripcionNivel, new { id = "txtNivelIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaPotencialIncidente):</label>
+                    @Html.TextBox("txtPotencialIncidente", Model.Record.DescripcionPotencialIncidente, new { id = "txtPotencialIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaTituloIncidente):</label>
+                    @Html.TextBox("txtTituloIncidente", Model.Record.Titulo, new { id = "txtTituloIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaCategoriaIncidente):</label>
+                    @Html.TextBox("txtCategoriaIncidente", Model.Record.DescripcionCategoriaIncidente, new { id = "txtCategoriaIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaProyecto):</label>
+                    @Html.TextBox("txtProyecto", Model.Record.NombreProyecto, new { id = "txtProyecto", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaEmpresa):</label>
+                    @Html.TextBox("txtEmpresa", Model.Record.NombreEmpresa, new { id = "txtEmpresa", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <label>
+                        @Html.Raw(AccionResource.EtiquetaNuevaEmpresa)
+                        @Html.CheckBox("chkNuevaEmpresa", (Model.Record.IndicadorNuevaEmpresa.HasValue ? Model.Record.IndicadorNuevaEmpresa.Value : false), new { id = "chkNuevaEmpresa", @disabled = "disabled" })
+                    </label>
+                    @Html.TextBox("txtNuevaEmpresaIncidente", Model.Record.NombreNuevaEmpresa, new { id = "txtNuevaEmpresaIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaLugarExacto):</label>
+                    @Html.TextBox("txtLugarExactoIncidente", Model.Record.NombreLugarExacto, new { id = "txtLugarExactoIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaFechaIncidente):</label>
+                    @Html.TextBox("txtFechaIncidente", Model.Record.FechaRecordString, new { id = "txtFechaIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaHoraIncidente):</label>
+                    @Html.TextBox("txtHoraIncidente", Model.Record.HoraString, new { id = "txtHoraIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                    @Html.TextBox("txtMinutoIncidente", Model.Record.MinutoString, new { id = "txtMinutoIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaDescripcionIncidente):</label>
+                    @Html.TextBox("txtDescripcionIncidente", Model.Record.Descripcion, new { id = "txtDescripcionIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaRequiereInformeFinal):</label>
+                    @Html.TextBox("txtRequiereInformeFinalIncidente", (Model.Record.RequiereInformeFinalIncidente == "SI" ? GenericoResource.EtiquetaSi : (Model.Record.RequiereInformeFinalIncidente == "NO" ? GenericoResource.EtiquetaNo : string.Empty)), new { id = "txtRequiereInformeFinalIncidente", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div>
+            <label>@Html.Raw(RecordsResource.EtiquetaNota):</label>
+        </div>
+        <label>@Html.Raw(RecordsResource.EtiquetaNotaUno)</label>
+        <label>@Html.Raw(RecordsResource.EtiquetaNotaDos)</label>
+        <label>@Html.Raw(RecordsResource.EtiquetaNotaDos)</label>
+    </form>
+}
+else
+{
+    <form id="frmTabGeneral">
+        <div class="title-interna">
+            <span>@Html.Raw(RecordsResource.EtiquetaInformacionGeneral)</span>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaFechaRecord):</label>
+                    @Html.TextBox("txtFechaRecord", Model.Record.FechaRecordString, new { id = "txtFechaRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaHoraRecord):</label>
+                    @Html.TextBox("txtHoraRecord", Model.Record.HoraString, new { id = "txtHoraRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <div class="form-group">
+                    <label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                    @Html.TextBox("txtMinutoRecord", Model.Record.MinutoString, new { id = "txtMinutoRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaTipoClasificacion):</label>
+                    @Html.TextBox("txtTipoClasificacion", Model.Record.DescripcionTipoClasificacion, new { id = "txtTipoClasificacion", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaNivel):</label>
+                    @Html.TextBox("txtNivel", Model.Record.DescripcionNivel, new { id = "txtNivel", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaHpi):</label>
+                    @Html.TextBox("txtHpi", Model.Record.DescripcionHpi, new { id = "txtHpi", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaTituloRecord):</label>
+                    @Html.TextBox("txtTituloRecord", Model.Record.Titulo, new { id = "txtTituloRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaUbicacionGeneral):</label>
+                    @Html.TextBox("txtUbicacionGeneral", Model.Record.DescripcionUbicacionGeneral, new { id = "txtUbicacionGeneral", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaLugarExacto):</label>
+                    @Html.TextArea("txtNombreLugarExacto", Model.Record.NombreLugarExacto, new { id = "txtNombreLugarExacto", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaDescripcion):</label>
+                    @Html.TextArea("txtDescripcionRecord", Model.Record.Descripcion, new { id = "txtDescripcionRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaPersonaReporta):</label>
+                    @Html.TextBox("txtNombreColaboradorReporta", Model.Record.NombreColaboradorReporta, new { id = "txtNombreColaboradorReporta", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaProyecto):</label>
+                    @Html.TextBox("txtProyectoRecord", Model.Record.NombreProyecto, new { id = "txtProyectoRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaDepartamento):</label>
+                    @Html.TextBox("txtDepartamentoRecord", Model.Record.NombreDepartamento, new { id = "txtDepartamentoRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaArea):</label>
+                    @Html.TextBox("txtAreaRecord", Model.Record.NombreArea, new { id = "txtAreaRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaGrupo):</label>
+                    @Html.TextBox("txtGrupoRecord", Model.Record.NombreGrupo, new { id = "txtGrupoRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaEmpresa):</label>
+                    @Html.TextBox("txtEmpresaRecord", Model.Record.NombreEmpresa, new { id = "txtEmpresaRecord", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaGerenteDepartamento):</label>
+                    @Html.TextBox("txtNombreColaboradorResponsableDepartamento", Model.Record.NombreColaboradorResponsableDepartamento, new { id = "txtNombreColaboradorResponsableDepartamento", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaJefeArea):</label>
+                    @Html.TextBox("txtNombreColaboradorResponsableArea", Model.Record.NombreColaboradorResponsableArea, new { id = "txtNombreColaboradorResponsableArea", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaSupervisor):</label>
+                    @Html.TextBox("txtNombreColaboradorResponsableGrupo", Model.Record.NombreColaboradorResponsableGrupo, new { id = "txtNombreColaboradorResponsableGrupo", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaLugarTrabajo):</label>
+                    @Html.TextBox("txtLugarTrabajo", Model.Record.DescripcionLugarTrabajo, new { id = "txtLugarTrabajo", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaProbabilidad):</label>
+                    @Html.TextBox("txtProbabilidad", Model.Record.DescripcionProbabilidad, new { id = "txtProbabilidad", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaSeveridad):</label>
+                    @Html.TextBox("txtSeveridad", Model.Record.DescripcionConsecuenciaRiesgo, new { id = "txtSeveridad", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaRiesgo):</label>
+                    @Html.TextBox("txtRiesgo", Model.Record.DescripcionRiesgo, new { id = "txtRiesgo", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>*@
+    </form>
+}

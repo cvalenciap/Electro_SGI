@@ -1,0 +1,300 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            @if (Model.TipoBandeja == 1)
+            {
+                <strong>@Html.Raw(InvestigacionResource.EtiquetaTabPorElaborar)</strong>
+            }
+            else if (Model.TipoBandeja == 2)
+            {
+                <strong>@Html.Raw(InvestigacionResource.EtiquetaTabPorRevisar)</strong>
+            }
+            else if (Model.TipoBandeja == 3)
+            {
+                <strong>@Html.Raw(InvestigacionResource.EtiquetaTabPorAprobar)</strong>
+            }
+            else if (Model.TipoBandeja == 4)
+            {
+                <strong>@Html.Raw(InvestigacionResource.EtiquetaTabAprobados)</strong>
+            }
+            else if (Model.TipoBandeja == 5)
+            {
+                <strong>@Html.Raw(InvestigacionResource.EtiquetaTabAprobacionesExtraordinarias)</strong>
+            }
+        </h2>
+    </div>
+    <div class="content-body">
+        @if (Model.TipoBandeja == 1)
+        {
+                <div role="tabpanel" class="tab-pane fade in active" id="tabPorElaborar">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaProyecto)</label>
+                            @Html.DropDownList("slcProyecto", Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteDesde)</label>
+                            @Html.TextBox("dtpFechaRecordDesde", string.Empty, new { id = "dtpFechaRecordDesde", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteHasta)</label>
+                            @Html.TextBox("dtpFechaRecordHasta", string.Empty, new { id = "dtpFechaRecordHasta", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="box-acciones-foot filter">
+                    <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+                    <button class="btn btn-primary" type="button" id="btnBuscar">@Html.Raw(GenericoResource.BotonBuscar)</button>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                    </div>
+                </div>               
+                <div class="table-grilla">
+                    <div id="divGrdResultInvestigacion">
+                    </div>
+                </div>
+            </div>
+        }
+        else if (Model.TipoBandeja == 2)
+        {
+                <div role="tabpanel" class="tab-pane fade in active" id="segundo">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaProyecto)</label>
+                            @Html.DropDownList("slcProyectoISegundo", Model.ListaProyecto, new { id = "slcProyectoISegundo", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteDesde)</label>
+                            @Html.TextBox("dtpFechaRecordDesdeISegundo", string.Empty, new { id = "dtpFechaRecordDesdeISegundo", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteHasta)</label>
+                            @Html.TextBox("dtpFechaRecordHastaISegundo", string.Empty, new { id = "dtpFechaRecordHastaISegundo", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="box-acciones-foot filter">
+                    <button class="btn btn-default" type="button" id="btnLimpiarISegundo">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+                    <button class="btn btn-primary" type="button" id="btnBuscarISegundo">@Html.Raw(GenericoResource.BotonBuscar)</button>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                    </div>
+                </div>
+                <div class="table-grilla">
+                    <div id="divGrdResultInvestigacionSegundo">
+                    </div>
+                </div>
+            </div>
+        }
+        else if (Model.TipoBandeja == 3)
+        {
+                <div role="tabpanel" class="tab-pane fade in active" id="tercero">
+                    <div class="row">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>@Html.Raw(InvestigacionResource.EtiquetaProyecto)</label>
+                                @Html.DropDownList("slcProyectoITercero", Model.ListaProyecto, new { id = "slcProyectoITercero", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteDesde)</label>
+                                @Html.TextBox("dtpFechaRecordDesdeITercero", string.Empty, new { id = "dtpFechaRecordDesdeITercero", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteHasta)</label>
+                                @Html.TextBox("dtpFechaRecordHastaITercero", string.Empty, new { id = "dtpFechaRecordHastaITercero", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                    </div>
+                    <div class="box-acciones-foot filter">
+                        <button class="btn btn-default" type="button" id="btnLimpiarITercero">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+                        <button class="btn btn-primary" type="button" id="btnBuscarITercero">@Html.Raw(GenericoResource.BotonBuscar)</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                        </div>
+                    </div>
+                    <div class="table-grilla">
+                        <div id="divGrdResultInvestigacionTercero">
+                        </div>
+                    </div>
+                </div>
+        }
+        else if (Model.TipoBandeja == 4)
+        {
+                <div role="tabpanel" class="tab-pane fade in active" id="cuarto">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaProyecto)</label>
+                            @Html.DropDownList("slcProyectoICuarto", Model.ListaProyecto, new { id = "slcProyectoICuarto", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteDesde)</label>
+                            @Html.TextBox("dtpFechaRecordDesdeICuarto", string.Empty, new { id = "dtpFechaRecordDesdeICuarto", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteHasta)</label>
+                            @Html.TextBox("dtpFechaRecordHastaICuarto", string.Empty, new { id = "dtpFechaRecordHastaICuarto", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="box-acciones-foot filter">
+                    <button class="btn btn-default" type="button" id="btnLimpiarICuarto">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+                    <button class="btn btn-primary" type="button" id="btnBuscarICuarto">@Html.Raw(GenericoResource.BotonBuscar)</button>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <button id="btnDescargarExcel" class="btn btn-primary">@InformeResource.BtnDescargarExcel</button>
+                        </div>
+                    </div>
+                <div class="table-grilla">
+                    <div id="divGrdResultInvestigacionCuarto">
+                    </div>
+                </div>
+            </div>
+        }
+        else if (Model.TipoBandeja == 5)
+        {
+            <div role="tabpanel" class="tab-pane fade in active" id="tabAprobacionesExtraordinarias">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaProyecto)</label>
+                            @Html.DropDownList("slcProyectoIQuinto", Model.ListaProyecto, new { id = "slcProyectoIQuinto", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteDesde)</label>
+                            @Html.TextBox("dtpFechaRecordDesdeIQuinto", string.Empty, new { id = "dtpFechaRecordDesdeIQuinto", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteHasta)</label>
+                            @Html.TextBox("dtpFechaRecordHastaIQuinto", string.Empty, new { id = "dtpFechaRecordHastaIQuinto", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="box-acciones-foot filter">
+                    <button class="btn btn-default" type="button" id="btnLimpiarIQuinto">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+                    <button class="btn btn-primary" type="button" id="btnBuscarIQuinto">@Html.Raw(GenericoResource.BotonBuscar)</button>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                    </div>
+                </div>
+                <div class="table-grilla">
+                    <div id="divGrdResultInvestigacionAprobacionesExtraordinarias">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.BuscarInvestigacion = '@Url.Action("BuscarInvestigacion", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.FormularioHistorialCambios = '@Url.Action("FormularioHistorialCambios", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.EliminarRecord = '@Url.Action("EliminarRecord", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.FormularioInvestigacion = '@Url.Action("FormularioInvestigacion", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.BuscarPersonaInvolucrada = '@Url.Action("BuscarPersonaInvolucrada", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.BuscarInvestigacionHistorialCambios = '@Url.Action("BuscarInvestigacionHistorialCambios", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.DescargarReporteInvestigacion = '@Url.Action("DescargarReporteInvestigacion", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.RegistrarAprobacionExtraordinariaInvestigacion = '@Url.Action("RegistrarAprobacionExtraordinariaInvestigacion", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.DescargarReporteRegistros = '@Url.Action("DescargarReporteRegistros", "Investigacion", new { Area = "Seguimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridNumeroRecord = '@Html.Raw(InvestigacionResource.GridNumeroRecord)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridAnio = '@Html.Raw(InvestigacionResource.GridAnio)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridFechaIncidente = '@Html.Raw(InvestigacionResource.GridFechaIncidente)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridFechaReporte = '@Html.Raw(InvestigacionResource.GridFechaReporte)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridPais = '@Html.Raw(InvestigacionResource.GridPais)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridProyecto = '@Html.Raw(InvestigacionResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridActualConsecuencia = '@Html.Raw(InvestigacionResource.GridActualConsecuencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridPotencialConsecuencia = '@Html.Raw(InvestigacionResource.GridPotencialConsecuencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridHpi = '@Html.Raw(InvestigacionResource.GridHpi)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridClasificacionPrincipal = '@Html.Raw(InvestigacionResource.GridClasificacionPrincipal)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.EtiquetaGridTitulo = '@Html.Raw(InvestigacionResource.EtiquetaGridTitulo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.TituloVentanaHistorial = '@Html.Raw(InvestigacionResource.EtiquetaVentanaHistorial)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridEstadoInvestigacion = '@Html.Raw(InvestigacionResource.GridEstadoInvestigacion)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Mensaje')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Mensaje.MensajeDescargaReporteIncidente = '@Html.Raw(RecordsResource.EtiquetaMensajeDescargaReporteIncidente)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Mensaje.MensajeValidacionEdicionIncidente = '@Html.Raw(RecordsResource.EtiquetaMensajeValidacionEdicionIncidente)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Mensaje')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Mensaje.MensajeConfirmacionAprobacion = '@Html.Raw(InvestigacionResource.MensajeConfirmacionAprobacion)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacionPorElaborar = '@DatosConstantes.EstadoInvestigacion.PorElaborar';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacionPorRevisar = '@DatosConstantes.EstadoInvestigacion.PorRevisar';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacionPorAprobar = '@DatosConstantes.EstadoInvestigacion.PorAprobar';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacionAprobado = '@DatosConstantes.EstadoInvestigacion.Aprobado';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacionAprobacionExtraordinaria = '@DatosConstantes.AprobacionExtraordinariaInvestigacion.AprobacionExtraordinaria';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.ComentarioAprobacionExtraordinaria = '@DatosConstantes.AprobacionExtraordinariaInvestigacion.ComentarioAprobacionExtraordinaria';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Index.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Index.Models.FormularioInvestigacion = @(Html.Raw(Json.Encode(Model)));
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs("seguimientoinvestigacionformulariohistorialcambios")
+}

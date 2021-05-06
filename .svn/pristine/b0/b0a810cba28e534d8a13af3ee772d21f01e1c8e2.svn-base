@@ -1,0 +1,87 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ActuaPositivo
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.VisitaGerencial
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.VisitaGerencial.IngresoVisita.IngresoVisitaModel
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label><strong>@Html.Raw(VisitaGerencialResource.EtiquetaIngresoAccionesVG):</strong></label>
+                    </div>
+                    <div class="cell-line">
+                        <label>@Html.Raw(RecordsResource.EtiquetaNumeroRecord):</label>
+                    </div>
+                    <div class="cell-line">
+                        @Html.TextBox("txtNumeroRegistroVisitaGerencial", Model.VisitaGerencial.NumeroVisitaGerencial, new { id = "txtNumeroRegistroVisitaGerencial", @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarIngresoAccionIndex" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="@Html.Raw(AccionResource.EtiquetaListaAcciones)">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(ActuaPositivoResource.EtiquetaLista)</span>
+            <div class="acciones-form btn-group btn-group-table" style="border: none">
+                <button id="btnAgregarIngresoAccion" class="btn btn-primary">@Html.Raw(VisitaGerencialResource.EtiquetaAgregarAccion)</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-grilla">
+                    <div id="divGrdResultAccion">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.EtiquetaFormularioIngresoAcciones = '@Html.Raw(VisitaGerencialResource.EtiquetaFormularioIngresoAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.GridPlanteaAccion = '@Html.Raw(VisitaGerencialResource.GridPlanteaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.GridFechaPlanteada = '@Html.Raw(VisitaGerencialResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.GridEjecutaAccion = '@Html.Raw(VisitaGerencialResource.GridEjecutaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.EtiquetaFechaVencimiento = '@Html.Raw(VisitaGerencialResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.GridDescripcionCortaHallazgo = '@Html.Raw(VisitaGerencialResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.GridDescripcionCortaAccion = '@Html.Raw(VisitaGerencialResource.GridDescripcionCortaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.GridNroAccion = '@Html.Raw(VisitaGerencialResource.GridNroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.GridResponsableEjecucion = '@Html.Raw(VisitaGerencialResource.GridResponsableEjecucion)';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Resource.GridEstado = '@Html.Raw(AccionResource.GridEstado)';
+              
+        
+        
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.FormularioIngresoAccion = '@Url.Action("FormularioIngresoAccion", "IngresoAccion", new { Area = "VisitaGerencial" })';
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.RegistrarRecordAccion = '@Url.Action("RegistrarRecordAccion", "IngresoAccion", new { Area = "VisitaGerencial" })'; 
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.BuscarRecordAccionHallazgo = '@Url.Action("BuscarRecordAccionHallazgo", "IngresoAccion", new { Area = "VisitaGerencial" })'; 
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.FormularioBandejaAccion.EliminarRecordAccion = '@Url.Action("EliminarRecordAccion", "IngresoAccion", new { Area = "VisitaGerencial" })'; 
+           
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.DatosConstantes.TipoOcurrenciaAccion')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoAccion.DatosConstantes.TipoOcurrenciaAccion.Hallazgo = '@DatosConstantes.TipoOcurrenciaAccion.Hallazgo';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioBandejaAccion.Models')
+        Pe.ElectroPeru.SGI.Presentacion.VisitaGerencial.IngresoVisita.FormularioBandejaAccion.Models.IngresoVisitaModel = @(Html.Raw(Json.Encode(Model)))          
+    </script>
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordacciongenerico");
+}

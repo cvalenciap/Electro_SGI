@@ -1,0 +1,109 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionCategoriaImpactoAmbienteModel
+
+<div class="modal-body">
+    <form onsubmit="return false;" id="frmAgenteContaminanteModal">
+        <fieldset @(Model.InvestigacionAgenteContaminante.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaAgenteContaminante): (*)</label>  
+                    @Html.DropDownListFor(model => model.InvestigacionAgenteContaminante.CodigoAgenteContaminante, Model.ListaAgenteContaminante, new { @class = "form-control", @id = "slcAgenteContaminante", @validable = "required Validar" })                                        
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaOtrosEspecificar): </label>  
+                    @if (Model.InvestigacionAgenteContaminante.CodigoInvestigacionAgenteContaminante.HasValue && Model.InvestigacionAgenteContaminante.CodigoAgenteContaminante == DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosAgenteContaminante)
+                    {
+                        @Html.TextBox("txtOtrosAgenteContaminante", Model.InvestigacionAgenteContaminante.OtrosAgenteContaminante, new { id = "txtOtrosAgenteContaminante", @class = "form-control" })                                
+                    }
+                    else 
+                    { 
+                        @Html.TextBox("txtOtrosAgenteContaminante", Model.InvestigacionAgenteContaminante.OtrosAgenteContaminante, new { id = "txtOtrosAgenteContaminante", @class = "form-control", @disabled = "disabled" })                                
+                    }                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaEstadoAgente): (*)</label>  
+                    @Html.DropDownListFor(model=>model.InvestigacionAgenteContaminante.CodigoEstadoContaminante, Model.ListaEstadosAgenteContaminante, new { @class = "form-control", @id = "slcEstadoAgenteContaminante", @validable = "required Validar" })                                        
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaOtrosEspecificar): </label> 
+                    @if (Model.InvestigacionAgenteContaminante.CodigoInvestigacionAgenteContaminante.HasValue && Model.InvestigacionAgenteContaminante.CodigoEstadoContaminante == @DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosEstadoAgenteContaminante)
+                    {
+                        @Html.TextBox("txtOtrosEstadoContaminante", Model.InvestigacionAgenteContaminante.OtrosEstadoContaminante, new { id = "txtOtrosEstadoContaminante", @class = "form-control" })
+                    }
+                    else
+                    { 
+                        @Html.TextBox("txtOtrosEstadoContaminante", Model.InvestigacionAgenteContaminante.OtrosEstadoContaminante, new { id = "txtOtrosEstadoContaminante", @class = "form-control", @disabled = "disabled" })
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaCantidadEmitidaAgente): (*)</label>  
+                    <div class="row">
+                         <div class="col-sm-6">
+                             @Html.TextBox("txtCantidadEmitida", Model.InvestigacionAgenteContaminante.CantidadEmitida, new { id = "txtCantidadEmitida", @class = "form-control", @validable = "required Validar", @maxlength = "9", @mask = "decimal" })
+                         </div>
+                         <div class="col-sm-6">
+                             @Html.DropDownListFor(model=>model.InvestigacionAgenteContaminante.CodigoUMedidaCantidadEmitida, Model.ListaInvestigacionUnidadMedida, new { @class = "form-control", @id = "slcListaCantidadEmitida", @validable = "required Validar" })                                        
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaCantidadRecuperada): (*)</label>  
+                    <div class="row">
+                         <div class="col-sm-6">
+                             @Html.TextBox("txtCantidadRecuperada", Model.InvestigacionAgenteContaminante.CantidadRecuperada, new { id = "txtCantidadRecuperada", @class = "form-control", @validable = "required Validar", @maxlength = "9", @mask = "decimal" })
+                         </div>
+                         <div class="col-sm-6">
+                             @Html.DropDownListFor(model => model.InvestigacionAgenteContaminante.CodigoUMedidaCantidadRecuperada, Model.ListaInvestigacionUnidadMedida, new { @class = "form-control", @id = "slcListaCantidadRecuperada", @validable = "required Validar" })  
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaCantidadNoRecuperada): (*)</label>  
+                    <div class="row">
+                         <div class="col-sm-6">
+                             @Html.TextBox("txtCantidadNoRecuperada", Model.InvestigacionAgenteContaminante.CantidadNoRecuperada, new { id = "txtCantidadNoRecuperada", @class = "form-control", @validable = "required Validar", @maxlength = "9", @mask = "decimal" })
+                         </div>
+                         <div class="col-sm-6">
+                             @Html.DropDownListFor(model => model.InvestigacionAgenteContaminante.CodigoUMedidaCantidadNoRecuperada, Model.ListaInvestigacionUnidadMedida, new { @class = "form-control", @id = "slcListaCantidadNoRecuperada", @validable = "required Validar" })  
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </fieldset>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarAgenteContaminante" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    @if (Model.InvestigacionAgenteContaminante.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+    {
+        <button class="btn btn-primary" id="btnGrabarAgenteContaminante">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+    }
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioAgenteContaminante = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

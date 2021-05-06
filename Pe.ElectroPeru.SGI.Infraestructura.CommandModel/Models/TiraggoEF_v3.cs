@@ -1,0 +1,1 @@
+﻿// Either the Models1.edmx was not found or it's not a V3 EDMX File. You must change this in the Models\TiraggoEF_v3.tt file.

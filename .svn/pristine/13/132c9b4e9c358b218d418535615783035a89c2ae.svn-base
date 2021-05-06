@@ -1,0 +1,72 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguridad.Modulo
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguridad.Modulo.ModuloModel
+
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@Html.Raw(ModuloResource.EtiquetaTituloPrincipal)</strong>
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnRegistrar" type="button" class="btn-table text-line one">
+                    @Html.Raw(ModuloResource.EtiquetaBotonRegistrar)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(ModuloResource.EtiquetaLista)</span>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Actions.Buscar = '@Url.Action("Buscar", "Modulo", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Actions.Formulario = '@Url.Action("Formulario", "Modulo", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Actions.Obtener = '@Url.Action("Obtener", "Modulo", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Actions.Registrar = '@Url.Action("Registrar", "Modulo", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Actions.Eliminar = '@Url.Action("Eliminar", "Modulo", new { Area = "Seguridad" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridNombre = '@Html.Raw(ModuloResource.EtiquetaNombre)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridDescripcion = '@Html.Raw(ModuloResource.EtiquetaDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridSistema = '@Html.Raw(ModuloResource.EtiquetaSistema)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridModuloPadre = '@Html.Raw(ModuloResource.EtiquetaModuloPadre)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridGlyphicon = '@Html.Raw(ModuloResource.EtiquetaGlyphicon)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridRutaImagen = '@Html.Raw(ModuloResource.EtiquetaRutaImagen)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridControlador = '@Html.Raw(ModuloResource.EtiquetaControlador)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridMetodo = '@Html.Raw(ModuloResource.EtiquetaMetodo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridEstado = '@Html.Raw(ModuloResource.EtiquetaEstado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Resources.EtiquetaMensajeEliminar = '@Html.Raw(ModuloResource.EtiquetaMensajeEliminar)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Modulo.Models.Modulo = '@(Html.Raw(Json.Encode(Model)))';
+
+    </script>
+    <style type="text/css">
+        form-control {
+            width: 100%;
+        }
+    </style>
+    @CustomHtmlHelper.RenderViewJs("seguridadmoduloformulario")
+}

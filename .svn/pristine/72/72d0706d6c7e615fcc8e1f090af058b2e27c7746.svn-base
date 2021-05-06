@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8C1A9FE-B0D3-475C-9440-9242156FCE8F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pe.ElectroPeru.SGI.Aplicacion.Adapter</RootNamespace>
+    <AssemblyName>Pe.ElectroPeru.SGI.Aplicacion.Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.Adapter.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'STRACON_QA|AnyCPU'">
+    <OutputPath>bin\STRACON_QA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Correo\CorreoAdapter.cs" />
+    <Compile Include="Reportes\DashboardAdapter.cs" />
+    <Compile Include="Seguridad\AccionAdapter.cs" />
+    <Compile Include="Mantenimiento\AreaAdapter.cs" />
+    <Compile Include="Seguridad\AsignacionAdapter.cs" />
+    <Compile Include="Mantenimiento\IndicadorAdapter.cs" />
+    <Compile Include="Seguridad\ModuloAdapter.cs" />
+    <Compile Include="Seguridad\OpcionAdapter.cs" />
+    <Compile Include="Seguridad\PerfilAdapter.cs" />
+    <Compile Include="Seguridad\PermisosAdapter.cs" />
+    <Compile Include="Mantenimiento\ResponsableAdapter.cs" />
+    <Compile Include="Seguridad\SistemaAdapter.cs" />
+    <Compile Include="Seguridad\UsuariosAdapter.cs" />
+    <Compile Include="Politicas\ParametroAdapter.cs" />
+    <Compile Include="Politicas\ParametroSeccionAdapter.cs" />
+    <Compile Include="Politicas\ParametroValorAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.csproj">
+      <Project>{e43da679-229c-4103-af10-7fa3584ba914}</Project>
+      <Name>Pe.ElectroPeru.SGI.Aplicacion.TransferObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Cross.Core\Pe.ElectroPeru.SGI.Transversal.Core.csproj">
+      <Project>{f4ece405-25b7-4365-aab3-503c5f8859e6}</Project>
+      <Name>Pe.ElectroPeru.SGI.Transversal.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.csproj">
+      <Project>{7fa64a98-d0d2-423c-8cac-f9ac49c7cdc0}</Project>
+      <Name>Pe.ElectroPeru.SGI.Infraestructura.CommandModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Infraestructura.Core\Pe.ElectroPeru.SGI.Infraestructura.Core.csproj">
+      <Project>{2b8f9b45-35da-4eea-b07e-f2598b2863ab}</Project>
+      <Name>Pe.ElectroPeru.SGI.Infraestructura.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Infraestructura.QueryModel\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.csproj">
+      <Project>{7280cdd5-08db-4be3-a412-1b1e6d9a5de2}</Project>
+      <Name>Pe.ElectroPeru.SGI.Infraestructura.QueryModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Proceso\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

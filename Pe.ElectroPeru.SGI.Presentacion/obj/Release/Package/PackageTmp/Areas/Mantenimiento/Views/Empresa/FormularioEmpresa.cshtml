@@ -1,0 +1,118 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Empresa.FormularioEmpresaModel
+
+<div class="modal-body">
+    <form id="frmFormularioEmpresa">        
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">                        
+                         <label>@Html.Raw(EmpresaResource.EtiquetaRazonSocial): (*)</label>
+                        @Html.TextBox("txtRazonSocial", Model.Empresa.RazonSocial, new { id = "txtRazonSocial", @type = "text", @class = "form-control", @maxlength = "500", @validable = "required ValidaRazonSocial"})                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>@Html.Raw(EmpresaResource.EtiquetaRUC): (*)</label>
+                        @Html.TextBox("txtRuc", Model.Empresa.Ruc, new { id = "txtRuc", @type = "text", @class = "form-control", @maxlength = "25", @validable = "required ValidaRuc"})                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">                      
+                        <label class="checkbox-inline">@Html.CheckBox("chkIndicadorActividadAltoRiesgo", (Model.Empresa.IndicadorActividadAltoRiesgo.HasValue ? Model.Empresa.IndicadorActividadAltoRiesgo.Value : false), new { id = "chkIndicadorActividadAltoRiesgo", @value = Model.Empresa.IndicadorActividadAltoRiesgo.HasValue ? Model.Empresa.IndicadorActividadAltoRiesgo.Value : false })@Html.Raw(EmpresaResource.EtiquetaAltoRiesgo)</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                       <label>@Html.Raw(EmpresaResource.EtiquetaDirección)</label>
+                        @Html.TextBox("txtDireccion", Model.Empresa.Direccion, new { id = "txtDireccion", @type = "text", @class = "form-control", @maxlength = "5000"})
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>@Html.Raw(EmpresaResource.EtiquetaAbreviatura)</label>                                                        
+                        @Html.TextBox("txtAbreviatura", Model.Empresa.Abreviatura, new { id = "txtAbreviatura", @type = "text", @class = "form-control", @maxlength = "50"})
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                       <label>@Html.Raw(EmpresaResource.EtiquetaTipoEmpresa)</label>
+                        @Html.DropDownListFor(model => model.Empresa.CodigoTipoEmpresa, Model.ListaCodigoTipoEmpresa, new { id = "slcTipoEmpresa",  @class = "form-control"})
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label>@Html.Raw(EmpresaResource.EtiquetaActividadEconomica)</label>                                                        
+                        @Html.TextBox("txtActividadEconomica", Model.Empresa.ActividadEconomica, new { id = "txtActividadEconomica", @type = "text", @class = "form-control", @maxlength = "200"})
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                       <label>@Html.Raw(EmpresaResource.EtiquetaNroTrabajadores)</label>
+                        @Html.TextBox("txtNumeroTrabajadores", Model.Empresa.NumeroTrabajadores, new { id = "txtNumeroTrabajadores", @type = "text", @class = "form-control", @maxlength = "5"})
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>@Html.Raw(EmpresaResource.EtiquetaNroTrabajadoresAfiliados)</label>                                                        
+                        @Html.TextBox("txtNumeroTrabajadoresAfiliados", Model.Empresa.NumeroTrabajadoresAfiliados, new { id = "txtNumeroTrabajadoresAfiliados", @type = "text", @class = "form-control", @maxlength = "5"})
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>@Html.Raw(EmpresaResource.EtiquetaNroTrabajadoresNoAfiliados)</label>                                                        
+                        @Html.TextBox("txtNumeroTrabajadoresNoAfiliados", Model.Empresa.NumeroTrabajadoresNoAfiliados, new { id = "txtNumeroTrabajadoresNoAfiliados", @type = "text", @class = "form-control", @maxlength = "5"})
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>@Html.Raw(EmpresaResource.EtiquetaNombreAseguradora)</label>
+                    @Html.TextBox("txtNombreAseguradora", Model.Empresa.NombreAseguradora, new { id = "txtNombreAseguradora", @type = "text", @class = "form-control", @maxlength = "200"})
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <label style="margin-top: 7px;">@Html.Raw(EmpresaResource.EtiquetaDuenoContrato)</label>
+                <div>
+                    <div class="input-group">
+                        @Html.Hidden("hdnCodigoDuenioContrato", Model.Empresa.CodigoDuenioContrato, new { ïd = "hdnCodigoDuenioContrato"})
+                        @Html.TextBox("txtCodigoDuenioContrato", Model.Empresa.NombreDuenioContrato, new { id = "txtCodigoDuenioContrato", @class = "form-control", @disabled = "disabled"})
+                        <div class="input-group-addon">
+                            <button class="btn-form" id="btnBuscarDuenioContrato" type="button">....</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.Validacion.ValidaRazonSocial = '@(Html.Raw(EmpresaResource.EtiquetaRazonSocial))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.Validacion.ValidaRuc = '@(Html.Raw(EmpresaResource.EtiquetaRUC))';
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Models.FormularioEmpresa = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

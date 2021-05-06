@@ -1,0 +1,2064 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pe.ElectroPeru.SGI.Aplicacion.TransferObject</name>
+    </assembly>
+    <members>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Base.Filtro">
+            <summary>
+            Base para los DTOS filtros
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Base.Filtro.NumeroPagina">
+            <summary>
+            Pagina solicitada
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Base.Filtro.RegistrosPagina">
+            <summary>
+            Registros por Pagina
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Base.Filtro.ColumnaOrden">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Base.Filtro.TipoOrden">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.BaseRequest">
+            <summary>
+            Representa el objeto request de Proveedor
+            </summary>
+            <remarks>
+            Creación :      GMD 20150602 <br />
+            Modificación :               <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.BaseRequest.#ctor">
+            <summary>
+            Constructor de la clase
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.BaseRequest.RegistroCascada">
+            <summary>
+            Código estado record
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.BaseRequest.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.BaseRequest.Buffer">
+            <summary>
+            Buffer
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.BaseRequest.EstadoRegistroBit">
+            <summary>
+            Estado de Registro Bit
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.BaseRequest.UsuarioCreacion">
+            <summary>
+            UsuarioCreación
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.BaseRequest.Accion">
+            <summary>
+            Accion
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.ProveedorRequest">
+            <summary>
+            Representa el objeto request de Proveedor
+            </summary>
+            <remarks>
+            Creación :      GMD 20150602 <br />
+            Modificación :               <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.ProveedorRequest.CodigoProveedor">
+            <summary>
+            Código de Proveedor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.ProveedorRequest.CodigoIdentificacion">
+            <summary>
+            Código de Identificación
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.ProveedorRequest.Nombre">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.ProveedorRequest.NombreComercial">
+            <summary>
+            Nombre Comercial
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.ProveedorRequest.TipoDocumento">
+            <summary>
+            Tipo de Documento
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.ProveedorRequest.NumeroDocumento">
+            <summary>
+            Número de Documento
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Base.ProveedorRequest.RucNombreProveedor">
+            <summary>
+            Número Ruc o Nombre del Proveedor
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.AdjuntosRequest">
+            <summary>
+            Request de Correo
+            </summary>
+            <remarks>
+            Creación:   GMD 25082015 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.AdjuntosRequest.NombreArchivo">
+            <summary>
+            NombreArchivo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.AdjuntosRequest.Archivo">
+            <summary>
+            Archivo
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.DireccionesRequest">
+            <summary>
+            Request de Correo
+            </summary>
+            <remarks>
+            Creación:   GMD 25082015 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.DireccionesRequest.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.DireccionesRequest.NombreCompleto">
+            <summary>
+            Para
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.EmailRequest">
+            <summary>
+            Request de Correo
+            </summary>
+            <remarks>
+            Creación:   GMD 25082015 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.EmailRequest.#ctor">
+            <summary>
+            EmailRequest
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.EmailRequest.Para">
+            <summary>
+            Para
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.EmailRequest.ConCopia">
+            <summary>
+            ConCopia
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.EmailRequest.Asunto">
+            <summary>
+            Asunto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.EmailRequest.Mensaje">
+            <summary>
+            Mensaje
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Correo.EmailRequest.Adjuntos">
+            <summary>
+            Adjuntos
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AreaRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AreaRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoEmpresaRequest.CodigoModeloConceptual">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoEmpresaRequest.NombreObjetivoEstrategicoEmpresa">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoEmpresaRequest.DescripcionObjetivoEstrategicoEmpresa">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoEmpresaRequest.DescripcionModeloConceptual">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoEmpresaRequest.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoEmpresaRequest.CodigoIdioma">
+            <summary>
+            Codigo Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoEmpresaRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest">
+            <summary>
+            Representa el objeto Request de la bandeja de Observacion Planeada
+            </summary>
+            <remarks>
+            Creación: 	    GMD 28112017 <br />
+            Modificación: 	             <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.Nombre">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.NombreSiglaVariable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.DescripcionVariable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.NombreTipoVariable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.FechaInicioVigencia">
+            <summary>
+            Fecha de Ejecución
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.FechaInicioVigenciaString">
+            <summary>
+            Fecha de ejecución en cadena de texto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.FechaFinVigencia">
+            <summary>
+            Fecha de Ejecución
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.FechaFinVigenciaString">
+            <summary>
+            Fecha de ejecución en cadena de texto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.CodigoArea">
+            <summary>
+            Tipo Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.NombreArea">
+            <summary>
+            Tipo Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.NombreCompletoResponsable">
+            <summary>
+            Tipo Gestión
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.CodigoPeriodicidad">
+            <summary>
+            Area
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.DescripcionPeriodicidad">
+            <summary>
+            Area
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.CodigoIdioma">
+            <summary>
+            Codigo Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaVariableRequest.NombreVariable">
+            <summary>
+            Area
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoFonafeRequest.CodigoObjetivoEstrategicoFonafe">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoFonafeRequest.NombreObjetivoEstrategicoFonafe">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoFonafeRequest.DescripcionObjetivoEstrategicoFonafe">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoFonafeRequest.DescripcionObjetivoEstrategicoEmpresa">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoFonafeRequest.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoFonafeRequest.CodigoIdioma">
+            <summary>
+            Codigo Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoFonafeRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaPerspectivaRequest.CodigoPerspectiva">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaPerspectivaRequest.NombrePerspectiva">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaPerspectivaRequest.DescripcionPerspectiva">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaPerspectivaRequest.DescripcionObjetivoEspecificoFonafe">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaPerspectivaRequest.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaPerspectivaRequest.CodigoIdioma">
+            <summary>
+            Codigo Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaPerspectivaRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.DescripcionIndicador">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.CodigoResponsable">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.CodigoArea">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.FechaInicioVigencia">
+            <summary>
+            Fecha de Ejecución
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.FechaInicioVigenciaString">
+            <summary>
+            Fecha de ejecución en cadena de texto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.FechaFinVigencia">
+            <summary>
+            Fecha de Ejecución
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.FechaFinVigenciaString">
+            <summary>
+            Fecha de ejecución en cadena de texto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.NombreArea">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.NombreFormula">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.CodigoIdioma">
+            <summary>
+            Codigo Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaIndicadorRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AccionEstrategicaInstitucionalDetalleRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AccionEstrategicaInstitucionalDetalleRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AccionEstrategicaInstitucionalRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AccionEstrategicaInstitucionalRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaInstitucionalRequest.NombreAccionEstrategicaInstitucional">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaInstitucionalRequest.DescripcionAccionEstrategicaInstitucional">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaInstitucionalRequest.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaInstitucionalRequest.CodigoIdioma">
+            <summary>
+            Codigo Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaInstitucionalRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AccionEstrategicaSectorialDetalleRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AccionEstrategicaSectorialDetalleRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AccionEstrategicaSectorialRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.AccionEstrategicaSectorialRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaSectorialRequest.NombreAccionEstrategicaSectorial">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaSectorialRequest.DescripcionAccionEstrategicaSectorial">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaSectorialRequest.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaSectorialRequest.CodigoIdioma">
+            <summary>
+            Codigo Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaAccionEstrategicaSectorialRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoSectorialRequest.NombreObjetivoEstrategicoSectorial">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoSectorialRequest.DescripcionObjetivoEstrategicoSectorial">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoSectorialRequest.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoSectorialRequest.CodigoIdioma">
+            <summary>
+            Codigo Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.BandejaObjetivoEstrategicoSectorialRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableValorRequest.CodigoVariableValor">
+            <summary>
+            Codigo Variable Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableValorRequest.CodigoVariable">
+            <summary>
+            Codigo Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableValorRequest.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableValorRequest.Mes">
+            <summary>
+            Mes
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableValorRequest.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableValorRequest.DescripcionSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableValorRequest.Valor">
+            <summary>
+            Valor Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableValorRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorMetaRequest.CodigoIndicadorMeta">
+            <summary>
+            Codigo Indicador Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorMetaRequest.CodigoIndicador">
+            <summary>
+            Codigo Indicador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorMetaRequest.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorMetaRequest.Mes">
+            <summary>
+            Mes
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorMetaRequest.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorMetaRequest.DescripcionSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorMetaRequest.ValorMeta">
+            <summary>
+            Valor Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorMetaRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.FormulaDetalleRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.FormulaDetalleRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.FormulaRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.FormulaRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoEmpresaAccionEstrategicaInstitucionalRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoEmpresaAccionEstrategicaInstitucionalRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoSectorialDetalleRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoSectorialDetalleRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoSectorialRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoSectorialRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorAmbitoRequest.CodigoIndicadorAmbito">
+            <summary>
+            Codigo Inspeccion Gestion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorAmbitoRequest.CodigoIndicador">
+            <summary>
+            Codigo Inspeccion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorAmbitoRequest.CodigoAmbito">
+            <summary>
+            Tipo Gestion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorAmbitoRequest.AmbitoOtros">
+            <summary>
+            Tipo Gestion Otros
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.PerspectivaDetalleRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.PerspectivaDetalleRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.PerspectivaRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.PerspectivaRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoFonafeDetalleRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoFonafeDetalleRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoFonafeRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoFonafeRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorRequest.FechaInicioVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorRequest.FechaInicioVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorRequest.FechaFinVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorRequest.FechaFinVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.IndicadorRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoEmpresaDetalleRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoEmpresaDetalleRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoEmpresaRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ObjetivoEstrategicoEmpresaRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ResponsableRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.ResponsableRequest.EstadoRegistroDescripcion">
+            <summary>
+            Estado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableDetalleRequest.FechaInicioVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableDetalleRequest.FechaInicioVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableDetalleRequest.FechaFinVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableDetalleRequest.FechaFinVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableDetalleRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Mantenimiento.VariableRequest.CodigoIdioma">
+            <summary>
+            Código del idioma
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest">
+            <summary>
+            Representa el objeto de filtro a aplicar a la busqueda de parametro
+            </summary>
+            <remarks>
+            Creación:   GMD 20150327 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.#ctor">
+            <summary>
+            Constructor de la clase
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.CodigoParametro">
+            <summary>
+            Código del Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.IndicadorEmpresa">
+            <summary>
+            Indicador Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.CodigoIdentificador">
+            <summary>
+            Código Identificador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.CodigoEmpresa">
+            <summary>
+            Código de Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.CodigoSistema">
+            <summary>
+            Código de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.TipoParametro">
+            <summary>
+            Tipo de Parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.Nombre">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.Descripcion">
+            <summary>
+            Descripción
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.IndicadorPermiteAgregar">
+            <summary>
+            Indicador Permite Agregar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.IndicadorPermiteModificar">
+            <summary>
+            Indicador Permite Modificar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.IndicadorPermiteEliminar">
+            <summary>
+            Indicador Permite Eliminar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroRequest.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest">
+            <summary>
+            Representa el objeto de filtro a aplicar a la busqueda de parametro sección
+            </summary>
+            <remarks>
+            Creación:   GMD 20150327 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.#ctor">
+            <summary>
+            Constructor Parametro Secccion Request
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.CodigoParametro">
+            <summary>
+            Código del Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.CodigoSeccion">
+            <summary>
+            Código de Sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.Nombre">
+            <summary>
+            Nombre de Sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.CodigoTipoDato">
+            <summary>
+            Código de Tipo de Dato
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.IndicadorPermiteModificar">
+            <summary>
+            Indicador de Permite Modificar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.IndicadorObligatorio">
+            <summary>
+            Indicador de sección obligatorio
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.IndicadorSistema">
+            <summary>
+            Indicador de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.CodigoParametroRelacionado">
+            <summary>
+            Código de Parametro Relacionado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.CodigoSeccionRelacionado">
+            <summary>
+            Código de Sección Relacionada
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.CodigoSeccionRelacionadoMostrar">
+            <summary>
+            Código de Sección Relacionada a Mostrar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroSeccionRequest.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest">
+            <summary>
+            Representa el objeto de filtro a aplicar a la busqueda de parametro valor
+            </summary>
+            <remarks>
+            Creación:   GMD 20150327 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.#ctor">
+            <summary>
+            Constructor de la Clase
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoParametroString">
+            <summary>
+            Código del Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoParametro">
+            <summary>
+            Código del Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoIdentificador">
+            <summary>
+            Código Identificador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoIdentificadorEmpresa">
+            <summary>
+            Código de Identificador de Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoIdentificadorSistema">
+            <summary>
+            Código de Identificador de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoIdioma">
+            <summary>
+            Código de Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoEmpresa">
+            <summary>
+            Código de Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoSistema">
+            <summary>
+            Código de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.IndicadorEmpresa">
+            <summary>
+            Identificador Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.TipoParametro">
+            <summary>
+            Tipo de Parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoSeccion">
+            <summary>
+            Código de Sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.CodigoValor">
+            <summary>
+            Código del Valor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.Valor">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.RegistroObjeto">
+            <summary>
+            Registro de Párametro en tipo Object
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.RegistroCadena">
+            <summary>
+            Registro de Párametro en tipo String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.Usuario">
+            <summary>
+            Usuario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.ParametroValorRequest.Terminal">
+            <summary>
+            Terminal
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest">
+            <summary>
+            Representa el objeto request de Plantilla Notificacion
+            </summary>
+            <remarks>
+            Creación:   GMD 20150401 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="M:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.CodigoPlantillaNotificacion">
+            <summary>
+            Código Plantilla Notificacion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.CodigoSistema">
+            <summary>
+            Código de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.CodigoTipoNotificacion">
+            <summary>
+            Código Tipo de Notificación
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.Asunto">
+            <summary>
+            Asunto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.IndicadorActiva">
+            <summary>
+            Indicador Activa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.IndicadorActivaFiltro">
+            <summary>
+            Indicador de Plantilla Activa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.Contenido">
+            <summary>
+            Contenido
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.CodigoTipoDestinatario">
+            <summary>
+            Código del Tipo de Destinatario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.Destinatario">
+            <summary>
+            Destinatario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.DestinatarioCopia">
+            <summary>
+            Destinatario en Copia
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.PlantillaNotificacionRequest.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor">
+            <summary>
+            Representa el objeto de filtro a aplicar a la busqueda de parametro valor
+            </summary>
+            <remarks>
+            Creación:   GMD 20150327 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor.CodigoParametro">
+            <summary>
+            Código del Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor.CodigoIdentificador">
+            <summary>
+            Código Identificador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor.CodigoSistema">
+            <summary>
+            Código de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor.IndicadorGlobal">
+            <summary>
+            Identificador Global
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor.RegistroObjeto">
+            <summary>
+            Registro de Párametro en tipo Object
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor.RegistroCadena">
+            <summary>
+            Registro de Párametro en tipo String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor.Usuario">
+            <summary>
+            Usuario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Politicas.RegistroParametroValor.Terminal">
+            <summary>
+            Terminal
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest">
+            <summary>
+            Request de Vista de Reporte
+            </summary>
+            <remarks>
+            Creación:       GMD 05042017 <br />
+            Modificación:                <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.RutaReporte">
+            <summary>
+            Ruta del reporte
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.NombreReporte">
+            <summary>
+            Ruta del reporte
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.NombreExportar">
+            <summary>
+            NombreExportar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.FormatoReporte">
+            <summary>
+            FormatoReporte
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.NombreTrabajador">
+            <summary>
+            Nombre del Trabajador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.CodigoTipoReporte">
+            <summary>
+            Tipo de reporte
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.Parametros">
+            <summary>
+            Listado de parametros
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.CorreoElectronico">
+            <summary>
+            correo electronico
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.IdOrigen">
+            <summary>
+            id de origen
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.NombreCompletoColaborador">
+            <summary>
+            nombre completo del colaborador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.TotalAcciones">
+            <summary>
+            Total de acciones
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.CodigoColaboradorResponsable">
+            <summary>
+            Codigo del colaborador responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.TipoResponsablePendiente">
+            <summary>
+            Identificador del tipo de responsable (pendiente, vencida)
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ReporteViewRequest.Para">
+            <summary>
+            Para
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ParametrosReporting.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ParametrosReporting.Values">
+            <summary>
+            Values
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.ParametrosReporting.Visible">
+            <summary>
+            Visible
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.DireccionesEmailRequest.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Request.Tareas.DireccionesEmailRequest.NombreCompleto">
+            <summary>
+            Para
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Base.BaseResponse.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Base.ProveedorResponse">
+            <summary>
+            Representa el objeto response de Proveedor
+            </summary>
+            <remarks>
+            Creación :      GMD 20150602 <br />
+            Modificación :               <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Base.ProveedorResponse.CodigoProveedor">
+            <summary>
+            Código de Proveedor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Base.ProveedorResponse.CodigoIdentificacion">
+            <summary>
+            Código de Identificación
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Base.ProveedorResponse.Nombre">
+            <summary>
+            Nombre del Proveedor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Base.ProveedorResponse.NombreComercial">
+            <summary>
+            Nombre Comercial
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Base.ProveedorResponse.TipoDocumento">
+            <summary>
+            Tipo de Documento
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Base.ProveedorResponse.NumeroDocumento">
+            <summary>
+            Número de Documento
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.CodigoVariable">
+            <summary>
+            Codigo Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.Nombre">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.NombreSiglaVariable">
+            <summary>
+            Nombre Sigla Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.DescripcionVariable">
+            <summary>
+            Descripción Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.NombreTipoVariable">
+            <summary>
+            Nombre Tipo Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.FechaInicioVigencia">
+            <summary>
+            Fecha de Inicio de Vigencia
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.FechaInicioVigenciaString">
+            <summary>
+            Fecha de Inicio de Vigencia en String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.FechaFinVigencia">
+            <summary>
+            Fecha de Fin de Vigencia
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.FechaFinVigenciaString">
+            <summary>
+            Fecha de Fin de Vigencia en String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.CodigoArea">
+            <summary>
+            Código de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.NombreArea">
+            <summary>
+            Nombre de Área
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.NombreCompletoResponsable">
+            <summary>
+            Nombre Completo de Responsable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.CodigoPeriodicidad">
+            <summary>
+            Código de Periodicidad
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.DescripcionPeriodicidad">
+            <summary>
+            Descripción de Periodicidad
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaVariableResponse.NombreVariable">
+            <summary>
+            Nombre de Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoEmpresaResponse.NombreObjetivoEstrategicoEmpresa">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoEmpresaResponse.DescripcionObjetivoEstrategicoEmpresa">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoEmpresaResponse.DescripcionModeloConceptual">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoEmpresaResponse.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoFonafeResponse.NombreObjetivoEstrategicoFonafe">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoFonafeResponse.DescripcionObjetivoEstrategicoFonafe">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoFonafeResponse.DescripcionObjetivoEstrategicoEmpresa">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoFonafeResponse.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaPerspectivaResponse.NombrePerspectiva">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaPerspectivaResponse.DescripcionPerspectiva">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaPerspectivaResponse.DescripcionObjetivoEspecificoFonafe">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaPerspectivaResponse.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaIndicadorResponse.DescripcionIndicador">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaIndicadorResponse.CodigoResponsable">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaIndicadorResponse.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaIndicadorResponse.FechaInicioVigenciaString">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaIndicadorResponse.FechaFinVigenciaString">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaIndicadorResponse.NombreArea">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaIndicadorResponse.NombreFormula">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaAccionEstrategicaInstitucionalResponse.NombreAccionEstrategicaInstitucional">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaAccionEstrategicaInstitucionalResponse.DescripcionAccionEstrategicaInstitucional">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaAccionEstrategicaInstitucionalResponse.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaAccionEstrategicaSectorialResponse.NombreAccionEstrategicaSectorial">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaAccionEstrategicaSectorialResponse.DescripcionAccionEstrategicaSectorial">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaAccionEstrategicaSectorialResponse.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoSectorialResponse.NombreObjetivoEstrategicoSectorial">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoSectorialResponse.DescripcionObjetivoEstrategicoSectorial">
+            <summary>
+            Codigo Proyecto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.BandejaObjetivoEstrategicoSectorialResponse.NombreCompletoResponsable">
+            <summary>
+            Número de Registro OPT
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableValorResponse.CodigoVariableValor">
+            <summary>
+            Codigo Variable Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableValorResponse.CodigoVariable">
+            <summary>
+            Codigo Variable
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableValorResponse.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableValorResponse.Mes">
+            <summary>
+            Mes
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableValorResponse.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableValorResponse.DescripcionSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableValorResponse.Valor">
+            <summary>
+            Valor Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorMetaResponse.CodigoIndicadorMeta">
+            <summary>
+            Codigo Indicador Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorMetaResponse.CodigoIndicador">
+            <summary>
+            Codigo Indicador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorMetaResponse.Anio">
+            <summary>
+            Año
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorMetaResponse.Mes">
+            <summary>
+            Mes
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorMetaResponse.CodigoSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorMetaResponse.DescripcionSubTipoPeriodicidad">
+            <summary>
+            Sub Tipo
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorMetaResponse.ValorMeta">
+            <summary>
+            Valor Meta
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorAmbitoResponse.CodigoIndicadorAmbito">
+            <summary>
+            Codigo Indicador Ambito
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorAmbitoResponse.CodigoIndicador">
+            <summary>
+            Codigo Indicador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorAmbitoResponse.CodigoAmbito">
+            <summary>
+            Tipo Ambito
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorAmbitoResponse.AmbitoOtros">
+            <summary>
+            Tipo Ambito Otros
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorResponse.FechaInicioVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorResponse.FechaInicioVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorResponse.FechaFinVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.IndicadorResponse.FechaFinVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableDetalleResponse.FechaInicioVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableDetalleResponse.FechaInicioVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableDetalleResponse.FechaFinVigencia">
+            <summary>
+            Fecha Ejecucion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento.VariableDetalleResponse.FechaFinVigenciaString">
+            <summary>
+            Fecha Ejecucion String
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.CodigoValorResponse">
+            <summary>
+            Entidad que retorna el código y valor de un parámetro.
+            </summary>
+            <remarks>
+            Creación:   GMD 14042015 <br />
+            Modificación:            <br />
+            </remarks>
+            
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.CodigoValorResponse.Codigo">
+            <summary>
+            Código de parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.CodigoValorResponse.Valor">
+            <summary>
+            Valor de parámetro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse">
+            <summary>
+            Datos generales de parametro
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.CodigoParametro">
+            <summary>
+            Código de parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.CodigoIdentificador">
+            <summary>
+            Código Identificador 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.IndicadorEmpresa">
+            <summary>
+            Identificador Empresa 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.DescripcionIndicadorEmpresa">
+            <summary>
+            Descripción de Identificador de Empresa 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.CodigoEmpresa">
+            <summary>
+            Código Empresa 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.CodigoEmpresaIdentificador">
+            <summary>
+            Código Identificador de Empresa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.NombreEmpresa">
+            <summary>
+            Nombre de Empresa 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.CodigoSistema">
+            <summary>
+            Código Sistema 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.CodigoSistemaIdentificador">
+            <summary>
+            Código Identificador del Sistema 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.NombreSistema">
+            <summary>
+            Nombre del Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.TipoParametro">
+            <summary>
+            Tipo de Parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.DescripcionTipoParametro">
+            <summary>
+            Descripción de Tipo de Parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.Nombre">
+            <summary>
+            Nombre del Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.Descripcion">
+            <summary>
+            Descripción del Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.IndicadorPermiteAgregar">
+            <summary>
+            Indicador Permite Agregar 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.IndicadorPermiteModificar">
+            <summary>
+            Indicador Permite Modificar 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.IndicadorPermiteEliminar">
+            <summary>
+            Indicador Permite Eliminar 
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroResponse.EstadoRegistro">
+            <summary>
+            Estadro de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse">
+            <summary>
+            Datos generales de parametro sección
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.CodigoParametro">
+            <summary>
+            Código de Parametro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.CodigoSeccion">
+            <summary>
+            Código de Sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.Nombre">
+            <summary>
+            Nombre de Sección
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.IndicadorSistema">
+            <summary>
+            Indicador de sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.CodigoTipoDato">
+            <summary>
+            Código de Tipo de Dato
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.DescripcionTipoDato">
+            <summary>
+            Descripción de Tipo de Dato
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.IndicadorPermiteModificar">
+            <summary>
+            Indicador de Permite Modificar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.IndicadorObligatorio">
+            <summary>
+            Indicador de Sección Obligatorio
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.CodigoParametroRelacionado">
+            <summary>
+            Código de Parametro Relacionado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.NombreParametroRelacionado">
+            <summary>
+            Nombre de Parámetro Relacionado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.CodigoSeccionRelacionado">
+            <summary>
+            Código de Sección Relacionada
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.NombreSeccionRelacionado">
+            <summary>
+            Nombre de Sección Relacionada
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.CodigoSeccionRelacionadoMostrar">
+            <summary>
+            Código de Sección Relacionada a Mostrar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.NombreSeccionRelacionadoMostrar">
+            <summary>
+            Nombre de Sección Relacionada a Mostrar
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroSeccionResponse.EstadoRegistro">
+            <summary>
+            Estadro de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse">
+            <summary>
+            Datos generales de parametro valor
+            </summary>
+            <remarks>
+            Creación:   GMD 22122014 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.CodigoParametro">
+            <summary>
+            Código de Parámetro
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.CodigoIdentificador">
+            <summary>
+            Código Identificador
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.CodigoValor">
+            <summary>
+            Código de Valor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.CodigoValorString">
+            <summary>
+            Código de Valor en cadena de texto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.Valor">
+            <summary>
+            Valor
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.CodigoIdioma">
+            <summary>
+            Código de Idioma
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.PrimerValorAdicional">
+            <summary>
+            Primer Valor Adicional
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.SegundoValorAdicional">
+            <summary>
+            Segundo Valor Adicional
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.RegistroObjeto">
+            <summary>
+            Registro de Párametro en tipo Object
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.RegistroCadena">
+            <summary>
+            Registro de Párametro en tipo String
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ParametroValorResponse.EstadoRegistro">
+            <summary>
+            Estado de Registro
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse">
+            <summary>
+            Representa el objeto response de Plantilla Notificacion
+            </summary>
+            <remarks>
+            Creación:   GMD 20150401 <br />
+            Modificación:            <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.CodigoPlantillaNotificacion">
+            <summary>
+            Código Plantilla Notificacion
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.CodigoSistema">
+            <summary>
+            Código de Sistema
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.CodigoTipoNotificacion">
+            <summary>
+            Código Tipo de Notificación
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.Asunto">
+            <summary>
+            Asunto
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.IndicadorActiva">
+            <summary>
+            Indicador Activa
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.Contenido">
+            <summary>
+            Contenido
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.ContenidoReCortado">
+            <summary>
+            Contenido Recortado
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.CodigoTipoDestinatario">
+            <summary>
+            Codigo Tipo Destinatario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.Destinatario">
+            <summary>
+            Destinatario
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.PlantillaNotificacionResponse.DestinatarioCopia">
+            <summary>
+            Destinatario Copia
+            </summary>
+        </member>
+        <member name="T:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ResultResponse">
+            <summary>
+            Representa un objeto response de Resultado
+            </summary>
+            <remarks>
+            Creación :  GMD 20150401 <br />
+            Modificación :           <br />
+            </remarks>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.ResultResponse.IndicadorExito">
+            <summary>
+            Indicador de Exito
+            </summary>
+        </member>
+        <member name="P:Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Politicas.TemasResponse.Descripcion">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

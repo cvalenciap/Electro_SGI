@@ -1,0 +1,43 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.ConfiguracionModel
+
+<div class="modal-body">
+    <form id="frmAgregarEquipoModal" onsubmit="return false;">
+        <div class="form-group">  
+            <div class="row">
+                <div class="col-sm-4 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ConfiguracionResource.EtiquetaFamilia): (*)</label>
+                </div>
+                <div class="col-sm-8">                                 
+                  @Html.DropDownListFor(model => model.Equipo.CodigoFamiliaEquipo, Model.ListaFamiliaEquipos, new { id = "slcFamilia", @class = "form-control", @validable = "required Validar", })                   
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ConfiguracionResource.EtiquetaModelo): (*)</label>
+                </div>
+                <div class="col-sm-8">
+                    @Html.TextBox("txtCodigoDescripcionEquipo", Model.Equipo.CodigoDescripcionEquipo, new { id = "txtCodigoDescripcionEquipo", @class = "form-control", @maxlength="20", @validable = "required Validar", })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ConfiguracionResource.EtiquetaMarca): (*)</label>
+                </div>
+                <div class="col-sm-8">
+                    @Html.TextBox("txtDescripcionEquipo", Model.Equipo.DescripcionEquipo, new { id = "txtDescripcionEquipo", @class = "form-control",@maxlength="60",  @validable = "required Validar", })
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarEquipo" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarEquipo">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>

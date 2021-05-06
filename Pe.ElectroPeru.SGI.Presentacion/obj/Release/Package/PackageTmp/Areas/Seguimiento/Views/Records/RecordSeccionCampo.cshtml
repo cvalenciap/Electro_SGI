@@ -1,0 +1,772 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Mantenimiento
+@using Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Seguimiento
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Records.RecordsModel
+    @{
+        System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+        serializer.MaxJsonLength = Int32.MaxValue;
+}
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.Models.RecordSeccionCampo = @(Html.Raw(serializer.Serialize(Model)))
+</script>
+<div class="content-body">
+    <div class="left-tabs">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            @if (Model.ListaSeccionIzquierda.Count > 0)
+            {
+                int contadorSeccion = 1;
+                foreach (SeccionResponse seccionIzquierdaResponse in Model.ListaSeccionIzquierda)
+                {
+                    if (contadorSeccion == 1)
+                    {
+                        <li role="presentation" class="active">
+                            <a href='#@seccionIzquierdaResponse.CodigoSeccion' class="top-tab" aria-controls='@seccionIzquierdaResponse.CodigoSeccion' role="tab" data-toggle="tab">@seccionIzquierdaResponse.NombreSeccionIdioma</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li role="presentation">
+                            <a href='#@seccionIzquierdaResponse.CodigoSeccion' class="top-tab" aria-controls='@seccionIzquierdaResponse.CodigoSeccion' role="tab" data-toggle="tab">@seccionIzquierdaResponse.NombreSeccionIdioma</a>
+                        </li>
+                    }
+
+                    contadorSeccion++;
+                }
+            }
+        </ul>
+        <!-- Cierra Nav tabs -->
+    </div>
+
+
+    <div class="right-tabs">
+        <!-- Tab panes -->
+        <div class="tab-content">
+            @if (Model.ListaSeccionIzquierda.Count > 0)
+            {
+                int contadorSeccion = 1;
+                foreach (SeccionResponse seccionIzquierdaResponse in Model.ListaSeccionIzquierda)
+                {
+
+                    if (Model.ListaSeccionCuerpo.Count > 0)
+                    {
+                        List<SeccionResponse> listaSeccionCuerpoPorSeccionIzquierda = Model.ListaSeccionCuerpo.Where(x => x.CodigoSeccionPadre == seccionIzquierdaResponse.CodigoSeccion).ToList();
+
+                        if (listaSeccionCuerpoPorSeccionIzquierda.Count > 0)
+                        {
+                            if (contadorSeccion == 1)
+                            {
+                                <!--INICIO DE TAB PANEL-->
+                                @Html.Raw("<div role='tabpanel' class='tab-pane fade in active' id='" + @seccionIzquierdaResponse.CodigoSeccion + "'>")
+                            }
+                            else
+                            {
+                                <!--INICIO DE TAB PANEL-->
+                                @Html.Raw("<div role='tabpanel' class='tab-pane fade in' id='" + @seccionIzquierdaResponse.CodigoSeccion + "'>")
+                            }
+
+                            //Crear Formulario por cada Sección Izquierda
+                            @Html.Raw("<form onsubmit='return false;' id='frmRecordSeccionCampo" + seccionIzquierdaResponse.CodigoSeccion + "' codigoSeccionIzquierda='" + seccionIzquierdaResponse.CodigoSeccion + "' indicadorSeccionPrincipalGuardar='" + seccionIzquierdaResponse.IndicadorSeccionPrincipalGuardar + "' nombreSeccionIzquierda='" + seccionIzquierdaResponse.NombreSeccionIdioma + "' codigoTipoRecord='" + seccionIzquierdaResponse.CodigoTipoRecord + "'>")
+                            
+                            
+                            
+                            foreach (SeccionResponse seccionCuerpoResponse in listaSeccionCuerpoPorSeccionIzquierda)
+                            {
+                                //INICIO - PINTANDO SECCIONES FIJAS
+                                if (!@seccionCuerpoResponse.IndicadorVistaFija)
+                                {
+                                    if (@seccionCuerpoResponse.NombreVistaFija == DatosConstantes.TipoVista.VistaApendice)
+                                    {
+                                        <div role="tabpanel" class="tab-pane fade in" id="appendix">
+                                            <div class="title-interna">
+                                                <span>@seccionCuerpoResponse.NombreSeccionIdioma</span>
+                                                <div class="acciones-form btn-group btn-group-table">
+                                                    <button id="btnAgregarRecordAnexoAppendix" type="button" class="btn-table text-line one" data-toggle="modal" data-target="#addFile">
+                                                       @Html.Raw(RecordsResource.EtiquetaAgregarArchivo)
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-grilla">
+                                                <div id="divGrdResultadoRecordAppendix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else if (@seccionCuerpoResponse.NombreVistaFija == DatosConstantes.TipoVista.VistaFoto)
+                                    {
+                                        <div role="tabpanel" class="tab-pane fade in" id="photos">
+                                            <div class="title-interna">
+                                                <span>@seccionCuerpoResponse.NombreSeccionIdioma</span>
+                                                <div class="acciones-form btn-group btn-group-table">
+                                                    <button id="btnAgregarRecordAnexoFoto" type="button" class="btn-table text-line one" data-toggle="modal" data-target="#addPhoto">
+                                                       @Html.Raw(RecordsResource.EtiquetaBotonAgregarFoto)
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-grilla">
+                                                <div id="divGrdResultRecordFoto">
+                                                </div>
+                                            </div>
+                                        </div>                               
+                                    }
+                                    else if (@seccionCuerpoResponse.NombreVistaFija == DatosConstantes.TipoVista.VistaAccion)
+                                    {
+                                        <div role="tabpanel" class="tab-pane fade in" id="actions">
+                                            <div class="title-interna">
+                                                <span>@seccionCuerpoResponse.NombreSeccionIdioma</span>
+                                            <div class="acciones-form btn-group btn-group-table">
+                                                <button id="btnAgregarRecordAccion" type="button" class="btn-table text-line one" data-toggle="modal" data-target="#addPhoto">
+                                                    Add Accion
+                                                </button>
+                                            </div>
+                                            </div>
+                                            <div class="table-grilla">
+                                                <div id="divGrdResultadoRecordAccion">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="title-interna">
+                                            <span>@seccionCuerpoResponse.NombreSeccionIdioma</span>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="title-interna">
+                                        <span>@seccionCuerpoResponse.NombreSeccionIdioma</span>
+                                    </div>
+                                }
+
+                                //FIN - PINTANDO SECCIONES FIJAS
+
+                                List<SeccionResponse> listaSeccionTabPorSeccionCuerpo = Model.ListaSeccionTab.Where(x => x.CodigoSeccionPadre == seccionCuerpoResponse.CodigoSeccion).ToList();
+
+                                //Si hay Tab - Pintar por cada Cuerpo
+                                if (listaSeccionTabPorSeccionCuerpo.Count > 0)
+                                {
+                                    int contadorSeccionTab = 1;
+                                    
+                                    <div class="tab-interno item03">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            @foreach (SeccionResponse seccionTabResponse in listaSeccionTabPorSeccionCuerpo)
+                                            {
+                                                if (contadorSeccionTab == 1)
+                                                {
+                                                    <li role="presentation" class="active">
+                                                        <a href='#@seccionTabResponse.CodigoSeccion' aria-controls='@seccionTabResponse.CodigoSeccion' role="tab" data-toggle="tab" aria-expanded="true">@seccionTabResponse.NombreSeccionIdioma</a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li role="presentation">
+                                                        <a href='#@seccionTabResponse.CodigoSeccion' aria-controls='@seccionTabResponse.CodigoSeccion' role="tab" data-toggle="tab" aria-expanded="true">@seccionTabResponse.NombreSeccionIdioma</a>
+                                                    </li>
+                                                }
+
+                                                contadorSeccionTab++;
+                                            }
+                                        </ul>
+
+                                        @{contadorSeccionTab = 1;}
+
+                                        @Html.Raw("<div class='tab-content'>")
+
+                                            @foreach (SeccionResponse seccionTabResponse in listaSeccionTabPorSeccionCuerpo)
+                                            {
+                                                if (contadorSeccionTab == 1)
+                                                {
+                                                    @Html.Raw("<div role='tabpanel' class='tab-pane fade in active' id='" + @seccionTabResponse.CodigoSeccion + "'>")
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw("<div role='tabpanel' class='tab-pane fade in' id='" + @seccionTabResponse.CodigoSeccion + "'>")
+                                                }
+
+                                                    <!--PINTAR SECCIÓN CONTENIDO POR CADA SECCIÓN TAB-->
+                                                List<SeccionResponse> listaSeccionContenidoPorSeccionTab = Model.ListaSeccionContenido.Where(x => x.CodigoSeccionPadre == seccionTabResponse.CodigoSeccion).ToList();
+
+                                                if (listaSeccionContenidoPorSeccionTab.Count > 0)
+                                                {
+                                                    foreach (SeccionResponse seccionContenidoResponse in listaSeccionContenidoPorSeccionTab)
+                                                    {
+                                                            <div class="title-interna">
+                                                                @seccionContenidoResponse.NombreSeccionIdioma
+                                                            </div>
+                                                            
+                                                        //INICIO DE PINTAR CAMPOS POR CADA CONTENIDO
+                                                        List<ConfiguracionCampoSeccionCuerpoContenidoResponse> listaConfiguracionCampoSeccionContenido = Model.ListaConfiguracionCampoSeccionCuerpoContenido.Where(x => x.CodigoSeccion == seccionContenidoResponse.CodigoSeccion).ToList();
+
+                                                        if (listaConfiguracionCampoSeccionContenido.Count > 0)
+                                                        {
+                                                            int cantidadFilas = listaConfiguracionCampoSeccionContenido.OrderByDescending(x => x.FilaCampo).Select(x => x.FilaCampo).First();
+
+                                                            for (int i = 1; i < cantidadFilas + 1; i++)
+                                                            {
+                                                                List<ConfiguracionCampoSeccionCuerpoContenidoResponse> listaCampoPorFila = listaConfiguracionCampoSeccionContenido.Where(x => x.FilaCampo == i).ToList();
+                                                    
+                                                                    @Html.Raw("<div class='row'>")
+                                                                foreach (ConfiguracionCampoSeccionCuerpoContenidoResponse campo in listaCampoPorFila)
+                                                                {
+                                                                    switch (listaCampoPorFila.Count)
+                                                                    {
+                                                                        case 1:
+                                                                            if (campo.CodigoTipoControl == DatosConstantes.TipoControl.TextArea)
+                                                                            {
+                                                                                @Html.Raw("<div class='col-sm-12'>")
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                @Html.Raw("<div class='col-sm-4'>")
+                                                                            }
+                                                                            break;
+                                                                        case 2:
+                                                                            @Html.Raw("<div class='col-sm-6'>")
+                                                                            break;
+                                                                        case 3:
+                                                                            @Html.Raw("<div class='col-sm-4'>")
+                                                                            break;
+                                                                        case 4:
+                                                                            @Html.Raw("<div class='col-sm-3'>")
+                                                                            break;
+                                                                    }
+                                                            
+                                                                    @Html.Raw("<div class='form-group'>")
+                                                                    string idControl = string.Empty;
+                                                                    switch (campo.CodigoTipoControl)
+                                                                    {
+                                                                        case DatosConstantes.TipoControl.TextBoxTexto:
+                                                                            idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                            if (campo.IndicadorCampoObligatorio)
+                                                                            {   
+                                                                                @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto })
+                                                                            }
+                                                                            break;
+                                                                        case DatosConstantes.TipoControl.TextBoxNumero:
+                                                                            idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                            if (campo.IndicadorCampoObligatorio)
+                                                                            {
+                                                                                @Html.TextBox(idControl, campo.ValorNumeroEntero, new { @id = idControl, @mask = "integer", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoNumero, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                @Html.TextBox(idControl, campo.ValorNumeroEntero, new { @id = idControl, @mask = "integer", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoNumero })
+                                                                            }
+                                                                            break;
+                                                                        case DatosConstantes.TipoControl.ComboBox:
+                                                                            List<SelectListItem> listaOpciones = new List<SelectListItem>();
+                                                                            List<SelectListItem> listaOpcionesSeleccion = new List<SelectListItem>();
+                                                                            listaOpciones = Model.ListaCombo.Where(x => x.Key == campo.CodigoSeccionCampo.ToString()).Select(x => x.Value).First();
+
+                                                                            foreach (var item in listaOpciones)
+                                                                            {
+                                                                                listaOpcionesSeleccion.Add(new SelectListItem()
+                                                                                {
+                                                                                    Value = item.Value,
+                                                                                    Text = item.Text,
+                                                                                    Selected = (item.Value == campo.ValorTexto)
+                                                                                });
+                                                                            }
+
+                                                                            idControl = string.Concat("slc", campo.CodigoSeccionCampo);
+                                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                            if (campo.IndicadorCampoObligatorio)
+                                                                            {
+                                                                                @Html.DropDownList(idControl, listaOpcionesSeleccion, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_"), @codigoTipoLlenado = campo.CodigoTipoLlenado, @codigoOrigen = campo.CodigoOrigen, @codigoTabla = campo.CodigoTabla, @descripcionTabla = campo.DescripcionTabla, @condicionTabla = campo.CondicionTabla })
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                @Html.DropDownList(idControl, listaOpcionesSeleccion, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control",@codigoTipoLlenado =  campo.CodigoTipoLlenado, @codigoOrigen = campo.CodigoOrigen, @codigoTabla = campo.CodigoTabla, @descripcionTabla = campo.DescripcionTabla, @condicionTabla = campo.CondicionTabla })
+                                                                            }
+                                                                            break;
+                                                                        case DatosConstantes.TipoControl.FileUpload:
+                                                                            idControl = string.Concat("myFile", campo.CodigoSeccionCampo);
+                                                                            string idControlBoton = string.Concat("btn", campo.CodigoSeccionCampo);
+                                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                            @Html.Raw("<input type='file' id='" + idControl + "' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "' class='form-control'><button fotoString='" + campo.ValorArchivoString + "' id='" + idControlBoton + "' @class='form-control'>Ver Foto</button>")
+                                                                            break;
+                                                                        case DatosConstantes.TipoControl.CheckBox:
+                                                                            idControl = string.Concat("chk", campo.CodigoSeccionCampo);
+                                                                            @Html.Raw("<div class='form-group check-form'>")
+                                                                            
+                                                                            if (campo.ValorLogico.HasValue)
+                                                                            {
+                                                                                if (campo.ValorLogico.Value)
+                                                                                {
+                                                                                    @Html.Raw("<label>" + campo.NombreCampoIdioma + " <input id='" + idControl + "' type='checkbox' checked='checked' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "'></label>")
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    @Html.Raw("<label>" + campo.NombreCampoIdioma + " <input id='" + idControl + "' type='checkbox' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "'></label>")
+                                                                                }
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + " <input id='" + idControl + "' type='checkbox' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "'></label>")
+                                                                            }
+                                                                            
+                                                                            @Html.Raw("</div>")
+                                                                            break;
+                                                                        case DatosConstantes.TipoControl.DatePicker:
+                                                                            idControl = string.Concat("dtp", campo.CodigoSeccionCampo);
+                                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                            if (campo.IndicadorCampoObligatorio)
+                                                                            {
+                                                                                @Html.TextBox(idControl, campo.ValorFechaString, new { @id = idControl, @placeholder = "dd/MM/yyyy", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                @Html.TextBox(idControl, campo.ValorFechaString, new { @id = idControl, @placeholder = "dd/MM/yyyy", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control" })
+                                                                            }
+                                                                            break;
+                                                                        case DatosConstantes.TipoControl.Time:
+                                                                            idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                            if (campo.IndicadorCampoObligatorio)
+                                                                            {
+                                                                                @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @placeholder = "00:00", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @placeholder = "00:00", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto })
+                                                                            }
+                                                                            break;
+                                                                        case DatosConstantes.TipoControl.TextArea:
+                                                                            idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                            if (campo.IndicadorCampoObligatorio)
+                                                                            {
+                                                                                @Html.TextArea(idControl, campo.ValorTexto, new { @id = idControl, @col = "6", @rows = "4", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                @Html.TextArea(idControl, campo.ValorTexto, new { @id = idControl, @col = "6", @rows = "4", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto })   
+                                                                            }
+                                                                            break;
+                                                                    }
+                                                                            @Html.Raw("</div>")
+                                                                        @Html.Raw("</div>")
+                                                                }
+                                                                    @Html.Raw("</div>")
+                                                            }
+                                                        }
+                                                        //FIN DE PINTAR CAMPOS EN CADA CONTENIDO
+                                                    }
+                                                }
+                                                
+                                                    @Html.Raw("</div>")
+
+                                                contadorSeccionTab++;
+                                            }
+
+                                        @Html.Raw("</div>")
+                                    </div>
+                                }
+                                else
+                                {
+                                    <!--SI NO HAY TAB BUSCAR CONTENIDO -->
+                                    List<SeccionResponse> listaSeccionContenidoPorSeccionCuerpo = Model.ListaSeccionContenido.Where(x => x.CodigoSeccionPadre == seccionCuerpoResponse.CodigoSeccion).ToList();
+
+                                    if (listaSeccionContenidoPorSeccionCuerpo.Count > 0)
+                                    {
+                                        @Html.Raw("<div class='row'>")
+                                            @Html.Raw("<div class='panel panel-default'>")
+			                                    @Html.Raw("<div class='panel-body'>")
+                                        foreach (SeccionResponse seccionContenidoResponse in listaSeccionContenidoPorSeccionCuerpo)
+                                        {
+                                                        <div class="title-interna">
+                                                            @seccionContenidoResponse.NombreSeccionIdioma
+                                                        </div>
+                
+                                            //INICIO DE PINTAR CAMPOS POR CADA CONTENIDO
+                                            List<ConfiguracionCampoSeccionCuerpoContenidoResponse> listaConfiguracionCampoSeccionContenido = Model.ListaConfiguracionCampoSeccionCuerpoContenido.Where(x => x.CodigoSeccion == seccionContenidoResponse.CodigoSeccion).ToList();
+
+                                            if (listaConfiguracionCampoSeccionContenido.Count > 0)
+                                            {
+                                                int cantidadFilas = listaConfiguracionCampoSeccionContenido.OrderByDescending(x => x.FilaCampo).Select(x => x.FilaCampo).First();
+
+                                                for (int i = 1; i < cantidadFilas + 1; i++)
+                                                {
+                                                    List<ConfiguracionCampoSeccionCuerpoContenidoResponse> listaCampoPorFila = listaConfiguracionCampoSeccionContenido.Where(x => x.FilaCampo == i).ToList();
+                                                    
+                                                    @Html.Raw("<div class='row'>")
+                                                    foreach (ConfiguracionCampoSeccionCuerpoContenidoResponse campo in listaCampoPorFila)
+                                                    {
+                                                        switch (listaCampoPorFila.Count)
+                                                        {
+                                                            case 1:
+                                                                if (campo.CodigoTipoControl == DatosConstantes.TipoControl.TextArea)
+                                                                {
+                                                                    @Html.Raw("<div class='col-sm-12'>")
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.Raw("<div class='col-sm-4'>")
+                                                                }
+                                                                break;
+                                                            case 2:
+                                                                @Html.Raw("<div class='col-sm-6'>")
+                                                                break;
+                                                            case 3:
+                                                                @Html.Raw("<div class='col-sm-4'>")
+                                                                break;
+                                                            case 4:
+                                                                @Html.Raw("<div class='col-sm-3'>")
+                                                                break;
+                                                        }
+                                                            
+                                                        @Html.Raw("<div class='form-group'>")
+                                                        string idControl = string.Empty;
+                                                        switch (campo.CodigoTipoControl)
+                                                        {
+                                                            case DatosConstantes.TipoControl.TextBoxTexto:
+                                                                idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                if (campo.IndicadorCampoObligatorio)
+                                                                {   
+                                                                    @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto })
+                                                                }
+                                                                break;
+                                                            case DatosConstantes.TipoControl.TextBoxNumero:
+                                                                idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                if (campo.IndicadorCampoObligatorio)
+                                                                {
+                                                                    @Html.TextBox(idControl, campo.ValorNumeroEntero, new { @id = idControl, @mask = "integer", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoNumero, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.TextBox(idControl, campo.ValorNumeroEntero, new { @id = idControl, @mask = "integer", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoNumero })
+                                                                }
+                                                                break;
+                                                            case DatosConstantes.TipoControl.ComboBox:
+                                                                List<SelectListItem> listaOpciones = new List<SelectListItem>();
+                                                                List<SelectListItem> listaOpcionesSeleccion = new List<SelectListItem>();
+                                                                listaOpciones = Model.ListaCombo.Where(x => x.Key == campo.CodigoSeccionCampo.ToString()).Select(x => x.Value).First();
+
+                                                                foreach (var item in listaOpciones)
+                                                                {
+                                                                    listaOpcionesSeleccion.Add(new SelectListItem()
+                                                                    {
+                                                                        Value = item.Value,
+                                                                        Text = item.Text,
+                                                                        Selected = (item.Value == campo.ValorTexto)
+                                                                    });
+                                                                }
+
+                                                                idControl = string.Concat("slc", campo.CodigoSeccionCampo);
+                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                if (campo.IndicadorCampoObligatorio)
+                                                                {
+                                                                    @Html.DropDownList(idControl, listaOpcionesSeleccion, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_"), @codigoTipoLlenado = campo.CodigoTipoLlenado, @codigoOrigen = campo.CodigoOrigen, @codigoTabla = campo.CodigoTabla, @descripcionTabla = campo.DescripcionTabla, @condicionTabla = campo.CondicionTabla })
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.DropDownList(idControl, listaOpcionesSeleccion, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @codigoTipoLlenado = campo.CodigoTipoLlenado, @codigoOrigen = campo.CodigoOrigen, @codigoTabla = campo.CodigoTabla, @descripcionTabla = campo.DescripcionTabla, @condicionTabla = campo.CondicionTabla })
+                                                                }
+                                                                break;
+                                                            case DatosConstantes.TipoControl.FileUpload:
+                                                                idControl = string.Concat("myFile", campo.CodigoSeccionCampo);
+                                                                string idControlBoton = string.Concat("btn", campo.CodigoSeccionCampo);
+                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                @Html.Raw("<input type='file' id='" + idControl + "' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "' class='form-control'><button fotoString='" + campo.ValorArchivoString + "' id='" + idControlBoton + "' @class='form-control'>Ver Foto</button>")
+                                                                break;
+                                                            case DatosConstantes.TipoControl.CheckBox:
+                                                                idControl = string.Concat("chk", campo.CodigoSeccionCampo);
+                                                                @Html.Raw("<div class='form-group check-form'>")
+                                                                            
+                                                                if (campo.ValorLogico.HasValue)
+                                                                {
+                                                                    if (campo.ValorLogico.Value)
+                                                                    {
+                                                                        @Html.Raw("<label>" + campo.NombreCampoIdioma + " <input id='" + idControl + "' type='checkbox' checked='checked' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "'></label>")
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @Html.Raw("<label>" + campo.NombreCampoIdioma + " <input id='" + idControl + "' type='checkbox' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "'></label>")
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.Raw("<label>" + campo.NombreCampoIdioma + " <input id='" + idControl + "' type='checkbox' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "'></label>")
+                                                                }
+                                                                            
+                                                                @Html.Raw("</div>")
+                                                                break;
+                                                            case DatosConstantes.TipoControl.DatePicker:
+                                                                idControl = string.Concat("dtp", campo.CodigoSeccionCampo);
+                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                if (campo.IndicadorCampoObligatorio)
+                                                                {
+                                                                    @Html.TextBox(idControl, campo.ValorFechaString, new { @id = idControl, @placeholder = "dd/MM/yyyy", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.TextBox(idControl, campo.ValorFechaString, new { @id = idControl, @placeholder = "dd/MM/yyyy", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control" })
+                                                                }
+                                                                break;
+                                                            case DatosConstantes.TipoControl.Time:
+                                                                idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                if (campo.IndicadorCampoObligatorio)
+                                                                {
+                                                                    @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @placeholder = "00:00", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @placeholder = "00:00", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto })
+                                                                }
+                                                                break;
+                                                            case DatosConstantes.TipoControl.TextArea:
+                                                                idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                                    @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                                if (campo.IndicadorCampoObligatorio)
+                                                                {
+                                                                    @Html.TextArea(idControl, campo.ValorTexto, new { @id = idControl, @col = "6", @rows = "4", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.TextArea(idControl, campo.ValorTexto, new { @id = idControl, @col = "6", @rows = "4", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto })   
+                                                                }
+                                                                break;
+                                                        }
+                                                        
+                                                        @Html.Raw("</div>")
+                                                    @Html.Raw("</div>")
+                                                    }
+                                                    @Html.Raw("</div>")
+                                                }
+                                            }
+                                            //FIN DE PINTAR CAMPOS EN CADA CONTENIDO
+                                        }
+                                                @Html.Raw("</div>")
+                                            @Html.Raw("</div>")
+                                        @Html.Raw("</div>")
+                                    }
+                                    else
+                                    {
+                                        //SI NO HAY CONTENIDO PINTAR CAMPOS
+                                        List<ConfiguracionCampoSeccionCuerpoContenidoResponse> listaConfiguracionCampoSeccionCuerpoContenido = Model.ListaConfiguracionCampoSeccionCuerpoContenido.Where(x => x.CodigoSeccion == seccionCuerpoResponse.CodigoSeccion).ToList();
+
+                                        if (listaConfiguracionCampoSeccionCuerpoContenido.Count > 0)
+                                        {
+                                            int cantidadFilas = listaConfiguracionCampoSeccionCuerpoContenido.OrderByDescending(x => x.FilaCampo).Select(x => x.FilaCampo).First();
+
+                                            for (int i = 1; i < cantidadFilas + 1; i++)
+                                            {
+                                                List<ConfiguracionCampoSeccionCuerpoContenidoResponse> listaCampoPorFila = listaConfiguracionCampoSeccionCuerpoContenido.Where(x => x.FilaCampo == i).ToList();
+                                                    
+                                                @Html.Raw("<div class='row'>")
+                                                foreach (ConfiguracionCampoSeccionCuerpoContenidoResponse campo in listaCampoPorFila)
+                                                {
+                                                    switch (listaCampoPorFila.Count)
+                                                    {
+                                                        case 1:
+                                                            if (campo.CodigoTipoControl == DatosConstantes.TipoControl.TextArea)
+                                                            {
+                                                                @Html.Raw("<div class='col-sm-12'>")
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.Raw("<div class='col-sm-4'>")
+                                                            }
+                                                            break;
+                                                        case 2:
+                                                            @Html.Raw("<div class='col-sm-6'>")
+                                                            break;
+                                                        case 3:
+                                                            @Html.Raw("<div class='col-sm-4'>")
+                                                            break;
+                                                        case 4:
+                                                            @Html.Raw("<div class='col-sm-3'>")
+                                                            break;
+                                                    }
+                                                            
+                                                    @Html.Raw("<div class='form-group'>")
+                                                    string idControl = string.Empty;
+                                                    switch (campo.CodigoTipoControl)
+                                                    {
+                                                        case DatosConstantes.TipoControl.TextBoxTexto:
+                                                            idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                            if (campo.IndicadorCampoObligatorio)
+                                                            {   
+                                                                @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto })
+                                                            }
+                                                            break;
+                                                        case DatosConstantes.TipoControl.TextBoxNumero:
+                                                            idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                            if (campo.IndicadorCampoObligatorio)
+                                                            {
+                                                                @Html.TextBox(idControl, campo.ValorNumeroEntero, new { @id = idControl, @mask = "integer", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoNumero, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.TextBox(idControl, campo.ValorNumeroEntero, new { @id = idControl, @mask = "integer", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoNumero })
+                                                            }
+                                                            break;
+                                                        case DatosConstantes.TipoControl.ComboBox:
+                                                            List<SelectListItem> listaOpciones = new List<SelectListItem>();
+                                                            List<SelectListItem> listaOpcionesSeleccion = new List<SelectListItem>();
+                                                            listaOpciones = Model.ListaCombo.Where(x => x.Key == campo.CodigoSeccionCampo.ToString()).Select(x => x.Value).First();
+
+                                                            foreach (var item in listaOpciones)
+                                                            {
+                                                                listaOpcionesSeleccion.Add(new SelectListItem()
+                                                                {
+                                                                    Value = item.Value,
+                                                                    Text = item.Text,
+                                                                    Selected = (item.Value == campo.ValorTexto)
+                                                                });
+                                                            }
+
+                                                            idControl = string.Concat("slc", campo.CodigoSeccionCampo);
+                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                            if (campo.IndicadorCampoObligatorio)
+                                                            {
+                                                                @Html.DropDownList(idControl, listaOpcionesSeleccion, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_"), @codigoTipoLlenado = campo.CodigoTipoLlenado, @codigoOrigen = campo.CodigoOrigen, @codigoTabla = campo.CodigoTabla, @descripcionTabla = campo.DescripcionTabla, @condicionTabla = campo.CondicionTabla })
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.DropDownList(idControl, listaOpcionesSeleccion, new { @id = idControl, @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @codigoTipoLlenado = campo.CodigoTipoLlenado, @codigoOrigen = campo.CodigoOrigen, @codigoTabla = campo.CodigoTabla, @descripcionTabla = campo.DescripcionTabla, @condicionTabla = campo.CondicionTabla })
+                                                            }
+                                                            break;
+                                                        case DatosConstantes.TipoControl.FileUpload:
+                                                            idControl = string.Concat("myFile", campo.CodigoSeccionCampo);
+                                                            string idControlBoton = string.Concat("btn", campo.CodigoSeccionCampo);
+                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                            @Html.Raw("<input type='file' id='" + idControl + "' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "' class='form-control'><button fotoString='" + campo.ValorArchivoString + "' id='" + idControlBoton + "' @class='form-control'>Ver Foto</button>")
+                                                            break;
+                                                        case DatosConstantes.TipoControl.CheckBox:
+                                                            idControl = string.Concat("chk", campo.CodigoSeccionCampo);
+                                                            @Html.Raw("<div class='form-group check-form'>")
+                                                                            
+                                                            if (campo.ValorLogico.HasValue)
+                                                            {
+                                                                if (campo.ValorLogico.Value)
+                                                                {
+                                                                    @Html.Raw("<label>" + campo.NombreCampoIdioma + " <input id='" + idControl + "' type='checkbox' checked='checked' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "'></label>")
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.Raw("<label>" + campo.NombreCampoIdioma + " <input id='" + idControl + "' type='checkbox' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "'></label>")
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + " <input id='" + idControl + "' type='checkbox' name='' codigoTipoRecord='" + campo.CodigoTipoRecord + "' codigoSeccionCampo='" + campo.CodigoSeccionCampo + "' codigoCampo='" + campo.CodigoCampo + "' codigoTipoControl='" + campo.CodigoTipoControl + "' codigoSeccion='" + campo.CodigoSeccion + "'></label>")
+                                                            }
+                                                                            
+                                                            @Html.Raw("</div>")
+                                                            break;
+                                                        case DatosConstantes.TipoControl.DatePicker:
+                                                            idControl = string.Concat("dtp", campo.CodigoSeccionCampo);
+                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                            if (campo.IndicadorCampoObligatorio)
+                                                            {
+                                                                @Html.TextBox(idControl, campo.ValorFechaString, new { @id = idControl, @placeholder = "dd/MM/yyyy", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.TextBox(idControl, campo.ValorFechaString, new { @id = idControl, @placeholder = "dd/MM/yyyy", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control" })
+                                                            }
+                                                            break;
+                                                        case DatosConstantes.TipoControl.Time:
+                                                            idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                            @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                            if (campo.IndicadorCampoObligatorio)
+                                                            {
+                                                                @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @placeholder = "00:00", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.TextBox(idControl, campo.ValorTexto, new { @id = idControl, @placeholder = "00:00", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto })
+                                                            }
+                                                            break;
+                                                        case DatosConstantes.TipoControl.TextArea:
+                                                            idControl = string.Concat("txt", campo.CodigoSeccionCampo);
+                                                                @Html.Raw("<label>" + campo.NombreCampoIdioma + "</label>")
+                                                            if (campo.IndicadorCampoObligatorio)
+                                                            {
+                                                                @Html.TextArea(idControl, campo.ValorTexto, new { @id = idControl, @col = "6", @rows = "4", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto, @validable = "required Validar_" + campo.CodigoCampo.ToString().Replace("-", "_") })
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.TextArea(idControl, campo.ValorTexto, new { @id = idControl, @col = "6", @rows = "4", @codigoTipoRecord = campo.CodigoTipoRecord, @codigoSeccionCampo = campo.CodigoSeccionCampo, @codigoCampo = campo.CodigoCampo, @codigoTipoControl = campo.CodigoTipoControl, @codigoSeccion = campo.CodigoSeccion, @class = "form-control", @maxLength = campo.TamanioCampoTexto })   
+                                                            }
+                                                            break;
+                                                    }
+                                                            @Html.Raw("</div>")
+                                                    @Html.Raw("</div>")
+                                                }
+                                                @Html.Raw("</div>")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                             @Html.Raw("</form>")
+                            <!--FIN DE TAB PANEL-->
+                                @Html.Raw("</div>")
+                        }
+                    }
+
+                    contadorSeccion++;
+                }
+            }
+            else
+            {
+                //<br />
+                //<br />
+                //<h3>Aún no se ha configurado las Secciones para el Tipo de Record.</h3>*@
+            }
+        </div>
+    </div>
+</div>
+<br />
+<div id="divBotonAccion" class="box-acciones-foot">
+    <button class="btn-cancelar-form" id="btnCancelarRecord">Cancel</button>
+    <button class="btn-guardar-form btn-guardar-general" id="btnGuardarRecord">Save</button>
+</div>
+<br />
+
+
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.Resources.Validacion.Validar = '@Html.Raw("Verificar Campos Obligatorios")';
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlTextBoxTexto = '@Html.Raw(DatosConstantes.TipoControl.TextBoxTexto)'
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlTextBoxNumero = '@Html.Raw(DatosConstantes.TipoControl.TextBoxNumero)'
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlComboBox = '@Html.Raw(DatosConstantes.TipoControl.ComboBox)'
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlFileUpload = '@Html.Raw(DatosConstantes.TipoControl.FileUpload)'
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlCheckBox = '@Html.Raw(DatosConstantes.TipoControl.CheckBox)'
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlRadioButton = '@Html.Raw(DatosConstantes.TipoControl.RadioButton)'
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlDatePicker = '@Html.Raw(DatosConstantes.TipoControl.DatePicker)'
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlTime = '@Html.Raw(DatosConstantes.TipoControl.Time)'
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlTextArea = '@Html.Raw(DatosConstantes.TipoControl.TextArea)'
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RecordSeccionCampo.DatosConstantes.TipoControl.TipoControlButton = '@Html.Raw(DatosConstantes.TipoControl.Button)'
+</script>
+

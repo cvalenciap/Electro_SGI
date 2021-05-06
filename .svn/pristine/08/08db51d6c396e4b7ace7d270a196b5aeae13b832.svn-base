@@ -1,0 +1,8 @@
+FechaHora = 03/02/2016 02:50:55 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ContratoService.GenerarContenidoContrato(Guid codigoContrato, Nullable`1 codigoContratoEstadio, String& nombreArchivoContrato, String linkFileCss) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ContratoService.cs:line 1485
+__________________________________________________
+FechaHora = 03/02/2016 02:53:53 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ContratoService.GenerarContenidoContrato(Guid codigoContrato, Nullable`1 codigoContratoEstadio, String& nombreArchivoContrato, String linkFileCss) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ContratoService.cs:line 1485
+__________________________________________________

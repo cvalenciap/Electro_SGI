@@ -1,0 +1,36 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridFechaCambio = '@(Html.Raw(InvestigacionResource.GridFechaCambio))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridHora = '@(Html.Raw(InvestigacionResource.GridHora))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridUsuarioSession = '@(Html.Raw(InvestigacionResource.GridUsuarioSession))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridReportante = '@(Html.Raw(InvestigacionResource.GridReportante))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridElaboradoPor = '@(Html.Raw(InvestigacionResource.GridElaboradoPor))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridRevisadoPor = '@(Html.Raw(InvestigacionResource.GridRevisadoPor))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridAprobadoPor = '@(Html.Raw(InvestigacionResource.GridAprobadoPor))';    
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridEstadoInicial = '@(Html.Raw(InvestigacionResource.GridEstadoInicial))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridEstadoFinal = '@(Html.Raw(InvestigacionResource.GridEstadoFinal))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridComentarios = '@(Html.Raw(InvestigacionResource.GridComentarios))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Resource.GridVersiones = '@(Html.Raw(InvestigacionResource.GridVersiones))';
+    
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Actions')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioHistorialCambios.Actions.VerHistorialVersiones = '@Url.Action("VerHistorialVersiones", "Investigacion", new { Area = "Seguimiento" })';
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.DescargarReporteInvestigacionSharePoint = '@Url.Action("DescargarReporteInvestigacionSharePoint", "Investigacion", new { Area = "Seguimiento" })';
+  
+ </script>
+
+<div class="content-body">
+    <div class="box-row">
+        <div class="col-box left">
+            <div class="row">
+                <div class="table-grilla">
+                    <div id="divGrdHistorialCambios">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

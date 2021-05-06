@@ -1,0 +1,82 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.UnidadOrganizativa.FormularioUnidadOrganizativaModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+        //var disabledEscritura = (Model.ControlPermisos.ControlTotal || Model.ControlPermisos.Escritura) ? false : true;
+        //var disabledEliminar = (Model.ControlPermisos.ControlTotal) ? false : true;     
+}
+
+<div class="GmdBody-header">
+    <h2>@UnidadOrganizativaResource.EtiquetaTituloPrincipal</h2>
+</div>
+<div class="GmdBody-body">
+    <form id="frmUnidadOrganizativaRegistrar">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@UnidadOrganizativaResource.EtiquetaUnidadOrganizativa</label>
+                    @Html.TextBox("txtNombreUnidadOrganizativa", string.Empty, new { @id = "txtNombreUnidadOrganizativa", @class = "form-control", @maxlength = "50", onkeyup = "Pe.GMD.UI.Web.Components.Util.ToUpperCase(event)" })
+                </div>
+            </div>
+            @*            <div class="col-sm-4 ">
+                <div class="form-group">
+                    <label>@Html.Raw(UnidadOrganizativaResource.EtiquetaEstado)</label>
+                    @Html.DropDownListFor(model => Model.UnidadOrganizativa.EstadoRegistro,
+                    new SelectList(
+                        Model.listaEstado,
+                        "Value",
+                        "Text"), new { @class = "form-control", @id = "cboEstadoBusqueda" })
+                </div>
+            </div>*@
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <button id="btnLimpiar" class="btn btn-info" type="reset">@GenericoResource.BotonLimpiar</button>
+                <button id="btnBuscar" class="btn btn-default" type="button">@GenericoResource.BotonMostrar</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>@GenericoResource.EtiquetaResultadosBusqueda</h3>
+            </div>
+            <div class="col-sm-6 text-right">
+                <button id="btnAgregar" class="btn btn-primary">@GenericoResource.BotonAñadir</button>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Actions.BuscarUnidadOrganizativa = '@Url.Action("BuscarUnidadOrganizativa", "UnidadOrganizativa", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Actions.FormularioUnidadOrganizativa = '@Url.Action("FormularioUnidadOrganizativa", "UnidadOrganizativa", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Actions.RegistrarUnidadOrganizativa = '@Url.Action("RegistrarUnidadOrganizativa", "UnidadOrganizativa", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Actions.EliminarUnidadOrganizativa = '@Url.Action("EliminarUnidadOrganizativa", "UnidadOrganizativa", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.EtiquetaFormularioUnidadOrganizativa = '@Html.Raw(UnidadOrganizativaResource.EtiquetaFormularioUnidadOrganizativa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.EtiquetaRegistrarUnidadOrganizativa = '@Html.Raw(UnidadOrganizativaResource.EtiquetaRegistrarUnidadOrganizativa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.EtiquetaEditarUnidadOrganizativa = '@Html.Raw(UnidadOrganizativaResource.EtiquetaEditarUnidadOrganizativa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.GridNombreUnidadOrganizativa = '@Html.Raw(UnidadOrganizativaResource.GridUnidadOrganizativa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.GridCodigo = '@Html.Raw(UnidadOrganizativaResource.GridCodigoUnidadOrganizativa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.GridEmpresa = '@Html.Raw(UnidadOrganizativaResource.GridEmpresa)';        
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Models.UnidadOrganizativa = '@(Html.Raw(Json.Encode(Model)))';
+    </script>   
+}

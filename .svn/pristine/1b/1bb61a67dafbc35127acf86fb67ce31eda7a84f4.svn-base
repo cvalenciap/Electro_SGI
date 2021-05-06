@@ -1,0 +1,81 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.LugarTrabajo.FormularioBandejaModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+        //var disabledEscritura = (Model.ControlPermisos.ControlTotal || Model.ControlPermisos.Escritura) ? false : true;
+        //var disabledEliminar = (Model.ControlPermisos.ControlTotal) ? false : true;     
+}
+
+<div class="GmdBody-header">
+    <h2>@LugarTrabajoResource.EtiquetaTituloPrincipal</h2>
+</div>
+<div class="GmdBody-body">
+    <form id="frmLugarTrabajoRegistrar">
+        <div class="row">
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label>@Html.Raw(LugarTrabajoResource.EtiquetaEmpresa)</label>
+                    @Html.DropDownList("slcEmpresa", Model.ListaEmpresa, new { @class = "form-control", @id = "slcEmpresa" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@LugarTrabajoResource.EtiquetaLugarTrabajo</label>
+                    @Html.TextBox("txtNombreLugarTrabajo", string.Empty, new { @id = "txtNombreLugarTrabajo", @class = "form-control", @maxlength = "50", onkeyup = "Pe.GMD.UI.Web.Components.Util.ToUpperCase(event)" })
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <button id="btnLimpiar" class="btn btn-info" type="reset">@GenericoResource.BotonLimpiar</button>
+                <button id="btnBuscar" class="btn btn-default" type="button">@GenericoResource.BotonMostrar</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>@GenericoResource.EtiquetaResultadosBusqueda</h3>
+            </div>
+            <div class="col-sm-6 text-right">
+                <button id="btnAgregar" class="btn btn-primary">@GenericoResource.BotonAñadir</button>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Actions.BuscarLugarTrabajo = '@Url.Action("BuscarLugarTrabajo", "LugarTrabajo", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Actions.FormularioLugarTrabajo = '@Url.Action("FormularioLugarTrabajo", "LugarTrabajo", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Actions.RegistrarLugarTrabajo = '@Url.Action("RegistrarLugarTrabajo", "LugarTrabajo", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Actions.EliminarLugarTrabajo = '@Url.Action("EliminarLugarTrabajo", "LugarTrabajo", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.FormularioLugarTrabajo = '@Html.Raw(LugarTrabajoResource.EtiquetaFormularioLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.EtiquetaRegistrarLugarTrabajo = '@Html.Raw(LugarTrabajoResource.EtiquetaRegistrarLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.EtiquetaEditarLugarTrabajo = '@Html.Raw(LugarTrabajoResource.EtiquetaEditarLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.GridAbreviaturaLugarTrabajo = '@Html.Raw(LugarTrabajoResource.GridAbreviaturaLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.GridNombreLugarTrabajo = '@Html.Raw(LugarTrabajoResource.GridLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.GridId = '@Html.Raw(LugarTrabajoResource.GridIdLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.GridEmpresa = '@Html.Raw(LugarTrabajoResource.GridEmpresa)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Models.LugarTrabajo = '@(Html.Raw(Json.Encode(Model)))';
+    </script>
+    @CustomHtmlHelper.RenderViewJs("mantenimientolugartrabajoformulariolugartrabajo")
+}

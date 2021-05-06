@@ -1,0 +1,74 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.RegistroModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(AsignacionResource.EtiquetaTituloReporteEjecucionCapacitacion)</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+        <form onsubmit="return false;" id="frmReporteEjecucionCapacitacion">
+            <div class="form-group">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2 text-right">
+                                <label style="position: relative; margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaProyecto): </label>
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.DropDownListFor(model => model.Registro.CodigoProyecto, Model.ListaProyectos, new { id = "slcProyecto", @class = "form-control", @validable = "required Validar", })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2 text-right">
+                                <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaEquipo): </label>
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.DropDownListFor(model => model.Registro.CodigoEquipo, Model.ListaEquipos, new { id = "slcEquipo", @class = "form-control", @validable = "required Validar", })
+                            </div>
+                            <div class="col-sm-6">
+                                @Html.TextBox("txtDescripcionEquipo", Model.Registro.DescripcionEquipo, new { id = "txtDescripcionEquipo", @class = "form-control", @maxlength = "60", @validable = "required Validar",   disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div id="divMostrarReporte" class="box-acciones-foot text-center">
+                <button class="btn btn-primary" id="btnMostrarReporte">@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Base.GenericoResource.BotonMostrar)</button>
+            </div>
+        </form>
+        <br />
+        <div id="divContenedorReportView" style="overflow-x: auto; overflow-y: hidden; width: 100%; display: none;">
+            <iframe id="ifrContenedor" src="@DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue/Base/Reporte/Index?Area=Reporte" style="width: 100%; height: 620px"></iframe>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.ReporteEjecucionCapacitacion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.ReporteEjecucionCapacitacion.Actions.VistaPreviaReporteEjecucionCapacitacion = '@Url.Action("VistaPreviaReporteEjecucionCapacitacion", "ReporteCapacitacion", new { Area = "Reporte" })';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.ReporteEjecucionCapacitacion.Actions.ConfiguracionUrlDespliegue = '@DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.BuscarCombosEjecucion = '@Url.Action("BuscarCombosEjecucion", "Registro", new { Area = "Capacitacion" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.ReporteEjecucionCapacitacion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.ReporteEjecucionCapacitacion.Resource.EtiquetaTodos = '@Html.Raw(GenericoResource.EtiquetaTodos)';
+
+   
+    </script>
+}
+

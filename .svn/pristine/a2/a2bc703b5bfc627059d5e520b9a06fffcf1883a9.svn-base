@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7280CDD5-08DB-4BE3-A412-1B1E6D9A5DE2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pe.ElectroPeru.SGI.Infraestructura.QueryModel</RootNamespace>
+    <AssemblyName>Pe.ElectroPeru.SGI.Infraestructura.QueryModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'STRACON_QA|AnyCPU'">
+    <OutputPath>bin\STRACON_QA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Logic.cs" />
+    <Compile Include="Correo\AdjuntosLogic.cs" />
+    <Compile Include="Correo\DireccionesLogic.cs" />
+    <Compile Include="Correo\EmailLogic.cs" />
+    <Compile Include="Mantenimiento\IndicadorMetaAnualLogic.cs" />
+    <Compile Include="Mantenimiento\IndicadorEvaluacionLogic.cs" />
+    <Compile Include="Mantenimiento\IndicadorValorLogic.cs" />
+    <Compile Include="Proceso\PlanOperativoLogic.cs" />
+    <Compile Include="Reportes\DashboardLogic.cs" />
+    <Compile Include="Seguridad\AccionLogic.cs" />
+    <Compile Include="Mantenimiento\AreaLogic.cs" />
+    <Compile Include="Mantenimiento\AccionEstrategicaInstitucionalLogic.cs" />
+    <Compile Include="Mantenimiento\AccionEstrategicaInstitucionalDetalleLogic.cs" />
+    <Compile Include="Mantenimiento\AccionEstrategicaSectorialLogic.cs" />
+    <Compile Include="Mantenimiento\AccionEstrategicaSectorialDetalleLogic.cs" />
+    <Compile Include="Seguridad\AsignacionLogic.cs" />
+    <Compile Include="Mantenimiento\VariableValorLogic.cs" />
+    <Compile Include="Mantenimiento\IndicadorMetaLogic.cs" />
+    <Compile Include="Mantenimiento\FormulaDetalleLogic.cs" />
+    <Compile Include="Mantenimiento\FormulaLogic.cs" />
+    <Compile Include="Seguridad\ModuloLogic.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoEmpresaAnalisisEstrategicoInstitucionalLogic.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoSectorialDetalleLogic.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoSectorialLogic.cs" />
+    <Compile Include="Seguridad\OpcionLogic.cs" />
+    <Compile Include="Seguridad\PerfilLogic.cs" />
+    <Compile Include="Seguridad\PermisosLogic.cs" />
+    <Compile Include="Mantenimiento\PerspectivaDetalleLogic.cs" />
+    <Compile Include="Mantenimiento\PerspectivaLogic.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoFonafeDetalleLogic.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoFonafeLogic.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoEmpresaDetalleLogic.cs" />
+    <Compile Include="Mantenimiento\ObjetivoEstrategicoEmpresaLogic.cs" />
+    <Compile Include="Mantenimiento\IndicadorLogic.cs" />
+    <Compile Include="Mantenimiento\ResponsableLogic.cs" />
+    <Compile Include="Seguridad\SistemaLogic.cs" />
+    <Compile Include="Seguridad\UsuariosLogic.cs" />
+    <Compile Include="Mantenimiento\VariableDetalleLogic.cs" />
+    <Compile Include="Mantenimiento\VariableLogic.cs" />
+    <Compile Include="PlantillaNotificacion\PlantillaNotificacionLogic.cs" />
+    <Compile Include="Politicas\ParametroValorSeccionLogic.cs" />
+    <Compile Include="Politicas\ParametroLogic.cs" />
+    <Compile Include="Politicas\ParametroSeccionLogic.cs" />
+    <Compile Include="Politicas\ParametroValorLogic.cs" />
+    <Compile Include="Politicas\PlantillaNotificacionLogic.cs" />
+    <Compile Include="Politicas\PoliticaLogic.cs" />
+    <Compile Include="Proceso\PlanEstrategicoLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\Pe.ElectroPeru.SGI.Infraestructura.CommandModel.csproj">
+      <Project>{7FA64A98-D0D2-423C-8CAC-F9AC49C7CDC0}</Project>
+      <Name>Pe.ElectroPeru.SGI.Infraestructura.CommandModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

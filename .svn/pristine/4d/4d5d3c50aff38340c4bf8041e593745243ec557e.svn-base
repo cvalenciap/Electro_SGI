@@ -1,0 +1,128 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.GestionLesiones
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.GestionLesiones.BandejaAtenciones.BandejaAtencionesModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion pull-left">
+            <strong>@Html.Raw(GestionLesionesResource.EtiquetaTituloBandejaAtenciones)</strong>
+        </h2>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaLesiones" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+        <div class="pull-right">
+            <span class="box-type-record">
+                <div class="row-line-table">                    
+                    <div class="cell-line">
+                        <div class="form-group">
+                            @Html.TextBox("txtNumeroExpediente" ,Model.ExpedienteMedico.NumeroExpediente, new { id = "txtNumeroExpediente", @class = "form-control", @disabled="disabled" })                            
+                        </div>                        
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right col-md-3">
+            <span class="box-type-record">
+                <div class="row-line-table col-md-12">                    
+                    <div class="cell-line">
+                        <div class="form-group">
+                            @Html.TextBox("txtNombreColaborador" ,Model.Colaborador.NombreCompletoColaborador, new { id = "txtNombreColaborador", @class = "form-control", @disabled="disabled" })                            
+                        </div>                        
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(GestionLesionesResource.EtiquetaTipoAtencion)</label></div>
+                    <div class="col-sm-2"> @Html.DropDownListFor(model => model.BandejaAtenciones.TipoAtencion, Model.ListaTipoAtencionMedica, new { id = "slcTipoAtencion", @class = "form-control", @validable = "required Validar"})</div>
+                    <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(GestionLesionesResource.EtiquetaFechaAtencion) - Desde</label></div>
+                    <div class="col-sm-2"> @Html.TextBox("dtpFechaAtencionDesde", string.Empty, new { id = "dtpFechaAtencionDesde", @class = "form-control" })</div>
+                    <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(GestionLesionesResource.EtiquetaFechaAtencion) - Hasta</label></div>
+                    <div class="col-sm-2"> @Html.TextBox("dtpFechaAtencionHasta", string.Empty, new { id = "dtpFechaAtencionHasta", @class = "form-control" })</div>
+                </div>                                
+            </div>            
+        </div>    
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnBuscar">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>  
+        
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+                <div class="col-sm-6 text-right">
+                    @if(Model.ExpedienteMedico.EstadoExpediente != DatosConstantes.EstadosDelExpedienteMedico.Cerrado)
+                    {
+                        <button id="btnAgregarAtencion" class="btn btn-primary">@GestionLesionesResource.EtiquetaAgregarAtencion</button>
+                    }
+                    <button id="btnDescargarExcel" class="btn btn-primary">@InformeResource.BtnDescargarExcel</button>
+                </div>
+            </div>
+            <div style="overflow-x: scroll;">
+                <div class="table-grilla">
+                    <div id="divGrdResultAtenciones">
+                    </div>
+                </div>
+            </div>
+             <div class="filter-avanzado" id="blockTotales" style="display: none;">
+                <div class="form-group">
+                    <div class="col-md-6 text-right"><label style="margin-top: 8px;"><strong>@Html.Raw(GestionLesionesResource.EtiquetaTotales):</strong></label></div>
+                    <div class="col-md-1"><input type="text" class="form-control" id="txtTotalDiasDescanso" disabled /></div>                    
+                    <div class="col-md-1"><input type="text" class="form-control" id="txtTotalDiasPerdidos" disabled /></div>                    
+                    <div class="col-md-1"><input type="text" class="form-control" id="txtTotalDiasCargados" disabled /></div>                    
+                    <div class="col-md-1"><input type="text" class="form-control" id="txtTotalDiasRestringidos" disabled /></div>                                       
+                </div>
+            </div>         
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Actions.FormularioAtencion = '@Url.Action("Index", "FormularioAtencion", new { Area = "GestionLesiones" })';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Actions.BuscarLesiones = '@Url.Action("BuscarCombosEjecucion", "Registro", new { Area = "Capacitacion" })';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Actions.ConsultarAtenciones = '@Url.Action("ConsultarAtenciones", "BandejaAtenciones", new { Area = "GestionLesiones" })';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Actions.ValidarUltimaAtencionMedica = '@Url.Action("ValidarUltimaAtencionMedica", "FormularioAtencion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Actions.EliminarAtencionMedica = '@Url.Action("EliminarAtencionMedica", "BandejaAtenciones", new { Area = "GestionLesiones" })';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Actions.DescargarReporteBandejaAtenciones = '@Url.Action("DescargarReporteBandejaAtenciones", "BandejaAtenciones", new { Area = "GestionLesiones" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Models')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+     
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.Correlativo = '@Html.Raw(GestionLesionesResource.GridCorrelativo)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.TipoAtencion = '@Html.Raw(GestionLesionesResource.GridTipoAtencion)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.FechaAtencion = '@Html.Raw(GestionLesionesResource.GridFechaAtencion)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.NombreProveedor = '@Html.Raw(GestionLesionesResource.GridNombreProveedor)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.MedicoTratante = '@Html.Raw(GestionLesionesResource.GridMedicoTratante)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.LesionActual = '@Html.Raw(GestionLesionesResource.GridLesionActual)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.Diagnostico = '@Html.Raw(GestionLesionesResource.GridDiagnostico)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.DiasDescansoMedico = '@Html.Raw(GestionLesionesResource.GridDiasDescansoMedico)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.DiasPerdidos = '@Html.Raw(GestionLesionesResource.GridDiasPerdidos)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.DiasCargados = '@Html.Raw(GestionLesionesResource.GridDiasCargados)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.DiasRestringidos = '@Html.Raw(GestionLesionesResource.GridDiasRestringidos)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.EstadoAtencion = '@Html.Raw(GestionLesionesResource.GridEstadoAtencion)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.Operaciones = '@Html.Raw(GestionLesionesResource.GridOperaciones)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.EtiquetaValidacionUltimaAtencion = '@Html.Raw(GestionLesionesResource.EtiquetaValidacionUltimaAtencion)';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.Resource.MsjSinResultadosAtenciones = '@Html.Raw(GestionLesionesResource.MsjSinResultadosAtenciones)';
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.DatosConstantes.AtencionAbierta = '@DatosConstantes.EstadosDeAtencionMedica.Abierto';
+        Pe.ElectroPeru.SGI.Presentacion.GestionLesiones.BandejaAtenciones.DatosConstantes.AtencionCerrado = '@DatosConstantes.EstadosDeAtencionMedica.Cerrado';         
+    </script>
+}

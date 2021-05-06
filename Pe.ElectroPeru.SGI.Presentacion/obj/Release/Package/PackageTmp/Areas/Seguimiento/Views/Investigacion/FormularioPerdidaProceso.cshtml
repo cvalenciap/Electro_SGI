@@ -1,0 +1,188 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionCategoriaPerdidaProcesoModel
+
+<div class="modal-body">
+    <div class="tab_custom">
+        <div class="tab-interno item03">
+            <ul class="nav nav-tabs" role="tablist" id="cartTabs">
+                <li id="listaPrimero" role="presentation" class="active"><a href="#primeroPerdida" class="top-tab" aria-controls="primeroPerdida" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabInformacionGeneral)</a></li>
+                <li id="listaTercero" role="presentation"><a href="#terceroPerdida" class="top-tab" aria-controls="terceroPerdida" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabEvaluacionConsecuencias)</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="primeroPerdida">
+                    <form onsubmit="return false;" id="frmPerdidaProceso">
+                        <fieldset id="flsPerdidaProceso" <fieldset id="flsLesionInformacionGeneral" @(Model.InvestigacionPerdidaProceso.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaProcesoImpactado): (*)</label>
+                                        @Html.TextBox("txtProcesoImpactado", Model.InvestigacionPerdidaProceso.ProcesoImpactado, new { id = "txtProcesoImpactado", @class = "form-control", @maxlength = "255", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaDescripcionPerdidaProceso): (*)</label>
+                                        @Html.TextBox("txtDescripcionPerdidaProceso", Model.InvestigacionPerdidaProceso.DescripcionPerdidaProceso, new { id = "txtDescripcionPerdidaProceso", @class = "form-control", @maxlength = "255", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label id="lblCheck">@Html.Raw(InvestigacionResource.EtiquetaTipoPerdidaProceso): (*)</label>
+                                        <div class="row">
+                                            @foreach (var item in Model.ListaTipoPerdidaProceso)
+                                            {
+                                                if (item.Value == DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosPerdidaProceso)
+                                                { 
+                                                    <div class="col-sm-4">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="checkbox" style="margin: 2px 0;">
+                                                                    <label>
+                                                                        <input type="checkbox" id="id_@item.Value" value="@item.Value" class="chkPerdidaProceso"/>@item.Text
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="txtOtros" maxlength="255" disabled="disabled"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else{
+                                                    <div class="col-sm-4">
+                                                        <div class="checkbox" style="margin: 2px 0;">
+                                                            <label>
+                                                                <input type="checkbox" id="id_@item.Value" value="@item.Value" class="chkPerdidaProceso"/>@item.Text
+                                                            </label>
+                                                        </div>
+                                                    </div>                                                                                                    
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaParalizacionActualProceso): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionPerdidaProceso.CodigoConsecuenciaActual, Model.ListaParalizacionProceso, new { @class = "form-control", @id = "slcConsecuenciaActualProceso", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaParalizacionPotencialProceso): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionPerdidaProceso.CodigoConsecuenciaPotencial, Model.ListaParalizacionProceso, new { @class = "form-control", @id = "slcConsecuenciaPotencialProceso", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelar" data-dismiss="modal">@GenericoResource.BotonCancelar</button>
+                            @if (Model.InvestigacionPerdidaProceso.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                            {
+                                <button class="btn btn-primary" id="btnGrabarInformacionPerdidaProceso">@GenericoResource.BotonGrabar</button>
+                            }
+                        </div>                        
+                    </form>
+
+                </div>
+                <div role="tabpanel" class="tab-pane fade in" id="terceroPerdida">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>@Html.Raw(InvestigacionResource.EtiquetaActual): (*)</strong></label>
+                            </div>
+                            <div>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th width="10%"></th>
+                                        <th width="60%">@Html.Raw(InvestigacionResource.EtiquetaDescripcion)</th>
+                                        <th>@Html.Raw(InvestigacionResource.EtiquetaActual)</th>
+                                    </tr>
+                                    @foreach (var item in Model.ListaCategoriaPerdidaProceso)
+                                    {                                                 
+                                        <tr>
+                                            <td class="text-center">
+                                                @if (Model.InvestigacionPerdidaProceso.CodigoConsecuenciaActual == item.CodigoConsecuenciaActual)
+                                                {    
+                                                    Model.InvestigacionPerdidaProceso.DescripcionConsecuenciaActual = item.DescripcionConsecuenciaActual;                                                 
+                                                    <input type="radio" name="codigoConsecuenciaActualPerdidaModal" disabled="disabled" id="radioConsecuenciaActual_@item.CodigoConsecuenciaActual" data-descripcion="@item.DescripcionConsecuenciaActual" data-codigo="@item.CodigoCategoriaTexto" checked/>
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="codigoConsecuenciaActualPerdidaModal" disabled="disabled" id="radioConsecuenciaActual_@item.CodigoConsecuenciaActual" data-descripcion="@item.DescripcionConsecuenciaActual" data-codigo="@item.CodigoCategoriaTexto"/>
+                                                }
+                                            </td>
+                                            <td>@item.NombreCategoriaDetalleEspaniol</td>
+                                            <td>@item.DescripcionConsecuenciaActual</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>@Html.Raw(InvestigacionResource.EtiquetaPotencial): (*)</strong></label>
+                            </div>
+                            <div>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th width="10%"></th>
+                                        <th width="60%">@Html.Raw(InvestigacionResource.EtiquetaDescripcion)</th>
+                                        <th>@Html.Raw(InvestigacionResource.EtiquetaActual)</th>
+                                    </tr>
+                                    @foreach (var item in Model.ListaCategoriaPerdidaProceso)
+                                    { 
+                                        <tr>
+                                            <td class="text-center">
+                                                @if (Model.InvestigacionPerdidaProceso.CodigoConsecuenciaPotencial == item.CodigoConsecuenciaPotencial)
+                                                { 
+                                                    Model.InvestigacionPerdidaProceso.DescripcionConsecuenciaPotencial = item.DescripcionConsecuenciaPotencial;
+                                                    <input type="radio" name="codigoConsecuenciaPotencialPerdidaModal" disabled="disabled" id="radioConsecuenciaPotencial_@item.CodigoConsecuenciaPotencial" data-descripcion="@item.DescripcionConsecuenciaPotencial" data-codigo="@item.CodigoCategoriaTexto" checked/>
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="codigoConsecuenciaPotencialPerdidaModal" disabled="disabled" id="radioConsecuenciaPotencial_@item.CodigoConsecuenciaPotencial" data-descripcion="@item.DescripcionConsecuenciaPotencial" data-codigo="@item.CodigoCategoriaTexto"/>
+                                                }
+                                            </td>
+                                            <td>@item.NombreCategoriaDetalleEspaniol</td>
+                                            <td>@item.DescripcionConsecuenciaPotencial</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaActualConsecuencia)</label>
+                            @Html.TextBox("txtDescripcionConsecuenciaActual", Model.InvestigacionPerdidaProceso.DescripcionConsecuenciaActual, new { id = "txtDescripcionConsecuenciaActual", @class = "form-control", @disabled= "disabled" })                            
+                        </div>
+                        <div class="col-sm-6">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaPotencialConsecuencia)</label>
+                            @Html.TextBox("txtDescripcionConsecuenciaPotencial", Model.InvestigacionPerdidaProceso.DescripcionConsecuenciaPotencial, new { id = "txtDescripcionConsecuenciaPotencial", @class = "form-control", @disabled= "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioPerdidaProceso = @(Html.Raw(Json.Encode(Model)))
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioPerdidaProceso.DatosConstantes')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.FormularioPerdidaProceso.DatosConstantes.OtrosPerdidaProceso = '@DatosConstantes.CodigoOtrosCategoriaInvestigacion.OtrosPerdidaProceso';       
+</script>

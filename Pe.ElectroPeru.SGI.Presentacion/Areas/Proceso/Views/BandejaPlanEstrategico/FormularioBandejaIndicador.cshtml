@@ -1,0 +1,56 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.ObjetivoEstrategicoEmpresa
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+<div class="modal-body">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-12">                
+                <h6><strong><label id="txtSeguimientoInd" style="position: relative; margin-top: 7px;"></label></strong></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div id="OEEIndicador" class="col-sm-12 hidden">
+                <label style="position: relative; margin-top: 7px;"><b>@Html.Raw(OEEResource.EtiquetaObjetivoEstrategicoEmpresa):</b></label>
+                <div>
+                    <input id="txtNombreObjetivoEstrategicoEmpresa" style="background-color:yellow;color:blue" name="txtNombreObjetivoEstrategicoEmpresa" type="text" class="form-control" disabled="disabled">
+                </div>
+            </div>
+             <div id="AEIIndicador" class="col-sm-12 hidden">
+                <label style="position: relative; margin-top: 7px;"><b>@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.AccionEstrategicaInstitucional.AEIResource.EtiquetaAccionEstrategicaInstitucional):</b></label>
+                <div>
+                    <input id="txtNombreAccionEstrategicaInstitucional" style="background-color:yellow;color:blue" name="txtNombreObjetivoEstrategicoEmpresa" type="text" class="form-control" disabled="disabled">
+                </div>
+            </div>
+        </div>        
+    </div>   
+    <div class="row">
+        <div class="col-sm-12">
+            @Html.Hidden("hdnCodigoObjetivoEstrategicoEmpresa")            
+            @Html.Hidden("hdnCodigoAccionEstrategicaInstitucional")            
+            @Html.Hidden("hdnCodigoAmbito")            
+            @Html.Hidden("hdnRuta")           
+            <div class="table-grilla">                
+                <div style="overflow-x: scroll;">
+                    <div class="table-grilla">
+                        <div id="divGrdResultIndicador">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridNombreIndicador = '@Html.Raw(IndicadorResource.GridNombre)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridDescripcionIndicador = '@Html.Raw(IndicadorResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridIndicador = '@Html.Raw(IndicadorResource.GridIndicador)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridResponsable = '@Html.Raw(IndicadorResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridEstado = '@Html.Raw(IndicadorResource.GridEstado)';                        
+    </script>
+}

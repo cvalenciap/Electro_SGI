@@ -1,0 +1,71 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Area.FormularioAreaModel
+
+<div class="modal-body">
+    <form id="frmFormularioArea">
+        <div class="form-group">
+            <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(AreaResource.EtiquetaProyecto): (*)</label>                                    
+                    @Html.DropDownListFor(model => model.Area.CodigoProyecto, Model.ListaProyecto, new { id = "slcProyecto",  @class = "form-control", @validable = "required ValidarProyecto"})                    
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(AreaResource.EtiquetaDepartamento): (*)</label>                                    
+                    @Html.DropDownListFor(model => model.Area.CodigoDepartamento, Model.ListaCodigoDepartamento, new { id = "slcDepartamento",  @class = "form-control", @validable = "required ValidarDepartamento"})                                        
+                </div>
+            </div>
+        </div>
+        </div>    
+        <div class="form-group">
+            <div class="row">                       
+            <div class="col-sm-6">
+                <div class="form-group">                  
+                    <label>@Html.Raw(AreaResource.EtiquetaArea): (*)</label>
+                    @Html.TextBox("txtNombreAreaFormulario", Model.Area.NombreArea, new { id = "txtNombreAreaFormulario", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required ValidarNombreArea" })
+                </div>
+            </div>
+                <div class="col-sm-6">
+                    <label style="margin-top: 7px;">@Html.Raw(AreaResource.EtiquetaNombreColaboradorResponsable): (*)</label>
+                    <div>
+                        <div class="input-group">
+                            @Html.Hidden("hdnCodigoColaborador", Model.Area.CodigoColaboradorResponsable, new { ïd = "hdnCodigoColaborador", @validable = "required ValidarColaborador" })
+                            @Html.TextBox("txtCodigoColaborador", Model.Area.NombreColaboradorResponsable, new { id = "txtCodigoColaborador", @class = "form-control", @disabled = "disabled", @validable = "required ValidarColaborador" })
+                            <div class="input-group-addon">
+                                <button class="btn-form" id="btnBuscarColaborador" type="button">....</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           @* <div class="col-sm-6">
+                <div class="form-group">
+                    <label>@Html.Raw(AreaResource.EtiquetaNombreColaboradorResponsable)</label>                
+                    @Html.DropDownListFor(model => model.Area.CodigoColaboradorResponsable, Model.ListaCodigoColaboradorResponsable, new { id = "slcColaborador",  @class = "form-control", @validable = "required ValidarColaborador"})                   
+                </div>
+            </div>*@
+        </div>
+        </div>
+    </form>
+</div>
+
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Area.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Area.Resources.Validacion.ValidarDepartamento = '@(Html.Raw(AreaResource.EtiquetaDepartamento))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Area.Resources.Validacion.ValidarColaborador = '@(Html.Raw(AreaResource.EtiquetaNombreColaboradorResponsable))';    
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Area.Resources.Validacion.ValidarNombreArea = '@(Html.Raw(AreaResource.EtiquetaArea))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Area.Resources.Validacion.ValidarProyecto = '@(Html.Raw(AreaResource.EtiquetaProyecto))';
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Area.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Area.Models.FormularioArea = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()
+@CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");

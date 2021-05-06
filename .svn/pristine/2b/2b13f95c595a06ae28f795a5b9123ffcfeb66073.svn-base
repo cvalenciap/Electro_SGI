@@ -1,0 +1,63 @@
+﻿@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguridad.Permisos.PermisosModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguridad.Permisos
+
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="modal-body">
+    <form id="frmFormulario">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="margin-top: 7px;">@Html.Raw(PermisosResource.EtiquetaOpcion): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Permisos.CodigoOpcion, Model.ListaOpcion, new { id = "slcOpcion", @class = "form-control", @validable = "required ValidarOpcion" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label style="margin-top: 7px;">@Html.Raw(PermisosResource.EtiquetaAccion): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Permisos.CodigoAccion, Model.ListaAccion, new { id = "slcAccion", @class = "form-control", @validable = "required ValidarAccion" })
+                    </div>
+                </div>                
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="margin-top: 7px;">@Html.Raw(PermisosResource.EtiquetaPerfil): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Permisos.CodigoPerfil, Model.ListaPerfil, new { id = "slcPerfil", @class = "form-control", @validable = "required ValidarPerfil" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="margin-top: 7px;">@Html.Raw(PermisosResource.EtiquetaEstadoPermiso): (*)</label>
+                    <div>
+                        @Html.CheckBoxFor(model => model.Permisos.EstadoPermisoBool, new { id= "chbEstadoPermisos", @class = "form-check-input", @checked="true" } )
+                    </div>
+                </div>                
+            </div>            
+        </div>
+    </form>
+</div>
+
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.Validacion.ValidarOpcion = '@(Html.Raw(PermisosResource.EtiquetaOpcion))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.Validacion.ValidarAccion = '@(Html.Raw(PermisosResource.EtiquetaAccion))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Resources.Validacion.ValidarPerfil = '@(Html.Raw(PermisosResource.EtiquetaPerfil))';
+    
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Permisos.Models.Permisos = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

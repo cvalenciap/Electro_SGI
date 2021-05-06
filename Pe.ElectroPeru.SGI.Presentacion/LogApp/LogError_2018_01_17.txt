@@ -1,0 +1,30 @@
+FechaHora = 17/01/2018 12:57:49 p.m.
+MensajeError = The 'title' argument is invalid.
+DetalleError =    en Microsoft.SharePoint.Client.ListCollection.GetByTitle(String title)
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.DescargaArchivoPorId(String& hayError, Int64 idItem, String listName) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 108
+__________________________________________________
+FechaHora = 17/01/2018 12:58:31 p.m.
+MensajeError = The 'title' argument is invalid.
+DetalleError =    en Microsoft.SharePoint.Client.ListCollection.GetByTitle(String title)
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.DescargaArchivoPorId(String& hayError, Int64 idItem, String listName) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 108
+__________________________________________________
+FechaHora = 17/01/2018 03:42:02 p.m.
+MensajeError = La lista '03.03.24 SGATE 1' no existe en el sitio con la dirección URL 'http://portalstracongymdev.gym.com.pe/sitios/sgate'.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.DescargaArchivoPorId(String& hayError, Int64 idItem, String listName) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 111
+__________________________________________________
+FechaHora = 17/01/2018 03:44:11 p.m.
+MensajeError = La lista '03.03.24 SGATE 1' no existe en el sitio con la dirección URL 'http://portalstracongymdev.gym.com.pe/sitios/sgate'.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.DescargaArchivoPorId(String& hayError, Int64 idItem, String listName) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 111
+__________________________________________________

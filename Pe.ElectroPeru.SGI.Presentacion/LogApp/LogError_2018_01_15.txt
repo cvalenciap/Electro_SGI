@@ -1,0 +1,20 @@
+FechaHora = 15/01/2018 11:12:12 a.m.
+MensajeError = Acceso denegado. No tiene el permiso necesario para realizar esta acción o tener acceso a este recurso.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 203
+__________________________________________________
+FechaHora = 15/01/2018 11:26:57 a.m.
+MensajeError = Acceso denegado. No tiene el permiso necesario para realizar esta acción o tener acceso a este recurso.
+DetalleError =    en Microsoft.SharePoint.Client.ClientRequest.ProcessResponseStream(Stream responseStream)
+   en Microsoft.SharePoint.Client.ClientRequest.ProcessResponse()
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQueryToServer(ChunkStringBuilder sb)
+   en Microsoft.SharePoint.Client.ClientRequest.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientRuntimeContext.ExecuteQuery()
+   en Microsoft.SharePoint.Client.ClientContext.ExecuteQuery()
+   en Pe.ElectroPeru.SGI.Aplicacion.Service.Base.SharePointService.RegistraArchivoSharePoint(String& hayError, String listName, String folderName, String fileName, MemoryStream myFile, String prmSiteURL, NetworkCredential prmCredenciales) en d:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Aplicacion.Service\Base\SharePointService.cs:línea 203
+__________________________________________________

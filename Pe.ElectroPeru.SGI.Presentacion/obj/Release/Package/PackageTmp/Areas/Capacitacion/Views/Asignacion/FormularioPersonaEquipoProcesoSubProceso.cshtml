@@ -1,0 +1,223 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.AsignacionProyectoModel
+
+<div class="modal-body">
+    <form id="frmBuscarColaborador" onsubmit="return false;">
+        <div class="hidden">
+            <div class="form-group">
+                <input type="hidden" id="hdnCodigoAsignacionProyecto" value="@ViewBag.CodigoAsignacionProyecto"/>
+            </div>
+        </div>
+        <div class="tab_custom">
+            <div class="tab-interno item03">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabs">
+                    <li id="listaPrimero" role="presentation" class="active">
+                        <a href="#primero" class="top-tab" aria-controls="primero" role="tab" data-toggle="tab">@Html.Raw(AsignacionResource.EtiquetaEquipo)</a>
+                    </li>
+                    <li id="listaSegundo" role="presentation">
+                        <a id="asegundo" href="#segundo" class="top-tab" aria-controls="segundo">@Html.Raw(AsignacionResource.EtiquetaProcesos)</a>
+                    </li>
+                    <li id="listaTercero" role="presentation">
+                        <a id="atercero" href="#tercero" class="top-tab" aria-controls="tercero">@Html.Raw(AsignacionResource.EtiquetaSubProceso)</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="primero">
+                        <div class="filter-avanzado">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaProyecto):</label>
+                                        <input id="txtFrmNombreProyectoEquipo" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaCapacitacionEquipoPara):</label>
+                                        <input id="txtFrmNombreCapacitadoEquipo" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaEquipo):</label>
+                                        @Html.DropDownList("slcEquipo", Model.ListaEquipos, new { id = "slcEquipo", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input style="margin-top: 22px;" id="txtFrmDescripcionEquipos" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaPlazoEstimadoDias):</label>
+                                        <input id="txtFrmPlazoEstimadoDias" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">                                
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="pull-right">
+                                            <button class="btn btn-primary" id="btnAgregarEquipo">@Html.Raw(AsignacionResource.EtiquetaAgregarEquipo)</button></div>
+                                    </div>
+                                </div>
+                            </div>                           
+                        </div>
+                        <div class="row">
+                        <div class="title-interna">
+                            <span>@Html.Raw(AsignacionResource.EtiquetaListEquipo) </span>
+                        </div>
+                        </div>
+                        <div id="divGrdResultadoPersonaEquipo"></div>
+                        <div class="filter-avanzado" id="blockSeleccionarEquipos" style="display:normal ;">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label style="margin-top: 8px;"><strong>@Html.Raw(AsignacionResource.EtiquetaCantEquipo)</strong></label></div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" id="txtCantidadEquipos" disabled /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="segundo">
+                            <div class="filter-avanzado">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaProyecto):</label>
+                                        <input id="txtFrmNombreProyectoProceso" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaCapacitacionEquipoPara):</label>
+                                        <input id="txtFrmNombreCapacitadoProceso" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaProcesos):</label>
+                                        @Html.DropDownList("slcProceso", new List<SelectListItem>(), new { id = "slcProceso", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input style="margin-top: 22px;" id="txtFrmDescripcionProceso" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaPlazoEstimadoDias):</label>
+                                        <input id="txtFrmPlazoEstimadoProceso" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">                               
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="pull-right">
+                                            <button class="btn btn-primary" id="btnAgregarProceso">@Html.Raw(AsignacionResource.EtiquetaAgregarProceso)</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="title-interna">
+                            <span>@Html.Raw(AsignacionResource.EtiquetaListProceso) </span>
+                        </div>
+                        </div>
+                        <div id="divGrdResultadoPersonaProceso"></div>
+                        <div class="filter-avanzado" id="blockSeleccionarProceso" style="display:normal ;">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label style="margin-top: 8px;"><strong>@Html.Raw(AsignacionResource.EtiquetaCantProceso)</strong></label></div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" id="txtCantidadProcesos" disabled /></div>
+                               <div class="col-md-9">
+                                       <div class="col-sm-4 text-right"><label style="margin-top:8px;"><strong>@Html.Raw(AsignacionResource.EtiquetasTotales)</strong> </label></div>                     
+                                        <div class="col-sm-3"><input type="text" class="form-control" id="txtCantidadHorasPlanificadasProceso"/></div>    
+                                        <div class="col-sm-3"><input type="text" class="form-control" id="txtCantidadPlazoEstimadoProceso"/></div>    
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tercero">
+                            <div class="filter-avanzado">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaProyecto):</label>
+                                        <input id="txtFrmNombreProyectoSubProceso" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaCapacitacionEquipoPara):</label>
+                                        <input id="txtFrmNombreCapacitadoSubProceso" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaSubProceso):</label>
+                                        @Html.DropDownList("slcSubProceso", new List<SelectListItem>(), new { id = "slcSubProceso", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input style="margin-top: 22px;" id="txtFrmDescripcionSubProceso" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(AsignacionResource.EtiquetaPlazoEstimadoDias):</label>
+                                        <input id="txtFrmPlazoEstimadoSubProceso" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">                                
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="pull-right">
+                                            <button class="btn btn-primary" id="btnAgregarSubProceso">@Html.Raw(AsignacionResource.EtiquetaAgregarSubProceso)</button></div>
+                                    </div>
+                                </div>
+                            </div>                          
+                        </div>
+                        <div class="row">
+                        <div class="title-interna">
+                            <span>@Html.Raw(AsignacionResource.EtiquetaListSubProceso) </span>
+                        </div>
+                        </div>
+                        <div id="divGrdResultadoPersonaSubProceso"></div>
+                        <div class="filter-avanzado" id="blockSeleccionarSubProceso" style="display:normal ;">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label style="margin-top: 8px;"><strong>@Html.Raw(AsignacionResource.EtiquetaCantSubProceso)</strong></label></div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" id="txtCantidadSubProcesos" disabled /></div>
+                               <div class="col-md-9">
+                                       <div class="col-sm-4 text-right"><label style="margin-top:8px;"><strong>@Html.Raw(AsignacionResource.EtiquetasTotales)</strong> </label></div>                     
+                                        <div class="col-sm-3"><input type="text" class="form-control" id="txtCantidadHorasPlanificadasSubProceso"/></div>    
+                                        <div class="col-sm-3"><input type="text" class="form-control" id="txtCantidadPlazoEstimadoSubProceso"/></div>    
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarPersona" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarPersona">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>

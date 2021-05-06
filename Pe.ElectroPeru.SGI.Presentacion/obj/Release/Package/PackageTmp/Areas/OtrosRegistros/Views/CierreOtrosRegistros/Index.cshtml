@@ -1,0 +1,136 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.OtrosRegistros
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.OtrosRegistros.IngresoOtrosRegistros.OtrosRegistrosModel
+<div class="main-content view-wrap"> 
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@OtrosRegistrosResource.EtiquetaTituloCierreOtrosRegistros</strong>
+        </h2>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaCierreOtrosRegistros" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="@Html.Raw(AccionResource.EtiquetaListaAcciones)">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="filter-avanzado">
+            <fieldset id="flsInformacionOtrosRegistros" @(Model.OtrosRegistros.IndicadorEsLectura == true ? "disabled=disabled" : null)>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaTipoRegistro):</label>
+                            @Html.DropDownListFor(model => Model.OtrosRegistros.CodigoTipoRegistro, Model.ListaTipoRegistro, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcTipoRegistro", @class = "form-control" } : new { id = "slcTipoRegistro", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaNroRegistro): (*)</label>
+                            @Html.TextBox("txtNumeroOtrosRegistros", Model.OtrosRegistros.NumeroOtrosRegistros, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "txtNumeroOtrosRegistros", @class = "form-control", @disabled = "disabled" } : new { id = "txtNumeroOtrosRegistros", @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaProyecto):</label>
+                            @Html.DropDownListFor(model => model.OtrosRegistros.CodigoProyecto, Model.ListaProyectos, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcProyecto", @class = "form-control" } : new { id = "slcProyecto", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(OtrosRegistrosResource.GridEstadoDocumento):</label>
+                            @Html.DropDownListFor(model => model.OtrosRegistros.CodigoEstadoDocumento, Model.ListaEstadoDocumento, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcEstadoDocumento", @class = "form-control" } : new { id = "slcEstadoDocumento", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaPais):</label>
+                            @Html.DropDownListFor(model => model.OtrosRegistros.CodigoPais, Model.ListaPais, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcPais", @class = "form-control" } : new { id = "slcPais", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaEmpresa):</label>
+                            @Html.DropDownListFor(model => model.OtrosRegistros.CodigoEmpresaPais, Model.ListaEmpresa, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcEmpresaPais", @class = "form-control" } : new { id = "slcEmpresaPais", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaFechaEjecucion):</label>
+                            @Html.TextBox("dtpFechaEjecucion", Model.OtrosRegistros.FechaEjecucionString, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "dtpFechaEjecucion", @class = "form-control" } : new { id = "dtpFechaEjecucion", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaTituloRegistro):</label>
+                            @Html.TextBox("txtTituloRegistro", Model.OtrosRegistros.TituloRegistro, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "txtTituloRegistro", @class = "form-control" } : new { id = "txtTituloRegistro", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                    <div class="col-sm-3">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(OtrosRegistrosResource.EtiquetaHora):</label>
+                                        @Html.DropDownListFor(model => model.OtrosRegistros.HoraEjecucion, Model.ListaHoras, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcHoraReunion", @class = "form-control" } : new { id = "slcHoraReunion", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(OtrosRegistrosResource.EtiquetaMinuto):</label>
+                                        @Html.DropDownListFor(model => model.OtrosRegistros.MinutoEjecucion, Model.ListaMinutos, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcMinutoReunion", @class = "form-control" } : new { id = "slcMinutoReunion", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </fieldset>
+        </div>
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-primary" id="btnCerrarOtrosRegistros">@Html.Raw(GenericoResource.BotonCerrar)</button>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-grilla">
+                    <div id="divGrdResultadoHallazgoAccion">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.GridPlanteadaPor = '@Html.Raw(OtrosRegistrosResource.GridPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.GridFechaPlanteada = '@Html.Raw(OtrosRegistrosResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.GridResponsableEjecucion = '@Html.Raw(OtrosRegistrosResource.GridResponsableEjecucion)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.GridFechaVencimiento = '@Html.Raw(OtrosRegistrosResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.GridDescripcionCortaHallazgo = '@Html.Raw(OtrosRegistrosResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.GridDescripcionCortaAccion = '@Html.Raw(OtrosRegistrosResource.GridDescripcionCortaAccion)';       
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.GridNumeroAccion = '@Html.Raw(OtrosRegistrosResource.GridNumeroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.GridEstadoAccion = '@Html.Raw(OtrosRegistrosResource.GridEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.ConfirmacionCerrarOtrosRegistros = '@Html.Raw(OtrosRegistrosResource.ConfirmacionCerrarOtrosRegistros)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Resource.GridNivelRiesgo = '@Html.Raw(OtrosRegistrosResource.GridNivelRiesgo)';
+                                                 
+        ns('Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Actions.BuscarRecordAccionHallazgo = '@Url.Action("BuscarRecordAccionHallazgo", "IntegradorTipoRegistro", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Actions.CerrarOtrosRegistros = '@Url.Action("CerrarOtrosRegistros", "CierreOtrosRegistros", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Actions.FormularioBandejaCierreOtrosRegistros = '@Url.Action("Index", "BandejaCierreOtrosRegistros", new { Area = "OtrosRegistros" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Models')
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.Index.Models.IngresoOtrosRegistrosModel = @(Html.Raw(Json.Encode(Model)))
+    </script>
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformularioseguimientoaccion")
+}
+

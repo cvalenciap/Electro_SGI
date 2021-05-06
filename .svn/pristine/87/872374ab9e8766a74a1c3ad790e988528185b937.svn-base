@@ -1,0 +1,70 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguridad.Sistema
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguridad.Sistema.SistemaModel
+
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@Html.Raw(SistemaResource.EtiquetaTituloPrincipal)</strong>
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnRegistrar" type="button" class="btn-table text-line one">
+                    @Html.Raw(SistemaResource.EtiquetaBotonRegistrar)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(SistemaResource.EtiquetaLista)</span>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Actions.Buscar = '@Url.Action("Buscar", "Sistema", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Actions.Formulario = '@Url.Action("Formulario", "Sistema", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Actions.Obtener = '@Url.Action("Obtener", "Sistema", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Actions.Registrar = '@Url.Action("Registrar", "Sistema", new { Area = "Seguridad" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Actions.Eliminar = '@Url.Action("Eliminar", "Sistema", new { Area = "Seguridad" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.GridNombre = '@Html.Raw(SistemaResource.EtiquetaNombre)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.GridDescripcion = '@Html.Raw(SistemaResource.EtiquetaDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.GridRuta = '@Html.Raw(SistemaResource.EtiquetaRuta)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.GridToken = '@Html.Raw(SistemaResource.EtiquetaToken)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.GridParametro = '@Html.Raw(SistemaResource.EtiquetaParametro)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.GridValorParametro = '@Html.Raw(SistemaResource.EtiquetaValorParametro)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.GridEstado = '@Html.Raw(SistemaResource.GridEstado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.EtiquetaMensajeEliminar = '@Html.Raw(SistemaResource.EtiquetaMensajeEliminar)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Models.Sistema = '@(Html.Raw(Json.Encode(Model)))';
+
+    </script>
+    <style type="text/css">
+        form-control {
+            width: 100%;
+        }
+    </style>
+    @CustomHtmlHelper.RenderViewJs("seguridadsistemaformulario")
+}

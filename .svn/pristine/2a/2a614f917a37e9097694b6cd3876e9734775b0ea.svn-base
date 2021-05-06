@@ -1,0 +1,91 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Politicas
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Politicas.PlantillaNotificacion.PlantillaNotificacionModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@{
+    var disabled = (Model.ControlPermisos.ControlTotal || Model.ControlPermisos.Escritura) ? false : true;
+    var disabledEliminar = (Model.ControlPermisos.ControlTotal) ? false : true;
+}
+
+
+<div class="GmdBody-header">
+    <h2>@PlantillaNotificacionResource.EtiquetaTitulo</h2>
+</div>
+<div class="GmdBody-body">
+    <form id="frmBandejaPlantillaNotificacion">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="txtAsunto"> @PlantillaNotificacionResource.EtiquetaAsunto</label>
+                    @Html.TextBox("txtAsunto", null, new { @class = "form-control", @id = "txtAsunto" })
+                </div>
+            </div>
+            <div class="col-sm-3 hidden">
+                <div class="form-group">
+                    <label for="chkPlantillaActiva">@PlantillaNotificacionResource.EtiquetaPlantillaActiva</label>
+                    @Html.DropDownList("slcPlantillaActiva", Model.ListaIndicadorActiva, new { id = "slcPlantillaActiva", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <button class="btn btn-info" id="btnLimpiar" type="reset">@GenericoResource.BotonLimpiar</button>
+                <button class="btn btn-default" id="btnBuscar">@GenericoResource.BotonMostrar</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-6 text-left">
+            <div class="form-group">
+                <h3>@GenericoResource.EtiquetaResultadosBusqueda</h3>
+            </div>
+        </div>
+    </div>
+    <div id="divGrdResult">
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Actions.BuscarBandejaPlantillaNotificacion = '@Url.Action("BuscarBandejaPlantillaNotificacion", "PlantillaNotificacion", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Actions.RegistraPlantillaNotificacion      = '@Url.Action("RegistraPlantillaNotificacion", "PlantillaNotificacion", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Actions.EliminarPlantillaNotificacion = '@Url.Action("EliminarPlantillaNotificacion", "PlantillaNotificacion", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Actions.FormularioPlantillaNotificacion = '@Url.Action("FormularioPlantillaNotificacion", "PlantillaNotificacion", new { Area = "Politicas" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Resources')
+            
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Resources.GridAsunto = '@Html.Raw(PlantillaNotificacionResource.GridAsunto)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Resources.GridContenido = '@Html.Raw(PlantillaNotificacionResource.GridContenido)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Resources.GridPlantillaActiva = '@Html.Raw(PlantillaNotificacionResource.GridPlantillaActiva)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Resources.GridDestinatario = '@Html.Raw(PlantillaNotificacionResource.GridDestinatario)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Resources.GridDestinatarioCopia = '@Html.Raw(PlantillaNotificacionResource.GridDestinatarioCopia)';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion')
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ConfirmacionGuardar = '@Html.Raw(MensajeResource.ConfirmacionGuardar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaConfirmacion = '@MensajeResource.SeGuardoInformacionExito';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ConfirmacionEliminacion = '@MensajeResource.ConfirmacionEliminacion';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaTituloAdvertencia = '@Html.Raw(MensajeResource.EtiquetaTituloAdvertencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaTituloConfirmar = '@Html.Raw(GenericoResource.EtiquetaTituloConfirmar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.SeleccionarRegistroEliminar = '@Html.Raw(MensajeResource.SeleccionarRegistroEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.MsgEliminacionList = '@Html.Raw(MensajeResource.MsgEliminacionList)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaEliminacionExitosa = '@Html.Raw(MensajeResource.SeEliminoInformacionExito)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.PlantillaNotificacion.Models.Index = @(Html.Raw(Json.Encode(Model)));
+    </script>
+    @CustomHtmlHelper.RenderViewJs("politicasplantillanotificacionformularioplantillanotificacion")
+}

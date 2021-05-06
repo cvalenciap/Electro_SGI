@@ -1,0 +1,25 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+<div class="modal-body">
+    <form id="frmRecordSustento">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaSustento): (*)</label>                     
+                    <textarea id="txtSustento" class="form-control" maxlength="400" rows="10" validable="required"></textarea>
+                    <div class="text-right">
+                        <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, "400"))</label>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarRecordSustento" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarRecordSustento" type="button">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>
+
+@CustomHtmlHelper.RenderViewJs()

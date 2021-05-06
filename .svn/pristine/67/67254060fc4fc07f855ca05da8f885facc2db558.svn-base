@@ -1,0 +1,109 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Reportes.Dashboard
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Reportes.Dashboard.DashboardModel
+
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@Html.Raw(DashboardResource.EtiquetaTituloPrincipal)</strong>
+        </h2>        
+    </div>
+    
+    <div class="content-body">
+        <div class="row">            
+            <div class="filter-avanzado">
+                <div class="col-sm-2">
+                    <label style="position: relative; margin-top: 7px; text-align:right">@Html.Raw(DashboardResource.EtiquetaIndicador):</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Dashboard.Indicador, Model.ListaIndicador, new { id = "slcIndicador", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(DashboardResource.EtiquetaTipoPeriodicidad):</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Dashboard.TipoPeriodicidad, Model.ListaTipoPeriodicidad, new { id = "slcTipoPeriodicidad", @class = "form-control"})
+                    </div>
+                </div>
+                <div id="DivAnio" class="col-sm-2">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(DashboardResource.EtiquetaAnio):</label>
+                    <div>
+                        @Html.TextBoxFor(model => model.Dashboard.Anio, Model.Dashboard.Anio, new { id = "txtAnio", @type = "text", @class = "form-control", @maxlength = "4" })
+                    </div>
+                </div>
+                <div id="DivFiltro" class="col-sm-2">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(DashboardResource.EtiquetaFiltroPeriodicidad):</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Dashboard.Indicador, Model.ListaFiltroPeriodicidad, new { id = "slcFiltroPeriodicidad", @class = "form-control"})
+                    </div>
+                </div>
+                <div id="DivFecha" class="col-sm-2">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(DashboardResource.EtiquetaDia):</label>
+                    <div class="input-group date form-group">
+                        @Html.TextBoxFor(model => model.Dashboard.Fecha, new { id = "txtFecha", @class = "form-control" })
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </div>
+                </div>       
+                <div class="col-sm-2">
+                    <div class="input-group date form-group" style="top:30px">
+                        <button id="btnConsultar" type="button" class="btn btn-primary">@Html.Raw(DashboardResource.EtiquetaBotonConsultar)</button>
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+        <div id="DivDashboards" class="row">            
+            <div class="filter-avanzado">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div id="DivChart1" class="col-md-6">                            
+                            <div class="thumbnail">
+                                <button id="btnConsultarChart1" type="button" class="btn btn-default">@Html.Raw(DashboardResource.EtiquetaBotonConsultar)</button>
+                                <div id="chartContainer1" style="height: 300px; width: 100%;"></div>                                
+                            </div>
+                        </div>
+                        <div id="DivChart2" class="col-md-6">
+                            <div class="thumbnail">
+                                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div  id="DivChart3" class="col-md-6">
+                            <div class="thumbnail">
+                                <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div  id="DivChart4" class="col-md-6">
+                            <div class="thumbnail">
+                                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Reportes.Dashboard.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Reportes.Dashboard.Actions.Consultar = '@Url.Action("Consultar", "Dashboard", new { Area = "Reportes" })';
+        Pe.ElectroPeru.SGI.Presentacion.Reportes.Dashboard.Actions.ObtenerFiltroPeriodicidad = '@Url.Action("ObtenerFiltroPeriodicidad", "Dashboard", new { Area = "Reportes" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Reportes.Dashboard.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Reportes.Dashboard.Models.Dashboard = '@(Html.Raw(Json.Encode(Model)))';      
+        
+    </script>
+}

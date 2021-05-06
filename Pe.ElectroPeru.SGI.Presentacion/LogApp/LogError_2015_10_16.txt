@@ -1,0 +1,97 @@
+FechaHora = 16/10/2015 10:34:29 a.m.
+MensajeError = Unrecognized Guid format.
+DetalleError =    at System.Guid.GuidResult.SetFailure(ParseFailureKind failure, String failureMessageID, Object failureMessageFormatArgument, String failureArgumentName, Exception innerException)
+   at System.Guid.TryParseGuid(String g, GuidStyles flags, GuidResult& result)
+   at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 674
+__________________________________________________
+FechaHora = 16/10/2015 10:36:55 a.m.
+MensajeError = Unrecognized Guid format.
+DetalleError =    at System.Guid.GuidResult.SetFailure(ParseFailureKind failure, String failureMessageID, Object failureMessageFormatArgument, String failureArgumentName, Exception innerException)
+   at System.Guid.TryParseGuid(String g, GuidStyles flags, GuidResult& result)
+   at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 674
+__________________________________________________
+FechaHora = 16/10/2015 10:37:27 a.m.
+MensajeError = Unrecognized Guid format.
+DetalleError =    at System.Guid.GuidResult.SetFailure(ParseFailureKind failure, String failureMessageID, Object failureMessageFormatArgument, String failureArgumentName, Exception innerException)
+   at System.Guid.TryParseGuid(String g, GuidStyles flags, GuidResult& result)
+   at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 674
+__________________________________________________
+FechaHora = 16/10/2015 10:48:53 a.m.
+MensajeError = Unrecognized Guid format.
+DetalleError =    at System.Guid.GuidResult.SetFailure(ParseFailureKind failure, String failureMessageID, Object failureMessageFormatArgument, String failureArgumentName, Exception innerException)
+   at System.Guid.TryParseGuid(String g, GuidStyles flags, GuidResult& result)
+   at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 674
+__________________________________________________
+FechaHora = 16/10/2015 10:51:22 a.m.
+MensajeError = Unrecognized Guid format.
+DetalleError =    at System.Guid.GuidResult.SetFailure(ParseFailureKind failure, String failureMessageID, Object failureMessageFormatArgument, String failureArgumentName, Exception innerException)
+   at System.Guid.TryParseGuid(String g, GuidStyles flags, GuidResult& result)
+   at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 674
+__________________________________________________
+FechaHora = 16/10/2015 10:53:49 a.m.
+MensajeError = Unrecognized Guid format.
+DetalleError =    at System.Guid.GuidResult.SetFailure(ParseFailureKind failure, String failureMessageID, Object failureMessageFormatArgument, String failureArgumentName, Exception innerException)
+   at System.Guid.TryParseGuid(String g, GuidStyles flags, GuidResult& result)
+   at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 674
+__________________________________________________
+FechaHora = 16/10/2015 10:58:50 a.m.
+MensajeError = Unrecognized Guid format.
+DetalleError =    at System.Guid.GuidResult.SetFailure(ParseFailureKind failure, String failureMessageID, Object failureMessageFormatArgument, String failureArgumentName, Exception innerException)
+   at System.Guid.TryParseGuid(String g, GuidStyles flags, GuidResult& result)
+   at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.ObtenerVariablesContratoParrafo(String codigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 674
+__________________________________________________
+FechaHora = 16/10/2015 04:11:34 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________
+FechaHora = 16/10/2015 04:17:07 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________
+FechaHora = 16/10/2015 04:22:57 p.m.
+MensajeError = Value cannot be null.
+Parameter name: String
+DetalleError =    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s, IFormatProvider provider)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerContratoEntity(ContratoResponse data) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 200
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________
+FechaHora = 16/10/2015 04:30:42 p.m.
+MensajeError = Value cannot be null.
+Parameter name: String
+DetalleError =    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s, IFormatProvider provider)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerContratoEntity(ContratoResponse data) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 200
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________
+FechaHora = 16/10/2015 04:35:25 p.m.
+MensajeError = Value cannot be null.
+Parameter name: String
+DetalleError =    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s, IFormatProvider provider)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerContratoEntity(ContratoResponse data) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 200
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________
+FechaHora = 16/10/2015 04:41:33 p.m.
+MensajeError = Value cannot be null.
+Parameter name: String
+DetalleError =    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s, IFormatProvider provider)
+   at Pe.ElectroPeru.SGI.Aplicacion.Adapter.Contractual.ListadoContratoAdapter.ObtenerContratoEntity(ContratoResponse data) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Adapter\Contractual\ListadoContratoAdapter.cs:line 200
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________

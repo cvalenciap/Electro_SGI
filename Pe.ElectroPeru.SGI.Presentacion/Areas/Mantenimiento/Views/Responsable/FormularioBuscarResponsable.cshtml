@@ -1,0 +1,64 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Responsable.FormularioResponsableModel
+
+<script type="text/javascript">    
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Models.FormularioResponsable = @(Html.Raw(Json.Encode(Model)))
+</script>
+
+<div class="modal-body">
+    <div class="row">
+        @*<div class="col-sm-12">*@
+        <div class="tab_custom">
+            <div class="tab-interno item03">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsBuscarResponsable" style="display: none">
+                    <li id="listaPrimeroBuscarResponsable" role="presentation" class="active" >
+                        <a href="#primerBuscarResponsable" class="top-tab" aria-controls="primerBuscarResponsable" role="tab" data-toggle="tab">@Html.Raw(BuscadorResponsableResource.EtiquetaBusqueda)</a>
+                    </li>
+                    <li id="listaSegundoBuscarResponsable" role="presentation" >
+                        <a id="asegundoBuscarResponsable" href="#segundoBuscarResponsable" class="top-tab" aria-controls="segundoBuscarResponsable">@Html.Raw(BuscadorResponsableResource.EtiquetaAgregar)</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="primerBuscarResponsable">
+                        <form id="frmBuscarResponsable">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <label>@Html.Raw(BuscadorResponsableResource.EtiquetaBuscarPor):</label>
+                                    <select class="form-control" id="slcFiltroBuscarResponsable">
+                                        <option value="1">@Html.Raw(BuscadorResponsableResource.EtiquetaNumeroDocumento)</option>
+                                        <option value="2" selected>@Html.Raw(BuscadorResponsableResource.EtiquetaApellidosNombres)</option>
+                                    </select>
+                                </div>                                
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <label for="txtNombreResponsable">@Html.Raw(BuscadorResponsableResource.EtiquetaIngresoCaracteres):</label>
+                                        @Html.TextBox("txtNombreResponsable", null, new { @class = "form-control", @id = "txtNombreResponsable" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>@GenericoResource.EtiquetaResultadosBusqueda</h4>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <button id="btnBuscarPersona" class="btn btn-default" type="button">@Html.Raw(GenericoResource.BotonBuscar)</button>
+                                </div>
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultResponsable">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarResponsable">@GenericoResource.BotonCancelar</button>
+                            <button class="btn btn-primary" id="btnAceptarResponsable">@GenericoResource.BotonAceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

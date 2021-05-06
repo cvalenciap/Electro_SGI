@@ -1,0 +1,292 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Accion.RecordAccionModel
+
+<div class="pull-main-content" style="padding: 0">
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left" style="width: auto">
+            <strong>@Html.Raw(AccionResource.EtiquetaTituloRevisionAccion)</strong></h2>
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label>@Html.Raw(AccionResource.EtiquetaTipoRecord):</label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">
+                            @Html.TextBox("txtTipoRecord", Model.RecordAccion.DescripcionTipoRecord, new { @class = "form-control", @style = "width:460px", @id = "txtTipoRecord", @readonly = "readonly", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="cell-line">
+                        <label>@Html.Raw(AccionResource.EtiquetaNumeroRecord):</label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">
+                            @Html.TextBox("txtNumeroRecord", Model.RecordAccion.NumeroRecord, new { @class = "form-control", @style = "width:225px", @id = "txtNumeroRecord", @readonly = "readonly", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            @*<a id="btnRegresarBandejaAccionModal" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="@Html.Raw(AccionResource.EtiquetaListaAcciones)">
+                    <i class="listado_record"></i>
+                </span>
+            </a>*@
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body">
+            <div class="left-tabs">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist" id="cartTabs">
+                    <li role="presentation" class="active">
+                        <a id="lnkTabGeneral" href="#tabGeneral" class="top-tab" aria-controls="tabGeneral" role="tab" data-toggle="tab">@Html.Raw(RecordsResource.EtiquetaTabGeneral)</a>
+                    </li>
+                    @if (Model.RecordAccion.CodigoTipoRecord != DatosConstantes.TipoRecord.Incidente)
+                    {
+                        <li role="presentation">
+                            <a id="lnkTabPersonaInvolucrada" href="#tabPersonaInvolucrada" class="top-tab" aria-controls="tabPersonaInvolucrada" role="tab" data-toggle="tab">@Html.Raw(RecordsResource.EtiquetaTabPersonaInvolucrada)</a>
+                        </li>
+                    }
+                    <li role="presentation">
+                        <a id="lnkTabAnexo" href="#tabAnexo" class="top-tab" aria-controls="tabAnexo" role="tab" data-toggle="tab">@Html.Raw(RecordsResource.EtiquetaTabAnexos)</a>
+                    </li>
+                    @if (Model.RecordAccion.CodigoTipoRecord != DatosConstantes.TipoRecord.Incidente)
+                    {
+                    <li role="presentation">
+                        <a id="lnkTabFoto" href="#tabFoto" class="top-tab" aria-controls="tabFoto" role="tab" data-toggle="tab">@Html.Raw(RecordsResource.EtiquetaTabFotos)</a>
+                    </li>
+                    }
+                    <li role="presentation">
+                        <a id="lnkTabCierre" href="#tabCierre" class="top-tab" aria-controls="tabCierre" role="tab" data-toggle="tab">@Html.Raw(RecordsResource.EtiquetaTabCierre)</a>
+                    </li>
+                </ul>
+                <!-- Cierra Nav tabs -->
+            </div>
+            <div class="right-tabs">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGeneral">
+                        <div id="divRenderFichaGeneral">
+                        </div>
+                    </div>
+
+                    @if (Model.RecordAccion.CodigoTipoRecord != DatosConstantes.TipoRecord.Incidente)
+                    {
+                        <div role="tabpanel" class="tab-pane fade in" id="tabPersonaInvolucrada">
+                            <div role="tabpanel" class="tab-pane fade in" id="personaInvolucrada">
+                                <div class="title-interna">
+                                    <span>@Html.Raw(RecordsResource.EtiquetaPersonaInvolucrada)</span>
+                                </div>
+                                <div class="table-grilla">
+                                    <div id="divGrdResultadoPersonaInvolucrada">
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(RecordsResource.EtiquetaPersonaInvolucradaOtros):</label>
+                                            @Html.TextArea("txtPersonaInvolucradaOtros", Model.RecordAccion.PersonaInvolucradaOtros, new { id = "txtPersonaInvolucradaOtros", @class = "form-control", @cols = "10", @rows = "6", @disabled = "disabled", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div role="tabpanel" class="tab-pane fade in" id="tabAnexo">
+                        <div class="title-interna">
+                            <span>@Html.Raw(RecordsResource.EtiquetaAppendix)</span>
+                            @*<div class="acciones-form btn-group btn-group-table">
+                                @if (Model.RecordAccion.CodigoEstadoRecord != null && Model.RecordAccion.CodigoEstadoRecord != DatosConstantes.EstadoRecord.Cerrado)
+                                {
+                                <button id="btnAgregarRecordAnexoApendice" type="button" class="btn-table text-line one" data-toggle="modal" data-target="#addFile">
+                                    @Html.Raw(RecordsResource.EtiquetaAgregarArchivo)
+                                </button>
+                                }
+                            </div>*@
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoRecordAnexoApendice">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="tabFoto">
+                        <div role="tabpanel" class="tab-pane fade in" id="foto">
+                            <div class="title-interna">
+                                <span>@Html.Raw(RecordsResource.EtiquetaFotos)</span>
+                                @*<div class="acciones-form btn-group btn-group-table">
+                                    @if (Model.RecordAccion.CodigoEstadoRecord != null && Model.RecordAccion.CodigoEstadoRecord != DatosConstantes.EstadoRecord.Cerrado)
+                                    {
+                                    <button id="btnAgregarRecordAnexoFoto" type="button" class="btn-table text-line one">
+                                        @Html.Raw(RecordsResource.EtiquetaAgregarFoto)
+                                    </button>
+                                    }
+                                </div>*@
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultadoRecordAnexoFoto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="tabCierre">
+                        <div role="tabpanel" class="tab-pane fade in" id="cierre">
+                            <div class="title-interna">
+                                <span>@Html.Raw(RecordsResource.EtiquetaTabCierre)</span>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(CierreResource.EtiquetaComentario):</label>
+                                        @Html.TextArea("txtComentarioCierreRecord", Model.RecordAccion.ComentarioCierre, new { id = "txtComentarioCierreRecord", @disabled = "disabled", @readonly = "readonly", @rows = "10", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    @if (Model.RecordAccion.CodigoEstadoRecord != null && Model.RecordAccion.CodigoEstadoRecord != DatosConstantes.EstadoRecord.Cerrado)
+                                    {
+                                        Model.RecordAccion.FechaEstadoCierreString = string.Empty;
+                                    }
+                                    <div class="form-group">
+                                        <label>@Html.Raw(CierreResource.EtiquetaFechaCierre):</label>
+                                        @Html.TextBox("txtFechaCierreRecord", Model.RecordAccion.FechaEstadoCierreString, new { id = "txtFechaCierreRecord", @disabled = "disabled", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(CierreResource.EtiquetaCerradoPor):</label>
+                                        @Html.TextBox("txtNombreUsuarioCierre", Model.RecordAccion.NombreColaboradorCierre, new { id = "txtNombreUsuarioCierre", @class = "form-control", disabled = "disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.FormularioVerRecordAccion = '@Url.Action("FormularioVerRecordAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.FormularioRegistroSeguimientoAccion = '@Url.Action("FormularioRegistroSeguimientoAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.FormularioSeguimientoAccion = '@Url.Action("FormularioSeguimientoAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.BuscarPersonaInvolucrada = '@Url.Action("BuscarPersonaInvolucrada", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.BuscarRecordAccion = '@Url.Action("BuscarRecordAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.SeguimientoAccionFichaGeneral = '@Url.Action("SeguimientoAccionFichaGeneral", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.BuscarRecordAnexo = '@Url.Action("BuscarRecordAnexo", "Accion", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.Index = '@Url.Action("Index", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.BuscarRecordAccionSeguimiento = '@Url.Action("BuscarRecordAccionSeguimiento", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.RegistrarRecordAccionSeguimiento = '@Url.Action("RegistrarRecordAccionSeguimiento", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.EliminarRecordAccionSeguimiento = '@Url.Action("EliminarRecordAccionSeguimiento", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.DescargarArchivoRecordAccionSeguimiento = '@Url.Action("DescargarArchivoRecordAccionSeguimiento", "Accion", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.FormularioRecordAnexoFotoAccion = '@Url.Action("FormularioRecordAnexoFotoAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.FormularioRecordAnexoAccion = '@Url.Action("FormularioRecordAnexoAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.RegistrarRecordAnexo = '@Url.Action("RegistrarRecordAnexo", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.EliminarRecordAnexo = '@Url.Action("EliminarRecordAnexo", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Actions.FormularioVistaPreviaFoto = '@Url.Action("FormularioVistaPreviaFoto", "Accion", new { Area = "Seguimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridAccionNumero = '@Html.Raw(AccionResource.GridNumeroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridPlanteadaPor = '@Html.Raw(AccionResource.GridAccionPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridPlanteadoEn = '@Html.Raw(AccionResource.GridPlanteadoEn)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridDescripcionCorta = '@Html.Raw(AccionResource.GridDescripcionCorta)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridVencimiento = '@Html.Raw(AccionResource.GridVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridPrioridad = '@Html.Raw(AccionResource.GridPrioridad)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridResponsable = '@Html.Raw(AccionResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridEstado = '@Html.Raw(AccionResource.GridEstado)';
+
+        //Grilla Personas Involucradas
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridNumeroDocumento = '@Html.Raw(RecordsResource.GridNumeroDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridNombreColaboradorInvolucrado = '@Html.Raw(RecordsResource.GridNombreColaboradorInvolucrado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridRegimen = '@Html.Raw(RecordsResource.GridRegimen)';
+
+        //Grilla de Récord Anexo Apéndice
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridItem = '@Html.Raw(RecordsResource.GridItem)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridTipoApendice = '@Html.Raw(RecordsResource.GridTypeAnexo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridNombreApendice = '@Html.Raw(RecordsResource.GridApendiceName)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridDescripcion = '@Html.Raw(RecordsResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridDescripcionApendice = '@Html.Raw(RecordsResource.GridDescripcionApendice)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridDescargar = '@Html.Raw(RecordsResource.GridDownload)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.EtiquetaTituloFormularioRecordAnexoAccion = '@Html.Raw(AccionResource.EtiquetaTituloFormularioRecordAnexoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.EtiquetaTituloFormularioVistaPreviaFoto = '@Html.Raw(RecordsResource.EtiquetaVistaPreviaFoto)';
+
+        //Grilla de Récord Anexo Fotos
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridItem = '@Html.Raw(RecordsResource.GridItem)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridNombreFoto = '@Html.Raw(RecordsResource.GridNombreFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridDescripcionFoto = '@Html.Raw(RecordsResource.GridDescripcionFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.GridVistaPreviaFoto = '@Html.Raw(RecordsResource.GridVistaPreviaFoto)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resource.EtiquetaTituloFormularioRecordAnexoFotoAccion = '@Html.Raw(AccionResource.EtiquetaTituloFormularioRecordAnexoAccion)';
+
+        //Formulario Ver Record Acción
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.RecordAccion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.RecordAccion.Resource.EtiquetaTituloFormularioVerAccion = '@Html.Raw(AccionResource.EtiquetaTituloFormularioVerAccion)';
+
+        //Formulario Record Acción Seguimiento
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.EtiquetaTituloFormularioSeguimientoAccion = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaTituloPrincipal)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.EtiquetaTituloFormularioVerSeguimientoAccion = '@Html.Raw(AccionResource.EtiquetaTituloFormularioVerSeguimientoAccion)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.GridEstadoAccion = '@Html.Raw(RecordAccionSeguimientoResource.GridEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.GridFechaEstadoAccion = '@Html.Raw(RecordAccionSeguimientoResource.GridFechaEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.GridComentario = '@Html.Raw(RecordAccionSeguimientoResource.GridComentario)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.GridCerrado = '@Html.Raw(RecordAccionSeguimientoResource.GridCerrado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.GridFechaCierreAccion = '@Html.Raw(RecordAccionSeguimientoResource.GridFechaCierreAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.GridCerradoPor = '@Html.Raw(RecordAccionSeguimientoResource.GridCerradoPor)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.GridFoto = '@Html.Raw(RecordAccionSeguimientoResource.GridFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.GridAnexo = '@Html.Raw(RecordAccionSeguimientoResource.GridAnexo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.EtiquetaArchivoNoSoportado = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaFormatoArchivoNoSoportado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.EtiquetaTamanioArchivoFotoMaximo = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaTamanioArchivoFotoMaximo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.EtiquetaTamanioArchivoAnexoMaximo = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaTamanioArchivoAnexoMaximo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.SeguimientoAccion.Resource.EtiquetaMensajeFechaCierreAccionMayorActual = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaMensajeFechaCierreAccionMayorActual)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resources.Validacion')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resources.Validacion.ValidarEstadoAccion        = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resources.Validacion.ValidarFechaEstadoAccion   = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaFechaEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resources.Validacion.ValidarComentario          = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaComentario)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resources.Validacion.ValidarTipoApendice        = '@Html.Raw(AccionResource.EtiquetaTipoApendice)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resources.Validacion.ValidarDescripcionAnexo        = '@Html.Raw(AccionResource.EtiquetaDescripcionAnexo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Resources.ValidarCampos = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.DatosConstantes.EstadoAccion')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.DatosConstantes.EstadoAccion.Pendiente = '@DatosConstantes.EstadoAccion.Pendiente';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.DatosConstantes.EstadoAccion.EnProceso = '@DatosConstantes.EstadoAccion.EnProceso';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.DatosConstantes.EstadoAccion.Completado = '@DatosConstantes.EstadoAccion.Completado';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.DatosConstantes.EstadoAccion.Reabierto = '@DatosConstantes.EstadoAccion.Reabierto';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Accion.Models.RecordAccionModel = @(Html.Raw(Json.Encode(Model)));
+
+    </script>
+    @CustomHtmlHelper.RenderViewJs()
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformularioverrecordaccion")
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformulariorecordanexoaccion")
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformulariorecordanexofotoaccion")
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformulariovistapreviafoto")
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformularioseguimientoaccion")
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformularioregistroseguimientoaccion")
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");
+}

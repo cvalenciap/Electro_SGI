@@ -1,0 +1,53 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.UnidadOrganizativa.FormularioUnidadOrganizativaModel
+
+<form id="frmFormularioUnidadOrganizativa">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@UnidadOrganizativaResource.EtiquetaEmpresa</label>
+                <div>
+                    @Html.DropDownList("slcEmpresaFormulario", Model.ListaEmpresa, new { @class = "form-control", @id = "slcEmpresaFormulario", @validable = "required ValidarEmpresa" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@UnidadOrganizativaResource.EtiquetaIdUO</label>
+                @Html.TextBox("txtIdUOFormulario", Model.UnidadOrganizativa.IdUO, new { id = "txtIdUOFormulario", @type = "text", @class = "form-control", @maxlength = "250", @validable = "required ValidarIdUO" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@UnidadOrganizativaResource.EtiquetaAbreviatura</label>
+                @Html.TextBox("txtAbreviaturaUOFormulario", Model.UnidadOrganizativa.AbreviaturaUO, new { id = "txtAbreviaturaUOFormulario", @type = "text", @class = "form-control", @maxlength = "500", @validable = "required ValidarAbreviatura" })
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@UnidadOrganizativaResource.EtiquetaUnidadOrganizativa</label>
+                @Html.TextBox("txtNombreUOFormulario", Model.UnidadOrganizativa.NombreUO, new { id = "txtNombreUOFormulario", @type = "text", @class = "form-control", @maxlength = "500", @validable = "required ValidarNombreUO" })
+            </div>
+        </div>
+    </div>
+</form>
+<div class="comp-Modal-footer">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.Validacion.ValidarEmpresa = '@(Html.Raw(UnidadOrganizativaResource.EtiquetaEmpresa))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.Validacion.ValidarIdUO = '@(Html.Raw(UnidadOrganizativaResource.EtiquetaIdUO))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.Validacion.ValidarAbreviatura = '@(Html.Raw(UnidadOrganizativaResource.EtiquetaAbreviatura))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Resources.Validacion.ValidarNombreUO = '@(Html.Raw(UnidadOrganizativaResource.EtiquetaUnidadOrganizativa))';
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.UnidadOrganizativa.Models.FormularioUnidadOrganizativa = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

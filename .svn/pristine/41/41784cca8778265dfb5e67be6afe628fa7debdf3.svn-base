@@ -1,0 +1,197 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador
+
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.IngresoIndicador.IngresoIndicadorModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="modal-body">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto"><strong>@Html.Raw(IndicadorResource.EtiquetaTituloIndicador)</strong></h2>
+
+        <div class="pull-right">
+            <a id="btnRegresarBandejaIndicador" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <form onsubmit="return false;" id="frmGenerales">       
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaDescripcion): (*)</label>
+                    <div>
+                        @Html.TextBox("txtDescripcionIndicadorFormulario", Model.Indicador.DescripcionIndicador, new { id = "txtDescripcionIndicadorFormulario", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label style="margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaResponsable): (*)</label>
+                    <div>
+                        <div class="input-group">
+                            @Html.Hidden("hdnCodigoResponsable", Model.Indicador.CodigoResponsable, new { ïd = "hdnCodigoResponsable", @validable = "required Validar" })
+                            @Html.TextBox("txtCodigoResponsable", Model.Indicador.NombreCompletoResponsable, new { id = "txtCodigoResponsable", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                            <div class="input-group-addon">
+                                <button class="btn-form" id="btnBuscarResponsable" type="button">....</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaArea): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Indicador.CodigoArea, Model.ListaArea, new { id = "slcArea", @class = "form-control", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaUnidadMedida): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Indicador.CodigoUnidadMedida, Model.ListaUnidadMedida, new { id = "slcUnidadMedida", @class = "form-control", @validable = "required Validar" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaRatioMaximo): (*)</label>
+                    <div>
+                        @Html.TextBox("txtRatioMaximo", Model.Indicador.RatioMaximo, new { id = "txtRatioMaximo", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaRatioMinimo): (*)</label>
+                    <div>
+                        @Html.TextBox("txtRatioMinimo", Model.Indicador.RatioMinimo, new { id = "txtRatioMinimo", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaVigenteDesde): (*)</label>
+                    <div>
+                        @Html.TextBox("dtpFechaInicioVigencia", Model.Indicador.FechaInicioVigenciaString, new { id = "dtpFechaInicioVigencia", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaVigenteHasta): (*)</label>
+                    <div>
+                        @Html.TextBox("dtpFechaFinVigencia", Model.Indicador.FechaFinVigenciaString, new { id = "dtpFechaFinVigencia", @class = "form-control", @validable = "required Validar", @maxlength = "255" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaPeriodicidad): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Indicador.CodigoPeriodicidad, Model.ListaPeriodicidad, new { id = "slcPeriodicidad", @class = "form-control", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaPonderacion):</label>
+                    <div>
+                        @Html.TextBox("txtPonderacion", Model.Indicador.Ponderacion, new { id = "txtPonderacion", @class = "form-control", @maxlength = "255" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(IndicadorResource.EtiquetaTipo): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Indicador.CodigoTipoIndicador, Model.ListaTipoIndicador, new { id = "slcTipoIndicador", @class = "form-control", @validable = "required Validar" })
+                    </div>
+                </div>
+                <div class="col-sm-6"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-3">
+                    <label id="lblCheck" style="margin-top: 6px;">@Html.Raw(IndicadorResource.EtiquetaAmbito): (*)</label>
+                </div>
+                <div class="col-sm-9">
+                    @for (var i = 0; i < Model.ListaIndicadorAmbitoTodos.Count; i++)
+                    {   
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="id_@Model.ListaIndicadorAmbitoTodos[i].Value" value="@Model.ListaIndicadorAmbitoTodos[i].Value" class="checkboxClass"/>@Model.ListaIndicadorAmbitoTodos[i].Text</label>   
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-2">
+                    <label id="lblIndicadorAmbitoOtros" style="margin-top: 6px;">@Html.Raw(IndicadorResource.EtiquetaEspecificar):</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextBox("txtIndicadorAmbitoOtros", string.Empty, new { id = "txtIndicadorAmbitoOtros", @class = "form-control", @maxlength = "255", @disabled = "disabled" })
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="divBotonAccion1" class="box-acciones-foot filter">
+        @*<button class="btn btn-default" id="btnEliminar">@Html.Raw(IndicadorResource.EtiquetaBotonEliminar)</button>*@
+        <button class="btn btn-primary" id="btnGuardarGenerales"  style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Nuevo || permiso == (int)Constantes.Permisos.Codigo.Escritura || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">@Html.Raw(IndicadorResource.EtiquetaBotonGuardar)</button>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">       
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions.BandejaIndicador = '@Url.Action("Index", "BandejaIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions.EliminarIndicadorDetalle = '@Url.Action("EliminarIndicadorDetalle", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions.RegistrarIndicador = '@Url.Action("RegistrarIndicador", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions.RegistraFormula = '@Url.Action("RegistraFormula", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions.BuscarIndicadorDetalle = '@Url.Action("BuscarIndicadorDetalle", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions.BuscarVariable = '@Url.Action("BuscarVariable", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions.BuscarIndicadorMeta = '@Url.Action("BuscarIndicadorMeta", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions.RegistrarIndicadorMeta = '@Url.Action("RegistrarIndicadorMeta", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Actions.EliminarIndicadorMeta = '@Url.Action("EliminarIndicadorMeta", "IngresoIndicador", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Resource.EtiquetaMensajeAnular = '@Html.Raw(IndicadorResource.EtiquetaMensajeEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Resource.GridResponsable = '@Html.Raw(IndicadorResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Resource.GridNombreVariable = '@Html.Raw(IndicadorResource.GridNombreVariable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Resource.GridAnio = '@Html.Raw(IndicadorResource.GridAnio)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Resource.GridSubTipoPeriodicidad = '@Html.Raw(IndicadorResource.GridSubTipoPeriodicidad)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.Resource.GridValorMeta = '@Html.Raw(IndicadorResource.GridValorMeta)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.DatosConstantes.PeriodicidadDiaria = '@DatosConstantes.Periodicidad.Diario';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.DatosConstantes.PeriodicidadSemanal = '@DatosConstantes.Periodicidad.Semana';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.DatosConstantes.PeriodicidadMensual = '@DatosConstantes.Periodicidad.Mensual';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.DatosConstantes.PeriodicidadTrimestral = '@DatosConstantes.Periodicidad.Trimestral';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.DatosConstantes.PeriodicidadSemestral = '@DatosConstantes.Periodicidad.Semestral';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoIndicador.DatosConstantes.PeriodicidadAnual = '@DatosConstantes.Periodicidad.Anual';        
+    </script>
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+            overflow-y: auto !important;
+        }
+        /*.skin-stracon .form-control {
+        width: 100px !important;
+    }*/
+    </style>
+    @CustomHtmlHelper.RenderViewJs("mantenimientoresponsableformulariobuscarresponsable");
+ }

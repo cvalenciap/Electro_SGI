@@ -1,0 +1,49 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Accion.RecordAnexoAccionModel
+
+<script type="text/javascript">
+    ns('Pe.Stracon.SGD.Presentacion.Seguimiento.Accion.Models')
+    Pe.Stracon.SGD.Presentacion.Seguimiento.Accion.Models.FormularioRecordAnexoAccion = @(Html.Raw(Json.Encode(Model)))
+</script>
+
+<div class="modal-body">
+    <form id="frmRecordAnexoAccion">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaTipoApendice): (*)</label>
+                    @Html.DropDownListFor(m => m.RecordAnexo.CodigoTipoApendice, Model.ListaTipoApendice, new { id = "slcFrmTipoApendice", @class = "form-control", @validable = "required ValidarTipoApendice" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group" id="NombreArchivoApendice">
+                    <label>@Html.Raw(AccionResource.EtiquetaNombreArchivoAnexo): (*)</label>
+                    <input id="fileApendice" type="file" name="fileApendice" class="form-control">
+                    @Html.TextBox("txtFrmAnexoString", ViewData["AnexoString"], new { @id = "txtFrmAnexoString", @class = "hidden" })
+                    <label>@Html.Raw(string.Format(GenericoResource.EtiquetaTamanioArchivo, Model.RecordAnexo.PesoMaximoArchivoAnexoSharePointString))</label>
+                    <div class="ClsNombreArchivoApendice"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(AccionResource.EtiquetaDescripcionAnexo): (*)</label>
+                    @Html.TextBox("txtFrmDescripcionAnexo", Model.RecordAnexo.Descripcion, new { id = "txtFrmDescripcionAnexo", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required ValidarDescripcionAnexo" })
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="BtnCancelarRecordAnexoApendiceClick" data-dismiss="modal">@Html.Raw(GenericoResource.BotonCancelar)</button>
+    @if (Model.RecordAnexo.CodigoEstadoRecord != DatosConstantes.EstadoRecord.Cerrado)
+    {
+    <button class="btn btn-primary" id="btnGrabarRecordAnexoApendice">@Html.Raw(GenericoResource.BotonGrabar)</button>
+    }   
+</div>

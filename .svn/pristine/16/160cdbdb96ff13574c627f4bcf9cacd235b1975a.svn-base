@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E43DA679-229C-4103-AF10-7FA3584BA914}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pe.ElectroPeru.SGI.Aplicacion.TransferObject</RootNamespace>
+    <AssemblyName>Pe.ElectroPeru.SGI.Aplicacion.TransferObject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Pe.ElectroPeru.SGI.Aplicacion.TransferObject.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'STRACON_QA|AnyCPU'">
+    <OutputPath>bin\STRACON_QA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Filtro.cs" />
+    <Compile Include="Base\Paginado.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\Base\BaseRequest.cs" />
+    <Compile Include="Request\Base\ProveedorRequest.cs" />
+    <Compile Include="Request\Correo\AdjuntosRequest.cs" />
+    <Compile Include="Request\Correo\DireccionesRequest.cs" />
+    <Compile Include="Request\Correo\EmailRequest.cs" />
+    <Compile Include="Request\Mantenimiento\IndicadorMetaAnualRequest.cs" />
+    <Compile Include="Request\Mantenimiento\IndicadorEvaluacionRequest.cs" />
+    <Compile Include="Request\Mantenimiento\IndicadorValorRequest.cs" />
+    <Compile Include="Request\Proceso\BandejaPlanOperativoRequest.cs" />
+    <Compile Include="Request\Reportes\DashboardRequest.cs" />
+    <Compile Include="Request\Seguridad\AccionRequest.cs" />
+    <Compile Include="Request\Mantenimiento\AreaRequest.cs" />
+    <Compile Include="Request\Seguridad\AsignacionRequest.cs" />
+    <Compile Include="Request\Mantenimiento\BandejaObjetivoEstrategicoEmpresaRequest.cs" />
+    <Compile Include="Request\Mantenimiento\BandejaVariableRequest.cs" />
+    <Compile Include="Request\Mantenimiento\BandejaObjetivoEstrategicoFonafeRequest.cs" />
+    <Compile Include="Request\Mantenimiento\BandejaPerspectivaRequest.cs" />
+    <Compile Include="Request\Mantenimiento\BandejaIndicadorRequest.cs" />
+    <Compile Include="Request\Mantenimiento\AccionEstrategicaInstitucionalDetalleRequest.cs" />
+    <Compile Include="Request\Mantenimiento\AccionEstrategicaInstitucionalRequest.cs" />
+    <Compile Include="Request\Mantenimiento\BandejaAccionEstrategicaInstitucionalRequest.cs" />
+    <Compile Include="Request\Mantenimiento\AccionEstrategicaSectorialDetalleRequest.cs" />
+    <Compile Include="Request\Mantenimiento\AccionEstrategicaSectorialRequest.cs" />
+    <Compile Include="Request\Mantenimiento\BandejaAccionEstrategicaSectorialRequest.cs" />
+    <Compile Include="Request\Mantenimiento\BandejaObjetivoEstrategicoSectorialRequest.cs" />
+    <Compile Include="Request\Mantenimiento\VariableValorRequest.cs" />
+    <Compile Include="Request\Mantenimiento\IndicadorMetaRequest.cs" />
+    <Compile Include="Request\Mantenimiento\FormulaDetalleRequest.cs" />
+    <Compile Include="Request\Mantenimiento\FormulaRequest.cs" />
+    <Compile Include="Request\Seguridad\ModuloRequest.cs" />
+    <Compile Include="Request\Mantenimiento\ObjetivoEstrategicoEmpresaAnalisisEstrategicoInstitucionalRequest.cs" />
+    <Compile Include="Request\Mantenimiento\ObjetivoEstrategicoSectorialDetalleRequest.cs" />
+    <Compile Include="Request\Mantenimiento\ObjetivoEstrategicoSectorialRequest.cs" />
+    <Compile Include="Request\Mantenimiento\IndicadorAmbitoRequest.cs" />
+    <Compile Include="Request\Seguridad\OpcionRequest.cs" />
+    <Compile Include="Request\Seguridad\PerfilRequest.cs" />
+    <Compile Include="Request\Seguridad\PermisosRequest.cs" />
+    <Compile Include="Request\Mantenimiento\PerspectivaDetalleRequest.cs" />
+    <Compile Include="Request\Mantenimiento\PerspectivaRequest.cs" />
+    <Compile Include="Request\Mantenimiento\ObjetivoEstrategicoFonafeDetalleRequest.cs" />
+    <Compile Include="Request\Mantenimiento\ObjetivoEstrategicoFonafeRequest.cs" />
+    <Compile Include="Request\Mantenimiento\IndicadorRequest.cs" />
+    <Compile Include="Request\Mantenimiento\ObjetivoEstrategicoEmpresaDetalleRequest.cs" />
+    <Compile Include="Request\Mantenimiento\ObjetivoEstrategicoEmpresaRequest.cs" />
+    <Compile Include="Request\Mantenimiento\ResponsableRequest.cs" />
+    <Compile Include="Request\Seguridad\SistemaRequest.cs" />
+    <Compile Include="Request\Seguridad\UsuariosRequest.cs" />
+    <Compile Include="Request\Mantenimiento\VariableDetalleRequest.cs" />
+    <Compile Include="Request\Mantenimiento\VariableRequest.cs" />
+    <Compile Include="Request\Politicas\ParametroRequest.cs" />
+    <Compile Include="Request\Politicas\ParametroSeccionRequest.cs" />
+    <Compile Include="Request\Politicas\ParametroValorRequest.cs" />
+    <Compile Include="Request\Politicas\PlantillaNotificacionRequest.cs" />
+    <Compile Include="Request\Politicas\RegistroParametroValor.cs" />
+    <Compile Include="Request\Politicas\TemasRequest.cs" />
+    <Compile Include="Request\Proceso\BandejaPlanEstrategicoRequest.cs" />
+    <Compile Include="Request\Tareas\ReporteViewRequest.cs" />
+    <Compile Include="Response\Base\BaseResponse.cs" />
+    <Compile Include="Response\Base\ProveedorResponse.cs" />
+    <Compile Include="Response\Reportes\DashboardResponse.cs" />
+    <Compile Include="Response\Mantenimiento\IndicadorMetaAnualResponse.cs" />
+    <Compile Include="Response\Mantenimiento\IndicadorEvaluacionResponse.cs" />
+    <Compile Include="Response\Mantenimiento\IndicadorValorResponse.cs" />
+    <Compile Include="Response\Proceso\BandejaPlanOperartivoResponse.cs" />
+    <Compile Include="Response\Seguridad\AccionResponse.cs" />
+    <Compile Include="Response\Mantenimiento\AreaResponse.cs" />
+    <Compile Include="Response\Seguridad\AsignacionResponse.cs" />
+    <Compile Include="Response\Mantenimiento\BandejaVariableResponse.cs" />
+    <Compile Include="Response\Mantenimiento\BandejaObjetivoEstrategicoEmpresaResponse.cs" />
+    <Compile Include="Response\Mantenimiento\BandejaObjetivoEstrategicoFonafeResponse.cs" />
+    <Compile Include="Response\Mantenimiento\BandejaPerspectivaResponse.cs" />
+    <Compile Include="Response\Mantenimiento\BandejaIndicadorResponse.cs" />
+    <Compile Include="Response\Mantenimiento\AccionEstrategicaInstitucionalDetalleResponse.cs" />
+    <Compile Include="Response\Mantenimiento\AccionEstrategicaInstitucionalResponse.cs" />
+    <Compile Include="Response\Mantenimiento\BandejaAccionEstrategicaInstitucionalResponse.cs" />
+    <Compile Include="Response\Mantenimiento\AccionEstrategicaSectorialDetalleResponse.cs" />
+    <Compile Include="Response\Mantenimiento\AccionEstrategicaSectorialResponse.cs" />
+    <Compile Include="Response\Mantenimiento\BandejaAccionEstrategicaSectorialResponse.cs" />
+    <Compile Include="Response\Mantenimiento\BandejaObjetivoEstrategicoSectorialResponse.cs" />
+    <Compile Include="Response\Mantenimiento\VariableValorResponse.cs" />
+    <Compile Include="Response\Mantenimiento\IndicadorMetaResponse.cs" />
+    <Compile Include="Response\Mantenimiento\FormulaDetalleResponse.cs" />
+    <Compile Include="Response\Mantenimiento\FormulaResponse.cs" />
+    <Compile Include="Response\Seguridad\ModuloResponse.cs" />
+    <Compile Include="Response\Mantenimiento\ObjetivoEstrategicoEmpresaAccionEstrategicaInstitucionalResponse.cs" />
+    <Compile Include="Response\Mantenimiento\ObjetivoEstrategicoSectorialDetalleResponse.cs" />
+    <Compile Include="Response\Mantenimiento\ObjetivoEstrategicoSectorialResponse.cs" />
+    <Compile Include="Response\Mantenimiento\IndicadorAmbitoResponse.cs" />
+    <Compile Include="Response\Seguridad\OpcionResponse.cs" />
+    <Compile Include="Response\Seguridad\PerfilResponse.cs" />
+    <Compile Include="Response\Seguridad\PermisosResponse.cs" />
+    <Compile Include="Response\Mantenimiento\PerspectivaDetalleResponse.cs" />
+    <Compile Include="Response\Mantenimiento\PerspectivaResponse.cs" />
+    <Compile Include="Response\Mantenimiento\ObjetivoEstrategicoFonafeDetalleResponse.cs" />
+    <Compile Include="Response\Mantenimiento\ObjetivoEstrategicoFonafeResponse.cs" />
+    <Compile Include="Response\Mantenimiento\ObjetivoEstrategicoEmpresaDetalleResponse.cs" />
+    <Compile Include="Response\Mantenimiento\ObjetivoEstrategicoEmpresaResponse.cs" />
+    <Compile Include="Response\Mantenimiento\IndicadorResponse.cs" />
+    <Compile Include="Response\Seguridad\SistemaResponse.cs" />
+    <Compile Include="Response\Seguridad\UsuariosResponse.cs" />
+    <Compile Include="Response\Mantenimiento\VariableDetalleResponse.cs" />
+    <Compile Include="Response\Mantenimiento\VariableResponse.cs" />
+    <Compile Include="Response\Mantenimiento\ResponsableResponse.cs" />
+    <Compile Include="Response\Politicas\CodigoValorResponse.cs" />
+    <Compile Include="Response\Politicas\ParametroResponse.cs" />
+    <Compile Include="Response\Politicas\ParametroSeccionResponse.cs" />
+    <Compile Include="Response\Politicas\ParametroValorResponse.cs" />
+    <Compile Include="Response\Politicas\PlantillaNotificacionResponse.cs" />
+    <Compile Include="Response\Politicas\ResultResponse.cs" />
+    <Compile Include="Response\Politicas\TemasResponse.cs" />
+    <Compile Include="Response\Proceso\BandejaPlanEstrategicoResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pe.ElectroPeru.SGI.Cross.Core\Pe.ElectroPeru.SGI.Transversal.Core.csproj">
+      <Project>{f4ece405-25b7-4365-aab3-503c5f8859e6}</Project>
+      <Name>Pe.ElectroPeru.SGI.Transversal.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

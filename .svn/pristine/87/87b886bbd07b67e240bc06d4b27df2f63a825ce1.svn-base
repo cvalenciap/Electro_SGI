@@ -1,0 +1,90 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Responsable
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Responsable.FormularioResponsableModel
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante;
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="modal-body">
+    <form id="frmFormularioResponsable">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ResponsableResource.EtiquetaTipoDocumento): (*)</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Responsable.CodigoTipoDocumento, Model.ListaTipoDocumento, new { id = "slcTipoDocumento", @class = "form-control", @validable = "required ValidarTipoDocumento" })
+                    </div>
+                </div>
+                 <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ResponsableResource.EtiquetaNroDocumento): (*)</label>
+                    <div>
+                        @Html.TextBox("txtNumeroDocumento", Model.Responsable.NumeroDocumento, new { id = "txtNumeroDocumento", @type = "text", @class = "form-control", @maxlength = "8", @validable = "required ValidarNumeroDocumento" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ResponsableResource.EtiquetaGenero):</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Responsable.CodigoGenero, Model.ListaGenero, new { id = "slcGenero", @class = "form-control"})
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ResponsableResource.EtiquetaNombres): (*)</label>
+                    <div>
+                        @Html.TextBox("txtNombres", Model.Responsable.Nombres, new { id = "txtNombres", @type = "text", @class = "form-control", @maxlength = "50", @validable = "required ValidarNombres" })
+                    </div>
+                </div>
+                 <div class="col-sm-4">
+                   <label style="position: relative; margin-top: 7px;">@Html.Raw(ResponsableResource.EtiquetaApellidoPaterno): (*)</label>
+                    <div>
+                        @Html.TextBox("txtApellidoPaterno", Model.Responsable.ApellidoPaterno, new { id = "txtApellidoPaterno", @type = "text", @class = "form-control", @maxlength = "50", @validable = "required ValidarApellidoPaterno" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ResponsableResource.EtiquetaApellidoMaterno):</label>
+                    <div>
+                        @Html.TextBox("txtApellidoMaterno", Model.Responsable.ApellidoMaterno, new { id = "txtApellidoMaterno", @type = "text", @class = "form-control", @maxlength = "50" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ResponsableResource.EtiquetaCargo):</label>
+                    <div>
+                        @Html.DropDownListFor(model => model.Responsable.CodigoCargo, Model.ListaCargo, new { id = "slcCargo", @class = "form-control"})
+                    </div>
+                </div>
+                 <div class="col-sm-4">
+                   <label style="position: relative; margin-top: 7px;">@Html.Raw(ResponsableResource.EtiquetaCorreoElectronico):</label>
+                    <div>
+                        @Html.TextBox("txtCorreoElectronico", Model.Responsable.CorreoElectronico, new { id = "txtCorreoElectronico", @type = "text", @class = "form-control", @maxlength = "100" })
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar"  style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Nuevo || permiso == (int)Constantes.Permisos.Codigo.Escritura || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.Validacion')    
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.Validacion.ValidarNombres = '@(Html.Raw(ResponsableResource.EtiquetaNombres))';    
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.Validacion.ValidarApellidoPaterno = '@(Html.Raw(ResponsableResource.EtiquetaApellidoPaterno))';    
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.Validacion.ValidarTipoDocumento = '@(Html.Raw(ResponsableResource.EtiquetaTipoDocumento))';    
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Resources.Validacion.ValidarNumeroDocumento = '@(Html.Raw(ResponsableResource.EtiquetaNroDocumento))';        
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Responsable.Models.FormularioResponsable = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

@@ -1,0 +1,91 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Variable
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.IngresoVariable.IngresoVariableModel
+
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion">
+           <strong>@Html.Raw(VariableResource.EtiquetaTituloBandeja)</strong>            
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: -45px">
+                <button id="btnAgregar" type="button" class="btn-table text-line one">
+                    @Html.Raw(VariableResource.BotonAgregarVariable)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 text-right" style="margin-top: 6px;">
+                        <label>@Html.Raw(VariableResource.EtiquetaArea)</label></div>
+                    <div class="col-sm-2">@Html.DropDownList("slcArea", Model.ListaArea, new { id = "slcArea", @class = "form-control" })</div>
+                    <div class="col-sm-2 text-right" style="margin-top: 6px;">
+                        <label>@Html.Raw(VariableResource.EtiquetaFechaInicioVigencia)</label></div>
+                    <div class="col-sm-2">@Html.TextBox("dtpFechaInicioVigencia", string.Empty, new { id = "dtpFechaInicioVigencia", @class = "form-control" })</div>
+                    <div class="col-sm-2 text-right" style="margin-top: 6px;">
+                        <label>@Html.Raw(VariableResource.EtiquetaFechaFinVigencia)</label></div>
+                    <div class="col-sm-2">@Html.TextBox("dtpFechaFinVigencia", string.Empty, new { id = "dtpFechaFinVigencia", @class = "form-control" })</div>
+                </div>
+            </div>
+        </div>    
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnBuscar" style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Lectura || permiso == (int)Constantes.Permisos.Codigo.Buscar || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>  
+        
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>               
+            </div>
+            <div style="overflow-x: scroll;">
+                <div class="table-grilla">
+                    <div id="divGrdResult">
+                    </div>
+                </div>   
+            </div>       
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Actions.IngresoVariable = '@Url.Action("Index", "IngresoVariable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Actions.BuscarVariable = '@Url.Action("BuscarVariable", "BandejaVariable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Actions.IngresoVariable = '@Url.Action("Index", "IngresoVariable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Actions.EliminarVariable = '@Url.Action("EliminarVariable", "IngresoVariable", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Actions.ReactivarVariable = '@Url.Action("ReactivarVariable", "IngresoVariable", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.GridCodigoVariable = '@Html.Raw(VariableResource.GridCodigoVariable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.GridNombreVariable = '@Html.Raw(VariableResource.GridNombreVariable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.GridNombreSiglaVariable = '@Html.Raw(VariableResource.GridNombreSiglaVariable)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.GridFechaInicioVigencia = '@Html.Raw(VariableResource.GridFechaInicioVigencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.GridFechaFinVigencia = '@Html.Raw(VariableResource.GridFechaFinVigencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.GridArea = '@Html.Raw(VariableResource.GridArea)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.GridPeriodicidad = '@Html.Raw(VariableResource.GridPeriodicidad)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.GridTipo = '@Html.Raw(VariableResource.GridTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.GridEstado = '@Html.Raw(VariableResource.GridEstado)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaVariable.Resource.MsjSinResultadosVariable = '@Html.Raw(VariableResource.MsjSinResultadosVariable)';
+    </script>
+     <style type="text/css">
+        .filter-avanzado {            
+            overflow: inherit;
+        }
+    </style>  
+}

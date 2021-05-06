@@ -1,0 +1,44 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.ConfiguracionProcesoModel
+
+<input id="hidenCodigoProcesoCapacitacion" type="hidden"  value="@Model.CodProceso">
+<div class="modal-body">
+    <form id="frmAgregarProcesoModal" onsubmit="return false;">
+        <div class="form-group">  
+            <div class="row">
+                <div class="col-sm-4 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ConfiguracionResource.EtiquetaCodigoProceso): (*)</label>
+                </div>
+                <div class="col-sm-8">  
+                    @Html.TextBox("txtIdenProceso", Model.IdenProceso, Model.CodProceso.HasValue ? (object)new { id = "txtIdenProceso", @class = "form-control", @disabled="disabled",@maxlength="5", @validable = "required Validar", } : new { id = "txtIdenProceso", @class = "form-control",@maxlength="5", @validable = "required Validar", })                                                                               
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ConfiguracionResource.EtiquetaDescripcionProceso): (*)</label>
+                </div>
+                <div class="col-sm-8">                
+                   @Html.TextBox("txtDesProceso", Model.NomProceso, new { id = "txtDesProceso", @class = "form-control", @validable = "required Validar", })  
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ConfiguracionResource.EtiquetaTipoCapacitacion): (*)</label>
+                </div>
+                <div class="col-sm-8">
+                      @Html.DropDownList("IdTipoProcesoCapacitacion", Model.ListaTipoCapacitacion, new { @class = "form-control", @id = "IdTipoProcesoCapacitacion", @validable = "required Validar"  })
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelarProceso" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarProceso">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>

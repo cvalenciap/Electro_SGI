@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<repositories>
+  <repository path="..\..\Pe.GyM.Security\Pe.GyM.Security.Account\packages.config" />
+  <repository path="..\..\Pe.GyM.Security\Pe.GyM.Security.Web\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Aplicacion.Adapter\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Aplicacion.Core\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Aplicacion.Service\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Aplicacion.TransferObject\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Cross.Core\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Distribucion.EnvioNotificaciones\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Dominio.Core\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Dominio.Model\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Dominio.Service\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Infraestructura.CommandModel\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Infraestructura.Core\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Infraestructura.Proxy\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Infraestructura.Repository\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Presentacion.Core\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Presentacion.Desk\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Presentacion.Recursos\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Presentacion\packages.config" />
+  <repository path="..\Pe.ElectroPeru.SGI.Transversal.Mapeo\packages.config" />
+</repositories>

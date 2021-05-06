@@ -1,0 +1,23 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionCalificacionFatigaPersonalModel
+
+<div class="main-content2">
+    <div class="modal-body">
+        <p>@Html.Raw(InvestigacionResource.MensajeContenidoCalificacionFatigaPersonal)</p>
+        <br />
+        <table class="table table-bordered table-striped">
+            <tr>
+               <th>@Html.Raw(InvestigacionResource.EtiquetaCalificacionPuntaje)</th>
+               <th>@Html.Raw(InvestigacionResource.EtiquetaCalificacionEstrategia)</th>
+            </tr>
+            @if (Model.ListaRangos != null && Model.ListaRangos.Count > 0) {
+                foreach (var item in Model.ListaRangos) { 
+                    <tr>
+                        <td style="background-color: @item.PrimerValorAdicional; text-align:center; vertical-align: middle;">@item.CodigoValorString</td>
+                        <td>@item.Valor</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

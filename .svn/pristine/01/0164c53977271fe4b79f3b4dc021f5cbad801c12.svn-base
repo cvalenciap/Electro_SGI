@@ -1,0 +1,141 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Perspectiva
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.IngresoPerspectiva.IngresoPerspectivaModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto"><strong>@Html.Raw(PerspectivaResource.EtiquetaTituloPerspectiva)</strong></h2>
+
+        <div class="pull-right">
+            <a id="btnRegresarBandejaPerspectiva" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body" style="min-height: 650px;">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsPerspectiva">
+                    <li role="presentation" class="active">
+                        <a href="#tabGenerales" class="top-tab" aria-controls="tabGenerales" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(PerspectivaResource.EtiquetaTabGenerales)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabPerspectivaDetalle" class="top-tab" aria-controls="tabPerspectivaDetalle" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(PerspectivaResource.EtiquetaTabObjetivoEstrategicoFonafeDetalle)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGenerales">
+                        <form onsubmit="return false;" id="frmGenerales">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(PerspectivaResource.EtiquetaNombrePerspectiva): (*)</label>
+                                        <div>
+                                            @Html.TextBox("txtNombrePerspectivaFormulario", Model.Perspectiva.NombrePerspectiva, new { id = "txtNombrePerspectivaFormulario", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required ValidarNombrePerspectiva" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(PerspectivaResource.EtiquetaDescripcionPerspectiva):</label>
+                                        <div>
+                                            @Html.TextBox("txtDescripcionPerspectivaFormulario", Model.Perspectiva.DescripcionPerspectiva, new { id = "txtDescripcionPerspectivaFormulario", @type = "text", @class = "form-control", @maxlength = "255", @validable = "required ValidarDescripcionPerspectiva" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">                                    
+                                    <div class="col-sm-6">
+                                        <label style="margin-top: 7px;">@Html.Raw(PerspectivaResource.EtiquetaResponsable): (*)</label>
+                                        <div>
+                                            <div class="input-group">
+                                                @Html.Hidden("hdnCodigoResponsable", Model.Perspectiva.CodigoResponsable, new { ïd = "hdnCodigoResponsable", @validable = "required ValidarResponsable" })
+                                                @Html.TextBox("txtCodigoResponsable", Model.Perspectiva.NombreCompletoResponsable, new { id = "txtCodigoResponsable", @class = "form-control", @disabled = "disabled", @validable = "required ValidarResponsable" })
+                                                <div class="input-group-addon">
+                                                    <button class="btn-form" id="btnBuscarResponsable" type="button">....</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </form>
+                        <div id="divBotonAccion1" class="box-acciones-foot filter">
+                            @*<button class="btn btn-default" id="btnEliminar">@Html.Raw(PerspectivaResource.EtiquetaBotonEliminar)</button>*@
+                            <button class="btn btn-primary" id="btnGuardarGenerales"  style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Nuevo || permiso == (int)Constantes.Permisos.Codigo.Escritura || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">@Html.Raw(PerspectivaResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade in" id="tabPerspectivaDetalle">
+                        <form onsubmit="return false;" id="frmPerspectivaDetalle">
+                            <div class="title-interna">
+                                <span>@Html.Raw(PerspectivaResource.EtiquetaTabObjetivoEstrategicoFonafeDetalle)</span>
+                            </div>
+                            <div id="divControlesVD" class="form-group hidden">                                 
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label style="position: relative; margin-top: 7px;">@Html.Raw(PerspectivaResource.EtiquetaObjetivoEstrategicoFonafe):</label>
+                                        <div>
+                                            @Html.DropDownListFor(model => model.Perspectiva.CodigoObjetivoEstrategicoFonafe, Model.ListaObjetivoEstrategicoFonafe, new { id = "slcObjetivoEstrategicoFonafe", @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonPerspectivaDetalle" class="box-acciones-foot filter hidden">
+                            <button class="btn btn-primary" id="btnGuardarPerspectivaDetalle">@Html.Raw(PerspectivaResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(PerspectivaResource.EtiquetaLista)</span>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdPerspectivaDetalle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Actions.BandejaPerspectiva = '@Url.Action("Index", "BandejaPerspectiva", new { Area = "Mantenimiento" })';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Actions.EliminarPerspectivaDetalle = '@Url.Action("EliminarPerspectivaDetalle", "IngresoPerspectiva", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Actions.RegistrarPerspectiva = '@Url.Action("RegistrarPerspectiva", "IngresoPerspectiva", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Actions.RegistrarPerspectivaDetalle = '@Url.Action("RegistrarPerspectivaDetalle", "IngresoPerspectiva", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Actions.BuscarPerspectivaDetalle = '@Url.Action("BuscarPerspectivaDetalle", "IngresoPerspectiva", new { Area = "Mantenimiento" })';
+
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Resource.EtiquetaMensajeAnular = '@Html.Raw(PerspectivaResource.EtiquetaMensajeEliminar)';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Resource.GridResponsable = '@Html.Raw(PerspectivaResource.GridResponsable)';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.IngresoPerspectiva.Resource.GridObjetivoEstrategicoFonafe = '@Html.Raw(PerspectivaResource.GridObjetivoEstrategicoFonafe)';        
+    </script>
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+            overflow-y: auto !important;
+        }
+        /*.skin-stracon .form-control {
+        width: 100px !important;
+    }*/
+    </style>
+    @CustomHtmlHelper.RenderViewJs("mantenimientoresponsableformulariobuscarresponsable");
+    }

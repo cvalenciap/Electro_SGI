@@ -1,0 +1,121 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.HorasTrabajadas
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Configuracion.NotificacionModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(HorasTrabajadasResource.EtiquetaTituloConfiguraciones)</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+        <form onsubmit="return false;" id="frmNotificacion">
+            <div class="filter-avanzado">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaSeleccionarProyecto): (*)</label></div>
+                        <div class="col-sm-4">
+                            @Html.DropDownListFor(model => model.Notificacion.CodigoProyecto, Model.ListaProyectos, new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" })
+                        </div>                    
+                        <div class="col-sm-2 text-right" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaTipoHerramienta): (*)</label></div>
+                        <div class="col-sm-3">
+                            @Html.DropDownListFor(model => model.Notificacion.CodigoHerramienta, Model.ListaHerramientas, new { id = "slcHerramienta", @class = "form-control", @validable = "required Validar" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4" style="margin-top: 6px;"><label>@Html.Raw(HorasTrabajadasResource.EtiquetaDiaSiguienteMes): (*)</label></div>
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.Notificacion.DiaNotificacion, Model.ListaDias, new { id = "slcDias", @class = "form-control", @validable = "required Validar" })
+                            @*@Html.TextBox("txtDiaNotificacion", Model.Notificacion.DiaNotificacion, new { id = "txtDiaNotificacion", @class = "form-control", @validable = "required Validar" })*@
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="box-acciones-foot filter">
+                <button class="btn btn-default" type="button" id="btnCancelarNotificacion">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                <button class="btn btn-primary" type="button" id="btnGuardarNotificacion">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+            </div>
+        </form>        
+        <div class="title-interna">
+            <span>@Html.Raw(HorasTrabajadasResource.EtiquetaListaResponsables)</span> 
+            <div class="acciones-form btn-group btn-group-table">
+                <button type="button" class="btn-table text-line" id="btnResposanble1" @(!Model.Notificacion.CodigoNotificacion.HasValue ? "disabled=disabled" : null)>
+                    @Html.Raw(HorasTrabajadasResource.EtiquetaAgregarPersona)
+                </button>
+            </div>
+        </div>
+        <div class="table-grilla">
+            <table id="divGrdResponsables" class="table table-bordered table-hover text-center text-middle no-footer dataTable">
+                <thead>
+                    <tr>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridCorrelativo)</th>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridDatosCompletos)</th>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridEmpresa)</th>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridPuestoTrabajo)</th>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridCorreoElectronico)</th>
+                        <th>@Html.Raw(GenericoResource.GridAcciones)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <br />
+        <div class="title-interna">
+            <span>@Html.Raw(HorasTrabajadasResource.EtiquetaListaPersonasNotificar)</span> 
+            <div class="acciones-form btn-group btn-group-table">
+                <button type="button" class="btn-table text-line" id="btnResposanble2"  @(!Model.Notificacion.CodigoNotificacion.HasValue ? "disabled=disabled" : null)>
+                    @Html.Raw(HorasTrabajadasResource.EtiquetaAgregarPersona)
+                </button>
+            </div>
+        </div>
+        <div class="table-grilla">
+            <table id="divGrdPersonasNotificar" class="table table-bordered table-hover text-center text-middle no-footer dataTable">
+                 <thead>
+                    <tr>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridCorrelativo)</th>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridDatosCompletos)</th>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridEmpresa)</th>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridPuestoTrabajo)</th>
+                        <th>@Html.Raw(HorasTrabajadasResource.GridCorreoElectronico)</th>
+                        <th>@Html.Raw(GenericoResource.GridAcciones)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div> 
+        <br />       
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">        
+        ns('Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Resource.GridCorrelativo = '@Html.Raw(HorasTrabajadasResource.GridCorrelativo)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Resource.GridDatosCompletos = '@Html.Raw(HorasTrabajadasResource.GridDatosCompletos)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Resource.GridEmpresa = '@Html.Raw(HorasTrabajadasResource.GridEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Resource.GridPuestoTrabajo = '@Html.Raw(HorasTrabajadasResource.GridPuestoTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Resource.GridCorreoElectronico = '@Html.Raw(HorasTrabajadasResource.GridCorreoElectronico)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Actions.RegistrarNotificacion = '@Url.Action("RegistrarNotificacion", "Notificaciones", new { Area = "Configuracion" })';  
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Actions.ObtenerNotificacion = '@Url.Action("ObtenerNotificacion", "Notificaciones", new { Area = "Configuracion" })';  
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Actions.ListarColaboraresResponsables = '@Url.Action("ListarColaboraresResponsables", "Notificaciones", new { Area = "Configuracion" })';  
+        Pe.ElectroPeru.SGI.Presentacion.HorasTrabajadas.Configuraciones.Actions.ListarColaboradoresaNotificar = '@Url.Action("ListarColaboradoresaNotificar", "Notificaciones", new { Area = "Configuracion" })';  
+
+        /* Visita Gerencial Inicio*/
+        ns('Pe.ElectroPeru.SGI.Presentacion.Configuracion.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Configuracion.Index.Actions.FormularioNotificacionVisitaGerencial = '@Url.Action("Index", "Notificaciones/FormularioNotificacionVisitaGerencial", new { Area = "Configuracion" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Configuracion.Notificaciones.DatosConstantes.ModuloHerramienta')
+        Pe.ElectroPeru.SGI.Presentacion.Configuracion.Notificaciones.DatosConstantes.ModuloHerramienta.GestionVisitaGerencial = '@DatosConstantes.ModuloHerramienta.GestionVisitaGerencial'
+        /* Visita Gerencial Fin */
+
+    </script>
+        
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");    
+}

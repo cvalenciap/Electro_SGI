@@ -1,0 +1,91 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ComiteSSoma
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ObservacionPlaneada
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ObservacionPlaneada.IngresoObservacion.ObservacionPlaneadaModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloCierreOPT)</strong>
+        </h2>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row"><div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaProyecto)</label></div>
+                    <div class="col-sm-2"> @Html.DropDownList("slcProyecto", Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control" })</div>                                            
+                    <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaFechaEjecucionDesde)</label></div>
+                    <div class="col-sm-2"> @Html.TextBox("dtpFechaEjecucionDesde", string.Empty, new { id = "dtpFechaEjecucionDesde", @class = "form-control" })</div>
+                    <div class="col-sm-2 text-right"  style="margin-top: 6px;"><label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaFechaEjecucionHasta)</label></div>
+                    <div class="col-sm-2"> @Html.TextBox("dtpFechaEjecucionHasta", string.Empty, new { id = "dtpFechaEjecucionHasta", @class = "form-control" })</div>
+                </div>                                
+            </div>            
+        </div>    
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnBuscar">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>  
+        
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <button id="btnDescargarExcel" class="btn btn-primary">@InformeResource.BtnDescargarExcel</button>
+                </div>
+            </div>
+            <div style="overflow-x: scroll;">
+                <div class="table-grilla">
+                    <div id="divGrdResultOPT">
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Actions.ConsultarObservacionPlaneada = '@Url.Action("ConsultarObservacionPlaneada", "BandejaObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Actions.FormularioCierre = '@Url.Action("FormularioCierre", "BandejaObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Actions.DescargarReporteBandejaObservaciones = '@Url.Action("DescargarReporteBandejaObservaciones", "BandejaObservacion", new { Area = "ObservacionPlaneada" })';
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.ParametrosTiposAlerta')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.ParametrosTiposAlerta.RequiereCierre = '@DatosConstantes.ParametrosTiposAlertas.RequiereCierre';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.ParametrosTiposAlerta.NoRequiereCierre = '@DatosConstantes.ParametrosTiposAlertas.NoRequiereCierre';
+
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.ParametrosTiposAlerta.DescripcionRequiereCierre = '@Html.Raw(ComiteSSomaResource.EtiquetaAlertaRequiereCierre)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.ParametrosTiposAlerta.DescripcionNoRequiereCierre = '@Html.Raw(ComiteSSomaResource.EtiquetaAlertaNoRequiereCierre)';
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.ParametrosColorSemaforo')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.ParametrosColorSemaforo.Verde = '@DatosConstantes.ParametrosColorSemaforo.Verde';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.ParametrosColorSemaforo.Rojo = '@DatosConstantes.ParametrosColorSemaforo.Rojo';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.ParametrosColorSemaforo.Plomo = '@DatosConstantes.ParametrosColorSemaforo.Plomo'
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.EstadosDeObservacionPlaneadaAbierto = '@DatosConstantes.EstadosDeObservacionPlaneada.Abierto'
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.DatosConstantes.EstadosDeObservacionPlaneadaReabierto = '@DatosConstantes.EstadosDeObservacionPlaneada.Reabierto'
+    
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridTipoRegistro = '@Html.Raw(ObservacionPlaneadaResource.GridTipoRegistro)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridFechaEjecucion = '@Html.Raw(ObservacionPlaneadaResource.GridFechaEjecucion)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridIndicadorProcedimientoSIG = '@Html.Raw(ObservacionPlaneadaResource.GridIndicadorProcedimientoSIG)';  
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridProyecto = '@Html.Raw(ObservacionPlaneadaResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridNumeroRegistroOPT = '@Html.Raw(ObservacionPlaneadaResource.GridNumeroRegistroOPT)';        
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridArea = '@Html.Raw(ObservacionPlaneadaResource.GridArea)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridProcedimiento = '@Html.Raw(ObservacionPlaneadaResource.GridProcedimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridNotificacion = '@Html.Raw(ObservacionPlaneadaResource.GridNotificacion)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridObservadoresInternos = '@Html.Raw(ObservacionPlaneadaResource.GridObservadoresInternos)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridFelicitacionProgramador = '@Html.Raw(ObservacionPlaneadaResource.GridFelicitacionProgramador)';        
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridEstadoIng = '@Html.Raw(ObservacionPlaneadaResource.GridEstadoIng)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridEstadoAccion = '@Html.Raw(ObservacionPlaneadaResource.GridEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridEstadoDocumento = '@Html.Raw(ObservacionPlaneadaResource.GridEstadoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.GridAlerta = '@Html.Raw(ObservacionPlaneadaResource.GridAlerta)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.BandejaObservacion.Resource.MsjSinResultadosObservaciones = '@Html.Raw(ObservacionPlaneadaResource.MsjSinResultadosObservaciones)';
+    </script>
+}

@@ -1,0 +1,133 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ActuaPositivo
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ActuaPositivo.IngresoAP_AModel.IngresoAP_AModel
+<div class="modal-body">
+    <form id="frmAgregarLadoAModal" onsubmit="return false;" style="padding: 0 8px;">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ActuaPositivoResource.EtiquetaProyecto): (*)</label>
+                    <input type="hidden" id="txtCodigoActuaPositivo" value="@Model.ActuaPositivo.CodigoActuaPositivo"/>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.ActuaPositivo.CodigoProyecto, Model.ListaProyectos, Model.ActuaPositivo.CodigoActuaPositivo.HasValue ? (object)new { id = "slcProyecto", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "slcProyecto", @class = "form-control", @validable = "required Validar", })
+                </div>
+                <div class="col-sm-2 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ActuaPositivoResource.EtiquetaNroTarjeta): (*)</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextBox("txtNumeroTarjeta", Model.ActuaPositivo.NumeroTarjeta, Model.ActuaPositivo.CodigoActuaPositivo.HasValue ? (object)new { id = "txtNumeroTarjeta", @class = "form-control", @validable = "required Validar", @mask = "integer", @maxlength = "10" } : new { id = "txtNumeroTarjeta", @class = "form-control", @mask = "integer", @maxlength = "10", @validable = "required Validar" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(ActuaPositivoResource.EtiquetaEntregadoA): (*)</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        @Html.Hidden("hdnCodigoColaboradorEntregado", Model.ActuaPositivo.CodigoColaboradorEntregado, new { ïd = "hdnCodigoColaboradorEntregado" })
+                        @Html.TextBox("txtNombreColaboradorEntregado", Model.ActuaPositivo.NombreCompletoColaboradorEntregado, Model.ActuaPositivo.CodigoColaboradorEntregado.HasValue ? (object)new { id = "txtNombreColaboradorEntregado", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorEntregado", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                        <div class="input-group-addon">
+                            <button class="btn-form" id="btnBuscarColaboradorEntregado" type="button">....</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ActuaPositivoResource.EtiquetaEmpresa): (*)</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.ActuaPositivo.CodigoEmpresaEntregado, Model.ListaEmpresa, Model.ActuaPositivo.CodigoEmpresaEntregado.HasValue ? (object)new { id = "slcEmpresa", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "slcEmpresa", @class = "form-control", @validable = "required Validar", })
+                </div>
+                <div class="col-sm-2 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ActuaPositivoResource.EtiquetaDepartamento): (*)</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.ActuaPositivo.CodigoDepartamentoEntregado, Model.ListaDepartamento, Model.ActuaPositivo.CodigoDepartamentoEntregado.HasValue ? (object)new { id = "slcDepartamento", @class = "form-control", @validable = "required Validar", @disabled = "disabled" } : new { id = "slcDepartamento", @class = "form-control", @validable = "required Validar" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ActuaPositivoResource.EtiquetaFecha): (*)</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextBox("dtpFechaActuaPositivo", Model.ActuaPositivo.FechaActuaPositivoString, Model.ActuaPositivo.CodigoActuaPositivo.HasValue ? (object)new { id = "dtpFechaActuaPositivo", @class = "form-control", @validable = "required Validar" } : new { id = "dtpFechaActuaPositivo", @class = "form-control", @validable = "required Validar" })
+
+                </div>
+
+
+                <div class="col-sm-2 text-right">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(ActuaPositivoResource.EtiquetaArea): (*)</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.ActuaPositivo.CodigoArea, Model.ListaArea, Model.ActuaPositivo.CodigoArea.HasValue ? (object)new { id = "slcArea", @class = "form-control", @validable = "required Validar" } : new { id = "slcArea", @class = "form-control", @validable = "required Validar", })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(ActuaPositivoResource.EtiquetaSupervisor): (*)</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        @Html.Hidden("hdnCodigoColaboradorSupervisor", Model.ActuaPositivo.CodigoColaboradorSupervisor, new { ïd = "hdnCodigoColaboradorSupervisor" })
+                        @Html.TextBox("txtNombreColaboradorSupervisor", Model.ActuaPositivo.NombreCompletoColaboradorSupervisor, Model.ActuaPositivo.CodigoColaboradorSupervisor.HasValue ? (object)new { id = "txtNombreColaboradorSupervisor", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorSupervisor", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                        <div class="input-group-addon">
+                            <button class="btn-form" id="btnBuscarColaboradorSupervisor" type="button">....</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="divValoresChecked" class="form-group">
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center;">
+                    <label class="checkbox-inline">@Html.CheckBox("chkIndicadorSeguridad", (Model.ActuaPositivo.IndicadorSeguridad.HasValue ? Model.ActuaPositivo.IndicadorSeguridad.Value : false), new { id = "chkIndicadorSeguridad", @value = Model.ActuaPositivo.IndicadorSeguridad.HasValue ? Model.ActuaPositivo.IndicadorSeguridad.Value : false })@Html.Raw(ActuaPositivoResource.EtiquetaSeguridad)</label>
+                    <label class="checkbox-inline">@Html.CheckBox("chkIndicadorEficiencia", (Model.ActuaPositivo.IndicadorEficiencia.HasValue ? Model.ActuaPositivo.IndicadorEficiencia.Value : false), new { id = "chkIndicadorEficiencia", @value = Model.ActuaPositivo.IndicadorEficiencia.HasValue ? Model.ActuaPositivo.IndicadorEficiencia.Value : false })@Html.Raw(ActuaPositivoResource.EtiquetaEficiencia)</label>
+                    <label class="checkbox-inline">@Html.CheckBox("chkIndicadorCumplimiento", (Model.ActuaPositivo.IndicadorCumplimiento.HasValue ? Model.ActuaPositivo.IndicadorCumplimiento.Value : false), new { id = "chkIndicadorCumplimiento", @value = Model.ActuaPositivo.IndicadorCumplimiento.HasValue ? Model.ActuaPositivo.IndicadorCumplimiento.Value : false })@Html.Raw(ActuaPositivoResource.EtiquetaCumplimiento)</label>
+                    <label class="checkbox-inline">@Html.CheckBox("chkIndicadorSeriedad", (Model.ActuaPositivo.IndicadorSeriedad.HasValue ? Model.ActuaPositivo.IndicadorSeriedad.Value : false), new { id = "chkIndicadorSeriedad", @value = Model.ActuaPositivo.IndicadorSeriedad.HasValue ? Model.ActuaPositivo.IndicadorSeriedad.Value : false })@Html.Raw(ActuaPositivoResource.EtiquetaSeriedad)</label>
+                    <label class="checkbox-inline">@Html.CheckBox("chkIndicadorCalidad", (Model.ActuaPositivo.IndicadorCalidad.HasValue ? Model.ActuaPositivo.IndicadorCalidad.Value : false), new { id = "chkIndicadorCalidad", @value = Model.ActuaPositivo.IndicadorCalidad.HasValue ? Model.ActuaPositivo.IndicadorCalidad.Value : false })@Html.Raw(ActuaPositivoResource.EtiquetaCalidad)</label>
+                    <label class="checkbox-inline">@Html.CheckBox("chkIndicadorOtros", (Model.ActuaPositivo.IndicadorOtros.HasValue ? Model.ActuaPositivo.IndicadorOtros.Value : false), new { id = "chkIndicadorOtros", @value = Model.ActuaPositivo.IndicadorOtros.HasValue ? Model.ActuaPositivo.IndicadorOtros.Value : false })@Html.Raw(ActuaPositivoResource.EtiquetaOtros)</label>
+                </div>
+            </div>
+        </div>
+         <div id="divOtrosDescripcion" class="form-group" style="display: @(Model.ActuaPositivo.IndicadorOtros==true ? "block" : "none")">
+            <div class="row">
+                <div class="col-sm-2 text-right">
+                    <label style="margin-top: 7px;">@Html.Raw(ActuaPositivoResource.EtiquetaOtrosDescripcion): (*)</label>
+                </div>
+                <div class="col-sm-10">
+                    <div class="form-group">   
+                    @Html.TextArea("txtOtrosDescripcion", Model.ActuaPositivo.OtrosDescripcion, Model.ActuaPositivo.CodigoActuaPositivo.HasValue ? (object)new { id = "txtOtrosDescripcion", @class = "form-control", @validable = "required Validar", @maxlength = "150" } : new { id = "txtOtrosDescripcion", @class = "form-control", @maxlength = "150", @validable = "required Validar" })
+                </div>
+                <div class="form-group text-right">
+                    <label>@Html.Raw(ActuaPositivoResource.EtiquetaMaximoAbreviado) 150 @Html.Raw(ActuaPositivoResource.EtiquetaCaracteres)</label>
+                </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabar">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>
+
+<script type="text/javascript">  
+    ns('Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.FormularioAP_A.FormularioAgregarLadoA.Models')
+    Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.FormularioAP_A.FormularioAgregarLadoA.Models.IngresoAP_AModel = @(Html.Raw(Json.Encode(Model)))
+</script>

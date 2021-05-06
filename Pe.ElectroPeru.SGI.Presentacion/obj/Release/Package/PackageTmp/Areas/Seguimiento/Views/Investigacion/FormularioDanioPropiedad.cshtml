@@ -1,0 +1,298 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionCategoriaDanioPropiedadModel
+
+<div class="modal-body">
+    <div class="tab_custom">
+        <div class="tab-interno item03">
+            <ul class="nav nav-tabs" role="tablist" id="cartTabs">
+                <li id="listaPrimero" role="presentation" class="active"><a href="#primeroDanio" class="top-tab" aria-controls="primeroDanio" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabInformacionGeneral)</a></li>
+                <li id="listaSegundo" role="presentation"><a href="#segundoDanio" class="top-tab" aria-controls="segundoDanio" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabOtrosDetalles)</a></li>
+                <li id="listaTercero" role="presentation"><a href="#terceroDanio" class="top-tab" aria-controls="terceroDanio" role="tab" data-toggle="tab">@Html.Raw(InvestigacionResource.EtiquetaTabEvaluacionConsecuencias)</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="primeroDanio">
+                    <form onsubmit="return false;" id="frmInformacionGeneralPropiedad">
+                        <fieldset id="flsInformacionGeneralDanio" @(Model.InvestigacionPropiedad.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaClasificacionDanioPropiedad): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionPropiedad.CodigoClasificacionDanio, Model.ListaClasificacionPropiedad, new { @class = "form-control", @id = "ddlClasificacionPropiedadDanioPropiedadInfo", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaPropiedad): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionPropiedad.CodigoPropiedad, Model.ListaPropiedad, new { @class = "form-control", @id = "ddlPropiedadDanioPropiedadInfo", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaOtrosEspecificar): (*)</label>
+                                        @Html.TextBox("txtOtrosEspecificarPropitarioInfo", Model.InvestigacionPropiedad.OtrosPropiedad, new { id = "txtOtrosEspecificarPropitarioInfo", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaTipoPropiedad): (*)</label>
+                                        @Html.TextBox("txtTipoPropiedadInfo", Model.InvestigacionPropiedad.TipoPropiedad, new { id = "txtTipoPropiedadInfo", @class = "form-control", @maxlength = "100", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaPropietario): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionPropiedad.CodigoPropietario, Model.ListaPropietario, new { @class = "form-control", @id = "ddlPropietarioDanioPropiedadInfo", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaOtrosEspecificar): (*)</label>
+                                        @Html.TextBox("txtOtrosEspecidicarPropiedadInfo", Model.InvestigacionPropiedad.OtrosPropietario, new { id = "txtOtrosEspecidicarPropiedadInfo", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaDescripcionDanio): (*)</label>
+                                        @Html.TextBox("txtDescripcionDanioInfo", Model.InvestigacionPropiedad.DescripcionDanio, new { id = "txtDescripcionDanioInfo", @class = "form-control", @maxlength = "100", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaAnio):</label>
+                                        @Html.TextBox("txtAnioInfo", Model.InvestigacionPropiedad.PropiedadAnio, new { id = "txtAnioInfo", @class = "form-control", @maxlength = "4", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaPlaca):</label>
+                                        @Html.TextBox("txtPlacaInfo", Model.InvestigacionPropiedad.PropiedadPlaca, new { id = "txtPlacaInfo", @class = "form-control", @maxlength = "10", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaMarca):</label>
+                                        @Html.TextBox("txtMarcaInfo", Model.InvestigacionPropiedad.PropiedadMarca, new { id = "txtMarcaInfo", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaModelo):</label>
+                                        @Html.TextBox("txtModeloInfo", Model.InvestigacionPropiedad.porpiedadModelo, new { id = "txtModeloInfo", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaMotor):</label>
+                                        @Html.TextBox("txtMotorInfo", Model.InvestigacionPropiedad.PropiedadMotor, new { id = "txtMotorInfo", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaColor):</label>
+                                        @Html.TextBox("txtColorInfo", Model.InvestigacionPropiedad.PropiedadColor, new { id = "txtColorInfo", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaSerie):</label>
+                                        @Html.TextBox("txtSerieInfo", Model.InvestigacionPropiedad.PropiedadSerie, new { id = "txtSerieInfo", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarInfo" data-dismiss="modal">@GenericoResource.BotonCancelar</button>
+                            @if (Model.InvestigacionPropiedad.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                            {
+                                <button class="btn btn-primary" id="btnGrabarGeneralInfo">@GenericoResource.BotonGrabar</button>
+                            }
+                        </div>                        
+                    </form>
+                </div>
+                <div role="tabpanel" class="tab-pane fade in" id="segundoDanio">
+                    <form onsubmit="return false;" id="frmOtrosDetallesPropiedad">
+                        <fieldset id="flsOtrosDetalles" @(Model.InvestigacionPropiedad.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaDocumentosPropiedad): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionPropiedad.CodigoDocumentoAldia, Model.ListaOpciones, new { @class = "form-control", @id = "ddlOpcionesDocumentoPropiedadODetalles", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaComentario): (*)</label>
+                                        @Html.TextBox("txtComentarioODetalles", Model.InvestigacionPropiedad.Comentario, new { id = "txtComentarioODetalles", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaReclamacionSeguro): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionPropiedad.IndicadorReclamacionSeguro, Model.ListaRespuestaCerrada, new { @class = "form-control", @id = "slcCompaniaSeguroODetalles", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaNumeroReclamo): (*)</label>
+                                        @Html.TextBox("txtNumeroReclamoODetalles", Model.InvestigacionPropiedad.NumeroReclamo, new { id = "txtNumeroReclamoODetalles", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaCompaniaSeguro): (*)</label>
+                                        @Html.TextBox("txtCompaniaSeguroODetalles", Model.InvestigacionPropiedad.CompaniaSeguro, new { id = "txtCompaniaSeguroODetalles", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaNotificacionPolicia): (*)</label>
+                                        @Html.DropDownListFor(model => model.InvestigacionPropiedad.IndicadorNotificacionPolicia, Model.ListaRespuestaCerrada, new { @class = "form-control", @id = "slcNotificacionPoliciaODetalles", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaFechaNotificacionPolicia): (*)</label>
+                                        @Html.TextBox("dptFechaNotificacionPolicia", Model.InvestigacionPropiedad.FechaNotificacionPoliciaString, new { id = "dptFechaNotificacionPolicia", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaNotificadoPor): (*)</label>
+                                        @Html.TextBox("txtNotificadoPorODetalles", Model.InvestigacionPropiedad.PersonaNotificaPolicia, new { id = "txtNotificadoPorODetalles", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaNumeroInformePolicial): (*)</label>
+                                        @Html.TextBox("txtNumeroInformePolicialODetalles", Model.InvestigacionPropiedad.NumeroInformePolicial, new { id = "txtNumeroInformePolicialODetalles", @class = "form-control", @maxlength = "100", @disabled = "disabled", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaCostoActualReparacion): (*)</label>
+                                        @Html.TextBox("txtCostoActualReparacionODetalles", Model.InvestigacionPropiedad.CostoActualReparacion, string.Empty, new { @class = "form-control", id = "txtCostoActualReparacionODetalles", @maxlength = "50", @type = "number", @step="0.01", @mask = "decimal", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InvestigacionResource.EtiquetaCostoPotencialReparacion): (*)</label>
+                                        @Html.TextBox("txtCostoPotencialReparacionODetalles", Model.InvestigacionPropiedad.CostoPotencialReparacion, string.Empty, new { @class = "form-control", id = "txtCostoPotencialReparacionODetalles", @maxlength = "50", @type = "number", @step="0.01", @mask = "decimal", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarDanioPropiedadODetalles" data-dismiss="modal">@GenericoResource.BotonCancelar</button>
+                                @if (Model.InvestigacionPropiedad.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+                                {
+                                <button class="btn btn-primary" id="btnGrabarDanioPropiedadODetalles" @(!Model.InvestigacionPropiedad.CodigoInvestigacionPropiedad.HasValue ? "disabled=disabled" : null)>@GenericoResource.BotonGrabar</button>
+                                }
+                        </div>                        
+                    </form>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade in" id="terceroDanio">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>@Html.Raw(InvestigacionResource.EtiquetaActual): (*)</strong></label>
+                            </div>
+                            <div>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th width="10%"></th>
+                                        <th width="60%">@Html.Raw(InvestigacionResource.EtiquetaDescripcion)</th>
+                                        <th>@Html.Raw(InvestigacionResource.EtiquetaActual)</th>
+                                    </tr>
+                                    @foreach (var item in Model.ListaCategoriaDanioPropiedad)
+                                    { 
+                                        <tr>
+                                            <td class="text-center">
+                                                @if (Model.InvestigacionPropiedad.CodigoConsecuenciaActual == item.CodigoConsecuenciaActual)
+                                                {
+                                                    Model.InvestigacionPropiedad.DescripcionConsecuenciaActual = item.DescripcionConsecuenciaActual;                                                 
+                                                    <input type="radio" name="codigoConsecuenciaActualPropiedadModal" disabled="disabled" id="radioConsecuenciaActual_@item.CodigoConsecuenciaActual" data-descripcion="@item.DescripcionConsecuenciaActual" data-codigo="@item.CodigoCategoriaTexto" checked/>
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="codigoConsecuenciaActualPropiedadModal" disabled="disabled" id="radioConsecuenciaActual_@item.CodigoConsecuenciaActual" data-descripcion="@item.DescripcionConsecuenciaActual" data-codigo="@item.CodigoCategoriaTexto"/>
+                                                }
+                                            </td>
+                                            <td>@item.NombreCategoriaDetalleEspaniol</td>
+                                            <td>@item.DescripcionConsecuenciaActual</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>@Html.Raw(InvestigacionResource.EtiquetaPotencial): (*)</strong></label>
+                            </div>
+                            <div>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th width="10%"></th>
+                                        <th width="60%">@Html.Raw(InvestigacionResource.EtiquetaDescripcion)</th>
+                                        <th>@Html.Raw(InvestigacionResource.EtiquetaActual)</th>
+                                    </tr>
+                                    @foreach (var item in Model.ListaCategoriaDanioPropiedad)
+                                    { 
+                                        <tr>
+                                            <td class="text-center">
+                                                @if (Model.InvestigacionPropiedad.CodigoConsecuenciaPotencial == item.CodigoConsecuenciaPotencial)
+                                                {
+                                                    Model.InvestigacionPropiedad.DescripcionConsecuenciaPotencial = item.DescripcionConsecuenciaPotencial;
+                                                    <input type="radio" name="codigoConsecuenciaPotencialPropiedadModal" disabled="disabled" id="radioConsecuenciaPotencial_@item.CodigoConsecuenciaPotencial" data-descripcion="@item.DescripcionConsecuenciaPotencial" data-codigo="@item.CodigoCategoriaTexto" checked/>
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="codigoConsecuenciaPotencialPropiedadModal" disabled="disabled" id="radioConsecuenciaPotencial_@item.CodigoConsecuenciaPotencial" data-descripcion="@item.DescripcionConsecuenciaPotencial" data-codigo="@item.CodigoCategoriaTexto"/>
+                                                }
+                                            </td>
+                                            <td>@item.NombreCategoriaDetalleEspaniol</td>
+                                            <td>@item.DescripcionConsecuenciaPotencial</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaActualConsecuencia)</label>
+                            @Html.TextBox("txtConsecuenciaOtrosDetalles", Model.InvestigacionPropiedad.DescripcionConsecuenciaActual, new { id = "txtConsecuenciaOtrosDetalles", @class = "form-control", @maxlength = "100", @validable = "required Validar", @disabled = "disabled" })
+                        </div>
+                        <div class="col-sm-6">
+                            <label>@Html.Raw(InvestigacionResource.EtiquetaPotencialConsecuencia)</label>
+                            @Html.TextBox("txtPotencialOtrosDetalles", Model.InvestigacionPropiedad.DescripcionConsecuenciaPotencial, new { id = "txtPotencialOtrosDetalles", @class = "form-control", @maxlength = "100", @validable = "required Validar", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioDanioPropiedad = @(Html.Raw(Json.Encode(Model)))
+</script>

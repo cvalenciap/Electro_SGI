@@ -1,0 +1,134 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Proceso.PlanEstrategico
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Proceso.PlanEstrategico.IngresoPlanEstrategicoModel
+@{  
+    //List<Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Proceso.BandejaPlanEstrategicoResponse> lst = (List<Pe.ElectroPeru.SGI.Aplicacion.TransferObject.Response.Proceso.BandejaPlanEstrategicoResponse>)ViewBag.lstPE;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(PlanEstrategicoResource.EtiquetaTituloBandeja)</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-3 text-right" style="margin-top: 6px;">
+                        <label>@Html.Raw(PlanEstrategicoResource.EtiquetaNombrePerspectiva)</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtDescripcionPerspectiva", Model.BandejaPlanEstrategico.DescripcionPerspectiva, new { id = "txtDescripcionPerspectiva", @type = "text", @class = "form-control", @maxlength = "2000" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnBuscar">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>
+
+        <div class="table-grilla">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <button id="btnDescargarPE" class="btn btn-primary">@PlanEstrategicoResource.DescargarPE</button>
+                    <button id="btnDescargarMatrizAEI" class="btn btn-primary">@PlanEstrategicoResource.DescargarMatrizAEI</button>
+                    <button id="btnDescargarAlineamiento" class="btn btn-primary">@PlanEstrategicoResource.DescargarAlineamiento</button>                    
+                </div>                   
+            </div>
+            <div style="overflow-x: scroll;">
+                <div class="table-grilla">                   
+                    <div id="divGrdResult">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.BuscarPlanEstrategico = '@Url.Action("BuscarPlanEstrategico", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.BuscarPerspectiva = '@Url.Action("BuscarPerspectiva", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.BuscarObjetivoEstrategicoFonafe = '@Url.Action("BuscarPerspectivaDetalle", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.FormularioBandejaObjetivosFonafe = '@Url.Action("FormularioBandejaObjetivosFonafe", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.FormularioBandejaObjetivosEmpresa = '@Url.Action("FormularioBandejaObjetivosEmpresa", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.FormularioBandejaAccionEstrategicaInstitucional = '@Url.Action("FormularioBandejaAccionEstrategicaInstitucional", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.BuscarObjetivoEstrategicoEmpresa = '@Url.Action("BuscarObjetivoEstrategicoFonafeDetalle", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.FormularioBandejaIndicador = '@Url.Action("FormularioBandejaIndicador", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.BuscarIndicador = '@Url.Action("BuscarObjetivoEstrategicoEmpresaDetalle", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.BuscarAccionEstrategicaInstitucional = '@Url.Action("BuscarAccionEstrategicaInstitucional", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.FormularioValorIndicador = '@Url.Action("FormularioValorIndicador", "BandejaPlanEstrategico", new { Area = "Proceso" })'; 
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.DescargarPE = '@Url.Action("DescargarPlanEstrategico", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.DescargarAlineamientoOECyOES = '@Url.Action("DescargarAlineamientoOECyOES", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.DescargarMatrizAEI = '@Url.Action("DescargarMatrizAEI", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.EliminarIndicadorDetalle = '@Url.Action("EliminarIndicadorDetalle", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.RegistrarIndicador = '@Url.Action("RegistrarIndicador", "BandejaPlanEstrategico", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.BuscarVariable = '@Url.Action("BuscarVariable", "BandejaPlanEstrategico", new { Area = "Mantenimiento" })';       
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.RegistraFormula = '@Url.Action("RegistraFormula", "BandejaPlanEstrategico", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.BuscarIndicadorMetaAnual = '@Url.Action("BuscarIndicadorMetaAnual", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.RegistrarIndicadorMetaAnual = '@Url.Action("RegistrarIndicadorMetaAnual", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Actions.EliminarIndicadorMetaAnual = '@Url.Action("EliminarIndicadorMetaAnual", "BandejaPlanEstrategico", new { Area = "Proceso" })';
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridNombrePerspectiva = '@Html.Raw(PlanEstrategicoResource.GridNombrePerspectiva)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridObjetivoEstrategicoFONAFE = '@Html.Raw(PlanEstrategicoResource.GridObjetivoEstrategicoFONAFE)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridObjetivoEstrategicoEmpresa = '@Html.Raw(PlanEstrategicoResource.GridObjetivoEstrategicoEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridNombreIndicador = '@Html.Raw(PlanEstrategicoResource.GridNombreIndicador)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridNombreAccionEstrategicaInstitucional = '@Html.Raw(PlanEstrategicoResource.GridAEI)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridAEI = '@Html.Raw(PlanEstrategicoResource.GridAEI)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridNombreIndicador = '@Html.Raw(PlanEstrategicoResource.GridNombreIndicador)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridUM = '@Html.Raw(PlanEstrategicoResource.GridUM)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.Grid2017 = '@Html.Raw(PlanEstrategicoResource.Grid2017)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.Grid2018 = '@Html.Raw(PlanEstrategicoResource.Grid2018)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.Grid2019 = '@Html.Raw(PlanEstrategicoResource.Grid2019)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.Grid2020 = '@Html.Raw(PlanEstrategicoResource.Grid2020)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.Grid2021 = '@Html.Raw(PlanEstrategicoResource.Grid2021)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.Grid2022 = '@Html.Raw(PlanEstrategicoResource.Grid2022)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridFormaCalculo = '@Html.Raw(PlanEstrategicoResource.GridFormaCalculo)';           
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.EtiquetaTituloOEF = '@Html.Raw(PlanEstrategicoResource.EtiquetaTituloOEF)';           
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.EtiquetaTituloOEE = '@Html.Raw(PlanEstrategicoResource.EtiquetaTituloOEE)';     
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.EtiquetaTituloAEI = '@Html.Raw(PlanEstrategicoResource.EtiquetaTituloAEI)';     
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.EtiquetaTituloIndicador = '@Html.Raw(PlanEstrategicoResource.EtiquetaTituloIndicador)';     
+
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.EtiquetaMensajeAnular = '@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador.IndicadorResource.EtiquetaMensajeEliminar)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridResponsable = '@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador.IndicadorResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridNombreVariable = '@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador.IndicadorResource.GridNombreVariable)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridAnio = '@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador.IndicadorResource.GridAnio)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridSubTipoPeriodicidad = '@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador.IndicadorResource.GridSubTipoPeriodicidad)';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridValorMeta = '@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador.IndicadorResource.GridValorMeta)';      
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridValorReal = '@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador.IndicadorResource.GridValorReal)';      
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.Resource.GridEvaluacion = '@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador.IndicadorResource.GridEvaluacion)';      
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.PeriodicidadDiaria = '@DatosConstantes.Periodicidad.Diario';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.PeriodicidadSemanal = '@DatosConstantes.Periodicidad.Semana';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.PeriodicidadMensual = '@DatosConstantes.Periodicidad.Mensual';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.PeriodicidadTrimestral = '@DatosConstantes.Periodicidad.Trimestral';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.PeriodicidadSemestral = '@DatosConstantes.Periodicidad.Semestral';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.PeriodicidadAnual = '@DatosConstantes.Periodicidad.Anual';        
+
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.PlanOperativo = '@DatosConstantes.IndicadorAmbito.PlanOperativo';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.PlanEstrategico = '@DatosConstantes.IndicadorAmbito.PlanEstrategico';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.InformeEjecutivoGestion = '@DatosConstantes.IndicadorAmbito.InformeEjecutivoGestion';
+        Pe.ElectroPeru.SGI.Presentacion.Proceso.BandejaPlanEstrategico.DatosConstantes.Otros = '@DatosConstantes.IndicadorAmbito.Otros';        
+
+    </script>
+    @CustomHtmlHelper.RenderViewJs("procesobandejaplanestrategicoformulariobandejaobjetivosfonafe") 
+    @CustomHtmlHelper.RenderViewJs("procesobandejaplanestrategicoformulariobandejaobjetivosempresa") 
+    @CustomHtmlHelper.RenderViewJs("procesobandejaplanestrategicoformulariobandejaaccionestrategicainstitucional")
+    @CustomHtmlHelper.RenderViewJs("procesobandejaplanestrategicoformulariobandejaindicador") 
+    @CustomHtmlHelper.RenderViewJs("procesobandejaplanestrategicoformulariovalorindicador") 
+}

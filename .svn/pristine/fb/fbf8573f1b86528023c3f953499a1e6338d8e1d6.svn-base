@@ -1,0 +1,148 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Accion.RecordAccionSeguimientoModel
+
+<script type="text/javascript">    
+    ns('Pe.Stracon.SGD.Presentacion.Seguimiento.Accion.Models')
+    Pe.Stracon.SGD.Presentacion.Seguimiento.Accion.Models.FormularioRecordAccionSeguimiento = @(Html.Raw(Json.Encode(Model)))
+</script>
+
+<div class="main-content">
+    <form id="frmRecordAccionSeguimiento" onsubmit="return false;">
+        <div class="box-row">
+            <div class="col-box left">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaNumeroAccion):</label>
+                            @Html.TextBox("txtFrmNumeroAccion", Model.RecordAccionSeguimiento.NumeroAccion, new { @class = "form-control", @id = "txtNumeroAccion", @disabled = "disabled", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            @*<label>@Html.Raw(AccionResource.EtiquetaEstado):</label>
+                            @Html.DropDownListFor(x => x.RecordAccionSeguimiento.CodigoEstadoAccion, Model.ListaEstadoAccion, new { @class = "form-control", @id = "slcFrmEstadoAccion", @validable = "required ValidarEstadoAccion" })*@
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            @{
+                                if (Model.RecordAccionSeguimiento.indicadorMenu == 0)
+                                {
+                                <label>@Html.Raw(AccionResource.EtiquetaFechaEstado):</label>
+                                @Html.TextBox("txtFrmFechaEstadoAccion", Model.RecordAccionSeguimiento.FechaEstadoAccionString, new { @class = "form-control", @id = "txtFrmFechaEstadoAccion", @disabled = "disabled", @readonly = "readonly" })    
+                                }
+                                else if (Model.RecordAccionSeguimiento.indicadorMenu == 2)
+                                {
+                                <label>@Html.Raw(AccionResource.EtiquetaFechaEstado):</label>
+                                @Html.TextBox("txtFrmFechaEstadoAccion", Model.RecordAccionSeguimiento.FechaEstadoAccionString, new { @class = "form-control", @id = "txtFrmFechaEstadoAccion" })    
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                @{
+                    if (Model.RecordAccionSeguimiento.indicadorMenu == 2)
+                    {
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="margin-top: 7px;">@Html.Raw(AccionResource.EtiquetaColaborador):</label>
+                                <div>
+                                    <div class="input-group">
+                                        @Html.Hidden("hdnCodigoColaborador", Model.RecordAccionSeguimiento.CodigoColaboradorResponsableCierre, new { ïd = "hdnCodigoColaboradorResponsable" })
+                                        @Html.TextBox("txtCodigoColaboradorResponsable", Model.RecordAccionSeguimiento.NombreColaboradorResponsableCierre, new { id = "txtCodigoColaboradorResponsable", @class = "form-control", @disabled = "disabled", @validable = "required ValidarColaborador" })
+                                        <div class="input-group-addon">
+                                            <button class="btn-form" id="btnFrmBuscarColaboradorResponsableCierre" type="button">....</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                }
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaComentario):</label>
+                            @Html.TextArea("txtFrmComentario", Model.RecordAccionSeguimiento.Comentario, new { @class = "form-control", @id = "txtFrmComentario", @rows = "2", @cols = "10", @maxLength = "2000", @validable = "required ValidarComentario" })
+                            <div class="text-right">
+                                <label>@string.Format(GenericoResource.EtiquetaMaximoCaracteres, 2000)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>@Html.Raw(AccionResource.EtiquetaCompletoAccion):</label>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" name="rdbAccionCompleta" id="rdbAccionCompletaSi" value="1">Si</label>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" name="rdbAccionCompleta" id="rdbAccionCompletaNo" value="0" checked>No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaFoto):</label>
+                            <input style="width: 425px" type="file" class="upload" id="fileUploadFrmFoto" name="fileUploadFrmFoto" />
+                            <label>@Html.Raw(GenericoResource.EtiquetaTipoArchivoFoto)</label>
+                            <label>@Html.Raw(string.Format(GenericoResource.EtiquetaTamanioArchivo, Model.RecordAccionSeguimiento.PesoMaximoArchivoFotoSharePointString))</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Html.Raw(AccionResource.EtiquetaAnexo):</label>
+                            <input style="width: 425px" type="file" class="upload" id="fileUploadFrmAnexo" name="fileUploadFrmAnexo" />
+                            <label>@Html.Raw(string.Format(GenericoResource.EtiquetaTamanioArchivo, Model.RecordAccionSeguimiento.PesoMaximoArchivoAnexoSharePointString))</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <button class="btn btn-default" id="btnRecordAccionSeguimientoCancelar">@Html.Raw(GenericoResource.BotonCancelar)</button>
+                        @{
+                            if (Model.RecordAccionSeguimiento.CodigoEstadoRecord != DatosConstantes.EstadoRecord.Cerrado)
+                            {
+                                if (Model.RecordAccionSeguimiento.indicadorMenu == 3)
+                                {
+                                    <button class="btn btn-primary" id="btnRecordAccionSeguimientoGrabar">@Html.Raw(AccionResource.BotonCerradoGerencia)</button>
+                                }
+                                else if (Model.RecordAccionSeguimiento.indicadorMenu == 4)
+                                {
+                                    <button class="btn btn-primary" id="btnRecordAccionSeguimientoGrabar">@Html.Raw(AccionResource.BotonAnuladoGerencia)</button>
+                                }
+                                else if (Model.RecordAccionSeguimiento.indicadorMenu == 5)
+                                {
+                                    <button class="btn btn-primary" id="btnRecordAccionSeguimientoGrabar">@Html.Raw(AccionResource.BotonReabiertoGerencia)</button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-primary" id="btnRecordAccionSeguimientoGrabar">@Html.Raw(GenericoResource.BotonGrabar)</button>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="box-row">
+            <div class="col-box left">
+                <div class="table-grilla">
+                    <div id="divGrdResultRecordAccionSeguimiento">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

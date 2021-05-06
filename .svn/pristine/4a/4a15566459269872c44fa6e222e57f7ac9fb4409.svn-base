@@ -1,0 +1,973 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ObservacionPlaneada
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ObservacionPlaneada.IngresoObservacion.ObservacionPlaneadaModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto"><strong>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloIngresoOPT)</strong></h2>
+        @Html.Hidden("hdnCodigoOportunidadMejora")
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaNumeroRegistroOPT):</label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">  
+                            @Html.TextBox("txtNumeroObservacionPlaneada", Model.ObservacionPlaneada.NumeroObservacionPlaneada, new { id = "txtNumeroObservacionPlaneada", @class = "form-control", @disabled = "disabled" })                         
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaOPT" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body" style="min-height: 650px;">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsOPT" style="text-transform: uppercase">
+                    <li role="presentation" class="active">
+                        <a href="#tabGenerales" class="top-tab" aria-controls="tabGenerales" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabGenerales)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabTrabajadores" class="top-tab" aria-controls="tabTrabajadores" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabTrabajadores)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabObservadores" class="top-tab" aria-controls="tabObservadores" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabObservadores)</a>
+                    </li>
+                    @*<li role="presentation">
+                        <a href="#tabResultados" class="top-tab" aria-controls="tabResultados" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabResultados)</a>
+                    </li>*@
+                    <li role="presentation" id="liProcedimientos">
+                        <a href="#tabProcedimientos" class="top-tab" aria-controls="tabProcedimientos" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabProcedimientos)</a>
+                    </li>
+                    <li role="presentation" id="liHallazgos">
+                        <a href="#tabHallazgos" class="top-tab" aria-controls="tabHallazgos" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabHallazgos)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabAcciones" class="top-tab" aria-controls="tabAcciones" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabAcciones)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabCausas" class="top-tab" aria-controls="tabCausas" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabCausas)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabRetroalimentacion" class="top-tab" aria-controls="tabRetroalimentacion" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabRetroalimentacion)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabAccionesInmediatas" class="top-tab" aria-controls="tabAccionesInmediatas" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabAccionesInmediatas)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabAnexos" class="top-tab" aria-controls="tabAnexos" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabAnexos)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabFotos" class="top-tab" aria-controls="tabFotos" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTabFotos)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGenerales">
+                         <form onsubmit="return false;" id="frmGenerales">
+                            <fieldset @(!Model.ObservacionPlaneada.IndicadorLectura ? null : "disabled=disabled")>     
+                                <div class="title-interna">
+                                    <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloInformacionGeneral)</span>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTareaVerificada): (*)</label> 
+                                        </div>
+                                        <div class="col-sm-3">                                       
+                                            @Html.DropDownListFor(model => model.ObservacionPlaneada.IndicadorProcedimientoSig, Model.ListaValoresVerificacion, new { id = "slcVerificacion", @class = "form-control", @validable = "required Validar" })                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaProyecto): (*)</label> 
+                                        </div>
+                                        <div class="col-sm-3">
+                                             @Html.DropDownListFor(model => model.ObservacionPlaneada.CodigoProyecto, Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" })                                        
+                                        </div>
+                                        <div class="col-sm-1 text-right">
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaEmpresa):</label>  
+                                        </div>
+                                        <div class="col-sm-2">
+                                             @Html.Hidden("hddCodigoEmpresa", Model.ObservacionPlaneada.CodigoEmpresa, new { ïd = "hddCodigoEmpresa" })
+                                             @Html.TextBox("txtEmpresa", Model.ObservacionPlaneada.DescripcionEmpresa, new { id = "txtEmpresa", @class = "form-control", @disabled ="disabled" })                                        
+                                        </div>
+                                        <div class="col-sm-1 text-right">
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaPais):</label>  
+                                        </div>
+                                        <div class="col-sm-3">
+                                            @Html.Hidden("hddCodigoPais", Model.ObservacionPlaneada.CodigoPais, new { ïd = "hddCodigoPais" })
+                                             @Html.TextBox("txtPais", Model.ObservacionPlaneada.DescripcionPais, new { id = "txtPais", @class = "form-control", @disabled ="disabled" })                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaDepartamento): (*)</label>                                        
+                                         </div>
+                                        <div class="col-sm-3">
+                                            @Html.DropDownList("slcDepartamento", Model.ListaDepartamento, new { id = "slcDepartamento", @class = "form-control", @validable = "required Validar" })                                                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">                                    
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaArea): (*)</label>                                        
+                                        </div>
+                                        <div class="col-sm-3">
+                                            @Html.DropDownList("slcArea", Model.ListaArea, new { id = "slcArea", @class = "form-control", @validable = "required Validar" })                                                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">                                    
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaProcedimiento): (*)</label>                                        
+                                        </div>  
+                                        <div class="col-sm-3">
+                                            @Html.DropDownList("slcProcedimiento", Model.ListaProcedimiento, new { id = "slcProcedimiento", @class = "form-control",  @validable = "required Validar" })                                                                            
+                                        </div>                              
+                                        @*<div class="col-sm-3 text-right">                                    
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaCodigoProcedimiento):</label>                                        
+                                        </div>*@
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                     <div class="row">
+                                        <div class="col-sm-2">                                    
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaLugarExacto): (*)</label>                                        
+                                        </div>
+                                        <div class="col-sm-10">
+                                            @Html.TextBox("txtLugarExacto", Model.ObservacionPlaneada.LugarExacto, new { id = "txtLugarExacto", @class = "form-control", @validable = "required Validar", @maxlength="255" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">                                    
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloRegistro):</label>                                        
+                                        </div>
+                                        <div class="col-sm-10">
+                                              @Html.TextBox("txtTituloRegistro", Model.ObservacionPlaneada.TituloRegistro, new { id = "txtTituloRegistro", @class = "form-control", @maxlength="255" })                                                                               
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">                                    
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaFechaEjecucion): (*)</label>                                        
+                                        </div>
+                                        <div class="col-sm-3">
+                                           @Html.TextBox("dtpFechaEjecucion", Model.ObservacionPlaneada.FechaEjecucionString, new { id = "dtpFechaEjecucion", @class = "form-control", @validable = "required Validar", @readonly = "readonly"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">                                    
+                                            <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloNotificacion): (*)</label>                                        
+                                        </div>
+                                        <div class="col-sm-3">
+                                            @Html.DropDownListFor(model => model.ObservacionPlaneada.CodigoNotificacion, Model.ListaNotificacion, new { id = "slcNotificacion", @class = "form-control", @validable = "required Validar"  })                                                                                                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                         </form>
+                        @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                        {
+                            <div id="divBotonAccion1" class="box-acciones-foot filter">
+                                <button class="btn btn-default" id="btnAnular">@Html.Raw(ObservacionPlaneadaResource.EtiquetaBotonAnular)</button>
+                                <button class="btn btn-primary" id="btnGuardarGenerales">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                            </div>
+                        }
+                    </div>
+                    <div class="tab-pane fade in" id="tabTrabajadores">    
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloTrabajador)</span>
+                                <div class="acciones-form btn-group btn-group-table">
+                                @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                                {
+                                    <button id="btnAgregarColaborador" type="button" class="btn-table text-line one hidden">
+                                        @Html.Raw(InvestigacionResource.EtiquetaAgregarPersona)
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                        <div id="divtabTrabajadores" class="hidden"> 
+                            <p><strong>@Html.Raw(ObservacionPlaneadaResource.MensajeValidacionMinimoTrabajador)</strong></p>
+                            <div style="overflow-x: scroll;">
+                                <div class="table-grilla">
+                                    <div id="divGrdColaborador">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>       
+                        <br />                 
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloSupervisor)</span>
+                                <div class="acciones-form btn-group btn-group-table">
+                                @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                                {
+                                    <button id="btnAgregarSupervisor" type="button" class="btn-table text-line one hidden">
+                                        @Html.Raw(InvestigacionResource.EtiquetaAgregarPersona)
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                        <div id="divtabSupervisores" class="hidden"> 
+                            <p><strong>@Html.Raw(ObservacionPlaneadaResource.MensajeValidacionMinimoSupervisor)</strong></p>
+                            <div style="overflow-x: scroll;">
+                                <div class="table-grilla">
+                                    <div id="divGrdSupervisor">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabObservadores">  
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloObservadoresInternos)</span>
+                        </div>
+                        <div id="divtabObservadoresInternos" class="hidden">
+                            <p>@Html.Raw(ObservacionPlaneadaResource.MensajeValidacionMinimoObservador)</p>
+                            <form onsubmit="return false;" id="frmObservadorInterno"> 
+                                <fieldset @(!Model.ObservacionPlaneada.IndicadorLectura ? null : "disabled=disabled")>                            
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-2">                                    
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaNombreyApellidos): (*)</label>                                        
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="input-group">
+                                                    @Html.Hidden("hdnCodigoColaboradorInterno", string.Empty, new { ïd = "hdnCodigoColaboradorInterno" })
+                                                    @Html.TextBox("txtColaboradorInterno", string.Empty, new { id = "txtColaboradorInterno", @class = "form-control", @validable = "required Validar", @disabled="disabled" })
+                                                    <div class="input-group-addon">
+                                                        <button class="btn-form" id="btnAgregarObservadorInterno" type="button">....</button>
+                                                    </div>
+                                                </div>                                                                                                                      
+                                            </div> 
+                                            <div class="col-sm-2">                                    
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaTipoObservador): (*)</label>                                        
+                                            </div>
+                                            <div class="col-md-3">
+                                                @Html.DropDownList("slcTipoObservadores", Model.ListaTipoObservadores, new { id = "slcTipoObservadores", @class = "form-control", @validable = "required Validar" })                                                                           
+                                            </div>  
+                                        </div>
+                                    </div>  
+                                </fieldset>                              
+                            </form>
+                            @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion11" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarObservadorInterno">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarObservadorInterno">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div>
+                            }
+                            <div style="overflow-x: scroll;">
+                                <div class="table-grilla">
+                                    <div id="divGrdObservadorInterno">
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        <br />
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloObservadoresExternos)</span>                                
+                        </div>
+                        <div id="divtabObservadoresExternos" class="hidden">
+                            <form onsubmit="return false;" id="frmObservadorExterno">   
+                                <fieldset @(!Model.ObservacionPlaneada.IndicadorLectura ? null : "disabled=disabled")>                          
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-2">                                    
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaNombreyApellidos): (*)</label>                                        
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.TextBox("txtNombresApellidos", Model.ObservadorExterno.NombresApellidos, new { id = "txtNombresApellidos", @class = "form-control", @validable = "required Validar" })                                                                              
+                                            </div>                                
+                                            <div class="col-sm-2">                                    
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaTipoDocumento): (*)</label>                                        
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.DropDownList("slcTipoDocumento", Model.ListaTipoDocumento, new { id = "slcTipoDocumento", @class = "form-control", @validable = "required Validar" })                                                                           
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-2">                                    
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaNroDocumento): (*)</label>                                        
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.TextBox("txtNumeroDocumento", Model.ObservadorExterno.NumeroDocumento, new { id = "txtNumeroDocumento", @class = "form-control", @validable = "required Validar" })                                                                              
+                                            </div>                                
+                                            <div class="col-sm-2">                                    
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaCargoReferencial): (*)</label>                                        
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.TextBox("txtCargoReferencial", Model.ObservadorExterno.CargoReferencial, new { id = "txtCargoReferencial", @class = "form-control", @validable = "required Validar" })                                                                              
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </fieldset>                                
+                            </form>
+                            @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion5" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarObservadorExterno">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarObservadorExterno">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div>
+                            }
+                            <div class="table-grilla">
+                                <div id="divGrdObservadorExterno">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="tab-pane fade in" id="tabResultados">    
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloTipoTrabajador)</span>                                
+                        </div>
+                        <div class="row">
+                            @for (int i = 0; i < Model.ListaTipoTrabajador.Count(); i++)
+                            {
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="@if (i == (Model.ListaTipoTrabajador.Count - 1)) { @Html.Raw("col-sm-6") }else{ @Html.Raw("col-sm-12") }">
+                                            <div class="checkbox" style="margin: 2px 0;">
+                                                <label>
+                                                    <input type="checkbox" value="@Model.ListaTipoTrabajador[i].Value" class="checkboxClass"/>@Model.ListaTipoTrabajador[i].Text
+                                                </label>
+                                            </div>
+                                        </div>
+                                        @if(i == (Model.ListaTipoTrabajador.Count - 1))
+                                        {
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control"  maxlength="255" disabled="disabled"/>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloTipoTarea)</span>                                
+                        </div>
+                        <div class="row">
+                            @for (int i = 0; i < Model.ListaTipoTarea.Count(); i++)
+                            {
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="@if(i == (Model.ListaTipoTarea.Count() - 1)) { @Html.Raw("col-sm-6") }else{ @Html.Raw("col-sm-12") }">
+                                            <div class="checkbox" style="margin: 2px 0;">
+                                                <label>
+                                                    <input type="checkbox" value="@Model.ListaTipoTarea[i].Value" class="checkboxClass"/>@Model.ListaTipoTarea[i].Text
+                                                </label>
+                                            </div>
+                                        </div>
+                                        @if (i == (Model.ListaTipoTarea.Count() - 1))
+                                        {
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control"  maxlength="255" disabled="disabled"/>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloTipoComportamiento)</span>                                
+                        </div>
+                        <div class="row">
+                            @for (int i = 0; i < Model.ListaTipoComportamiento.Count(); i++)
+                            {
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="@if(i == (Model.ListaTipoComportamiento.Count() - 1)) { @Html.Raw("col-sm-6") }else { @Html.Raw("col-sm-12") }">
+                                            <div class="checkbox" style="margin: 2px 0;">
+                                                <label>
+                                                    <input type="checkbox" value="@Model.ListaTipoComportamiento[i].Value" class="checkboxClass"/>@Model.ListaTipoComportamiento[i].Text
+                                                </label>
+                                            </div>
+                                        </div>
+                                        @if (i == (Model.ListaTipoComportamiento.Count() - 1))
+                                        {
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control"  maxlength="255" disabled="disabled"/>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloNotificacion)</span>                                
+                        </div>
+                        <div class="row">
+                            @for (int i = 0; i < Model.ListaNotificacion.Count(); i++)
+                            {
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="checkbox" style="margin: 2px 0;">
+                                                <label>
+                                                    <input type="checkbox" value="@Model.ListaNotificacion[i].Value" class="checkboxClass"/>@Model.ListaNotificacion[i].Text
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <br />
+                        <div id="divBotonAccion6" class="box-acciones-foot filter">
+                            <button class="btn btn-default" id="btnCancelarResultados">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                            <button class="btn btn-primary" id="btnGuardarResultados">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                        </div>
+                    </div>  *@ 
+                    <div class="tab-pane fade in" id="tabProcedimientos">  
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloIngresoPasos)</span>                                
+                        </div>
+                        <div id="divtabProcedimientos" class="hidden">
+                            <form onsubmit="return false;" id="frmProcedimientos">
+                                <fieldset @(!Model.ObservacionPlaneada.IndicadorLectura ? null : "disabled=disabled")>                            
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-3">                                    
+                                                <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescripcionPaso): (*)</label>                                        
+                                            </div>
+                                            <div class="col-sm-9">  
+                                                @Html.TextArea("txtDescripcionPaso", new { @class = "form-control", id="txtDescripcionPaso", @maxlength="2000", @validable = "required Validar", style="resize: none;" })                                   
+                                                <div class="form-group text-right">
+                                                    <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 2000 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion7" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarProcedimientos">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarProcedimientos">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div>
+                            }
+                            <div class="table-grilla">
+                                <div id="divGrdProcedimientos">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloCumplimiento)</span>                                
+                        </div>
+                        <div id="divtabCumplimiento" class="hidden">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">                                    
+                                        <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTotalPasosCumplen):</label>                                        
+                                    </div>
+                                    <div class="col-sm-2">  
+                                        @Html.TextBoxFor(m => m.ObservacionPlaneada.TotalPasosCumplen, new { @class = "form-control", id="txtTotalPasosCumplen", @mask = "integer", maxlength= "3" })                                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">                                    
+                                        <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTotalPasosNoCumplen):</label>                                        
+                                    </div>
+                                    <div class="col-sm-2">  
+                                        @Html.TextBoxFor(m => m.ObservacionPlaneada.TotalPasosNoCumplen, new { @class = "form-control", id="txtTotalPasosNoCumplen", @mask = "integer", maxlength= "3" })                                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">                                    
+                                        <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTotalPasosNoAplica):</label>                                        
+                                    </div>
+                                    <div class="col-sm-2">  
+                                        @Html.TextBoxFor(m => m.ObservacionPlaneada.TotalPasosNoAplican, new { @class = "form-control", id="txtTotalPasosNoAplica", @mask = "integer", maxlength= "3" })                                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">                                    
+                                        <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTotalCumplimiento):</label>                                        
+                                    </div>
+                                    <div class="col-sm-4">  
+                                        @Html.TextBoxFor(m => m.ObservacionPlaneada.TotalCumplimiento, new { @class = "form-control", id="txtTotalCumplimiento", @mask="decimal" })                                   
+                                    </div>
+                                </div>
+                            </div>
+                            @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion12" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarCumplimiento">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarCumplimiento">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabHallazgos">    
+                        <div id="blContienePaso" style="display: none;">
+                            <div class="title-interna">
+                                <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDatosPaso)</span>                                
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">                                    
+                                        <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescripcionPaso):</label>                                        
+                                    </div>
+                                    <div class="col-sm-9"> 
+                                        @Html.Hidden("hdnCodigoPaso", string.Empty, new { ïd = "hdnCodigoPaso" }) 
+                                        @Html.TextArea("txtDescripcionPasoHallazgo", new { @class = "form-control", id="txtDescripcionPasoHallazgo", @disabled="disabled", style="resize: none;" })                                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title-interna">
+                                <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaIngresarHallazgos)</span>                                
+                            </div>
+                            <form onsubmit="return false;" id="frmHallazgos">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3">                                    
+                                            <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescripcionCorta): (*)</label>                                        
+                                        </div>
+                                        <div class="col-sm-9"> 
+                                            @Html.Hidden("hdnCodigoHallazgo", string.Empty, new { ïd = "hdnCodigoHallazgo" })
+                                            @Html.TextArea("txtDescripcionCortaHallazgo", new { @class = "form-control", id="txtDescripcionCortaHallazgo", @maxlength="250", @validable = "required Validar", style="resize: none;"  })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 250 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3">                                    
+                                            <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescripcionLarga):</label>                                        
+                                        </div>
+                                        <div class="col-sm-9"> 
+                                            @Html.TextArea("txtDescripcionLargaHallazgo", new { @class = "form-control", id="txtDescripcionLargaHallazgo", @maxlength="250", style="resize: none;"  })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 250 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3">                                    
+                                            <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaNivelRiesgo):</label>                                        
+                                        </div>
+                                        <div class="col-sm-3">
+                                             @Html.DropDownList("slcNivelRiesgo", Model.ListaNivelRiesgo, new { @class = "form-control", @id = "slcNivelRiesgo" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion13" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarHallazgo">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarHallazgo">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div>
+                            }
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoHallazgo">
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="tab-pane fade in" id="tabAcciones">   
+                        <div id="blContieneAccion">
+                            <div class="title-interna">
+                                <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDatosHallazgo)</span>                                
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">                                    
+                                        <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescripcionCorta): (*)</label>                                        
+                                    </div>
+                                    <div class="col-sm-8"> 
+                                        @Html.Hidden("hdnCodigoHallazgoAccion", string.Empty, new { ïd = "hdnCodigoHallazgoAccion" })
+                                        @Html.TextArea("txtDescripcionCortaHallazgoAccion", new { @class = "form-control", id="txtDescripcionCortaHallazgoAccion", @disabled="disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">                                    
+                                        <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescripcionLarga):</label>                                        
+                                    </div>
+                                    <div class="col-sm-8"> 
+                                        @Html.TextArea("txtDescripcionLargaHallazgoAccion", new { @class = "form-control", id="txtDescripcionLargaHallazgoAccion", @disabled="disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">                                    
+                                        <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescripcionCorta):</label>                                        
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.TextBox("txtNivelRiesgoAccion", string.Empty, new { @class = "form-control", @id = "txtNivelRiesgoAccion", @disabled="disabled"})
+                                    </div>
+                                </div>
+                            </div>
+                            @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion14" class="box-acciones-foot filter">          
+                                    <div class="title-interna text-left">
+                                        <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaIngresarAcciones)</span>
+                                        <div class="acciones-form btn-group btn-group-table">
+                                            <button class="btn btn-primary" id="btnAgregarAccion">@Html.Raw(ObservacionPlaneadaResource.EtiquetaAgregarAccion)</button>
+                                        </div>                                
+                                    </div>    
+                                </div>
+                            }
+                        </div> 
+                        <div class="table-grilla">
+                            <div id="divGrdAcciones">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabCausas">    
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloListaCausas)</span>
+                            <div class="acciones-form btn-group btn-group-table">
+                                @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                                {
+                                    <button id="btnAgregarCausas" type="button" class="btn-table text-line one hidden">
+                                        @Html.Raw(InvestigacionResource.EtiquetaAgregarCausaRaiz)
+                                    </button>
+                                }
+                            </div>                                
+                        </div>
+                        <div id="divtabCausas" class="hidden">
+                            <div class="table-grilla">
+                                <div id="divGrdCausas">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabRetroalimentacion">    
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloRetroalimentacion)</span>                                
+                        </div>
+                        <div id="divtabRetroalimentacion" class="hidden">
+                            <form onsubmit="return false;" id="frmRetroalimentacion">   
+                                <fieldset @(!Model.ObservacionPlaneada.IndicadorLectura ? null : "disabled=disabled")>
+                                    <div class="form-group">                         
+                                        <div class="row">
+                                            <div class="col-sm-3">                                    
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaFelicitoColaborador):</label> 
+                                            </div>
+                                            <div class="col-sm-3"> 
+                                                @Html.DropDownListFor(model => model.ObservacionPlaneada.FelicitacionProgramador, Model.ListaValoresFelicitacion, new { id = "slcFelicitacion", @class = "form-control" })                                                                                                                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescribirFelicitacion):</label>                                        
+                                            </div>
+                                            <div class="col-sm-9">
+                                                @Html.TextAreaFor(model => model.ObservacionPlaneada.DescripcionFelicitacion, new { @class = "form-control", id="txtDescripcionFelicitacion", @maxlength="1000" })  
+                                                <div class="form-group text-right">
+                                                    <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 1000 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaRetroalimentacionOperaciones):</label> 
+                                             </div>
+                                             <div class="col-sm-3">
+                                                @Html.DropDownListFor(model => model.ObservacionPlaneada.RetroalimentacionOperacion, Model.ListaValoresRetroalimentacion, new { id = "slcRetroalimentacion", @class = "form-control" })                                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-3">                                    
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaCompromisoMejora):</label>    
+                                            </div>
+                                            <div class="col-sm-3">                                    
+                                                @Html.DropDownListFor(model => model.ObservacionPlaneada.CompromisoMejora, Model.ListaValoresCompromiso, new { id = "slcCompromiso", @class = "form-control" })                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaComentarioTrabajador):</label>                                        
+                                            </div>
+                                            <div class="col-sm-9">                                    
+                                                @Html.TextAreaFor(model => model.ObservacionPlaneada.ComentarioTrabajador, new { id = "txtComentarioTrabajador", @class = "form-control", @maxlength="250" })                                    
+                                                <div class="form-group text-right">
+                                                    <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 250 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label style="margin-top: 6px;">@Html.Raw(ObservacionPlaneadaResource.EtiquetaComentarioSupervisor):</label>                                        
+                                            </div>
+                                            <div class="col-sm-9">                                    
+                                                @Html.TextAreaFor(model => model.ObservacionPlaneada.ComentarioSupervisor, new { id = "txtComentarioSupervisor", @class = "form-control", @maxlength="250" })                                    
+                                                <div class="form-group text-right">
+                                                    <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 250 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion8" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarRetroalimentacion">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarRetroalimentacion">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabAccionesInmediatas">
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloAccionesInmediatas)</span>
+                        </div>
+                        <div id="divtabAccionesInmediatas" class="hidden">
+                            <form onsubmit="return false;" id="frmAccionesInmediatas"> 
+                                <fieldset @(!Model.ObservacionPlaneada.IndicadorLectura ? null : "disabled=disabled")> 
+                                    <div class="form-group">                          
+                                        <div class="row">
+                                            <div class="col-sm-3">                                    
+                                                <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescripcion):</label>                                        
+                                            </div>
+                                            <div class="col-sm-9">
+                                                @Html.Hidden("hdnCodigoAccionInmediata", string.Empty, new { ïd = "hdnCodigoAccionInmediata" })
+                                                @Html.TextArea("txtDescripcionAccionInmediata", new { @class = "form-control", id="txtDescripcionAccionInmediata", @maxlength="250" })  
+                                                <div class="form-group text-right">
+                                                    <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 250 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion9" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarAccionesInmediatas">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarAccionesInmediatas">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div>   
+                            }                     
+                            <div class="table-grilla">
+                                <div id="divGrdAccionesInmediatas">
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloOportunidadesMejora)</span>
+                        </div>
+                        <div id="divtabOportunidadesMejora" class="hidden">
+                            <form onsubmit="return false;" id="frmOportunidadesMejora">
+                                <fieldset @(!Model.ObservacionPlaneada.IndicadorLectura ? null : "disabled=disabled")>                            
+                                    <div class="form-group">                            
+                                        <div class="row">
+                                            <div class="col-sm-3">                                    
+                                                <label>@Html.Raw(ObservacionPlaneadaResource.EtiquetaDescripcionMejora):</label>                                        
+                                            </div>
+                                            <div class="col-sm-9">                                                
+                                                @Html.TextArea("txtDescripcionMejora", new { @class = "form-control", id="txtDescripcionMejora", @maxlength="250" })  
+                                                <div class="form-group text-right">
+                                                    <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 250 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion10" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarOportunidadesMejora">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarOportunidadesMejora">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div>
+                            }
+                            <div class="table-grilla">
+                                <div id="divGrdOportunidadesMejora">
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabAnexos">   
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloAnexos)</span>
+                            <div class="acciones-form btn-group btn-group-table">
+                                @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                                {
+                                    <button id="btnAgregarAnexo" type="button" class="btn-table text-line one hidden">
+                                        @Html.Raw(ObservacionPlaneadaResource.EtiquetaAgregarAnexo)
+                                    </button>
+                                }
+                            </div> 
+                        </div> 
+                        <div id="divtabAnexos" class="hidden">
+                            <div class="table-grilla">
+                                <div id="divGrdResultadoAnexoApendice">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabFotos">    
+                        <div class="title-interna">
+                            <span>@Html.Raw(ObservacionPlaneadaResource.EtiquetaTituloFotos)</span>
+                            <div class="acciones-form btn-group btn-group-table">
+                                @if(!Model.ObservacionPlaneada.IndicadorLectura)
+                                {
+                                    <button id="btnAgregarFoto" type="button" class="btn-table text-line one hidden">
+                                        @Html.Raw(ObservacionPlaneadaResource.EtiquetaAgregarFoto)
+                                    </button>
+                                }
+                            </div> 
+                        </div>
+                        <div id="divtabFotos" class="hidden">
+                            <div class="table-grilla">
+                                <div id="divGrdResultadoAnexoFoto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.BandejaObservacion = '@Url.Action("Index", "BandejaObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.RegistrarObservacionPlaneada = '@Url.Action("RegistrarObservacionPlaneada", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.RegistrarObservacionPlaneadaColaborador = '@Url.Action("RegistrarObservacionPlaneadaColaborador", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.RegistrarColaboradorExterno = '@Url.Action("RegistrarColaboradorExterno", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.RegistrarRetroalimentacion = '@Url.Action("RegistrarRetroalimentacion", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.RegistrarOportunidadMejora = '@Url.Action("RegistrarOportunidadMejora", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.RegistrarCumplimiento = '@Url.Action("RegistrarCumplimiento", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';        
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.EliminarObservacionPlaneadaColaborador = '@Url.Action("EliminarObservacionPlaneadaColaborador", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.EliminarColaboradorExterno = '@Url.Action("EliminarColaboradorExterno", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.EliminarOportunidadMejora = '@Url.Action("EliminarOportunidadMejora", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';        
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.EliminarPasosProcedimiento = '@Url.Action("EliminarPasosProcedimiento", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.EliminarHallazgosOPT = '@Url.Action("EliminarHallazgosOPT", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.BuscarProyecto = '@Url.Action("BuscarProyecto", "Proyecto", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.BuscarDepartamento = '@Url.Action("BuscarDepartamento", "Departamento", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.BuscarArea = '@Url.Action("BuscarArea", "Area", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.BuscarOptColaborador = '@Url.Action("BuscarOptColaborador", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.BuscarObservadorExterno = '@Url.Action("BuscarObservadorExterno", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.BuscarOportunidadMejora = '@Url.Action("BuscarOportunidadMejora", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.AnularObservacionPlaneada = '@Url.Action("AnularObservacionPlaneada", "IngresoObservacion", new { Area = "ObservacionPlaneada" })';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Actions.BuscarProcedimiento = '@Url.Action("BuscarProcedimiento", "Procedimiento", new { Area = "Mantenimiento" })';        
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Models')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridApellidosyNombres = '@Html.Raw(ObservacionPlaneadaResource.GridApellidosyNombres)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridTipoDocumento = '@Html.Raw(ObservacionPlaneadaResource.GridTipoDocumento)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridNumeroDocumento = '@Html.Raw(ObservacionPlaneadaResource.GridNumeroDocumento)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridEmpresa = '@Html.Raw(ObservacionPlaneadaResource.GridEmpresa)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridProyecto = '@Html.Raw(ObservacionPlaneadaResource.GridProyecto)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridArea = '@Html.Raw(ObservacionPlaneadaResource.GridArea)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridPuestoTrabajo = '@Html.Raw(ObservacionPlaneadaResource.GridPuestoTrabajo)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridTiempoPuestoTrabajo = '@Html.Raw(ObservacionPlaneadaResource.GridTiempoPuestoTrabajo)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridExperienciaNegocio = '@Html.Raw(ObservacionPlaneadaResource.GridExperienciaNegocio)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridTiempoProyecto = '@Html.Raw(ObservacionPlaneadaResource.GridTiempoProyecto)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridTipoObservador = '@Html.Raw(ObservacionPlaneadaResource.GridTipoObservador)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridCargoReferencial = '@Html.Raw(ObservacionPlaneadaResource.GridCargoReferencial)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridDescripcionPaso = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcionPaso)'; 
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridVerificacion = '@Html.Raw(ObservacionPlaneadaResource.GridVerificacion)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridCodigo = '@Html.Raw(ObservacionPlaneadaResource.GridCodigo)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridCategoria = '@Html.Raw(ObservacionPlaneadaResource.GridCategoria)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridSubCategoria = '@Html.Raw(ObservacionPlaneadaResource.GridSubCategoria)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridCausaRaiz = '@Html.Raw(ObservacionPlaneadaResource.GridCausaRaiz)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridComentario = '@Html.Raw(ObservacionPlaneadaResource.GridComentario)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridDescripcion = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcion)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridDescripcionMejora = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcionMejora)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridNumeroAccion = '@Html.Raw(ObservacionPlaneadaResource.GridNumeroAccion)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridDescripcionLargaAccion = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcionLargaAccion)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridDescripcionCortaAccion = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcionCortaAccion)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridPlanteadaPor = '@Html.Raw(ObservacionPlaneadaResource.GridPlanteadaPor)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridFechaPlanteada = '@Html.Raw(ObservacionPlaneadaResource.GridFechaPlanteada)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridResponsable = '@Html.Raw(ObservacionPlaneadaResource.GridResponsable)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridFechaVencimiento = '@Html.Raw(ObservacionPlaneadaResource.GridFechaVencimiento)';         
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridEstadoDeAccion = '@Html.Raw(ObservacionPlaneadaResource.GridEstadoDeAccion)';         
+
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridItem = '@Html.Raw(ObservacionPlaneadaResource.GridItem)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridNombreArchivo = '@Html.Raw(ObservacionPlaneadaResource.GridNombreArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridTipo = '@Html.Raw(ObservacionPlaneadaResource.GridTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridDescripcion = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridVistaPreviaFoto = '@Html.Raw(ObservacionPlaneadaResource.GridVistaPreviaFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridDescargar = '@Html.Raw(ObservacionPlaneadaResource.GridDescargar)';
+
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridDescripcionCorta = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcionCorta)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridDescripcionLarga = '@Html.Raw(ObservacionPlaneadaResource.GridDescripcionLarga)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.GridNivelRiesgo = '@Html.Raw(ObservacionPlaneadaResource.GridNivelRiesgo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.EtiquetaMensajeAnular = '@Html.Raw(ObservacionPlaneadaResource.EtiquetaMensajeAnular)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.MensajeValidacionPasosProcedimiento = '@Html.Raw(ObservacionPlaneadaResource.MensajeValidacionPasosProcedimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.MensajeValidacionHallazgos = '@Html.Raw(ObservacionPlaneadaResource.MensajeValidacionHallazgos)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.MensajeErrorAnulacion = '@Html.Raw(ObservacionPlaneadaResource.MensajeErrorAnulacion)';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.Resource.MensajeValidacionTrabajadorRepetido = '@Html.Raw(ObservacionPlaneadaResource.MensajeValidacionTrabajadorRepetido)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.TituloFormulario')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.TituloFormulario.EtiquetaRegistroRepetido = '@Html.Raw(ObservacionPlaneadaResource.EtiquetaRegistroRepetido)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes.TipoColaboradorTrabajador = '@DatosConstantes.TipoColaboradorObservacionPlaneada.Trabajador';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes.TipoColaboradorSupervisor = '@DatosConstantes.TipoColaboradorObservacionPlaneada.Supervisor';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes.TipoColaboradorObservadorInterno = '@DatosConstantes.TipoColaboradorObservacionPlaneada.ObservadorInterno';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes.TipoAccionInmediata = '@DatosConstantes.TipoOportunidadAccionObservacionPlaneada.AccionInmediata';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes.TipoOportunidadMejora = '@DatosConstantes.TipoOportunidadAccionObservacionPlaneada.OportunidadMejora';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes.PasosProcedimiento = '@DatosConstantes.TipoOportunidadAccionObservacionPlaneada.PasosProcedimiento';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes.TiposAnexosObservacionPlaneada = '@DatosConstantes.ParametrosGenerales.TiposAnexosObservacionPlaneada';        
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes.ParametrosTipoHallazgoPasoProcedimiento = '@DatosConstantes.ParametrosTipoHallazgo.PasoProcedimiento';
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.DatosConstantes.EstadoCerradoOPT = '@DatosConstantes.EstadosDeObservacionPlaneada.Cerrado';
+        </script>
+
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordacciongenerico");
+    @CustomHtmlHelper.RenderViewJs("observacionplaneadaingresoobservacionformulariocausasraices");    
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");    
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicearchivo");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicefoto");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariovistapreviafotogenerico");
+}

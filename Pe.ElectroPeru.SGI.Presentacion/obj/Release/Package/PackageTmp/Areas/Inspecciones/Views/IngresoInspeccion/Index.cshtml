@@ -1,0 +1,830 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Inspecciones
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ObservacionPlaneada
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Inspecciones.IngresoInspeccion.IngresoInspeccionModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto"><strong>@Html.Raw(InspeccionesResource.EtiquetaTituloInspeccion)</strong></h2>
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label>@Html.Raw(InspeccionesResource.EtiquetaNumeroRegistroInspeccion):</label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">
+                            @Html.TextBox("txtNumeroInspeccion", Model.Inspecciones.NumeroInspeccion, new { id = "txtNumeroInspeccion", @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaInspecciones" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body" style="min-height: 650px;">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsInspecciones">
+                    <li role="presentation" class="active">
+                        <a href="#tabGenerales" class="top-tab" aria-controls="tabGenerales" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(InspeccionesResource.EtiquetaTabGenerales)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabEmpresas" class="top-tab" aria-controls="tabEmpresas" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(InspeccionesResource.EtiquetaTabEmpresas)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabEquipo" class="top-tab" aria-controls="tabEquipo" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(InspeccionesResource.EtiquetaTabEquipo)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabHallazgos" class="top-tab" aria-controls="tabHallazgos" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(InspeccionesResource.EtiquetaTabHallazgos)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabAcciones" class="top-tab" aria-controls="tabAcciones" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(InspeccionesResource.EtiquetaTabAcciones)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabFotos" class="top-tab hidden" aria-controls="tabFotos" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(InspeccionesResource.EtiquetaTabFotos)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabCausas" class="top-tab" aria-controls="tabCausas" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(InspeccionesResource.EtiquetaTabCausas)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabConclusiones" class="top-tab" aria-controls="tabConclusiones" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(InspeccionesResource.EtiquetaTabConclusiones)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabAnexos" class="top-tab" aria-controls="tabAnexos" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(InspeccionesResource.EtiquetaTabAnexos)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGenerales">
+                        <form onsubmit="return false;" id="frmGenerales">
+                            <div class="title-interna">
+                                <span>@Html.Raw(InspeccionesResource.EtiquetaTituloInformacionGeneral)</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaProyecto): (*)</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.DropDownListFor(model => model.Inspecciones.CodigoProyecto, Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control", @validable = "required ValidarProyecto" })
+                                    </div>
+                                    <div class="col-sm-1 text-right">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaEmpresa):</label>
+                                    </div>
+                                    <div class="col-sm-2">                                        
+                                        @Html.TextBox("txtEmpresa", Model.Inspecciones.NombreEmpresa, Model.Inspecciones.CodigoInspeccion.HasValue ? (object)new { id = "txtEmpresa", @class = "form-control", @disabled = "disabled", @validable = "required Validar", @maxlength = "255"} : new { id = "txtEmpresa", @class = "form-control", @maxlength = "255", @disabled = "disabled", @validable = "required Validar"})
+                                         @Html.Hidden("hdnCodigoEmpresa", string.Empty, new { ïd = "hdnCodigoEmpresa" })
+                                    </div>
+                                    <div class="col-sm-1 text-right">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaPais):</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.TextBox("txtPais", Model.Inspecciones.NombrePais, Model.Inspecciones.CodigoInspeccion.HasValue ? (object)new { id = "txtPais", @class = "form-control", @disabled = "disabled", @validable = "required Validar", @maxlength = "255"} : new { id = "txtPais", @class = "form-control", @maxlength = "255", @disabled = "disabled", @validable = "required Validar"})                                        
+                                        @Html.Hidden("hdnCodigoPais", string.Empty, new { ïd = "hdnCodigoPais" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaTituloRegistro):</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        @Html.TextBox("txtTituloRegistro", Model.Inspecciones.TituloRegistro, Model.Inspecciones.CodigoInspeccion.HasValue ? (object)new { id = "txtTituloRegistro", @class = "form-control", @maxlength = "255"} : new { id = "txtTituloRegistro", @class = "form-control", @maxlength = "255"})                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaFechaEjecucion): (*)</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.TextBox("dtpFechaEjecucion", Model.Inspecciones.FechaEjecucionString, new { id = "dtpFechaEjecucion", @class = "form-control", @validable = "required Validar", @maxlength = "255", @readonly = "readonly"})
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaHora): (*)</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        @Html.DropDownListFor(model => model.Inspecciones.HoraInspeccion, Model.ListaHoras, new { id = "slcHoraInspeccion", @class = "form-control", @validable = "required ValidarHoraInspeccion" })
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaMinuto): (*)</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        @Html.DropDownListFor(model => model.Inspecciones.MinutoInspeccion, Model.ListaMinutos, new { id = "slcMinutoInspeccion", @class = "form-control", @validable = "required ValidarMinutoInspeccion" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaObjetivo): (*)</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        @Html.TextBox("txtObjetivo", Model.Inspecciones.Objetivo, Model.Inspecciones.CodigoInspeccion.HasValue ? (object)new { id = "txtObjetivo", @class = "form-control", @validable = "required Validar", @maxlength = "255"} : new { id = "txtObjetivo", @class = "form-control", @maxlength = "255", @validable = "required Validar"})                                                                                
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaTipoInspeccion): (*)</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.DropDownListFor(model => model.Inspecciones.TipoInspeccion, Model.ListaTipoInspeccion, new { id = "slcTipoInspeccion", @class = "form-control", @validable = "required ValidarTipoInspeccion" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label id="lblTipoInspeccionOtros" style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaEspecificar):</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.TextBox("txtTipoInspeccionOtros", Model.Inspecciones.TipoInspeccionOtros, Model.Inspecciones.CodigoInspeccion.HasValue ? (object)new { id = "txtTipoInspeccionOtros", @class = "form-control", @validable = "required Validar", @maxlength = "255"} : new { id = "txtTipoInspeccionOtros", @class = "form-control", @maxlength = "255", @validable = "required Validar"})                                                                                                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaFuenteInspeccion): (*)</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.DropDownListFor(model => model.Inspecciones.FuenteInspeccion, Model.ListaFuenteInspeccion, new { id = "slcFuenteInspeccion", @class = "form-control", @validable = "required ValidarFuenteInspeccion" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label id="lblFuenteInspeccionOtros" style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaEspecificar):</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.TextBox("txtFuenteInspeccionOtros", Model.Inspecciones.FuenteInspeccionOtros, Model.Inspecciones.CodigoInspeccion.HasValue ? (object)new { id = "txtFuenteInspeccionOtros", @class = "form-control", @validable = "required Validar", @maxlength = "255"} : new { id = "txtFuenteInspeccionOtros", @class = "form-control", @maxlength = "255", @validable = "required Validar"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label id="lblCheck" style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaTipoGestion): (*)</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        @for (var i = 0; i < Model.ListaInspeccionGestionTodos.Count; i++) 
+                                        {   
+                                             <label class="checkbox-inline"><input type="checkbox" id="id_@Model.ListaInspeccionGestionTodos[i].Value" value="@Model.ListaInspeccionGestionTodos[i].Value" class="checkboxClass"/>@Model.ListaInspeccionGestionTodos[i].Text</label>   
+                                        }
+                                    </div>                                   
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-2">
+                                        <label id="lblTipoGestionOtros" style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaEspecificar):</label>
+                                    </div>
+                                    <div class="col-sm-4">                                                                                
+                                        @Html.TextBox("txtTipoGestionOtros", string.Empty, new { id = "txtTipoGestionOtros", @class = "form-control", @maxlength = "255", @disabled = "disabled"})
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonAccion1" class="box-acciones-foot filter">
+                            @if (!Model.Inspecciones.IndicadorLectura)
+                            {
+                                <button class="btn btn-default" id="btnAnular">@Html.Raw(InspeccionesResource.EtiquetaBotonAnular)</button>
+                                @*<button class="btn btn-primary" id="btnCancelarGenerales">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>*@
+                                <button class="btn btn-primary" id="btnGuardarGenerales">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                            }
+                        </div>
+                        <form onsubmit="return false;" id="frmInspeccionArea">
+                            <div class="title-interna">
+                                <span>@Html.Raw(InspeccionesResource.EtiquetaTituloResponsableArea)</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaDepartamento): (*)</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.DropDownList("slcDepartamento", Model.ListaDepartamento, new { id = "slcDepartamento", @class = "form-control", @validable = "required ValidarDepartamento" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaAreaInspeccionada):</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.DropDownList("slcArea", Model.ListaArea, new { id = "slcArea", @class = "form-control", @validable = "required ValidarArea" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaLugarExacto): (*)</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.TextBox("txtLugarExacto", Model.InspeccionArea.LugarExacto, Model.Inspecciones.CodigoInspeccion.HasValue ? (object)new { id = "txtLugarExacto", @class = "form-control", @validable = "required Validar", @maxlength = "255"} : new { id = "txtLugarExacto", @class = "form-control", @maxlength = "255", @validable = "required Validar"})                                                                                
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaResponsableArea):</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.TextBox("txtResponsableArea", Model.InspeccionArea.NombreResponsable, Model.Inspecciones.CodigoInspeccion.HasValue ? (object)new { id = "txtResponsableArea", @class = "form-control", @validable = "required Validar", @maxlength = "255", @disabled = "disabled"} : new { id = "txtResponsableArea", @class = "form-control", @maxlength = "255", @validable = "required Validar", @disabled = "disabled"})                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonAccion2" class="box-acciones-foot filter">
+                            @if (!Model.Inspecciones.IndicadorLectura)
+                            {
+                                <button class="btn btn-primary hidden" id="btnAgregarArea">@Html.Raw(InspeccionesResource.EtiquetaBotonAgregar)</button>
+                            }                            
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdResponsableArea">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabEmpresas">
+                        <div class="title-interna">
+                            <span>@Html.Raw(InspeccionesResource.EtiquetaTituloDatosEmpleador)</span>
+                        </div>
+                        <div class="form-group hidden" id="divEmpresaSeleccionar">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaEmpresa): (*)</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        @Html.Hidden("hdnCodigoEmpresaContratista", string.Empty, new { ïd = "hdnCodigoEmpresaContratista" })
+                                        @Html.TextBox("txtEmpresaContratista", string.Empty, new { id = "txtEmpresaContratista", @class = "form-control", @disabled = "disabled" })
+                                        <div class="input-group-addon">
+                                            <button class="btn-form" id="btnBuscarEmpresaInspeccion" type="button">....</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-avanzado hidden" id="divTabEmpresas">
+                            <form onsubmit="return false;" id="fmrDatosEmpresa">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(InspeccionesResource.EtiquetaRUC)</label>
+                                                @Html.TextBox("txtRUC", string.Empty, new { id = "txtRUC", @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(InspeccionesResource.EtiquetaDomicilioFiscal): (*)</label>
+                                                @Html.TextBox("txtDomicilioFiscal", string.Empty, new { id = "txtDomicilioFiscal", @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(InspeccionesResource.EtiquetaDuenioContrato)</label>
+                                                @Html.TextBox("txtDuenioContrato", string.Empty, new { id = "txtDuenioContrato", @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(InspeccionesResource.EtiquetaActividadEconomica)</label>
+                                                @Html.TextBox("txtActividadEconomica", string.Empty, new { id = "txtActividadEconomica", @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(InspeccionesResource.EtiquetaNroTrabajadoresCentroLaboral): (*)</label>
+                                                @Html.TextBox("txtNroTrabajadoresCL", string.Empty, new { id = "txtNroTrabajadoresCL", @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(InspeccionesResource.EtiquetaPreguntaAltoRiesgo)</label>
+                                                @Html.TextBox("txtPreguntaAltoRiesgo", string.Empty, new { id = "txtPreguntaAltoRiesgo", @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(InspeccionesResource.EtiquetaNroTrabajadoresAfiliadosSeguro)</label>
+                                                @Html.TextBox("txtNroTrabajadoresAfiliadosSeguro", string.Empty, new { id = "txtNroTrabajadoresAfiliadosSeguro", @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(InspeccionesResource.EtiquetaNroTrabajadoresNoAfiliadosSeguro): (*)</label>
+                                                @Html.TextBox("txtNroTrabajadoresNoAfiliadosSeguro", string.Empty, new { id = "txtNroTrabajadoresNoAfiliadosSeguro", @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(InspeccionesResource.EtiquetaNombreAseguradora): (*)</label>
+                                                @Html.TextBox("txtNombreAseguradora", string.Empty, new { id = "txtNombreAseguradora", @class = "form-control", @disabled = "disabled" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="divBotonAccionContratista" class="box-acciones-foot filter hidden">
+                             @if (!Model.Inspecciones.IndicadorLectura)
+                             {
+                                 <button class="btn btn-primary" id="btnGuardarContratista">@Html.Raw(InspeccionesResource.EtiquetaGuardar)</button> 
+                             }                            
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(InspeccionesResource.EtiquetaTituloListaSubcontratistas)</span>
+                        </div>
+                        <div class="form-group hidden" id="divtabSubContratista">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaEmpresa): (*)</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        @Html.Hidden("hdnCodigoEmpresaSubContratista", string.Empty, new { ïd = "hdnCodigoEmpresaSubContratista" })
+                                        @Html.TextBox("txtEmpresaSubContratista", string.Empty, new { id = "txtEmpresaSubContratista", @class = "form-control", @disabled = "disabled" })
+                                        <div class="input-group-addon">                                            
+                                            <button class="btn-form" id="btnBuscarEmpresaSubContratista" type="button">....</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div id="divBotonAccion5Contratista" class="box-acciones-foot filter">
+                                        @if (!Model.Inspecciones.IndicadorLectura)
+                                        {
+                                            <button class="btn btn-primary" id="btnGuardarSubContratista">@Html.Raw(InspeccionesResource.EtiquetaBotonAgregar)</button>
+                                        }                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoSubcontratistas">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabEquipo">
+                        <div class="title-interna">
+                            <span>@Html.Raw(InspeccionesResource.EtiquetaTituloObservadoresInternos)</span>
+                        </div>
+                        <form onsubmit="return false;" id="frmObservadorInterno">
+                            <div class="form-group hidden" id="divObservadorInterno">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaNombreyApellidos): (*)</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="input-group">
+                                            @Html.Hidden("hdnCodigoColaboradorInterno", string.Empty, new { ïd = "hdnCodigoColaboradorInterno" })
+                                            @Html.TextBox("txtColaboradorInterno", string.Empty, new { id = "txtColaboradorInterno", @class = "form-control", @validable = "required ValidarColaboradorInterno", @disabled = "disabled" })
+                                            <div class="input-group-addon">
+                                                <button class="btn-form" id="btnAgregarObservadorInterno" type="button">....</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaTipoObservador): (*)</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        @Html.DropDownListFor(model => model.InspeccionInspector.TipoObservador, Model.ListaTipoObservador, new { id = "slcTipoObservador", @class = "form-control", @validable = "required ValidarTipoObservador" })
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonAccion3" class="box-acciones-foot filter hidden">
+                            @if (!Model.Inspecciones.IndicadorLectura)
+                            { 
+                                <button class="btn btn-default" id="btnCancelarObservadorInterno">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                <button class="btn btn-primary" id="btnGuardarObservadorInterno">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                            }                            
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdObservadorInterno">
+                            </div>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(InspeccionesResource.EtiquetaTituloObservadoresExternos)</span>
+                        </div>
+                        <form onsubmit="return false;" id="frmObservadorExterno">
+                            <div class="form-group hidden" id="divDocumento">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaTipoDocumento): (*)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.DropDownListFor(model => model.InspeccionInspector.CodigoTipoDocumento, Model.ListaTipoDocumento, new { id = "slcTipoDocumento", @class = "form-control", @validable = "required ValidarTipoDocumento" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaNroDocumento): (*)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtNumeroDocumento", string.Empty, new { id = "txtNumeroDocumento", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group hidden" id="divNombres">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaNombre): (*)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtNombres", string.Empty, new { id = "txtNombres", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaApellidoPaterno): (*)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtApellidoPaterno", string.Empty, new { id = "txtApellidoPaterno", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group hidden" id="divApellidos">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaApellidoMaterno)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtApellidoMaterno", string.Empty, new { id = "txtApellidoMaterno", @class = "form-control" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(InspeccionesResource.EtiquetaCargoReferencial):</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtCargoReferencial", string.Empty, new { id = "txtCargoReferencial", @class = "form-control"})
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonAccion4" class="box-acciones-foot filter hidden">
+                            @if (!Model.Inspecciones.IndicadorLectura)
+                            { 
+                                <button class="btn btn-default" id="btnCancelarObservadorExterno">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                <button class="btn btn-primary" id="btnGuardarObservadorExterno">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>    
+                            }                            
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdObservadorExterno">
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabHallazgos">
+                        <form onsubmit="return false;" id="frmHallazgo">
+                            <div class="title-interna">
+                                <span>@Html.Raw(InspeccionesResource.EtiquetaTituloIngresoHallazgo)</span>
+                            </div>
+                            <div class="form-group hidden" id="divControlesHallazgos">
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InspeccionesResource.EtiquetaDescripcionCorta): (*)</label>
+                                        @Html.TextArea("txtDescripcionCorta", Model.Hallazgo.DescripcionCorta, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionCorta", @class = "form-control", @rows = "2", @validable = "required Validar", @maxlength = "255", @style = "resize:none;" } : new { id = "txtDescripcionCorta", @class = "form-control", @maxlength = "255", @rows = "2", @validable = "required Validar", @style = "resize:none;" })
+                                        <div class="form-group text-right">
+                                            <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(InspeccionesResource.EtiquetaDescripcionLarga): (*)</label>
+                                        @Html.TextArea("txtDescripcionLarga", Model.Hallazgo.DescripcionLarga, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionLarga", @class = "form-control", @validable = "required Validar", @maxlength = "2500", @rows = "3", @style = "resize:none;" } : new { id = "txtDescripcionLarga", @class = "form-control", @maxlength = "2500", @rows = "3", @validable = "required Validar", @style = "resize:none;" })
+                                        <div class="form-group text-right">
+                                            <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 2500 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(InspeccionesResource.EtiquetaNivelRiesgo): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownList("slcNivelRiesgo", Model.ListaNivelRiesgo, new { @class = "form-control", @id = "slcNivelRiesgo", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(InspeccionesResource.EtiquetaDescripcionRiesgo):</label>
+                                            @Html.TextArea("txtDescripcionRiesgo", Model.Hallazgo.DescripcionRiesgo, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionRiesgo", @class = "form-control", @maxlength = "255", @rows = "3", @style = "resize:none;" } : new { id = "txtDescripcionRiesgo", @class = "form-control", @maxlength = "255", @rows = "3", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(InspeccionesResource.EtiquetaLugarTrabajo):</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownList("slcLugarTrabajo", Model.ListaLugarTrabajo, new { @class = "form-control", @id = "slcLugarTrabajo",})
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(InspeccionesResource.EtiquetaLugarExactoHallazgo):</label>
+                                            @Html.TextBox("txtLugarHallazgo", Model.Hallazgo.DescripcionLugarHallazgo, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtLugarHallazgo", @class = "form-control", @maxlength = "255", @rows = "3", @style = "resize:none;" } : new { id = "txtLugarHallazgo", @class = "form-control", @maxlength = "255", @rows = "3", @style = "resize:none;" })                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            </div>                                                      
+                        </form>
+                        <div class="box-acciones-foot text-center hidden" id="botonesHallazgos">  
+                            @if (!Model.Inspecciones.IndicadorLectura)
+                            { 
+                                <button class="btn btn-default" id="btnCancelarHallazgo">@Html.Raw(GenericoResource.BotonCancelar)</button>
+                                <button class="btn btn-primary" id="btnGuardarHallazgo">@Html.Raw(GenericoResource.BotonGuardar)</button>
+                            }                            
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoHallazgo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabAcciones">
+                        <div id="blContieneAccion" style="display: none;">
+                            <div class="title-interna">
+                                <span>@Html.Raw(InspeccionesResource.EtiquetaDatosHallazgo)</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label>@Html.Raw(InspeccionesResource.EtiquetaDescripcionCorta): (*)</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        @Html.Hidden("hdnCodigoHallazgoAccion", string.Empty, new { ïd = "hdnCodigoHallazgoAccion" })
+                                        @Html.TextArea("txtDescripcionCortaHallazgoAccion", new { @class = "form-control", id = "txtDescripcionCortaHallazgoAccion", @disabled = "disabled", @rows = "2" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label>@Html.Raw(InspeccionesResource.EtiquetaDescripcionLarga):</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        @Html.TextArea("txtDescripcionLargaHallazgoAccion", new { @class = "form-control", id = "txtDescripcionLargaHallazgoAccion", @disabled = "disabled", @rows = "2" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label>@Html.Raw(InspeccionesResource.EtiquetaNivelRiesgo):</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        @Html.TextBox("txtNivelRiesgoAccion", string.Empty, new { @class = "form-control", @id = "txtNivelRiesgoAccion", @disabled = "disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label>@Html.Raw(InspeccionesResource.EtiquetaDescripcionRiesgo):</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        @Html.TextBox("txtDescripcionRiesgoHallazgoAccion", string.Empty, new { @class = "form-control", @id = "txtDescripcionRiesgoHallazgoAccion", @disabled = "disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label>@Html.Raw(InspeccionesResource.EtiquetaLugarExactoHallazgo):</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        @Html.TextBox("txtLugarHallazgoAccion", string.Empty, new { @class = "form-control", @id = "txtLugarHallazgoAccion", @disabled = "disabled" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title-interna">
+                                <span>@Html.Raw(InspeccionesResource.EtiquetaListaAcciones)</span>
+                                <div id="divBotonAccion14" class="acciones-form btn-group btn-group-table">
+                                    @if (!Model.Inspecciones.IndicadorLectura)
+                                    {                                         
+                                        <button class="btn btn-primary" id="btnAgregarAccion">@Html.Raw(InspeccionesResource.EtiquetaAgregarAccion)</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdAcciones">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabFotos">
+                        <div class="title-interna">
+                            <span>@Html.Raw(InspeccionesResource.EtiquetaTituloListaFotos)</span>
+                            <div class="acciones-form btn-group btn-group-table">
+                                @if (!Model.Inspecciones.IndicadorLectura)
+                                { 
+                                    <button id="btnAgregarFoto" type="button" class="btn-table text-line one hidden">@Html.Raw(InspeccionesResource.EtiquetaAgregarFoto)</button>
+                                }
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoAnexoFoto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabCausas">
+                        <div class="title-interna">
+                            <span>@Html.Raw(InspeccionesResource.EtiquetaTituloListaCausas)</span>
+                            <div class="acciones-form btn-group btn-group-table">  
+                                @if (!Model.Inspecciones.IndicadorLectura)
+                                { 
+                                    <button id="btnAgregarCausas" type="button" class="btn-table text-line one hidden">@Html.Raw(InvestigacionResource.EtiquetaAgregarCausaRaiz)</button>
+                                }                                                              
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdCausas">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabConclusiones">
+                        <div class="title-interna">
+                                <span>@Html.Raw(InspeccionesResource.EtiquetaConclusiones)</span>
+                            </div>
+                        <div class="form-group">
+                                <div class="row">                                    
+                                    <div class="col-sm-8">                                                                                
+                                        @Html.TextArea("txtConclusiones", Model.Inspecciones.ConclusionesRecomendaciones, Model.Inspecciones.CodigoInspeccion.HasValue ? (object)new { id = "txtConclusiones", @class = "form-control", @maxlength = "2500", @rows = "5", @style = "resize:none;" } : new { id = "txtConclusiones", @class = "form-control", @maxlength = "2500", @rows = "5", @style = "resize:none;" })
+                                        <div class="form-group text-right">
+                                            <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="divBotonAccionGuardarConclusiones" class="box-acciones-foot filter">
+                            @if (!Model.Inspecciones.IndicadorLectura)
+                            {                                
+                                <button class="btn btn-primary" id="btnAgregarConclusiones">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                            }
+                                <button class="btn btn-primary" id="btnCancelarConclusiones">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabAnexos">
+                        <div class="title-interna">
+                            <span>@Html.Raw(InspeccionesResource.EtiquetaTituloAnexos)</span>
+                            <div class="acciones-form btn-group btn-group-table">
+                                @if (!Model.Inspecciones.IndicadorLectura)
+                                { 
+                                    <button id="btnAgregarAnexo" type="button" class="btn-table text-line one">@Html.Raw(InspeccionesResource.EtiquetaAgregarAnexo)</button>    
+                                }                                
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoAnexoApendice">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.Empleador = '@DatosConstantes.ValoresEmpleadorSubContratista.Empleador';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.SubContratista = '@DatosConstantes.ValoresEmpleadorSubContratista.SubContratista';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.Interno = '@DatosConstantes.ValoresTipoInspector.Interno';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.Externo = '@DatosConstantes.ValoresTipoInspector.Externo';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.EstadoInspeccionCerrado = '@DatosConstantes.EstadosDeInspeccion.Cerrado';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.EstadoInspeccionAbierto = '@DatosConstantes.EstadosDeInspeccion.Abierto';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.EstadoInspeccionReAbierto = '@DatosConstantes.EstadosDeInspeccion.Reabierto';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.EstadoRegistroInactivo = '@DatosConstantes.EstadoRegistro.Inactivo';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.TiposAnexosInspeccion = '@DatosConstantes.ParametrosGenerales.TiposAnexosInspecciones';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Index.Resource.CodigoTipoAnexoParametro = '@DatosConstantes.TablaTipoRegistro.Inspecciones';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BandejaInspecciones = '@Url.Action("Index", "BandejaInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.AnularInspeccion = '@Url.Action("AnularInspeccion", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BandejaInspeccion = '@Url.Action("Index", "BandejaInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BuscarDepartamento = '@Url.Action("BuscarDepartamento", "Departamento", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BuscarProyecto = '@Url.Action("BuscarProyecto", "Proyecto", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BuscarArea = '@Url.Action("BuscarArea", "Area", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BuscarAreaGrilla = '@Url.Action("BuscarAreaGrilla", "Area", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.EliminarInspeccionArea = '@Url.Action("EliminarInspeccionArea", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.EliminarInspeccionContratista = '@Url.Action("EliminarInspeccionContratista", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.EliminarInspeccionInspector = '@Url.Action("EliminarInspeccionInspector", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.RegistrarInspeccion = '@Url.Action("RegistrarInspeccion", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.RegistrarInspeccionArea = '@Url.Action("RegistrarInspeccionArea", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.RegistrarInspeccionContratista = '@Url.Action("RegistrarInspeccionContratista", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.RegistrarInspeccionInspector = '@Url.Action("RegistrarInspeccionInspector", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.RegistrarHallazgo = '@Url.Action("RegistrarHallazgo", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BuscarAreaInspeccion = '@Url.Action("BuscarAreaInspeccion", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BuscarInspeccionContratista = '@Url.Action("BuscarInspeccionContratista", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BuscarInspeccionInspector = '@Url.Action("BuscarInspeccionInspector", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.BuscarHallazgo = '@Url.Action("BuscarHallazgo", "IngresoInspeccion", new { Area = "Inspecciones" })';
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Actions.EliminarHallazgosInspeccion = '@Url.Action("EliminarHallazgosInspeccion", "IngresoInspeccion", new { Area = "Inspecciones" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.DatosConstantes.CheckOtros = '@DatosConstantes.ValorOtrosInspeccionCheck.ValorOtros';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.TituloFormulario')
+        Pe.ElectroPeru.SGI.Presentacion.ObservacionPlaneada.IngresoObservacion.TituloFormulario.EtiquetaRegistroRepetido = '@Html.Raw(Pe.ElectroPeru.SGI.Presentacion.Recursos.ObservacionPlaneada.ObservacionPlaneadaResource.EtiquetaRegistroRepetido)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Inspeccion.IngresoInspeccion.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.EtiquetaMensajeAnular = '@Html.Raw(InspeccionesResource.EtiquetaMensajeAnular)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridItem = '@Html.Raw(InspeccionesResource.GridItem)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridResponsable = '@Html.Raw(InspeccionesResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridLugarExacto = '@Html.Raw(InspeccionesResource.GridLugarExacto)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridArea = '@Html.Raw(InspeccionesResource.GridArea)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridTipoInspector = '@Html.Raw(InspeccionesResource.GridTipoInspector)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridApellidosyNombres = '@Html.Raw(InspeccionesResource.GridApellidosyNombres)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.EtiquetaResponsableArea = '@Html.Raw(InspeccionesResource.EtiquetaResponsableArea)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridTipoDocumento = '@Html.Raw(InspeccionesResource.GridTipoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridNumeroDocumento = '@Html.Raw(InspeccionesResource.GridNumeroDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridEmpresa = '@Html.Raw(InspeccionesResource.GridEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridProyecto = '@Html.Raw(InspeccionesResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridPuestoTrabajo = '@Html.Raw(InspeccionesResource.GridPuestoTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridTiempoPuestoTrabajo = '@Html.Raw(InspeccionesResource.GridTiempoPuestoTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridExperienciaNegocio = '@Html.Raw(InspeccionesResource.GridExperienciaNegocio)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridTiempoProyecto = '@Html.Raw(InspeccionesResource.GridTiempoProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridCargoReferencial = '@Html.Raw(InspeccionesResource.GridCargoReferencial)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridTipo = '@Html.Raw(InspeccionesResource.GridTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridNombreArchivo = '@Html.Raw(InspeccionesResource.GridNombreArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridDescripcion = '@Html.Raw(InspeccionesResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridCodigo = '@Html.Raw(InspeccionesResource.GridCodigo)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridCategoria = '@Html.Raw(InspeccionesResource.GridCategoria)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridCausaRaiz = '@Html.Raw(InspeccionesResource.GridCausaRaiz)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridSubCategoria = '@Html.Raw(InspeccionesResource.GridSubCategoria)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridComentario = '@Html.Raw(InspeccionesResource.GridComentario)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridDescargar = '@Html.Raw(InspeccionesResource.GridDescargar)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridNumeroAccion = '@Html.Raw(InspeccionesResource.GridNumeroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridDescripcionCortaAccion = '@Html.Raw(InspeccionesResource.GridDescripcionCortaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridDescripcionLargaAccion = '@Html.Raw(InspeccionesResource.GridDescripcionLargaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridPlanteadaPor = '@Html.Raw(InspeccionesResource.GridPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridFechaPlanteada = '@Html.Raw(InspeccionesResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridFechaVencimiento = '@Html.Raw(InspeccionesResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridEstadoDeAccion = '@Html.Raw(InspeccionesResource.GridEstadoDeAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridRazonSocial = '@Html.Raw(InspeccionesResource.GridRazonSocial)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridRUC = '@Html.Raw(InspeccionesResource.GridRUC)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridDomicilio = '@Html.Raw(InspeccionesResource.GridDomicilio)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridDuenio = '@Html.Raw(InspeccionesResource.GridDuenio)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridActividadEconomica = '@Html.Raw(InspeccionesResource.GridActividadEconomica)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridAltoRiesgo = '@Html.Raw(InspeccionesResource.GridAltoRiesgo)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridNumeroTrabajadoresAfiliados = '@Html.Raw(InspeccionesResource.GridNumeroTrabajadoresAfiliados)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridNumeroTrabajadoresNoAfiliados = '@Html.Raw(InspeccionesResource.GridNumeroTrabajadoresNoAfiliados)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridNombreAseguradora = '@Html.Raw(InspeccionesResource.GridNombreAseguradora)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.EtiquetaDescripcionCorta = '@Html.Raw(InspeccionesResource.EtiquetaDescripcionCorta)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.EtiquetaDescripcionLarga = '@Html.Raw(InspeccionesResource.EtiquetaDescripcionLarga)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.EtiquetaNivelRiesgo = '@Html.Raw(InspeccionesResource.EtiquetaNivelRiesgo)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.MensajeErrorAnulacion = '@Html.Raw(InspeccionesResource.MensajeErrorAnulacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridItem = '@Html.Raw(InspeccionesResource.GridItem)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridNombreArchivo = '@Html.Raw(InspeccionesResource.GridNombreArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridDescripcion = '@Html.Raw(InspeccionesResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.GridVistaPreviaFoto = '@Html.Raw(InspeccionesResource.GridVistaPreviaFoto)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Inspecciones.IngresoInspeccion.Resource.MensajeValidacionHallazgos = '@Html.Raw(ObservacionPlaneadaResource.MensajeValidacionHallazgos)';
+       
+    </script>
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+        overflow-y:auto !important;
+    }
+        /*.skin-stracon .form-control {
+        width: 100px !important;
+    }*/
+    </style>
+    @CustomHtmlHelper.RenderViewJs("mantenimientoempresaformulariobuscarempresa");
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordacciongenerico");
+    @CustomHtmlHelper.RenderViewJs("observacionplaneadaingresoobservacionformulariocausasraices");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicearchivo");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariodocumentofoto");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariovistapreviadocumentofoto");
+}

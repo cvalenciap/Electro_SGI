@@ -1,0 +1,147 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ComiteSSoma
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ReporteRiesgos
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ReporteRiesgos.IngresoReporteRiesgos.IngresoReporteRiesgosModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <h2 class="tituloCapacitacion">
+                <strong>@Html.Raw(ReporteRiesgosResource.EtiquetaCierre)</strong>
+            </h2>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaCierre" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaNumeroRegistroReporteRiesgos):</label> 
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtNumeroRegistroReporteRiesgos", Model.BandejaReporteRiesgos.NumeroRegistroReporteRiesgos, new { id = "txtNumeroRegistroReporteRiesgos", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaProyecto):</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtProyecto",Model.BandejaReporteRiesgos.Proyecto, new { id = "txtProyecto", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                    <div class="col-sm-1 text-right">
+                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaEmpresa):</label>  
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtEmpresa", (string.IsNullOrEmpty(Model.BandejaReporteRiesgos.Empresa) || Model.BandejaReporteRiesgos.Empresa == "null") ? string.Empty : Model.BandejaReporteRiesgos.Empresa, new { id = "txtEmpresa", @class = "form-control", @disabled ="disabled" })                                        
+                    </div>
+                    <div class="col-sm-1 text-right">
+                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaPais):</label>  
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtPais", (string.IsNullOrEmpty(Model.BandejaReporteRiesgos.Pais) || Model.BandejaReporteRiesgos.Pais == "null") ? string.Empty : Model.BandejaReporteRiesgos.Pais, new { id = "txtPais", @class = "form-control", @disabled ="disabled" })                                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaTituloReporteRiesgosCierre):</label> 
+                    </div>
+                    <div class="col-sm-10">
+                        @Html.TextBox("txtTituloReporteRiesgos", Model.BandejaReporteRiesgos.TituloReporteRiesgos, new { id = "txtTituloReporteRiesgos", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                </div> 
+            </div>
+            <div class="form-group"> 
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaFechaEjecucion):</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtFechaEjecucion",Model.BandejaReporteRiesgos.FechaEjecucionString, new { id = "txtFechaEjecucion", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                    <div class="col-sm-2 text-right">
+                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaHora):</label>  
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtHoraEjecucion", Model.BandejaReporteRiesgos.HoraMinutoEjecucionString, new { id = "txtHoraEjecucion", @class = "form-control", @disabled ="disabled" })                                        
+                    </div>
+                </div> 
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaTipoReporteRiesgos):</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtDescripcionTipoReporteRiesgos",Model.BandejaReporteRiesgos.DescripcionTipoReporteRiesgos, new { id = "txtDescripcionTipoReporteRiesgos", @class = "form-control", @disabled="disabled" })                                        
+                    </div>
+                    @*<div class="col-sm-2 text-right">
+                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaFuenteReporteRiesgos):</label>  
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtDescripcionFuenteReporteRiesgos", Model.BandejaReporteRiesgos.DescripcionFuenteReporteRiesgos, new { id = "txtDescripcionFuenteReporteRiesgos", @class = "form-control", @disabled ="disabled" })                                        
+                    </div>*@
+                </div>                              
+            </div> 
+        </div>    
+        <div class="box-acciones-foot filter">            
+            <button class="btn btn-primary" type="button" id="btnCerrar">@Html.Raw(ReporteRiesgosResource.EtiquetaBotonCierre)</button>
+        </div>          
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(ReporteRiesgosResource.EtiquetaListaAcciones)</h4>
+                </div>
+            </div>
+            <div class="table-grilla">
+                <div id="divGrdResultAcciones">
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.GridDescripcionCorta = '@Html.Raw(ReporteRiesgosResource.GridDescripcionCortaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.GridNumeroAccion = '@Html.Raw(ReporteRiesgosResource.GridNumeroAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.GridPlanteadaPor = '@Html.Raw(ReporteRiesgosResource.GridPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.GridFechaPlanteada = '@Html.Raw(ReporteRiesgosResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.GridResponsable = '@Html.Raw(ReporteRiesgosResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.GridFechaVencimiento = '@Html.Raw(ReporteRiesgosResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.GridDescripcionCortaAccion = '@Html.Raw(ReporteRiesgosResource.GridDescripcionCortaAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.GridEstadoDeAccion = '@Html.Raw(ReporteRiesgosResource.GridEstadoDeAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.GridDescripcionLarga = '@Html.Raw(ReporteRiesgosResource.GridDescripcionLargaAccion)';
+
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.ConfirmacionCerrarComiteSSoma = '@Html.Raw(ComiteSSomaResource.ConfirmacionCerrarComiteSSoma)';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Resource.MensajeCierreReporteRiesgos = '@Html.Raw(ReporteRiesgosResource.MensajeCierreReporteRiesgos)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Models')
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Actions.CierreReporteRiesgos = '@Url.Action("CierreReporteRiesgos", "BandejaReporteRiesgos", new { Area = "ReporteRiesgos" })';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Actions.BandejaReporteRiesgos = '@Url.Action("Index", "BandejaReporteRiesgos", new { Area = "ReporteRiesgos" })';
+        Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.FormularioCierre.Actions.BandejaCierre = '@Url.Action("BandejaCierre", "BandejaReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformularioseguimientoaccion")
+}

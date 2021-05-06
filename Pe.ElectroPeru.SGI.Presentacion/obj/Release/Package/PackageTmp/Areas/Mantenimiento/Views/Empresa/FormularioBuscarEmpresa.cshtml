@@ -1,0 +1,93 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Empresa.FormularioEmpresaModel
+
+<div class="modal-body">
+    <div class="tab_custom">
+            <div class="tab-interno item03">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsBuscarEmpresa">
+                    <li id="listaPrimeroBuscarEmpresa" role="presentation" class="active">
+                        <a href="#primerBuscarEmpresa" class="top-tab" aria-controls="primerBuscarEmpresa" role="tab" data-toggle="tab">@Html.Raw(BuscadorEmpresaResource.EtiquetaTabBusqueda)</a>
+                    </li>
+                    @*<li id="listaSegundoBuscarEmpresa" role="presentation">
+                        <a id="asegundoBuscarEmpresa" href="#segundoBuscarEmpresa" class="top-tab" aria-controls="segundoBuscarEmpresa">@Html.Raw(BuscadorEmpresaResource.EtiquetaTabAgregar)</a>
+                    </li>*@
+                </ul>
+                <div class="tab-content">
+                    <div id="primerBuscarEmpresa" role="tabpanel" class="tab-pane fade in active">
+                        <br />
+                        <form id="frmBuscarEmpresa">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaBuscarPor):</label>
+                                    <select class="form-control" id="slcFiltroBuscarEmpresa">
+                                        <option value="1">@Html.Raw(BuscadorEmpresaResource.EtiquetaRazonSocial)</option>
+                                        <option value="2" selected>@Html.Raw(BuscadorEmpresaResource.EtiquetaRuc)</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label for="txtNombreEmpresa">@Html.Raw(BuscadorColaboradorResource.EtiquetaIngresoCaracteres):</label>
+                                    @Html.TextBox("txtNombreEmpresa", null, new { @class = "form-control", @id = "txtNombreEmpresa" })
+                                </div>
+                                <div class="col-sm-2">
+                                    <label>&nbsp&nbsp&nbsp&nbsp&nbsp</label><br />
+                                    <button id="btnBuscarEmpresa" class="btn btn-default" type="button">@GenericoResource.BotonBuscar</button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>@GenericoResource.EtiquetaResultadosBusqueda</h4>
+                                </div>
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultEmpresa">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarEmpresa">@GenericoResource.BotonCancelar</button>
+                            <button class="btn btn-primary" id="btnAceptarEmpresa">@GenericoResource.BotonAceptar</button>
+                        </div>
+                    </div>
+                    @*<div role="tabpanel" class="tab-pane fade in" id="segundoBuscarEmpresa">
+                        <br />
+                        <form onsubmit="return false;" id="frmEmpresa">
+                            <div class="row form-group">
+                                <div class="col-sm-12">
+                                    <label>@Html.Raw(BuscadorEmpresaResource.EtiquetaDocumento): (*)</label></div>
+                                <div class="col-sm-5">
+                                    @Html.TextBox("txtRucEmpresa", Model.Empresa.Ruc, new { id = "txtRucEmpresa", @class = "form-control", @validable = "required Validar", maxlength = "25" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-sm-12">
+                                    <label>@Html.Raw(BuscadorEmpresaResource.EtiquetaRazonSocial): (*)</label></div>
+                                <div class="col-sm-12">
+                                    @Html.TextBox("txtRazonSocialEmpresa", Model.Empresa.RazonSocial, new { id = "txtRazonSocialEmpresa", @class = "form-control", @validable = "required Validar" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-sm-12">
+                                    <label>@Html.Raw(BuscadorEmpresaResource.EtiquetaCodigoTipoEmpresa): (*)</label></div>
+                                <div class="col-sm-5">
+                                    @Html.DropDownList("slcCodigoTipoEmpresa", Model.ListaCodigoTipoEmpresa, new { id = "slcCodigoTipoEmpresa", @class = "form-control", @validable = "required Validar" })
+                                </div>
+                            </div>
+                        </form>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarRegistroEmpresa">@Html.Raw(GenericoResource.BotonCancelar)</button>
+                            <button class="btn btn-primary" id="btnGrabarRegistroEmpresa">@Html.Raw(GenericoResource.BotonGrabar)</button>
+                        </div>
+                    </div>  *@                  
+                </div>
+            </div>
+        </div>    
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.RegistroEmpresa.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.RegistroEmpresa.Actions.RegistrarEmpresa = '@Url.Action("RegistrarEmpresa", "Empresa", new { Area = "Mantenimiento" })';
+    </script>
+}

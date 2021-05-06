@@ -1,0 +1,146 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Politicas
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Politicas.UnidadOperativa.UnidadOperativaBusqueda
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@{
+    var disabled = (Model.ControlPermisos.ControlTotal || Model.ControlPermisos.Escritura) ? false : true;
+    var disabledEliminar = (Model.ControlPermisos.ControlTotal) ? false : true;
+}
+
+
+<div class="GmdBody-header">
+    <h2>@UnidadOperativaResource.EtiquetaTituloPrincipal</h2>
+</div>
+<div class="GmdBody-body">
+    <input id="hdnTipo" value ="@Model.Tipo" class="form-control" type="hidden" />
+    <form id="frmUnidadOperativaBusqueda">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>
+                        @UnidadOperativaResource.EtiquetaNombre
+                    </label>
+                    <input id="txtNombre" class="form-control" type="text" />
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>
+                        @UnidadOperativaResource.EtiquetaNivel
+                    </label>
+                    @Html.DropDownList("slcNivel", Model.Niveles, new { id = "slcNivel", @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>
+                        @UnidadOperativaResource.EtiquetaUnidadSuperior
+                    </label>
+                    @Html.DropDownList("slcUnidadSuperior", Model.UnidadesOperativasPadre, new { id = "slcUnidadSuperior", @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>
+                        @UnidadOperativaResource.EtiquetaEstado
+                    </label>
+                    @Html.DropDownList("slcEstado", Model.Estado, new { id = "slcEstado", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <button id="btnLimpiar" class="btn btn-info" type="reset">@GenericoResource.BotonLimpiar</button>
+                <button id="btnBuscar" class="btn btn-default" type="button">@GenericoResource.BotonMostrar</button>
+                <hr />
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>@GenericoResource.EtiquetaResultadosBusqueda</h3>
+        </div>
+        <div class="col-sm-6 text-right">
+            @if (!disabledEliminar)
+            {
+                <button id="btnEliminar" class="btn btn-info">@GenericoResource.BotonEliminar</button>
+            }
+            @if (!disabled)
+            {                
+                <button id="btnAgregar" class="btn btn-primary">@GenericoResource.BotonAñadir</button>
+            }
+        </div>
+    </div>
+    <div id="divGrdResult">
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.BuscarUnidadOperativa = '@Url.Action("Buscar", "UnidadOperativa", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.FormularioUnidadOperativa = '@Url.Action("FormularioUnidadOperativa", "UnidadOperativa", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.BuscarNivelSuperior = '@Url.Action("BuscarNivelSuperior", "UnidadOperativa", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.BuscarTipoUnidadOperativa = '@Url.Action("BuscarTipoUnidadOperativa", "UnidadOperativa", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.Registrar = '@Url.Action("Registrar", "UnidadOperativa", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.Eliminar = '@Url.Action("EliminarUnidadOperativa", "UnidadOperativa", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.EliminarUnidadOperativaStaff = '@Url.Action("EliminarUnidadOperativaStaff", "UnidadOperativa", new { Area = "Politicas" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.FormularioUnidadOperativaStaff = '@Url.Action("FormularioUnidadOperativaStaff", "UnidadOperativa", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.BuscarUnidadOperativaStaff = '@Url.Action("BuscarUnidadOperativaStaff", "UnidadOperativa", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.RegistrarStaff = '@Url.Action("RegistrarStaff", "UnidadOperativa", new { Area = "Politicas" })';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Actions.BuscarTrabajador = '@Url.Action("BuscarTrabajador", "UnidadOperativa", new { Area = "Politicas" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.DatosConstantes.VisualizacionResponsable = '@Html.Raw(DatosConstantes.TipoVisualizacionUnidadOperativa.Responsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.DatosConstantes.VisualizacionRepresentanteDireccion = '@Html.Raw(DatosConstantes.TipoVisualizacionUnidadOperativa.RepresentanteDireccion)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridCodigoIdentificacion = '@Html.Raw(UnidadOperativaResource.GridCodigoIdentificacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridNombre = '@Html.Raw(UnidadOperativaResource.GridNombre)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridNivel = '@Html.Raw(UnidadOperativaResource.GridNivel)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridUnidadSuperior = '@Html.Raw(UnidadOperativaResource.GridUnidadSuperior)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridTipo = '@Html.Raw(UnidadOperativaResource.GridTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridActiva = '@Html.Raw(UnidadOperativaResource.GridActiva)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridResponsable = '@Html.Raw(UnidadOperativaResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridPrimerRepresentante = '@Html.Raw(UnidadOperativaResource.GridPrimerRepresentante)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridSegundoRepresentante = '@Html.Raw(UnidadOperativaResource.GridSegundoRepresentante)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridTercerRepresentante = '@Html.Raw(UnidadOperativaResource.GridTercerRepresentante)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridCuartoRepresentante = '@Html.Raw(UnidadOperativaResource.GridCuartoRepresentante)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridDireccion = '@Html.Raw(UnidadOperativaResource.GridDireccion)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.EtiquetaTituloFormulario = '@Html.Raw(UnidadOperativaResource.EtiquetaTituloFormulario)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.EtiquetaTituloConfirmar = '@Html.Raw(GenericoResource.EtiquetaTituloConfirmar)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.EtiquetaTituloFormularioStaff = '@Html.Raw(UnidadOperativaResource.EtiquetaTituloFormularioStaff)';
+
+
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridUsuario = '@Html.Raw(UnidadOperativaResource.GridUsuario)';
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativaResource.GridSistema = '@Html.Raw(UnidadOperativaResource.GridSistema)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion')
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ConfirmacionGuardar = '@Html.Raw(MensajeResource.ConfirmacionGuardar)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaEjecutoNingunProceso = '@MensajeResource.EtiquetaNoEjecutoNingunProceso';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaErrorRegistro = '@MensajeResource.EtiquetaErrorRegistro';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.ActualizacionConforme = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetaConfirmacion = '@MensajeResource.SeGuardoInformacionExito';
+        Pe.ElectroPeru.SGI.Presentacion.Recursos.Validacion.EtiquetEliminacion = '@MensajeResource.ConfirmacionEliminacion';
+
+                        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Politicas.UnidadOperativa.Models.Index = @(Html.Raw(Json.Encode(Model)));
+
+    </script>
+    @CustomHtmlHelper.RenderViewJs("politicasunidadoperativaformulariounidadoperativa")
+    @CustomHtmlHelper.RenderViewJs("basebuscadortrabajador")
+    @CustomHtmlHelper.RenderViewJs("politicasunidadoperativaformulariounidadoperativastaff")
+}

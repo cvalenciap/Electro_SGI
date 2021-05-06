@@ -1,0 +1,58 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionCausaInmediataModel
+<div class="modal-body">
+    <form id="frmAnalisisCausasInmediata" onsubmit="return false;">
+        <fieldset id="flsAnalisisCausasInmediata" @(Model.InvestigacionCausaInmediata.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaTipoCausaInmediata): (*)</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @Html.DropDownList("ddlTipoCausaInmediata", Model.ListaTipoCausaInmediata, new { @class = "form-control", @id = "ddlTipoCausaInmediata", @validable = "required Validar" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaCausaInmediata): (*)</label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @Html.DropDownList("ddlCausaInmediata", Model.ListaCausaInmediata, new { @class = "form-control", @id = "ddlCausaInmediata", @validable = "required Validar" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>@Html.Raw(AccionResource.EtiquetaComentario): (*)</label>
+                        @Html.TextArea("txaComentarioCausaInmediata", Model.InvestigacionCausaInmediata.Comentario, new { id = "txaComentarioCausaInmediata", @class = "form-control", @validable = "required Validar", @maxlength = "400", style="resize: none;" })
+                        <div class="text-right">
+                            <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, 400))</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </fieldset>
+    <div id="divBotonEstado" class="box-acciones-foot modal_box text-center">
+        <button class="btn btn-default" id="btnCancelarCausaInmediata">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+        @if (Model.InvestigacionCausaInmediata.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+        {
+            <button class="btn btn-primary" id="btnGuardarCausaInmediata">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+        }
+    </div>        
+    </form>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioCausaInmediataModel = @(Html.Raw(Json.Encode(Model)))
+</script>

@@ -1,0 +1,149 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Colaborador.FormularioColaboradorModel
+
+<script type="text/javascript">    
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Colaborador.Models.FormularioColaborador = @(Html.Raw(Json.Encode(Model)))
+</script>
+
+<div class="modal-body">
+    <div class="row">
+        @*<div class="col-sm-12">*@
+        <div class="tab_custom">
+            <div class="tab-interno item03">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsBuscarColaborador" style="display: none">
+                    <li id="listaPrimeroBuscarColaborador" role="presentation" class="active" >
+                        <a href="#primerBuscarColaborador" class="top-tab" aria-controls="primerBuscarColaborador" role="tab" data-toggle="tab">@Html.Raw(BuscadorColaboradorResource.EtiquetaBusqueda)</a>
+                    </li>
+                    <li id="listaSegundoBuscarColaborador" role="presentation" >
+                        <a id="asegundoBuscarColaborador" href="#segundoBuscarColaborador" class="top-tab" aria-controls="segundoBuscarColaborador">@Html.Raw(BuscadorColaboradorResource.EtiquetaAgregar)</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="primerBuscarColaborador">
+                        <form id="frmBuscarColaborador">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaEmpresa):</label>
+                                        @if (!Model.Colaborador.CodigoEmpresa.HasValue)
+                                        {
+                                            @Html.DropDownList("slcEmpresaColaboradorFiltro", Model.ListaEmpresa, new { id = "slcEmpresaColaboradorFiltro", @class = "form-control" })
+                                        }
+                                        else
+                                        {
+                                            @Html.TextBox("txtNombreEmpresaColaborador", Model.Colaborador.NombreEmpresa, new { id = "txtNombreEmpresaColaborador", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaBuscarPor):</label>
+                                    <select class="form-control" id="slcFiltroBuscarColaborador">
+                                        <option value="1">@Html.Raw(BuscadorColaboradorResource.EtiquetaNumeroDocumento)</option>
+                                        <option value="2" selected>@Html.Raw(BuscadorColaboradorResource.EtiquetaApellidosNombres)</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="txtNombreColaborador">@Html.Raw(BuscadorColaboradorResource.EtiquetaIngresoCaracteres):</label>
+                                        @Html.TextBox("txtNombreColaborador", null, new { @class = "form-control", @id = "txtNombreColaborador" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>@GenericoResource.EtiquetaResultadosBusqueda</h4>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <button id="btnBuscarPersona" class="btn btn-default" type="button">@Html.Raw(GenericoResource.BotonBuscar)</button>
+                                </div>
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultColaborador">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarColaborador">@GenericoResource.BotonCancelar</button>
+                            <button class="btn btn-primary" id="btnAceptarColaborador">@GenericoResource.BotonAceptar</button>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="segundoBuscarColaborador" style="display: none">
+                        <form id="frmRegistrarColaborador">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaEmpresa): (*)</label>
+                                        @if (!Model.Colaborador.CodigoEmpresa.HasValue)
+                                        {
+                                            @Html.DropDownList("slcEmpresaColaboradorRegistro", Model.ListaEmpresaRegistro, new { id = "slcEmpresaColaboradorRegistro", @class = "form-control", @validable = "required Validar" })
+                                        }
+                                        else
+                                        {
+                                            @Html.TextBox("txtNombreEmpresaColaboradorRegistro", Model.Colaborador.NombreEmpresa, new { id = "txtNombreEmpresaColaboradorRegistro", @class = "form-control", @disabled = "disabled", @readonly = "readonly" })
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaTipoDocumento): (*)</label>
+                                        @Html.DropDownList("slcTipoDocumentoColaboradorRegistro", Model.ListaTipoDocumento, new { id = "slcTipoDocumentoColaboradorRegistro", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaNumeroDocumento): (*)</label>
+                                        @Html.TextBox("txtNumeroDocumentoColaboradorRegistrar", null, new { @class = "form-control", @id = "txtNumeroDocumentoColaboradorRegistrar", @validable = "required Validar", @maxlength = "8" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaApellidoPaterno): (*)</label>
+                                        @Html.TextBox("txtApellidoPaternoColaboradorRegistrar", null, new { @class = "form-control", @id = "txtApellidoPaternoColaboradorRegistrar", @validable = "required Validar", @maxlength = "50" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaApellidoMaterno): (*)</label>
+                                        @Html.TextBox("txtApellidoMaternoColaboradorRegistrar", null, new { @class = "form-control", @id = "txtApellidoMaternoColaboradorRegistrar", @validable = "required Validar", @maxlength = "50" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaNombres): (*)</label>
+                                        @Html.TextBox("txtNombresColaboradorRegistrar", null, new { @class = "form-control", @id = "txtNombresColaboradorRegistrar", @validable = "required Validar", @maxlength = "50" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaPuestoTrabajo):</label>
+                                        @Html.DropDownList("slcPuestoTrabajoColaboradorRegistro", Model.ListaPuestoTrabajo, new { id = "slcPuestoTrabajoColaboradorRegistro", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>@Html.Raw(BuscadorColaboradorResource.EtiquetaTipoPlanilla): (*)</label>
+                                        @Html.DropDownList("slcTipoPlanillaColaboradorRegistro", Model.ListaTipoPlanilla, new { id = "slcTipoPlanillaColaboradorRegistro", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="comp-Modal-footer text-center">
+                            <button class="btn btn-default" id="btnCancelarRegistroColaborador">@Html.Raw(GenericoResource.BotonCancelar)</button>
+                            <button class="btn btn-primary" id="btnGrabarRegistroColaborador">@Html.Raw(GenericoResource.BotonGrabar)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

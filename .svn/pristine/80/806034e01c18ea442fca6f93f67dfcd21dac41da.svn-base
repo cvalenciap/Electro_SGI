@@ -1,0 +1,102 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ActuaPositivo
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ActuaPositivo.IngresoAP_AModel.IngresoAP_AModel
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <h2 class="tituloCapacitacion">
+                <input type="hidden" id="hdnCodigoActuaPositivo" value="@Model.ActuaPositivo.CodigoActuaPositivo"/>
+                <strong>@Html.Raw(ActuaPositivoResource.EtiquetaTituloAPBandejaLadoA)</strong></h2>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaLadoA" class="nav_ajx btn-action-form tool pull-left" style="display: none">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="List of Records">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(ActuaPositivoResource.EtiquetaLista)</span>
+            <div class="acciones-form btn-group btn-group-table" style="border: none">
+                <button id="btnAgregarActuaPositivo" class="btn btn-primary">@Html.Raw(ActuaPositivoResource.EtiquetaAgregarBandejaLadoA)</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+            <div class="col-sm-1" style="text-align: right">
+                <div class="form-group">
+                    <h5>@Html.Raw(ActuaPositivoResource.EtiquetaBuscar)</h5>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <input type="text" id="txtCampoFiltro" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <div class="table-grilla">
+                        <div id="divGrdResultActuaPositivaLadoA">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.EtiquetaVentanaLadoA = '@Html.Raw(ActuaPositivoResource.EtiquetaVentanaLadoA)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridArea = '@Html.Raw(ActuaPositivoResource.GridArea)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridDepartamento = '@Html.Raw(ActuaPositivoResource.GridDepartamento)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridEmpresa = '@Html.Raw(ActuaPositivoResource.GridEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridEntregado = '@Html.Raw(ActuaPositivoResource.GridEntregado)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridFecha = '@Html.Raw(ActuaPositivoResource.GridFecha)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridNroTarjeta = '@Html.Raw(ActuaPositivoResource.GridNroTarjeta)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridSupervisor = '@Html.Raw(ActuaPositivoResource.GridSupervisor)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridTareas = '@Html.Raw(ActuaPositivoResource.GridTareas)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridProyecto = '@Html.Raw(ActuaPositivoResource.GridProyecto)';
+
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridSeguridad = '@Html.Raw(ActuaPositivoResource.GridSeguridad)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridEficiencia = '@Html.Raw(ActuaPositivoResource.GridEficiencia)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridCumplimiento = '@Html.Raw(ActuaPositivoResource.GridCumplimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridSeriedad = '@Html.Raw(ActuaPositivoResource.GridSeriedad)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridCalidad = '@Html.Raw(ActuaPositivoResource.GridCalidad)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridOtros = '@Html.Raw(ActuaPositivoResource.GridOtros)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.GridAcciones = '@Html.Raw(ActuaPositivoResource.GridAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.CodigoTipoActuaPositivoLadoA = '@DatosConstantes.IndicadorActuaPositivo.LadoA';              
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.MsjValidarNroTarjeta = '@Html.Raw(ActuaPositivoResource.MsjValidarNroTarjeta)';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Resource.MsjValidarFechaActuaPositivo = '@Html.Raw(ActuaPositivoResource.MsjValidarFechaActuaPositivo)';
+         
+        ns('Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Actions.FormularioAgregarLadoA = '@Url.Action("FormularioAgregarLadoA", "IngresoAP_A", new { Area = "ActuaPositivo" })';         
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Actions.BuscarActuaPositivo =    '@Url.Action("BuscarActuaPositivo", "IngresoAP_A", new { Area = "ActuaPositivo" })';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Actions.RegistrarActuaPositivo =  '@Url.Action("RegistrarActuaPositivo", "IngresoAP_A", new { Area = "ActuaPositivo" })';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Actions.EliminarActuaPositivo =  '@Url.Action("EliminarActuaPositivo", "IngresoAP_A", new { Area = "ActuaPositivo" })';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Actions.BuscarDepartamento = '@Url.Action("BuscarDepartamento", "IngresoAP_A", new { Area = "ActuaPositivo" })';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Actions.BuscarAreaPorDepartamento = '@Url.Action("BuscarAreaPorDepartamento", "IngresoAP_A", new { Area = "ActuaPositivo" })';
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Actions.BuscarArea = '@Url.Action("BuscarArea", "IngresoAP_A", new { Area = "ActuaPositivo" })';
+       
+        ns('Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Models')
+        Pe.ElectroPeru.SGI.Presentacion.ActuaPositivo.Index.Models.IngresoAP_AModel = @(Html.Raw(Json.Encode(Model)))
+  
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs("actuapositivoingresoap_aformularioagregarladoa");
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador")
+
+}

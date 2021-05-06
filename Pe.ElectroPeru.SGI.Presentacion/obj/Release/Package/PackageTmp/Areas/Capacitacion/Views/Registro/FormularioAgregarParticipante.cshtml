@@ -1,0 +1,179 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante;
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Capacitacion.RegistroModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            @if (Model.Registro.TipoVista == DatosConstantes.VistasAsignacion.Cursos)
+            {
+                <h2 class="tituloCapacitacion"><strong><i class="fa fa-users"></i>@Html.Raw(RegistroResource.EtiquetaTituloRegistroNotas)</strong></h2>
+            }
+            else
+            { 
+                <h2 class="tituloCapacitacion"><strong><i class="fa fa-users"></i>@Html.Raw(RegistroResource.EtiquetaTituloEjecucionParticipante)</strong></h2>
+            }
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarEjecucion" class="nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="List of Records">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+        <div class="pull-right">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label><strong>@Html.Raw(RegistroResource.EtiquetaProyecto)</strong></label>
+                        <input type="hidden" id="hdnCodigoProyecto" value="@Model.Registro.CodigoProyecto"/>
+                        <input type="hidden" id="hdnCodigoEjecucion" value="@Model.Registro.CodigoEjecucion"/>
+                        <input type="hidden" id="hdnCodigoEjecucionRegistroClase" value="@Model.Registro.CodigoEjecucionRegistroClase"/>
+                        <input type="hidden" id="hdnTipoVista" value="@Model.Registro.TipoVista"/>
+                        <input type="hidden" id="hdnTipoFechaActual" value="@Model.Registro.FechaActual"/>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">
+                            @Html.TextBox("txtNombreProyecto", Model.Registro.NombreProyecto, new { @class = "form-control", disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+    </div>
+    <div class="content-body">
+        <div class="filter-avanzado">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaEquipo): </label>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBox("txtEquipoDescripcion", Model.Registro.DescripcionEquipo + " - " + Model.Registro.DescripcionModeloEquipo, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="col-sm-5">
+                        @Html.TextBox("txtModeloDescripcion", Model.Registro.DescripionFamiliaEquipo, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="col-sm-1 text-right">
+                        <label style="position: relative; margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaProceso): </label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtProcesoAbreviado", Model.Registro.IdentificadorProceso, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label style="position: relative; margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaSubProceso): </label>
+                    </div>
+                    <div class="col-sm-8">
+                        @Html.TextBox("txtNombreSubProceso", Model.Registro.NombreActividad, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="col-sm-2 text-right">
+                        <label style="position: relative; margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaHorasEstimadas): </label>
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.TextBox("txtTotalHorasEstimadas", Model.Registro.HorasEstimadas, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label style="position: relative; margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaInstructor): </label>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.TextBox("txtNombreInstructor", Model.Registro.NombreCompletoInstructor, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                </div>
+            </div>
+            @if (Model.Registro.TipoVista != "CURSO")
+            { 
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label>@Html.Raw(RegistroResource.EtiquetaFechaHoraInicio): </label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtFechaHoraInicio", Model.Registro.FechaInicioString, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="col-sm-1">
+                        <label>@Html.Raw(RegistroResource.EtiquetaFechaHoraFin): </label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtFechaHoraFin", Model.Registro.FechaFinalString, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="col-sm-1 text-right">
+                        <label style="margin-top: 7px;">@Html.Raw(RegistroResource.EtiquetaDuracion): </label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtDescripcionDuracionClase", Model.Registro.DescripcionDuracionClase, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <button id="btnAgregarParticipante" type="button" class="btn btn-primary">                    
+                             @Html.Raw(RegistroResource.EtiquetaAgregarParticipante)         
+                        </button>
+                    </div>
+                </div>
+            </div>            
+            }
+
+        </div>
+        <div class="title-interna">
+            <span>@Html.Raw(RegistroResource.EtiquetaDetalleParticipante):</span>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResultadoParticipantes"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.GridCorrelativo = '@Html.Raw(RegistroResource.GridCorrelativo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.GridDocumento = '@Html.Raw(RegistroResource.GridDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.GridApellidosyNombres = '@Html.Raw(RegistroResource.GridApellidosyNombres)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.GridPuestoCargo = '@Html.Raw(RegistroResource.GridPuestoCargo)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.GridHorasEstimadas = '@Html.Raw(RegistroResource.GridHorasEstimadas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.GridHorasCapacitadas = '@Html.Raw(RegistroResource.GridHorasCapacitadas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.GridHorasRestantes = '@Html.Raw(RegistroResource.GridHorasRestantes)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.EtiquetaTituloRegistroNotas = '@Html.Raw(RegistroResource.EtiquetaTituloRegistroNotas)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.EtiquetaMensajeHorasRestantes = '@Html.Raw(RegistroResource.EtiquetaMensajeHorasRestantes)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.EtiquetaMensajePesoNota = '@Html.Raw(RegistroResource.EtiquetaMensajePesoNota)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.FormularioAgregarParticipante.Resource.EtiquetaMensajeCodigoArchivoSharepoint = '@Html.Raw(RegistroResource.EtiquetaMensajeCodigoArchivoSharepoint)';
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Actions.FormularioAgregarPersonasModal = '@Url.Action("FormularioAgregarPersonasModal", "Asignacion", new { Area = "Capacitacion" })';  
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Actions.FormularioRegistroNotas = '@Url.Action("FormularioRegistroNotas", "Registro", new { Area = "Capacitacion" })';  
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Actions.BuscarColaborador = '@Url.Action("BuscarAsignacionPersonas", "Registro", new { Area = "Capacitacion" })';  
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Resource.EtiquetaVentanaBuscarColaborador = '@Html.Raw(AsignacionResource.EtiquetaVentanaBuscarColaborador)';
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioSeleccionarPersonas.Resource.CondicionColaboradorAsignacion='@Html.Raw(DatosConstantes.CondicionColaboradorAsignacion.Planificado)'
+        
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioAgregarParticipante.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.FormularioAgregarParticipante.DatosConstantes.VisualizacionCurso = '@Html.Raw(DatosConstantes.VistasAsignacion.Cursos)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.BuscarPersonaPorProyecto = '@Url.Action("BuscarAsignacionPersonas", "Registro", new { Area = "Capacitacion" })';  
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.EliminarEjecucionParticipante = '@Url.Action("EliminarEjecucionParticipante", "Registro", new { Area = "Capacitacion" })';                  
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.BuscarEjecucionParticipantes = '@Url.Action("BuscarEjecucionParticipantes", "Registro", new { Area = "Capacitacion" })';        
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.RegistrarEjecucionParticipante = '@Url.Action("RegistrarEjecucionParticipante", "Registro", new { Area = "Capacitacion" })';        
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.BuscarEjecucionsParticipantes = '@Url.Action("BuscarEjecucionsParticipantes", "Registro", new { Area = "Capacitacion" })'; 
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.RegistrarRegistroCurso = '@Url.Action("RegistrarRegistroCurso", "Registro", new { Area = "Capacitacion" })'; 
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.BuscarArchivoParticipante = '@Url.Action("BuscarArchivoParticipante", "Registro", new { Area = "Capacitacion" })'; 
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Actions.DescargarArchivoApendice = '@Url.Action("DescargarArchivoApendice", "Records", new { Area = "Seguimiento" })'; 
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Capacitacion.Registro.Models.AgregarParticipante = @(Html.Raw(Json.Encode(Model)))
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs("capacitacionasignacionformularioagregarpersonasmodal");
+    @CustomHtmlHelper.RenderViewJs("capacitacionregistroformularioregistronotas");
+}

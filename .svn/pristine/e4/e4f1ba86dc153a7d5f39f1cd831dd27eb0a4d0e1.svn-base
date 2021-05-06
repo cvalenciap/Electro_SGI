@@ -1,0 +1,72 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.ObjetivoEstrategicoSectorial
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.IngresoObjetivoEstrategicoSectorial.IngresoObjetivoEstrategicoSectorialModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion">
+           <strong>@Html.Raw(OESResource.EtiquetaTituloBandeja)</strong>            
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: -45px">
+                <button id="btnAgregar" type="button" class="btn-table text-line one">
+                    @Html.Raw(OESResource.BotonAgregarOES)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+                     
+        </div>    
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnBuscar"  style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Lectura || permiso == (int)Constantes.Permisos.Codigo.Buscar || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>  
+        
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+            </div>
+            <div style="overflow-x: scroll;">
+                <div class="table-grilla">
+                    <div id="divGrdResult">
+                    </div>
+                </div>   
+            </div>       
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Actions.BuscarObjetivoEstrategicoSectorial = '@Url.Action("BuscarObjetivoEstrategicoSectorial", "BandejaObjetivoEstrategicoSectorial", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Actions.IngresoObjetivoEstrategicoSectorial = '@Url.Action("Index", "IngresoObjetivoEstrategicoSectorial", new { Area = "Mantenimiento" })';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Actions.EliminarObjetivoEstrategicoSectorial = '@Url.Action("EliminarObjetivoEstrategicoSectorial", "IngresoObjetivoEstrategicoSectorial", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Actions.ReactivarObjetivoEstrategicoSectorial = '@Url.Action("ReactivarObjetivoEstrategicoSectorial", "IngresoObjetivoEstrategicoSectorial", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Resource')        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Resource.GridNombreObjetivoEstrategicoSectorial = '@Html.Raw(OESResource.GridNombreObjetivoEstrategicoSectorial)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Resource.GridDescripcionObjetivoEstrategicoSectorial = '@Html.Raw(OESResource.GridDescripcionObjetivoEstrategicoSectorial)';                
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Resource.GridResponsable = '@Html.Raw(OESResource.GridResponsable)';                
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaObjetivoEstrategicoSectorial.Resource.GridEstado = '@Html.Raw(OESResource.GridEstado)';                
+    </script>
+    <style type="text/css">
+        .filter-avanzado {            
+            overflow: inherit;
+        }
+    </style>  
+}

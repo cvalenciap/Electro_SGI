@@ -1,0 +1,186 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Records.RecordCategoriaModel
+
+<div class="modal-body">
+    <form id="frmRecordCategoriaCuasi">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(RecordsResource.EtiquetaCategoria): (*)</label>
+                    @Html.TextBox("nombreCategoria", Model.Categoria.NombreCategoria, new { id = "nombreCategoria", @class = "form-control", @readonly = "readonly" })                                
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                @if (Model.ListaCategoriasLesion != null && Model.ListaCategoriasLesion.Count > 0)
+                {
+                 <div class="title-interna">
+                    <span>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                    { @Model.ListaCategoriasLesion[0].NombreCategoriaEspaniol }
+                    else
+                    { @Model.ListaCategoriasLesion[0].NombreCategoriaIngles }</span>
+                </div>              
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th width="10%"></th>
+                        <th width="70%">@Html.Raw(RecordsResource.EtiquetaDescripcion)</th>
+                        <th width="20%">@Html.Raw(RecordsResource.EtiquetaPotencial)</th>
+                    </tr>    
+                    @{
+                        List<string> listaConsecuencia = new List<string>();
+                        foreach (var item in Model.ListaCategoriasLesion)
+                        {
+                            <tr>  
+                                <td><input class="chkPotencial" type="radio" value="@item.CodigoConsecuenciaPotencial" name="codigoConsecuenciaLesion" data-numero="@item.OrdenCategoriaDetallePotencial" data-codigo="@item.CodigoCategoriaTexto" id="id_@item.CodigoCategoriaTexto"/></td>
+                                <td>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                                { @item.NombreCategoriaDetalleEspaniol }
+                                else
+                                { @item.NombreCategoriaDetalleIngles }</td>
+
+                                @{
+                                    int cant = 0;
+                                    cant = Model.ListaCategoriasLesion.Where(x => x.CodigoConsecuenciaPotencial == item.CodigoConsecuenciaPotencial).Count();
+
+                                    if (listaConsecuencia.Count > 0)
+                                    {
+                                        if (!listaConsecuencia.Contains(item.CodigoConsecuenciaPotencial))
+                                        {
+                                            <td style="vertical-align: middle;" rowspan="@cant.ToString()">@item.DescripcionConsecuenciaPotencial</td>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <td style="vertical-align: middle;" rowspan="@cant.ToString()">@item.DescripcionConsecuenciaPotencial</td>
+                                    }
+                                }
+                            </tr>
+
+                            listaConsecuencia.Add(item.CodigoConsecuenciaPotencial);
+                        }
+                    }
+                </table>              
+                }
+            </div>
+            <br />
+            <div class="col-sm-12">
+                @if (Model.ListaCategoriasImpacto != null && Model.ListaCategoriasImpacto.Count > 0)
+                {
+                 <div class="title-interna">
+                    <span>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                          { @Model.ListaCategoriasImpacto[0].NombreCategoriaEspaniol }else{ @Model.ListaCategoriasImpacto[0].NombreCategoriaIngles }</span>
+                </div>              
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th width="10%"></th>
+                        <th width="70%">@Html.Raw(RecordsResource.EtiquetaDescripcion)</th>
+                        <th width="20%">@Html.Raw(RecordsResource.EtiquetaPotencial)</th>
+                    </tr>     
+                    @foreach (var item in Model.ListaCategoriasImpacto)
+                    {                             
+                            <tr> 
+                                <td><input class="chkPotencial" type="radio" value="@item.CodigoConsecuenciaPotencial" name="codigoConsecuenciaImpacto" data-numero="@item.OrdenCategoriaDetallePotencial" data-codigo="@item.CodigoCategoriaTexto" id="id_@item.CodigoCategoriaTexto"/></td>
+                                <td>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                                    { @item.NombreCategoriaDetalleEspaniol }else{ @item.NombreCategoriaDetalleIngles }</td>
+                                <td>@item.DescripcionConsecuenciaPotencial</td>
+                            </tr> 
+                    }                                                                            
+                </table>              
+                }
+            </div>
+            <br />
+            <div class="col-sm-12">
+                @if (Model.ListaCategoriasDanio != null && Model.ListaCategoriasDanio.Count > 0)
+                {
+                 <div class="title-interna">
+                    <span>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                          { @Model.ListaCategoriasDanio[0].NombreCategoriaEspaniol }else{ @Model.ListaCategoriasDanio[0].NombreCategoriaIngles }</span>
+                </div>              
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th width="10%"></th>
+                        <th width="70%">@Html.Raw(RecordsResource.EtiquetaDescripcion)</th>
+                        <th width="20%">@Html.Raw(RecordsResource.EtiquetaPotencial)</th>
+                    </tr>  
+                    @foreach (var item in Model.ListaCategoriasDanio)
+                    {                           
+                            <tr>   
+                                <td><input class="chkPotencial" type="radio" value="@item.CodigoConsecuenciaPotencial" name="codigoConsecuenciaDanio" data-numero="@item.OrdenCategoriaDetallePotencial" data-codigo="@item.CodigoCategoriaTexto" id="id_@item.CodigoCategoriaTexto"/></td>
+                                <td>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                                    { @item.NombreCategoriaDetalleEspaniol }else{ @item.NombreCategoriaDetalleIngles }</td>
+                                <td>@item.DescripcionConsecuenciaPotencial</td>
+                            </tr> 
+                    }                                                                        
+                </table>              
+                }
+            </div>
+            <br />
+            <div class="col-sm-12">
+                @if (Model.ListaCategoriasPerdida != null && Model.ListaCategoriasPerdida.Count > 0)
+                {
+                 <div class="title-interna">
+                    <span>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                          { @Model.ListaCategoriasPerdida[0].NombreCategoriaEspaniol }else{ @Model.ListaCategoriasPerdida[0].NombreCategoriaIngles }</span>
+                </div>              
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th width="10%"></th>
+                        <th width="70%">@Html.Raw(RecordsResource.EtiquetaDescripcion)</th>
+                        <th width="20%">@Html.Raw(RecordsResource.EtiquetaPotencial)</th>
+                    </tr> 
+                    @foreach (var item in Model.ListaCategoriasPerdida)
+                    {
+                            <tr>  
+                                <td><input class="chkPotencial" type="radio" value="@item.CodigoConsecuenciaPotencial" name="codigoConsecuenciaPerdida" data-numero="@item.OrdenCategoriaDetallePotencial" data-codigo="@item.CodigoCategoriaTexto" id="id_@item.CodigoCategoriaTexto"/></td>
+                                <td>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                                    { @item.NombreCategoriaDetalleEspaniol }else{ @item.NombreCategoriaDetalleIngles }</td>
+                                <td>@item.DescripcionConsecuenciaPotencial</td>
+                            </tr>
+                    }                                                                          
+                </table>              
+                }
+            </div>
+            <br />
+            <div class="col-sm-12">
+                @if (Model.ListaCategoriasMedioAmbiental != null && Model.ListaCategoriasMedioAmbiental.Count > 0)
+                {
+                 <div class="title-interna">
+                    <span>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                          { @Model.ListaCategoriasMedioAmbiental[0].NombreCategoriaEspaniol }else{ @Model.ListaCategoriasMedioAmbiental[0].NombreCategoriaIngles }</span>
+                </div>              
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th width="10%"></th>
+                        <th width="70%">@Html.Raw(RecordsResource.EtiquetaDescripcion)</th>
+                        <th width="20%">@Html.Raw(RecordsResource.EtiquetaPotencial)</th>
+                    </tr>
+                     @foreach (var item in Model.ListaCategoriasMedioAmbiental)
+                     {
+                            <tr> 
+                                <td><input class="chkPotencial" type="radio" value="@item.CodigoConsecuenciaPotencial" name="codigoConsecuenciaMedioAmbiental" data-numero="@item.OrdenCategoriaDetallePotencial" data-codigo="@item.CodigoCategoriaTexto" id="id_@item.CodigoCategoriaTexto"/></td>
+                                <td>@if (Model.CodigoIdioma == DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol)
+                                    { @item.NombreCategoriaDetalleEspaniol }else{ @item.NombreCategoriaDetalleIngles }</td>
+                                <td>@item.DescripcionConsecuenciaPotencial</td>
+                            </tr>                              
+                     }                                                      
+                </table>              
+                }
+            </div>
+         </div>
+    </form>
+</div>
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCanceladRecordCategoriaCuasi" type="button" data-dismiss="modal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    <button class="btn btn-primary" id="btnGrabarRecordCategoriaCuasi">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models.FormularioRecordCategoriaCuasi = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()
+

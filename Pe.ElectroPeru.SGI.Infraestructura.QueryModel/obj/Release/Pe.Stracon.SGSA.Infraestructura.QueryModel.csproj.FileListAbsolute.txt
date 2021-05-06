@@ -1,0 +1,4 @@
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.QueryModel\bin\Release\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.QueryModel\bin\Release\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.QueryModel\obj\Release\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.dll
+D:\alosno\Segate\branches\1.9.1.B0V2.0\branches\1.9.1.B0\Source\Pe.ElectroPeru.SGI\Pe.ElectroPeru.SGI.Infraestructura.QueryModel\obj\Release\Pe.ElectroPeru.SGI.Infraestructura.QueryModel.pdb

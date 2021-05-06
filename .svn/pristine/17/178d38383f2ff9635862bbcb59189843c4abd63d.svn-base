@@ -1,0 +1,37 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Capacitacion
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-sm-3">
+            <label>@Html.Raw(AsignacionResource.EtiquetaBuscarPor): </label>
+            <select class="form-control" id="slcFiltroBuscarEquipo">
+                <option value="1">@Html.Raw(AsignacionResource.GridModeloDescripcion)</option>
+                <option value="2" selected>@Html.Raw(AsignacionResource.GridFamiliaEquipo)</option>
+            </select>
+        </div>
+        <div class="col-sm-9">
+            <div class="form-group">
+                <label for="txtNombreColaborador">@Html.Raw(AsignacionResource.EtiquetaIngresoCaracteres):</label>
+                @Html.TextBox("txtNombreEquipo", null, new { @class = "form-control", @id = "txtNombreEquipo" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <h4>@GenericoResource.EtiquetaResultadosBusqueda</h4>
+        </div>
+        <div class="col-sm-6">
+            <button id="btnBuscarEquipoModal" class="btn btn-default" type="button">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>
+    </div>
+    <div class="table-grilla">
+        <div id="divGrdResultadoEquipos">
+        </div>
+    </div>
+    <div class="comp-Modal-footer text-center">
+        <button class="btn btn-default" id="btnCancelarEquipoBusqueda">@Html.Raw(GenericoResource.BotonCancelar)</button>
+        <button class="btn btn-primary" id="btnGrabarEquipoBusqueda">@Html.Raw(GenericoResource.BotonGrabar)</button>
+    </div>
+</div>

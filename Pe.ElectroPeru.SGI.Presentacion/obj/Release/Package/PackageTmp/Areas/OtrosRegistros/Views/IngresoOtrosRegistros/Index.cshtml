@@ -1,0 +1,548 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.OtrosRegistros
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.OtrosRegistros.IngresoOtrosRegistros.OtrosRegistrosModel
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label><strong>@Html.Raw(OtrosRegistrosResource.EtiquetaTituloOtrosRegistros):</strong></label>
+                    </div>
+                    <div class="cell-line">
+                        <label>@Html.Raw(OtrosRegistrosResource.EtiquetaNroRegistro):</label>
+                    </div>
+                    <div class="cell-line">
+                        @Html.TextBox("txtNumeroTipoRegistro", Model.OtrosRegistros.NumeroOtrosRegistros, new { id = "txtNumeroTipoRegistro", @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaInvestigacion" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="@Html.Raw(AccionResource.EtiquetaListaAcciones)">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsFormularioIngresoOtrosRegistros">
+                    <li role="presentation" class="active validateOtrosRegistros">
+                        <a href="#tabGeneral" class="top-tab" aria-controls="tabGeneral" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(OtrosRegistrosResource.EtiquetaTabGeneral)</a>
+                    </li>
+                    <li role="presentation" class="validateOtrosRegistros">
+                        <a href="#tabHallazgo" class="top-tab" aria-controls="tabHallazgo" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(OtrosRegistrosResource.EtiquetaTabHallazgo)</a>
+                    </li>
+                    <li role="presentation" class="validateOtrosRegistros">
+                        <a href="#tabAccion" class="top-tab" aria-controls="tabAccion" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(OtrosRegistrosResource.EtiquetaTabAcciones)</a>
+                    </li>
+                    <li role="presentation" class="validateOtrosRegistros">
+                        <a href="#tabParticipante" class="top-tab" aria-controls="tabParticipante" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(OtrosRegistrosResource.EtiquetaTabParticipante)</a>
+                    </li>
+                    <li role="presentation" class="validateOtrosRegistros">
+                        <a href="#tabAnexo" class="top-tab" aria-controls="tabAnexo" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(OtrosRegistrosResource.EtiquetaTabAnexos)</a>
+                    </li>
+                    <li role="presentation" class="validateOtrosRegistros">
+                        <a href="#tabFoto" class="top-tab" aria-controls="tabFoto" role="tab" data-toggle="tab"><i class="fa fa-exclamation-circle fa-fn hidden"></i>@Html.Raw(OtrosRegistrosResource.EtiquetaTabFotos)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGeneral">
+                        <form onsubmit="return false;" id="frmInformacionGeneral">
+                            <fieldset id="flsInformacionGeneral" @(Model.OtrosRegistros.IndicadorEsLectura == true ? "disabled=disabled" : null)>
+                                <div class="title-interna">
+                                    <span>@Html.Raw(OtrosRegistrosResource.EtiquetaTituloInformacionGeneral)</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaTipoRegistro): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.OtrosRegistros.CodigoTipoRegistro, Model.ListaTipoRegistro, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcTipoRegistro",@disabled = "disabled" , @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoRegistro", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaProyecto): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.OtrosRegistros.CodigoProyecto, Model.ListaProyectos, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" } : new { id = "slcProyecto", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaPais): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.OtrosRegistros.CodigoPais, Model.ListaPais, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcPais", @class = "form-control", @validable = "required Validar" } : new { id = "slcPais", @class = "form-control", @validable = "required Validar", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaEmpresa): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.OtrosRegistros.CodigoEmpresaPais, Model.ListaEmpresa, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcEmpresaPais", @class = "form-control", @validable = "required Validar" } : new { id = "slcEmpresaPais", @class = "form-control", @validable = "required Validar", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaTituloRegistro): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("txtTituloRegistro", Model.OtrosRegistros.TituloRegistro, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "txtTituloRegistro", @class = "form-control", @validable = "required Validar", @maxlength = "50" } : new { id = "txtTituloRegistro", @class = "form-control", @maxlength = "50", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaFechaEjecucion): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("dtpFechaEjecucion", Model.OtrosRegistros.FechaEjecucionString, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "dtpFechaEjecucion", @class = "form-control", @validable = "required Validar" } : new { id = "dtpFechaEjecucion", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>@Html.Raw(OtrosRegistrosResource.EtiquetaHoraEjecucion): (*)</label>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                @Html.DropDownListFor(model => model.OtrosRegistros.HoraEjecucion, Model.ListaHoras, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcHoraEjecucion", @class = "form-control", @validable = "required Validar" } : new { id = "slcHoraEjecucion", @class = "form-control", @validable = "required Validar" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>@Html.Raw(OtrosRegistrosResource.EtiquetaMinutoEjecucion): </label>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                @Html.DropDownListFor(model => model.OtrosRegistros.MinutoEjecucion, Model.ListaMinutos, Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? (object)new { id = "slcMinutoEjecucion", @class = "form-control", @validable = "required Validar" } : new { id = "slcMinutoEjecucion", @class = "form-control", @validable = "required Validar" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                </div>
+
+                            </fieldset>
+                        </form>
+                        @if (Model.OtrosRegistros.IndicadorEsLectura != true)
+                        {
+                            <div id="divBotonAccion" class="box-acciones-foot text-center">
+                                <button class="btn btn-default" id="btnSalirInformacionGeneral">@Html.Raw(GenericoResource.BotonSalir)</button>
+                                @if (Model.OtrosRegistros.CodigoOtrosRegistros.HasValue && (Model.OtrosRegistros.CodigoEstadoDocumento != DatosConstantes.ParametrosEstadoDocumento.Anulado))
+                                { 
+                                    <button class="btn btn-primary" id="btnAnularInformacionGeneral">@Html.Raw(GenericoResource.BotonAnular)</button>   
+                                }
+                                <button class="btn btn-primary" id="btnGuardarInformacionGeneral">@Html.Raw(GenericoResource.BotonGuardar)</button>
+                            </div>
+                        }
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabHallazgo">
+                        <form onsubmit="return false;" id="frmHallazgo">
+                            <fieldset id="flsHallazgo" @(Model.OtrosRegistros.IndicadorEsLectura == true ? "disabled=disabled" : null)>
+                                <div class="title-interna">
+                                    <span>@Html.Raw(OtrosRegistrosResource.EtiquetaTituloIngresoHallazgo)</span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaDescripcionCorta): (*)</label>
+                                            @Html.TextArea("txtDescripcionCorta", Model.Hallazgo.DescripcionCorta, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionCorta", @class = "form-control", @rows = "2", @validable = "required Validar", @maxlength = "255", @style = "resize:none;" } : new { id = "txtDescripcionCorta", @class = "form-control", @maxlength = "255", @rows = "2", @validable = "required Validar", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaDescripcionLarga): (*)</label>
+                                            @Html.TextArea("txtDescripcionLarga", Model.Hallazgo.DescripcionLarga, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionLarga", @class = "form-control", @validable = "required Validar", @maxlength = "2500", @rows = "3", @style = "resize:none;" } : new { id = "txtDescripcionLarga", @class = "form-control", @maxlength = "2500", @rows = "3", @validable = "required Validar", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 2500 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaNivelRiesgo): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownList("slcNivelRiesgo", Model.ListaNivelRiesgo, new { @class = "form-control", @id = "slcNivelRiesgo", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                        @if (Model.OtrosRegistros.IndicadorEsLectura != true)
+                        {
+                            <div class="box-acciones-foot text-center">
+                                <button class="btn btn-default" @(Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? "" : "hidden") id="btnLimpiarHallazgo">@Html.Raw(GenericoResource.EtiquetaLimpiar)</button>
+                                <button class="btn btn-default" @(Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? "" : "hidden") id="btnSalirHallazgo">@Html.Raw(GenericoResource.BotonSalir)</button>
+                                <button class="btn btn-primary" @(Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? "" : "hidden") id="btnGuardarHallazgo">@Html.Raw(GenericoResource.BotonGuardar)</button>
+                            </div>                                          
+                        }
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoHallazgo">
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabAccion">
+                        <form onsubmit="return false;" id="frmAccion">
+                            <div id="DivfrmAccion" class="title-interna">
+                                <span>@Html.Raw(OtrosRegistrosResource.EtiquetaTituloIngresoAcciones)</span>
+                            </div>
+                            <fieldset id="flsRevisarHallazgoAccion" disabled="disabled">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaNivelRiesgo):</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownList("slcNivelRiesgoAccion", Model.ListaNivelRiesgo, new { @class = "form-control", @id = "slcNivelRiesgoAccion", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaDescripcionCorta):</label>
+                                            @Html.TextArea("txtDescripcionCortaAccion", Model.Hallazgo.DescripcionCorta, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionCortaAccion", @class = "form-control", @rows = "2", @maxlength = "255", @style = "resize:none;" } : new { id = "txtDescripcionCortaAccion", @class = "form-control", @maxlength = "255", @rows = "2", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        @if (Model.OtrosRegistros.IndicadorEsLectura != true)
+                        {
+                            <div class="acciones-form text-right" style="border: none">
+                                <button id="btnAgregarAccion" class="btn btn-primary">@Html.Raw(OtrosRegistrosResource.EtiquetaAgregarAccion)</button>
+                            </div>
+                        }
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="table-grilla">
+                                    <div id="divGrdResultadoAccion">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabParticipante">
+                        <form onsubmit="return false;" id="frmParticipante">
+                            <fieldset id="flsParticipante" @(Model.OtrosRegistros.IndicadorEsLectura == true ? "disabled=disabled" : null)>
+                                <div class="title-interna">
+                                    <span>@Html.Raw(OtrosRegistrosResource.EtiquetaTituloIngresoParticipantes)</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaTipoParticipante): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.OtrosRegistrosParticipante.CodigoColaboradorParticipante, Model.ListaTipoParticipante, Model.OtrosRegistrosParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "slcTipoParticipante", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoParticipante", @class = "form-control", @validable = "required Validar" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaNombre): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="input-group" id="divGetColaboradorInterno" style="display: none">
+                                                        @Html.Hidden("hdnCodigoColaboradorParticipante", Model.OtrosRegistrosParticipante.CodigoColaboradorParticipante, new { ïd = "hdnCodigoColaboradorParticipante" })
+                                                        @Html.TextBox("txtNombreColaboradorParticipante", Model.OtrosRegistrosParticipante.NombreCompletoColaboradorParticipante, Model.OtrosRegistrosParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "txtNombreColaboradorParticipante", @class = "form-control", @disabled = "disabled", @validable = "required Validar" } : new { id = "txtNombreColaboradorParticipante", @class = "form-control", @disabled = "disabled", @validable = "required Validar" })
+                                                        <div class="input-group-addon">
+                                                            <button class="btn-form" id="btnBuscarColaboradorParticipante" type="button">....</button>
+                                                        </div>
+                                                    </div>
+
+                                                    @Html.TextBox("txtNombreColaboradorInvitadoParticipante", Model.OtrosRegistrosParticipante.NombreCompletoColaboradorParticipante, Model.OtrosRegistrosParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "txtNombreColaboradorInvitadoParticipante", @class = "form-control", @Styles = "Display:none", @validable = "required Validar", } : new { id = "txtNombreColaboradorInvitadoParticipante", @class = "form-control", @validable = "required Validar" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaTipoDocumento): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.OtrosRegistrosParticipante.CodigoTipoDocumento, Model.ListaTipoDocumento, Model.OtrosRegistrosParticipante.CodigoOtrosRegistrosParticipante.HasValue ? (object)new { id = "slcTipoDocumento", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoDocumento", @class = "form-control", @validable = "required Validar", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaNumeroDocumento): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("txtNumeroDocumento", Model.OtrosRegistrosParticipante.NumeroDocumento, Model.OtrosRegistrosParticipante.CodigoOtrosRegistrosParticipante.HasValue ? (object)new { id = "txtNumeroDocumento", @class = "form-control", @validable = "required Validar", @maxlength = "12" } : new { id = "txtNumeroDocumento", @class = "form-control", @maxlength = "12", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaApellidoPaterno): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("txtApellidoPaterno", Model.OtrosRegistrosParticipante.ApellidoPaterno, Model.OtrosRegistrosParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "txtApellidoPaterno", @class = "form-control", @validable = "required Validar", @disabled = "disabled", @maxlength = "50" } : new { id = "txtApellidoPaterno", @class = "form-control", @maxlength = "50", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaApellidoMaterno): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.TextBox("txtApellidoMaterno", Model.OtrosRegistrosParticipante.ApellidoMaterno, Model.OtrosRegistrosParticipante.CodigoColaboradorParticipante.HasValue ? (object)new { id = "txtApellidoMaterno", @class = "form-control", @validable = "required Validar", @disabled = "disabled", @maxlength = "50" } : new { id = "txtApellidoMaterno", @class = "form-control", @maxlength = "50", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(OtrosRegistrosResource.EtiquetaCargoEmpresa): (*)</label>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    @Html.DropDownListFor(model => model.OtrosRegistrosParticipante.CodigoTipoCargoEmpresa, Model.ListaTipoCargoEmpresa, Model.OtrosRegistrosParticipante.CodigoOtrosRegistrosParticipante.HasValue ? (object)new { id = "slcTipoCargoEmpresa", @class = "form-control", @validable = "required Validar" } : new { id = "slcTipoCargoEmpresa", @class = "form-control", @validable = "required Validar" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                            </fieldset>
+                        </form>
+                        @if (Model.OtrosRegistros.IndicadorEsLectura != true)
+                        {
+                            <div class="box-acciones-foot text-center">
+                                <button class="btn btn-default" @(Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? "" : "hidden")") id="btnLimpiarParticipante">@Html.Raw(GenericoResource.EtiquetaLimpiar)</button>
+                                <button class="btn btn-primary" @(Model.OtrosRegistros.CodigoOtrosRegistros.HasValue ? "" : "hidden")") id="btnGuardarParticipante">@Html.Raw(GenericoResource.BotonGuardar)</button>
+                            </div>
+                        }
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="table-grilla">
+                                    <div id="divGrdResultadoParticipante">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabAnexo">
+                        <div role="tabpanel" class="tab-pane fade in" id="anexo">
+                            <div class="title-interna">
+                                <span>@Html.Raw(OtrosRegistrosResource.EtiquetaInformacionAnexos)</span>
+                                @if (Model.OtrosRegistros.IndicadorEsLectura != true)
+                                {
+                                    <div class="acciones-form btn-group btn-group-table">
+                                        <button id="btnAgregarOtrosRegistrosAnexoArchivo" type="button" class="btn-table text-line one">
+                                            @Html.Raw(RecordsResource.EtiquetaAgregarArchivo)
+                                        </button>
+                                    </div>
+                                }
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultadoOtrosRegistrosAnexoApendice">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="tabFoto">
+                        <div role="tabpanel" class="tab-pane fade in" id="foto">
+
+                            <div class="title-interna">
+                                <span>@Html.Raw(OtrosRegistrosResource.EtiquetaInformacionFotos)</span>
+                                @if (Model.OtrosRegistros.IndicadorEsLectura != true)
+                                {
+                                    <div class="acciones-form btn-group btn-group-table">
+                                        <button id="btnAgregarOtrosRegistrosAnexoFoto" type="button" class="btn-table text-line one">
+                                            @Html.Raw(RecordsResource.EtiquetaAgregarFoto)
+                                        </button>
+                                    </div>
+                                }
+                            </div>
+                            <div class="table-grilla">
+                                <div id="divGrdResultadoOtrosRegistrosAnexoFoto">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridTipoHallazgo = '@Html.Raw(OtrosRegistrosResource.GridTipoHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridFechaHallazgo = '@Html.Raw(OtrosRegistrosResource.GridFechaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridLugarTrabajo = '@Html.Raw(OtrosRegistrosResource.GridLugarTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridDescripcionCorta = '@Html.Raw(OtrosRegistrosResource.GridDescripcionCorta)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridDescripcionLarga = '@Html.Raw(OtrosRegistrosResource.GridDescripcionLarga)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridNivelRiesgo = '@Html.Raw(OtrosRegistrosResource.GridNivelRiesgo)';
+        
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridItem = '@Html.Raw(OtrosRegistrosResource.GridItem)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridNombreArchivo = '@Html.Raw(OtrosRegistrosResource.GridNombreArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridTipo = '@Html.Raw(OtrosRegistrosResource.GridTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridDescripcion = '@Html.Raw(OtrosRegistrosResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridVistaPreviaFoto = '@Html.Raw(OtrosRegistrosResource.GridVistaPreviaFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridDescargar = '@Html.Raw(OtrosRegistrosResource.GridDescargar)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaObservacionAnularOtrosRegistros = '@Html.Raw(OtrosRegistrosResource.EtiquetaObservacionAnularOtrosRegistros)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaObservacionAnular = '@Html.Raw(OtrosRegistrosResource.EtiquetaObservacionAnular)';
+        
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridTipoParticipante = '@Html.Raw(OtrosRegistrosResource.GridTipoParticipante)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridProyecto = '@Html.Raw(OtrosRegistrosResource.GridProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridApellidosNombres = '@Html.Raw(OtrosRegistrosResource.GridApellidosNombres)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridTipoDocumento = '@Html.Raw(OtrosRegistrosResource.GridTipoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridNumeroDocumento = '@Html.Raw(OtrosRegistrosResource.GridNumeroDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridMiembro = '@Html.Raw(OtrosRegistrosResource.GridMiembro)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridCargoEmpresa = '@Html.Raw(OtrosRegistrosResource.GridCargoEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridCargoComite = '@Html.Raw(OtrosRegistrosResource.GridCargoComite)';
+                      
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridPlanteadaPor = '@Html.Raw(OtrosRegistrosResource.GridPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridFechaPlanteada = '@Html.Raw(OtrosRegistrosResource.GridFechaPlanteada)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridEjecutaPor = '@Html.Raw(OtrosRegistrosResource.GridEjecutaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridFechaVencimiento = '@Html.Raw(OtrosRegistrosResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridDescripcion = '@Html.Raw(OtrosRegistrosResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaTituloIngresoAcciones = '@Html.Raw(OtrosRegistrosResource.EtiquetaTituloIngresoAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaTituloListaAcciones = '@Html.Raw(OtrosRegistrosResource.EtiquetaTituloListaAcciones)';
+
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.ConfirmacionSalirOtrosRegistros = '@Html.Raw(OtrosRegistrosResource.ConfirmacionSalirOtrosRegistros)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaObservacionGuardarOtrosRegistros = '@Html.Raw(OtrosRegistrosResource.EtiquetaObservacionGuardarOtrosRegistros)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.ConfirmacionSalirHallazgo = '@Html.Raw(OtrosRegistrosResource.ConfirmacionSalirHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaObservacionGuardarHallazgo = '@Html.Raw(OtrosRegistrosResource.EtiquetaObservacionGuardarHallazgo)';
+        
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaObsEliminarOtrosRegistrosNoPermite = '@Html.Raw(OtrosRegistrosResource.EtiquetaObsEliminarOtrosRegistrosNoPermite)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaObsEliminarOtrosRegistrosAsociada = '@Html.Raw(OtrosRegistrosResource.EtiquetaObsEliminarOtrosRegistrosAsociada)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaObsEliminarAccionDocNoPermite = '@Html.Raw(OtrosRegistrosResource.EtiquetaObsEliminarAccionDocNoPermite)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.EtiquetaObsEliminarAccionSegNoPermite = '@Html.Raw(OtrosRegistrosResource.EtiquetaObsEliminarAccionSegNoPermite)';            
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridEstadoAccion = '@Html.Raw(OtrosRegistrosResource.GridEstadoAccion)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridResponsableEjecucion = '@Html.Raw(OtrosRegistrosResource.GridResponsableEjecucion)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridDescripcionCortaHallazgo = '@Html.Raw(OtrosRegistrosResource.GridDescripcionCortaHallazgo)';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridDescripcionCortaAccion = '@Html.Raw(OtrosRegistrosResource.GridDescripcionCortaAccion)';       
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Resource.GridNumeroAccion = '@Html.Raw(OtrosRegistrosResource.GridNumeroAccion)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.DatosConstantes.CodigoTiposAnexosOtrosRegistros = '@DatosConstantes.ParametrosOtrosRegistros.CodigoTiposAnexosOtrosRegistros';
+         
+        ns('Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.DatosConstantes.ParametrosTiposParticipanteOtrosRegistros')
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.DatosConstantes.ParametrosTiposParticipanteOtrosRegistros.Invitado = '@DatosConstantes.ParametrosTiposParticipanteOtrosRegistros.Invitado';
+         
+        ns('Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.DatosConstantes.ParametrosEstadoIngresoDocumento')
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteHallazgo = '@DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteHallazgo';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteAcciones = '@DatosConstantes.ParametrosEstadoIngresoDocumento.PendienteAcciones';
+         
+        ns('Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.SeguimientoAccionIndex = '@Url.Action("Index", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.RegistrarOtrosRegistros = '@Url.Action("RegistrarOtrosRegistros", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.AnularOtrosRegistros = '@Url.Action("AnularOtrosRegistros", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.SalirOtrosRegistros = '@Url.Action("SalirOtrosRegistros", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';
+       
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.BuscarOtrosRegistrosHallazgo = '@Url.Action("BuscarOtrosRegistrosHallazgo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.RegistrarOtrosRegistrosHallazgo = '@Url.Action("RegistrarOtrosRegistrosHallazgo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.EliminarOtrosRegistrosHallazgo = '@Url.Action("EliminarOtrosRegistrosHallazgo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.BuscarOtrosRegistrosAnexo =  '@Url.Action("BuscarOtrosRegistrosAnexo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.EliminarIntegradorTipoRegistroAnexo =  '@Url.Action("EliminarIntegradorTipoRegistroAnexo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.DescargarIntegradorTipoRegistroArchivo =  '@Url.Action("DescargarIntegradorTipoRegistroArchivo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.BuscarHallazgo =  '@Url.Action("BuscarHallazgo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.ObtenerHallazgoPorCodigo =  '@Url.Action("ObtenerHallazgoPorCodigo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.RegistrarHallazgo =  '@Url.Action("RegistrarHallazgo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.EliminarHallazgo =  '@Url.Action("EliminarHallazgo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.RegistrarOtrosRegistrosParticipante =  '@Url.Action("RegistrarOtrosRegistrosParticipante", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.EliminarOtrosRegistrosParticipante =  '@Url.Action("EliminarOtrosRegistrosParticipante", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.ObtenerOtrosRegistrosParticipantePorCodigo =  '@Url.Action("ObtenerOtrosRegistrosParticipantePorCodigo", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.BuscarOtrosRegistrosParticipante =  '@Url.Action("BuscarOtrosRegistrosParticipante", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';    
+
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.BandejaOtrosRegistros = '@Url.Action("Index", "BandejaOtrosRegistros", new { Area = "OtrosRegistros" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.SalirHallazgoOtrosRegistros = '@Url.Action("SalirHallazgoOtrosRegistros", "IngresoOtrosRegistros", new { Area = "OtrosRegistros" })';
+             
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.RegistrarOtrosRegistrosHallazgo = '@Url.Action("RegistrarOtrosRegistrosHallazgo", "Hallazgo", new { Area = "Base" })';
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Actions.EliminarOtrosRegistrosHallazgo = '@Url.Action("EliminarOtrosRegistrosHallazgo", "Hallazgo", new { Area = "Base" })';
+
+        
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Models')
+        Pe.ElectroPeru.SGI.Presentacion.OtrosRegistros.IngresoOtrosRegistros.Index.Models.IngresoOtrosRegistrosModel = @(Html.Raw(Json.Encode(Model)))
+    
+    </script>
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordacciongenerico");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicearchivo");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicefoto");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariovistapreviafotogenerico");
+    
+}
+

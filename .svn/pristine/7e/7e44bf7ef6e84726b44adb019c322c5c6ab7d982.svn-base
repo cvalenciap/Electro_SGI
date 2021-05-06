@@ -1,0 +1,139 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InformeModel
+
+<div class="main-content view-wrap">
+    @*<div class="GmdBody-header main-title" style="padding-top: 10px;">
+        <button class="btn btn-default" id="btnBandejaInvestigacion">@InvestigacionResource.EtiquetaTituloPrincipal</button>
+        <button class="btn btn-default" id="btnBandejaInformes">@InformeResource.TituloMenuInformes</button>
+    </div>*@
+    <div class="GmdBody-header main-title">
+        <h2 class="tituloCapacitacion">
+            <strong>@Html.Raw(InvestigacionResource.EtiquetaTituloInformesInvestigacion)</strong>
+        </h2>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(GenericoResource.EtiquetaLista)</span>
+        </div>
+        <div class="tabpanel">
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaProyecto)</label>
+                        @Html.DropDownList("slcProyecto", Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteDesde)</label>
+                        @Html.TextBox("dtpFechaRecordDesde", string.Empty, new { id = "dtpFechaRecordDesde", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>@Html.Raw(InvestigacionResource.EtiquetaFechaIncidenteHasta)</label>
+                        @Html.TextBox("dtpFechaRecordHasta", string.Empty, new { id = "dtpFechaRecordHasta", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="box-acciones-foot filter">
+                <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+                <button class="btn btn-primary" type="button" id="btnBuscar">@Html.Raw(GenericoResource.BotonBuscar)</button>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    <button id="btnDescargarExcel" class="btn btn-primary">@InformeResource.BtnDescargarExcel</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <div id="divGrdResultRegistroEmo">
+                    </div>
+                </div>
+            </div>
+            <div class="table-grilla">
+                <div id="divGridInformeConsolidado">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.ConsultarConsolidaInforme = '@Url.Action("ConsultarConsolidaInforme", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.DescargarReporteInforme = '@Url.Action("DescargarReporteInforme", "Investigacion", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.ValidarDescargarReporteIncidente = '@Url.Action("ValidarDescargarReporteIncidente", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.DescargarReporteIncidenteSharePoint = '@Url.Action("DescargarReporteIncidenteSharePoint", "Investigacion", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.ValidarDescargarReporteInvestigacion = '@Url.Action("ValidarDescargarReporteInvestigacion", "Investigacion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Actions.DescargarReporteInvestigacionSharePoint = '@Url.Action("DescargarReporteInvestigacionSharePoint", "Investigacion", new { Area = "Seguimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridAccionesCorrectivas = '@Html.Raw(InformeResource.GridAccionesCorrectivas)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridDescripcionCategoriaPrincipal = '@Html.Raw(InformeResource.GridDescripcionCategoriaPrincipal)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridDescripcionConsecuenciaIncidente = '@Html.Raw(InformeResource.GridDescripcionConsecuenciaIncidente)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridDescripcionEstadoRecord = '@Html.Raw(InformeResource.GridDescripcionEstadoRecord)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridDescripcionHPI = '@Html.Raw(InformeResource.GridDescripcionHPI)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridDescripcionPotencialIncidente = '@Html.Raw(InformeResource.GridDescripcionPotencialIncidente)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridDescripcionTipoRecord = '@Html.Raw(InformeResource.GridDescripcionTipoRecord)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridEtapa = '@Html.Raw(InformeResource.GridEtapa)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridFechaRecordString = '@Html.Raw(InformeResource.GridFechaRecordString)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridInforme = '@Html.Raw(InformeResource.GridInforme)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridProcesoInvestigacion = '@Html.Raw(InformeResource.GridProcesoInvestigacion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridNombreProyecto = '@Html.Raw(InformeResource.GridNombreProyecto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridNumeroRecord = '@Html.Raw(InformeResource.GridNumeroRecord)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridReportes = '@Html.Raw(InformeResource.GridReportes)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridTitulo = '@Html.Raw(InformeResource.GridTitulo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridFueIncidenteTrabajo = '@Html.Raw(InformeResource.GridFueIncidenteTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Resource.GridAlertaInvestigacion = '@Html.Raw(InformeResource.GridAlertaInvestigacion)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Mensaje')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Mensaje.MensajeDescargaReporteIncidente = '@Html.Raw(RecordsResource.EtiquetaMensajeDescargaReporteIncidente)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Mensaje.MensajeDescargaReporteInvestigacion = '@Html.Raw(InvestigacionResource.EtiquetaMensajeDescargaReporteInvestigacion)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacionPorElaborar = '@DatosConstantes.EstadoInvestigacion.PorElaborar';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EtapaIncidente')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EtapaIncidente.Anuncio = '@DatosConstantes.EtapaIncidente.Anuncio';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EtapaIncidente.Investigacion = '@DatosConstantes.EtapaIncidente.Investigacion';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.ProcesoAnuncio')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.ProcesoAnuncio.EnFecha = '@DatosConstantes.ProcesoAnuncio.EnFecha';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.ProcesoAnuncio.FueraFecha = '@DatosConstantes.ProcesoAnuncio.FueraFecha';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.ProcesoInvestigacion')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.ProcesoInvestigacion.EnFecha = '@DatosConstantes.ProcesoInvestigacion.EnFecha';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.ProcesoInvestigacion.EnProceso = '@DatosConstantes.ProcesoInvestigacion.EnProceso';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.ProcesoInvestigacion.FueraFecha = '@DatosConstantes.ProcesoInvestigacion.FueraFecha';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacion')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacion.PorElaborar = '@DatosConstantes.EstadoInvestigacion.PorElaborar';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacion.PorRevisar = '@DatosConstantes.EstadoInvestigacion.PorRevisar';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacion.PorAprobar = '@DatosConstantes.EstadoInvestigacion.PorAprobar';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.DatosConstantes.EstadoInvestigacion.Aprobado = '@DatosConstantes.EstadoInvestigacion.Aprobado';
+
+    </script>
+    <style type="text/css">
+         .skin-stracon .table-grilla {
+             overflow-y: auto !important;
+         }      
+</style>
+    @CustomHtmlHelper.RenderViewJs("seguimientoinvestigacionformulariohistorialcambios")
+}

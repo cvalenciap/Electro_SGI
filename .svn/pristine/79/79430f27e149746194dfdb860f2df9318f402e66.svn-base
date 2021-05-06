@@ -1,0 +1,45 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Investigacion.InvestigacionFactorCausalModel
+<div class="modal-body">
+    <form id="frmAnalisisFactoresCausales" onsubmit="return false;">
+        <fieldset id="flsAnalisisFactoresCausales" @(Model.InvestigacionFactorCausal.CodigoEstadoInvestigacion != DatosConstantes.EstadoInvestigacion.PorElaborar ? "disabled=disabled" : null)>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaCodigo):</label>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            @Html.TextBox("txtCodigoFactorCausal", Model.InvestigacionFactorCausal.CodigoFactorCausal, new { id = "txtCodigoFactorCausal", @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>@Html.Raw(InvestigacionResource.EtiquetaDescripcion): (*)</label>
+                    @Html.TextArea("txaDescripcionFactorCausal", Model.InvestigacionFactorCausal.Descripcion, new { id = "txaDescripcionFactorCausal", @class = "form-control", @validable = "required Validar", @maxlength = "255", style="resize: none;" })
+                    <div class="text-right">
+                        <label>@Html.Raw(string.Format(GenericoResource.EtiquetaMaximoCaracteres, 255))</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </fieldset>
+    </form>
+</div>
+<div id="divBotonEstado" class="box-acciones-foot modal_box text-center">
+    <button class="btn btn-default" id="btnCancelarFactorCausal">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+    @if (Model.InvestigacionFactorCausal.CodigoEstadoInvestigacion == DatosConstantes.EstadoInvestigacion.PorElaborar)
+    {
+        <button class="btn btn-primary" id="btnGuardarFactorCausal">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+    }
+</div>
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Investigacion.Models.FormularioFactorModel = @(Html.Raw(Json.Encode(Model)))
+</script>

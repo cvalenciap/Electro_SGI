@@ -1,0 +1,78 @@
+FechaHora = 17/10/2015 06:19:47 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________
+FechaHora = 17/10/2015 06:21:16 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________
+FechaHora = 17/10/2015 06:51:17 p.m.
+MensajeError = Exception of type 'System.Exception' was thrown.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 543
+__________________________________________________
+FechaHora = 17/10/2015 06:52:53 p.m.
+MensajeError = The SqlParameter is already contained by another SqlParameterCollection.
+DetalleError =    at System.Data.SqlClient.SqlParameterCollection.Validate(Int32 index, Object value)
+   at System.Data.SqlClient.SqlParameterCollection.AddRange(Array values)
+   at System.Data.Entity.Core.Objects.ObjectContext.CreateStoreCommand(String commandText, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass59.<ExecuteStoreCommand>b__58()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass59.<ExecuteStoreCommand>b__57()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreCommand(TransactionalBehavior transactionalBehavior, String commandText, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   at Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGCDbContextProvider.ExecuteStoreProcedureNonQuery(String query, Object[] parameters) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Infraestructura.Core\Context\SGCDbContextProvider.cs:line 152
+   at Pe.ElectroPeru.SGI.Infraestructura.Repository.Command.Contractual.ContratoParrafoEntityRepository.EliminarContenidoContrato(Guid CodigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Infraestructura.Repository\Command\Contractual\ContratoParrafoEntityRepository.cs:line 65
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 485
+__________________________________________________
+FechaHora = 17/10/2015 06:53:19 p.m.
+MensajeError = Exception of type 'System.Exception' was thrown.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 543
+__________________________________________________
+FechaHora = 17/10/2015 06:55:28 p.m.
+MensajeError = The SqlParameter is already contained by another SqlParameterCollection.
+DetalleError =    at System.Data.SqlClient.SqlParameterCollection.Validate(Int32 index, Object value)
+   at System.Data.SqlClient.SqlParameterCollection.AddRange(Array values)
+   at System.Data.Entity.Core.Objects.ObjectContext.CreateStoreCommand(String commandText, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass59.<ExecuteStoreCommand>b__58()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass59.<ExecuteStoreCommand>b__57()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreCommand(TransactionalBehavior transactionalBehavior, String commandText, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   at Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGCDbContextProvider.ExecuteStoreProcedureNonQuery(String query, Object[] parameters) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Infraestructura.Core\Context\SGCDbContextProvider.cs:line 152
+   at Pe.ElectroPeru.SGI.Infraestructura.Repository.Command.Contractual.ContratoParrafoEntityRepository.EliminarContenidoContrato(Guid CodigoContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Infraestructura.Repository\Command\Contractual\ContratoParrafoEntityRepository.cs:line 65
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 485
+__________________________________________________
+FechaHora = 17/10/2015 07:02:12 p.m.
+MensajeError = Exception of type 'System.Exception' was thrown.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 543
+__________________________________________________
+FechaHora = 17/10/2015 07:31:23 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________
+FechaHora = 17/10/2015 07:32:45 p.m.
+MensajeError = Value cannot be null.
+Parameter name: g
+DetalleError =    at System.Guid..ctor(String g)
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 236
+__________________________________________________
+FechaHora = 17/10/2015 07:38:59 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 279
+__________________________________________________
+FechaHora = 17/10/2015 07:39:41 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 279
+__________________________________________________

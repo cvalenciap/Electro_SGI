@@ -1,0 +1,256 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguimiento.Records.RecordsModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <div>
+                <label>
+                    <strong>@Html.Raw(RecordsResource.EtiquetaNuevoRegistroRecord)</strong>
+                </label>
+            </div>
+        </h2>
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label>@Html.Raw(RecordsResource.EtiquetaTipoRecord):</label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">
+                            @*@if (!Model.Record.CodigoRecord.HasValue)
+                            {
+                                @Html.DropDownList("slcTipoRecord", Model.ListaTipoRecord, new { @class = "form-control", @id = "slcTipoRecord" })
+                            }
+                            else
+                            {
+                                @Html.TextBox("txtTipoRecord", Model.Record.DescripcionTipoRecord, new { @class = "form-control", @style = "width:460px", @id = "txtTipoRecord", @readonly = "readonly", @disabled = "disabled" })
+                            }*@
+                            @Html.TextBox("txtTipoRecord", Model.Record.DescripcionTipoRecord, new { @class = "form-control", @style = "width:460px", @id = "txtTipoRecord", @readonly = "readonly", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="cell-line">
+                        <label>@Html.Raw(RecordsResource.EtiquetaNumeroRecord):</label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">
+                            @Html.TextBox("txtNumeroRecord", Model.Record.NumeroRecord, new { @class = "form-control", @style = "width:225px", @id = "txtNumeroRecord", @readonly = "readonly", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaRecord" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="" data-original-title="List of Records">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div id="divRenderRecordSeccionCampo" class="tab_custom">
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.Index = '@Url.Action("Index", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarDatosProyecto = '@Url.Action("BuscarDatosProyecto", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarRecord = '@Url.Action("RegistrarRecord", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarRecordFijo = '@Url.Action("RegistrarRecordFijo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.EliminarRecord = '@Url.Action("EliminarRecord", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarCierreRecord = '@Url.Action("RegistrarCierreRecord", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarDescripcionIncidente = '@Url.Action("RegistrarDescripcionIncidente", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.VistaPreviaReporteIncidente = '@Url.Action("VistaPreviaReporteIncidente", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.EnviarReporteIncidente = '@Url.Action("EnviarReporteIncidente", "Records", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarRecordAccionInmediata = '@Url.Action("BuscarRecordAccionInmediata", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarRecordAccionInmediata = '@Url.Action("RegistrarRecordAccionInmediata", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.EliminarRecordAccionInmediata = '@Url.Action("EliminarRecordAccionInmediata", "Records", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarRecordDatosReportante= '@Url.Action("RegistrarRecordDatosReportante", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.ActualizarCategoriaEvaluacionConsecuencia= '@Url.Action("ActualizarCategoriaEvaluacionConsecuencia", "Records", new { Area = "Seguimiento" })';
+
+        //Inicio - Registro de Otros Tipos de Record
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarPersonaInvolucradaOtros = '@Url.Action("RegistrarPersonaInvolucradaOtros", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarNivel = '@Url.Action("BuscarNivel", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarDepartamento = '@Url.Action("BuscarDepartamento", "Departamento", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarArea = '@Url.Action("BuscarArea", "Area", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarGrupo = '@Url.Action("BuscarGrupo", "Grupo", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarPesoRiesgo = '@Url.Action("BuscarPesoRiesgo", "PesoGrupo", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarCategoria = '@Url.Action("BuscarCategoria", "Categoria", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.ObtenerTodasCategorias = '@Url.Action("ObtenerTodasCategorias", "Categoria", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarRecordCategoria = '@Url.Action("BuscarRecordCategoria", "Records", new { Area = "Mantenimiento" })';
+
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistroRecordCategoria = '@Url.Action("RegistrarRecordCategoria", "Records", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistroRecordCategoriaOtros = '@Url.Action("RegistrarRecordCategoriaOtros", "Records", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.EliminarRecordCategoria = '@Url.Action("EliminarRecordCategoria", "Records", new { Area = "Mantenimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistroEvaluacionRiesgo= '@Url.Action("RegistroEvaluacionRiesgo", "Records", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarPersonaInvolucrada = '@Url.Action("BuscarPersonaInvolucrada", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarPersonaInvolucrada = '@Url.Action("RegistrarPersonaInvolucrada", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.EliminarPersonaInvolucrada = '@Url.Action("EliminarPersonaInvolucrada", "Records", new { Area = "Seguimiento" })';
+
+
+        //Fin - Registro de Otros Tipos de Record
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarSiglaTipoRecord = '@Url.Action("BuscarSiglaTipoRecord", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarRecordAnexo = '@Url.Action("BuscarRecordAnexo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.DescargarArchivoApendice = '@Url.Action("DescargarArchivoApendice", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarRecordAnexo = '@Url.Action("RegistrarRecordAnexo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarRecordAnexoApendice = '@Url.Action("RegistrarRecordAnexoApendice", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.EliminarRecordAnexo = '@Url.Action("EliminarRecordAnexo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.FormularioRecordAnexo = '@Url.Action("FormularioRecordAnexo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.FormularioRecordAnexoAppendix = '@Url.Action("FormularioRecordAnexoAppendix", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.FormularioRecordAccion = '@Url.Action("FormularioRecordAccion", "Records", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.FormularioSeguimientoAccion = '@Url.Action("FormularioSeguimientoAccion", "Accion", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.EliminarRecordAccion = '@Url.Action("EliminarRecordAccion", "Records", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.BuscarRecordAccion = '@Url.Action("BuscarRecordAccion", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RegistrarRecordAccion = '@Url.Action("RegistrarRecordAccion", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.RecordSeccionCampo = '@Url.Action("RecordSeccionCampo", "Records", new { Area = "Seguimiento" })';
+
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.FormularioVistaPreviaFoto = '@Url.Action("FormularioVistaPreviaFoto", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.RegistroRecord.Actions.FormularioVistaPreviaRecord = '@Url.Action("FormularioVistaPreviaRecord", "Records", new { Area = "Seguimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.FormularioRecordCategoriaIncidente= '@Url.Action("FormularioRecordCategoriaIncidente", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.FormularioRecordCategoriaOtros= '@Url.Action("FormularioRecordCategoriaOtros", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.FormularioRecordCategoriaCuasi= '@Url.Action("FormularioRecordCategoriaCuasi", "Records", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.BuscarRecords = '@Url.Action("BuscarRecords", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.FormularioRecordAnexo = '@Url.Action("FormularioRecordAnexo", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.FormularioRecordAnexoAppendix = '@Url.Action("FormularioRecordAnexoAppendix", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.FormularioRecordAccion = '@Url.Action("FormularioRecordAccion", "Records", new { Area = "Seguimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.BuscarComboAnidado = '@Url.Action("BuscarComboAnidado", "Records", new { Area = "Seguimiento" })';///// CMATTA INICIO
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.FormularioIncidente = '@Url.Action("FormularioIncidente", "Records", new { Area = "Seguimiento" })';///// CMATTA INICIO
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.FormularioRecord = '@Url.Action("FormularioRecord", "Records", new { Area = "Seguimiento" })';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Actions.FormularioBuscarColaborador = '@Url.Action("FormularioBuscarColaborador", "Colaborador", new { Area = "Mantenimiento" })';///// CMATTA INICIO
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridItem = '@Html.Raw(RecordsResource.GridItem)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridNombreFoto = '@Html.Raw(RecordsResource.GridNombreFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDescripcionFoto = '@Html.Raw(RecordsResource.GridDescripcionFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridVistaPreviaFoto = '@Html.Raw(RecordsResource.GridVistaPreviaFoto)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridAcciones = '@Html.Raw(RecordsResource.GridAcciones)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDownload = '@Html.Raw(RecordsResource.GridDownload)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridActionNumber = '@Html.Raw(RecordsResource.GridActionNumber)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridAccionPlanteadaPor = '@Html.Raw(RecordsResource.GridAccionPlanteadaPor)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridAccionCriadoEn = '@Html.Raw(RecordsResource.GridAccionCriadoEn)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDescripcion = '@Html.Raw(RecordsResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDescripcionCorta = '@Html.Raw(AccionResource.GridDescripcionCorta)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridFechaVencimiento = '@Html.Raw(RecordsResource.GridFechaVencimiento)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridPrioridad = '@Html.Raw(RecordsResource.GridPrioridad)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridResponsable = '@Html.Raw(RecordsResource.GridResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridTypeAnexo= '@Html.Raw(RecordsResource.GridTypeAnexo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridApendiceName = '@Html.Raw(RecordsResource.GridApendiceName)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDescripcionApendice = '@Html.Raw(RecordsResource.GridDescripcionApendice)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.NombreEstado = '@Html.Raw(AccionResource.GridEstado)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidaDepartamento= '@Html.Raw(RecordsResource.ValidaCampoDepartamento)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidaArea= '@Html.Raw(RecordsResource.ValidaCampoArea)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidaResponsable= '@Html.Raw(RecordsResource.ValidaCampoResponsable)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidaArchivo= '@Html.Raw(RecordsResource.ValidaArchivo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidarCampoArchivo= '@Html.Raw(RecordsResource.ValidarCampoArchivo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidarTamañoArchivo3MB= '@Html.Raw(RecordsResource.ValidarTamañoArchivo3MB)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidarTamañoArchivo05MB= '@Html.Raw(RecordsResource.ValidarTamañoArchivo05MB)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.ValidarCampos = '@Html.Raw(MensajeResource.MensajeVerificarCamposObligatorios)';
+
+        //Persona Involucrada
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridTipoDocumento = '@Html.Raw(RecordsResource.GridTipoDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridNumeroDocumento = '@Html.Raw(RecordsResource.GridNumeroDocumento)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridNombreColaboradorInvolucrado = '@Html.Raw(RecordsResource.GridNombreColaboradorInvolucrado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridRegimen = '@Html.Raw(RecordsResource.GridRegimen)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridEmpresa = '@Html.Raw(RecordsResource.GridEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridPuestoTrabajo = '@Html.Raw(RecordsResource.GridPuestoTrabajo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridIndicadorSufrioLesion = '@Html.Raw(RecordsResource.GridIndicadorSufrioLesion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridParteCuerpoLesionada = '@Html.Raw(RecordsResource.GridParteCuerpoLesionada)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridTipoLesion = '@Html.Raw(RecordsResource.GridTipoLesion)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridLesionActual = '@Html.Raw(RecordsResource.GridLesionActual)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaArchivoNoSoportado = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaFormatoArchivoNoSoportado)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaTamanioArchivoFotoMaximo = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaTamanioArchivoFotoMaximo)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaTamanioArchivoAnexoMaximo = '@Html.Raw(RecordAccionSeguimientoResource.EtiquetaTamanioArchivoAnexoMaximo)';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaMensajeSeleccionarEmpresa = '@Html.Raw(RecordsResource.EtiquetaMensajeSeleccionarEmpresa)';
+
+        //Matriz de riesgos
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaMatrizConsecuencia = '@Html.Raw(RecordsResource.EtiquetaMatrizConsecuencia)';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaMatrizProbabilidad = '@Html.Raw(RecordsResource.EtiquetaMatrizProbabilidad)';
+
+        //Record Acción Inmediata
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.GridDescripcionAccionInmediata = '@Html.Raw(RecordsResource.GridDescripcionAccionInmediata)';
+
+        //Cierre Record
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Resource.EtiquetaMensajeAccionesPendientes = '@Html.Raw(RecordsResource.EtiquetaMensajeAccionesPendientes)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.TipoRecord')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.TipoRecord.Incidente = '@DatosConstantes.TipoRecord.Incidente';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.IndicadorSufrioLesion')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.IndicadorSufrioLesion.SiSufrioLesion = '@DatosConstantes.IndicadorSufrioLesion.SiSufrioLesion';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.IndicadorSufrioLesion.NoSufrioLesion = '@DatosConstantes.IndicadorSufrioLesion.NoSufrioLesion';
+
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.CodigoIdiomaPorDefecto = '@DatosConstantes.ParametrosGenerales.CodigoIdiomaPorDefecto';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.CodigoIdiomaEspaniol = '@DatosConstantes.ParametrosGenerales.CodigoIdiomaEspaniol';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.EstadoRecord')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.EstadoRecord.Cerrado = '@DatosConstantes.EstadoRecord.Cerrado';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ConsecuenciaIncidente')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ConsecuenciaIncidente.Insignificante= '@DatosConstantes.CodigoConsecuenciaIncidente.Insignificante';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ConsecuenciaIncidente.Menor= '@DatosConstantes.CodigoConsecuenciaIncidente.Menor';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ConsecuenciaIncidente.Moderado= '@DatosConstantes.CodigoConsecuenciaIncidente.Moderado';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ConsecuenciaIncidente.Mayor= '@DatosConstantes.CodigoConsecuenciaIncidente.Mayor';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ConsecuenciaIncidente.Critico= '@DatosConstantes.CodigoConsecuenciaIncidente.Critico';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ValoresHPI')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ValoresHPI.SI = '@DatosConstantes.CodigoValoresHPI.SI';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ValoresHPI.NO = '@DatosConstantes.CodigoValoresHPI.NO';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.Categoria')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.Categoria.CategoriaLesion= '@DatosConstantes.CodigoCategoriaAbreviado.CategoriaLesion';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.Categoria.CategoriaImpactoAmbiental= '@DatosConstantes.CodigoCategoriaAbreviado.CategoriaImpactoAmbiental';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.Categoria.CategoriaImpactoComunidad= '@DatosConstantes.CodigoCategoriaAbreviado.CategoriaImpactoComunidad';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.Categoria.CategoriaDanioPropiedad= '@DatosConstantes.CodigoCategoriaAbreviado.CategoriaDanioPropiedad';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.Categoria.CategoriaPerdidaProceso= '@DatosConstantes.CodigoCategoriaAbreviado.CategoriaPerdidaProceso';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.Categoria.CategoriaCuasiIncidente= '@DatosConstantes.CodigoCategoriaAbreviado.CategoriaCuasiIncidente';
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.Categoria.CategoriaOtros= '@DatosConstantes.CodigoCategoriaAbreviado.CategoriaOtros';
+
+
+        ///URL DESPLIEGUE
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.DatosConstantes.ConfiguracionUrlDespliegue = '@DatosConstantes.ConfiguracionUrlDespliegue.DescripcionUrlDespligue';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models')
+        Pe.ElectroPeru.SGI.Presentacion.Seguimiento.Records.Models.RegistroRecord = @(Html.Raw(Json.Encode(Model)))
+    </script>
+
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordanexo");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordanexoappendix");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordaccion");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsrecordseccioncampo");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariovistapreviafoto");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariovistapreviarecord");
+
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformularioincidente");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecord");
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");
+    @CustomHtmlHelper.RenderViewJs("mantenimientoempresaformulariobuscarempresa");
+    @CustomHtmlHelper.RenderViewJs("seguimientoaccionformularioseguimientoaccion");
+}

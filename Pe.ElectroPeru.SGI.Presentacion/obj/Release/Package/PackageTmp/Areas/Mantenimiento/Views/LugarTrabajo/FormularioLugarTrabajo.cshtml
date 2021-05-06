@@ -1,0 +1,54 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.LugarTrabajo.FormularioLugarTrabajoModel
+
+<form id="frmFormularioLugarTrabajo">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@LugarTrabajoResource.EtiquetaEmpresa</label>
+                <div>
+                    @Html.DropDownList("slcEmpresaFormulario", Model.ListaEmpresa, new { @class = "form-control", @id = "slcEmpresaFormulario", @validable = "required ValidarEmpresa" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@LugarTrabajoResource.EtiquetaIdLugarTrabajo</label>
+                @Html.TextBox("txtIdLugarTrabajoFormulario", Model.LugarTrabajo.IdLugarTrabajo, new { id = "txtIdLugarTrabajoFormulario", @type = "text", @class = "form-control", @maxlength = "250", @validable = "required ValidarIdLugarTrabajo" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@LugarTrabajoResource.EtiquetaAbreviatura</label>
+                @Html.TextBox("txtAbreviaturaLugarTrabajoFormulario", Model.LugarTrabajo.AbreviaturaLugarTrabajo, new { id = "txtAbreviaturaLugarTrabajoFormulario", @type = "text", @class = "form-control", @maxlength = "500", @validable = "required ValidarAbreviatura" })
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>@LugarTrabajoResource.EtiquetaLugarTrabajo</label>
+                @Html.TextBox("txtNombreLugarTrabajoFormulario", Model.LugarTrabajo.NombreLugarTrabajo, new { id = "txtNombreLugarTrabajoFormulario", @type = "text", @class = "form-control", @maxlength = "500", @validable = "required ValidarNombreLugarTrabajo" })
+            </div>
+        </div>
+    </div>
+
+</form>
+<div class="comp-Modal-footer">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.Validacion.ValidarEmpresa = '@(Html.Raw(LugarTrabajoResource.EtiquetaEmpresa))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.Validacion.ValidarIdLugarTrabajo = '@(Html.Raw(LugarTrabajoResource.EtiquetaIdLugarTrabajo))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.Validacion.ValidarAbreviatura = '@(Html.Raw(LugarTrabajoResource.EtiquetaAbreviatura))';
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Resources.Validacion.ValidarNombreLugarTrabajo = '@(Html.Raw(LugarTrabajoResource.EtiquetaLugarTrabajo))';
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.LugarTrabajo.Models.FormularioLugarTrabajo = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()

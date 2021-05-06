@@ -1,0 +1,52 @@
+FechaHora = 01/02/2016 05:45:28 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.GenerarNumeroContrato(UnidadOperativaResponse unidadOperativa, String codigoTipoServicio) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 327
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 716
+__________________________________________________
+FechaHora = 01/02/2016 05:47:12 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.GenerarNumeroContrato(UnidadOperativaResponse unidadOperativa, String codigoTipoServicio) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 327
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 716
+__________________________________________________
+FechaHora = 01/02/2016 05:47:21 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.GenerarNumeroContrato(UnidadOperativaResponse unidadOperativa, String codigoTipoServicio) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 327
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 716
+__________________________________________________
+FechaHora = 01/02/2016 05:53:22 p.m.
+MensajeError = Violation of PRIMARY KEY constraint 'PK_CONTRATO_BIEN'. Cannot insert duplicate key in object 'CTR.CONTRATO_BIEN'. The duplicate key value is (3ab2feb0-4e37-45e1-9768-8486a1e4721b).
+The statement has been terminated.
+DetalleError =    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass57.<ExecuteStoreCommand>b__56()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass57.<ExecuteStoreCommand>b__55()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreCommand(TransactionalBehavior transactionalBehavior, String commandText, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   at Pe.ElectroPeru.SGI.Infraestructura.Core.Context.SGCDbContextProvider.ExecuteStoreProcedureNonQuery(String query, Object[] parameters) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Infraestructura.Core\Context\SGCDbContextProvider.cs:line 152
+   at Pe.ElectroPeru.SGI.Infraestructura.Repository.Command.Contractual.ContratoBienEntityRepository.RegistrarContratoBien(ContratoBienEntity data) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Infraestructura.Repository\Command\Contractual\ContratoBienEntityRepository.cs:line 48
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 664
+__________________________________________________
+FechaHora = 01/02/2016 05:53:22 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.GenerarNumeroContrato(UnidadOperativaResponse unidadOperativa, String codigoTipoServicio) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 327
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 716
+__________________________________________________
+FechaHora = 01/02/2016 05:55:24 p.m.
+MensajeError = Object reference not set to an instance of an object.
+DetalleError =    at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.GenerarNumeroContrato(UnidadOperativaResponse unidadOperativa, String codigoTipoServicio) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 327
+   at Pe.ElectroPeru.SGI.Aplicacion.Service.Contractual.ListadoContratoService.RegistrarListadoContrato(ContratoRequest dataContrato) in d:\DISCO D DIANA CAMUS\Disco D\PROYECTO STRACON GYM\SOLUCION\trunk\1.0.0.B0\Source\Pe.Stracon\Pe.Stracon.SGP\Pe.ElectroPeru.SGI.Aplicacion.Service\Contractual\ListadoContratoService.cs:line 716
+__________________________________________________

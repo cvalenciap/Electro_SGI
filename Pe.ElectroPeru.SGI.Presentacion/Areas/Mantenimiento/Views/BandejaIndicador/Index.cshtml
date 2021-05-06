@@ -1,0 +1,95 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento.Indicador
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.IngresoIndicador.IngresoIndicadorModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+         <h2 class="tituloCapacitacion">
+           <strong>@Html.Raw(IndicadorResource.EtiquetaTituloBandeja)</strong>            
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: -45px">
+                <button id="btnAgregar" type="button" class="btn-table text-line one">
+                    @Html.Raw(IndicadorResource.BotonAgregarIndicador)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">  
+        <div class="filter-avanzado">
+            <div class="form-group">                
+                <div class="row">
+                    <div class="col-sm-2 text-right" style="margin-top: 6px;">
+                        <label>@Html.Raw(IndicadorResource.EtiquetaTipo)</label>
+                    </div>
+                    <div class="col-sm-2">@Html.DropDownList("slcTipoIndicadorFilter", Model.ListaTipoIndicador, new { id = "slcTipoIndicadorFilter", @class = "form-control" })</div>
+                    <div class="col-sm-2 text-right" style="margin-top: 6px;">
+                        <label>@Html.Raw(IndicadorResource.EtiquetaDescripcion)</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBox("txtDescripcionIndicador", Model.Bandejandicador.DescripcionIndicador, new { id = "txtDescripcionIndicador", @type = "text", @class = "form-control", @maxlength = "255" })
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <div class="box-acciones-foot filter">
+            <button class="btn btn-default" type="button" id="btnLimpiar">@Html.Raw(GenericoResource.BotonLimpiar)</button>
+            <button class="btn btn-primary" type="button" id="btnBuscar"  style = "cursor:pointer; @(permiso == (int)Constantes.Permisos.Codigo.Lectura || permiso == (int)Constantes.Permisos.Codigo.Buscar || permiso == (int)Constantes.Permisos.Codigo.ControlTotal ? Constantes.Permisos.Style.Activo : Constantes.Permisos.Style.Desactivo)">@Html.Raw(GenericoResource.BotonBuscar)</button>
+        </div>  
+        
+        <div class="table-grilla">      
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+                </div>
+               @* <div class="col-sm-6 text-right">
+                    <button id="btnDescargarExcel" class="btn btn-primary">@InformeResource.BtnDescargarExcel</button>
+                </div>*@
+            </div>
+            <div style="overflow-x: scroll;">
+                <div class="table-grilla">
+                    <div id="divGrdResult">
+                    </div>
+                </div>   
+            </div>       
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Actions.IngresoIndicador = '@Url.Action("Index", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Actions.BuscarIndicador = '@Url.Action("BuscarIndicador", "BandejaIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Actions.IngresoIndicador = '@Url.Action("Index", "IngresoIndicador", new { Area = "Mantenimiento" })';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Actions.EliminarIndicador = '@Url.Action("EliminarIndicador", "IngresoIndicador", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Actions.ReactivarIndicador = '@Url.Action("ReactivarIndicador", "IngresoIndicador", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource')        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridDescripcion = '@Html.Raw(IndicadorResource.GridDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridTipo = '@Html.Raw(IndicadorResource.GridTipo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridResponsable = '@Html.Raw(IndicadorResource.GridResponsable)';        
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridVigenteDesde = '@Html.Raw(IndicadorResource.GridVigenteDesde)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridVigenteHasta = '@Html.Raw(IndicadorResource.GridVigenteHasta)';                
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridArea = '@Html.Raw(IndicadorResource.GridArea)';   
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridFormula = '@Html.Raw(IndicadorResource.GridFormula)';   
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridAmbito = '@Html.Raw(IndicadorResource.GridAmbito)';                
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.BandejaIndicador.Resource.GridEstado = '@Html.Raw(IndicadorResource.GridEstado)';                
+    </script>  
+    <style type="text/css">
+        .filter-avanzado {            
+            overflow: inherit;
+        }
+    </style>     
+}
+}

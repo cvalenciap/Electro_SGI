@@ -1,0 +1,653 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ReporteRiesgos
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.ObservacionPlaneada
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.ReporteRiesgos.IngresoReporteRiesgos.IngresoReporteRiesgosModel
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left tituloCapacitacion" style="width: auto"><strong>@Html.Raw(ReporteRiesgosResource.EtiquetaTituloReporteRiesgos)</strong></h2>
+        <div class="pull-left">
+            <span class="box-type-record">
+                <div class="row-line-table">
+                    <div class="cell-line">
+                        <label>@Html.Raw(ReporteRiesgosResource.EtiquetaNumeroRegistroReporteRiesgos):</label>
+                    </div>
+                    <div class="cell-line">
+                        <div class="form-group">                            
+                            @Html.TextBox("txtNumeroReporteRiesgos", Model.ReporteRiesgos.NumeroRegistroReporteRiesgos, new { id = "txtNumeroReporteRiesgos", @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="pull-right">
+            <a id="btnRegresarBandejaReporteRiesgos" class="btn nav_ajx btn-action-form tool pull-left">
+                <span data-toggle="tooltip" data-placement="left" title="">
+                    <i class="listado_record"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="tab_custom">
+        <div class="content-body" style="min-height: 650px;">
+            <div class="left-tabs">
+                <ul class="nav nav-tabs" role="tablist" id="cartTabsReporteRiesgos">
+                    <li role="presentation" class="active">
+                        <a href="#tabGenerales" class="top-tab" aria-controls="tabGenerales" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ReporteRiesgosResource.EtiquetaTabGenerales)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabReportantes" class="top-tab" aria-controls="tabReportantes" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ReporteRiesgosResource.EtiquetaTabReportantes)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabHallazgos" class="top-tab" aria-controls="tabHallazgos" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ReporteRiesgosResource.EtiquetaTabHallazgos)</a>
+                    </li>
+                     <li role="presentation">
+                        <a href="#tabAcciones" class="top-tab" aria-controls="tabAcciones" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ReporteRiesgosResource.EtiquetaTabAcciones)</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabCausas" class="top-tab" aria-controls="tabCausas" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ReporteRiesgosResource.EtiquetaTabCausas)</a>
+                    </li>
+                     <li role="presentation">
+                        <a href="#tabRetroalimentacion" class="top-tab" aria-controls="tabRetroalimentacion" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ReporteRiesgosResource.EtiquetaTabRetroalimentacion)</a>
+                    </li>                                                                            
+                    <li role="presentation">
+                        <a href="#tabAccionesInmediatas" class="top-tab" aria-controls="tabAccionesInmediatas" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ReporteRiesgosResource.EtiquetaTabAccionesInmediatas)</a>
+                    </li>                   
+                    <li role="presentation">
+                        <a href="#tabAnexos" class="top-tab" aria-controls="tabAnexos" role="tab" data-toggle="tab"><i class="fa fa-fn"></i>@Html.Raw(ReporteRiesgosResource.EtiquetaTabAnexos)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-tabs">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tabGenerales">
+                        <form onsubmit="return false;" id="frmGenerales">
+                            <div class="title-interna">
+                                <span>@Html.Raw(ReporteRiesgosResource.EtiquetaTituloInformacionGeneral)</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaProyecto): (*)</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.DropDownListFor(model => model.ReporteRiesgos.CodigoProyecto, Model.ListaProyecto, new { id = "slcProyecto", @class = "form-control", @validable = "required ValidarProyecto" })
+                                    </div>
+                                    <div class="col-sm-1 text-right">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaEmpresa):</label>
+                                    </div>
+                                    <div class="col-sm-2">  
+                                        @Html.Hidden("hdnCodigoEmpresa")
+                                        @Html.TextBox("txtEmpresa", Model.ReporteRiesgos.NombreEmpresa, Model.ReporteRiesgos.CodigoReporteRiesgos.HasValue ? (object)new { id = "txtEmpresa", @class = "form-control", @disabled = "disabled", @validable = "required Validar", @maxlength = "255"} : new { id = "txtEmpresa", @class = "form-control", @maxlength = "255", @disabled = "disabled", @validable = "required Validar"})
+                                    </div>
+                                    <div class="col-sm-1 text-right">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaPais):</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.Hidden("hdnCodigoPais")
+                                        @Html.TextBox("txtPais", Model.ReporteRiesgos.NombrePais, Model.ReporteRiesgos.CodigoReporteRiesgos.HasValue ? (object)new { id = "txtPais", @class = "form-control", @disabled = "disabled", @validable = "required Validar", @maxlength = "255"} : new { id = "txtPais", @class = "form-control", @maxlength = "255", @disabled = "disabled", @validable = "required Validar"})                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaTituloRegistro):</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        @Html.TextBox("txtTituloRegistro", Model.ReporteRiesgos.TituloRegistro, Model.ReporteRiesgos.CodigoReporteRiesgos.HasValue ? (object)new { id = "txtTituloRegistro", @class = "form-control", @maxlength = "255"} : new { id = "txtTituloRegistro", @class = "form-control", @maxlength = "255"})                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaFechaEjecucion): (*)</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.TextBox("dtpFechaEjecucion", Model.ReporteRiesgos.FechaEjecucionString, new { id = "dtpFechaEjecucion", @class = "form-control", @validable = "required Validar", @maxlength = "255", @readonly = "readonly"})                                        
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaHora): (*)</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        @Html.DropDownListFor(model => model.ReporteRiesgos.HoraReporteRiesgos, Model.ListaHoras, new { id = "slcHoraReporteRiesgos", @class = "form-control", @validable = "required ValidarHoraReporteRiesgos" })
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaMinuto): (*)</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        @Html.DropDownListFor(model => model.ReporteRiesgos.MinutoReporteRiesgos, Model.ListaMinutos, new { id = "slcMinutoReporteRiesgos", @class = "form-control", @validable = "required ValidarMinutoReporteRiesgos" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaLugarTrabajo): (*)</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.DropDownListFor(model => model.ReporteRiesgos.LugarTrabajo, Model.ListaLugarTrabajo, new { id = "slcLugarTrabajo", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaLugarExacto): (*)</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.TextBox("txtLugarExacto", Model.ReporteRiesgos.LugarExacto, new { id = "txtLugarExacto", @class = "form-control", @validable = "required Validar", @maxlength = "255"})                                        
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label id="lblCheckTipoReporte" style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaTipoReporte): (*)</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        @for (var i = 0; i < Model.ListaTipoReporteTodos.Count; i++) 
+                                        {   
+                                             <label class="checkbox-inline"><input type="checkbox" id="id_@Model.ListaTipoReporteTodos[i].Value" value="@Model.ListaTipoReporteTodos[i].Value" class="checkboxClassTR"/>@Model.ListaTipoReporteTodos[i].Text</label>   
+                                        }
+                                    </div>                                   
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-2">
+                                        <label id="lblTipoReporteOtros" style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaEspecificar):</label>
+                                    </div>
+                                    <div class="col-sm-4">                                                                                
+                                        @Html.TextBox("txtTipoReporteOtros", string.Empty, new { id = "txtTipoReporteOtros", @class = "form-control", @maxlength = "255", @disabled = "disabled"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label id="lblCheckClasificacionPerdida" style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaClasificacionPerdida): (*)</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        @for (var i = 0; i < Model.ListaClasificacionPerdidaTodos.Count; i++) 
+                                        {   
+                                             <label class="checkbox-inline"><input type="checkbox" id="id_@Model.ListaClasificacionPerdidaTodos[i].Value" value="@Model.ListaClasificacionPerdidaTodos[i].Value" class="checkboxClassCP"/>@Model.ListaClasificacionPerdidaTodos[i].Text</label>   
+                                        }
+                                    </div>                                   
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-2">
+                                        <label id="lblClasificacionPerdidaOtros" style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaEspecificar):</label>
+                                    </div>
+                                    <div class="col-sm-4">                                                                                
+                                        @Html.TextBox("txtClasificacionPerdidaOtros", string.Empty, new { id = "txtClasificacionPerdidaOtros", @class = "form-control", @maxlength = "255", @disabled = "disabled"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label id="lblCheckCausasInmediatas" style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaCausaInmediata): (*)</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        @for (var i = 0; i < Model.ListaCausasInmediatasTodos.Count; i++) 
+                                        {   
+                                             <label class="checkbox-inline"><input type="checkbox" id="id_@Model.ListaCausasInmediatasTodos[i].Value" value="@Model.ListaCausasInmediatasTodos[i].Value" class="checkboxClassCI"/>@Model.ListaCausasInmediatasTodos[i].Text</label>   
+                                        }
+                                    </div>                                   
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-2">
+                                        <label id="lblCausasInmediatasOtros" style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaEspecificar):</label>
+                                    </div>
+                                    <div class="col-sm-4">                                                                                
+                                        @Html.TextBox("txtCausasInmediatasOtros", string.Empty, new { id = "txtCausasInmediatasOtros", @class = "form-control", @maxlength = "255", @disabled = "disabled"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaDescripcionRiesgos): (*)</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        @Html.TextBox("txtDescripcionRiesgos", Model.ReporteRiesgos.DescripcionRiesgos, Model.ReporteRiesgos.CodigoReporteRiesgos.HasValue ? (object)new { id = "txtDescripcionRiesgos", @class = "form-control", @maxlength = "255", @validable = "required Validar"} : new { id = "txtDescripcionRiesgos", @class = "form-control", @maxlength = "255", @validable = "required Validar"})                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">                                                         
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaClasificaciónReporteRiesgos): (*)</label>
+                                    </div>       
+                                    <div class="col-sm-5">
+                                        @Html.DropDownListFor(model => model.ReporteRiesgos.ClasificacionReporteRiesgos, Model.ListaClasificacionReporteRiesgos, new { id = "slcClasificacionReporteRiesgos", @class = "form-control", @validable = "required Validar" })                                        
+                                    </div>
+                                    <div class="col-sm-offset-1 col-sm-4">                                        
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <label>@Html.Raw(ReporteRiesgosResource.EtiquetaMatrizDeRiesgos)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button class="btn btn-info" id="btnVerMatrizRiesgos" style="padding: 1px 3px;"><i class="fa fa-question-circle"></i></button>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">                                
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label>@Html.Raw(ReporteRiesgosResource.EtiquetaNivelRiesgo): (*)</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        @Html.DropDownListFor(model => model.ReporteRiesgos.NivelRiesgo, Model.ListaNivelRiesgo, new { id = "slcNivelRiesgo", @class = "form-control", @validable = "required Validar" })                                        
+                                    </div>
+                                </div>
+                            </div>                            
+                        </form>
+                        <div id="divBotonAccionGenerales" class="box-acciones-foot filter">
+                            @if (!Model.ReporteRiesgos.IndicadorLectura)
+                            {   
+                                <button class="btn btn-default" id="btnAnularGenerales">@Html.Raw(ReporteRiesgosResource.EtiquetaBotonAnular)</button>                                
+                                <button class="btn btn-primary" id="btnGuardarGenerales">@Html.Raw(ReporteRiesgosResource.EtiquetaBotonGuardar)</button>                                
+                            }
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabReportantes">
+                         <div class="title-interna">
+                            <span>@Html.Raw(ReporteRiesgosResource.EtiquetaTituloReportanteInterno)</span>
+                        </div>
+                        <form onsubmit="return false;" id="frmReportanteInterno">
+                            <div class="form-group hidden" id="divReportanteInterno">
+                                <div class="row"></div>
+                                <p><strong>@Html.Raw(ReporteRiesgosResource.MensajeValidacionMinimoTrabajador)</strong></p>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaNombreyApellidos): (*)</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="input-group">
+                                            @Html.Hidden("hdnCodigoReportanteInterno", string.Empty, new { ïd = "hdnCodigoReportanteInterno" })
+                                            @Html.TextBox("txtReportanteInterno", string.Empty, new { id = "txtReportanteInterno", @class = "form-control", @validable = "required ValidarReportanteInterno", @disabled = "disabled" })
+                                            <div class="input-group-addon">
+                                                <button class="btn-form" id="btnAgregarReportanteInterno" type="button">....</button>
+                                            </div>
+                                        </div>
+                                    </div>                                   
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonAccionReportanteInterno" class="box-acciones-foot filter hidden">
+                            @if (!Model.ReporteRiesgos.IndicadorLectura)
+                            {                                 
+                                <button class="btn btn-primary" id="btnGuardarReportanteInterno">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                            }                            
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdReportanteInterno">
+                            </div>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(ReporteRiesgosResource.EtiquetaReportanteExterno)</span>
+                        </div>
+                        <form onsubmit="return false;" id="frmReportanteExterno">
+                            <div class="form-group hidden" id="divDocumento">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaTipoDocumento): (*)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.DropDownListFor(model => model.ReporteRiesgosReportante.CodigoTipoDocumento, Model.ListaTipoDocumento, new { id = "slcTipoDocumento", @class = "form-control", @validable = "required ValidarTipoDocumento" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaNroDocumento): (*)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtNumeroDocumento", string.Empty, new { id = "txtNumeroDocumento", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group hidden" id="divNombres">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaNombre): (*)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtNombres", string.Empty, new { id = "txtNombres", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaApellidoPaterno): (*)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtApellidoPaterno", string.Empty, new { id = "txtApellidoPaterno", @class = "form-control", @validable = "required Validar" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group hidden" id="divApellidos">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaApellidoMaterno)</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtApellidoMaterno", string.Empty, new { id = "txtApellidoMaterno", @class = "form-control" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaCargoReferencial):</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("txtCargoReferencial", string.Empty, new { id = "txtCargoReferencial", @class = "form-control"})
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonAccionReportanteExterno" class="box-acciones-foot filter hidden">
+                            @if (!Model.ReporteRiesgos.IndicadorLectura)
+                            {                                 
+                                <button class="btn btn-primary" id="btnGuardarReportanteExterno">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>    
+                            }                            
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdReportanteExterno">
+                            </div>
+                        </div>
+                        <div class="title-interna">
+                            <span>@Html.Raw(ReporteRiesgosResource.EtiquetaEmpresasReportadas)</span>
+                        </div>
+                        <form onsubmit="return false;" id="frmEmpresaReportada">
+                            <div class="form-group hidden" id="divEmpresaReportada">
+                                <p><strong>@Html.Raw(ReporteRiesgosResource.MensajeValidacionMinimoEmpresaReportada)</strong></p>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label style="margin-top: 6px;">@Html.Raw(ReporteRiesgosResource.EtiquetaEmpresa): (*)</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="input-group">
+                                            @Html.Hidden("hdnEmpresaReportada", string.Empty, new { ïd = "hdnEmpresaReportada" })
+                                            @Html.TextBox("txtEmpresaReportada", string.Empty, new { id = "txtEmpresaReportada", @class = "form-control", @validable = "required ValidarEmpresaReportada", @disabled = "disabled" })
+                                            <div class="input-group-addon">
+                                                <button class="btn-form" id="btnAgregarEmpresaReportada" type="button">....</button>
+                                            </div>
+                                        </div>
+                                    </div>                                   
+                                </div>
+                            </div>
+                        </form>
+                        <div id="divBotonAccionEmpresaReportada" class="box-acciones-foot filter hidden">
+                            @if (!Model.ReporteRiesgos.IndicadorLectura)
+                            {                                 
+                                <button class="btn btn-primary" id="btnGuardarEmpresaReportada">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                            }                            
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdEmpresaReportada">
+                            </div>
+                        </div>
+                    </div>                    
+                    <div role="tabpanel" class="tab-pane fade in" id="tabHallazgos">
+                        <form onsubmit="return false;" id="frmHallazgo">
+                            <div class="title-interna">
+                                <span>@Html.Raw(ReporteRiesgosResource.EtiquetaTituloIngresoHallazgo)</span>
+                            </div>
+                            <div class="form-group hidden" id="divControlesHallazgos">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ReporteRiesgosResource.EtiquetaDescripcionCorta): (*)</label>
+                                            @Html.TextArea("txtDescripcionCorta", Model.Hallazgo.DescripcionCorta, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionCorta", @class = "form-control", @rows = "2", @validable = "required Validar", @maxlength = "255", @style = "resize:none;" } : new { id = "txtDescripcionCorta", @class = "form-control", @maxlength = "255", @rows = "2", @validable = "required Validar", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>@Html.Raw(ReporteRiesgosResource.EtiquetaDescripcionLarga): (*)</label>
+                                            @Html.TextArea("txtDescripcionLarga", Model.Hallazgo.DescripcionLarga, Model.Hallazgo.CodigoHallazgo.HasValue ? (object)new { id = "txtDescripcionLarga", @class = "form-control", @validable = "required Validar", @maxlength = "2500", @rows = "3", @style = "resize:none;" } : new { id = "txtDescripcionLarga", @class = "form-control", @maxlength = "2500", @rows = "3", @validable = "required Validar", @style = "resize:none;" })
+                                            <div class="form-group text-right">
+                                                <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 2500 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="box-acciones-foot text-center hidden" id="botonesHallazgos">
+                            @if (!Model.ReporteRiesgos.IndicadorLectura)
+                            { 
+                                <button class="btn btn-default" id="btnCancelarHallazgo">@Html.Raw(GenericoResource.BotonCancelar)</button>
+                                <button class="btn btn-primary" id="btnGuardarHallazgo">@Html.Raw(GenericoResource.BotonGuardar)</button>
+                            }
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoHallazgo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabAcciones">
+                        <div id="blContieneAccion" style="display: none;">
+                            <div class="title-interna">
+                                <span>@Html.Raw(ReporteRiesgosResource.EtiquetaDatosHallazgo)</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label>@Html.Raw(ReporteRiesgosResource.EtiquetaDescripcionCorta): (*)</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        @Html.Hidden("hdnCodigoHallazgoAccion", string.Empty, new { ïd = "hdnCodigoHallazgoAccion" })
+                                        @Html.TextArea("txtDescripcionCortaHallazgoAccion", new { @class = "form-control", id = "txtDescripcionCortaHallazgoAccion", @disabled = "disabled", @rows = "2" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title-interna">
+                                <span>@Html.Raw(ReporteRiesgosResource.EtiquetaListaAcciones)</span>
+                                <div id="divBotonAccion14" class="acciones-form btn-group btn-group-table">
+                                    @if (!Model.ReporteRiesgos.IndicadorLectura)
+                                    {                                         
+                                        <button class="btn btn-primary" id="btnAgregarAccion">@Html.Raw(ReporteRiesgosResource.EtiquetaAgregarAccion)</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdAcciones">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabCausas">
+                        <div class="title-interna">
+                            <span>@Html.Raw(ReporteRiesgosResource.EtiquetaTituloListaCausas)</span>
+                            <div class="acciones-form btn-group btn-group-table">  
+                                @if (!Model.ReporteRiesgos.IndicadorLectura)
+                                { 
+                                    <button id="btnAgregarCausas" type="button" class="btn-table text-line one hidden">@Html.Raw(InvestigacionResource.EtiquetaAgregarCausaRaiz)</button>
+                                }                                                              
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdCausas">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabRetroalimentacion">
+                        <div class="title-interna">
+                                <span>@Html.Raw(ReporteRiesgosResource.EtiquetaConclusiones)</span>
+                            </div>
+                        <div class="form-group">
+                                <div class="row">                                    
+                                    <div class="col-sm-8">                                                                                
+                                        @Html.TextArea("txtConclusiones", Model.ReporteRiesgos.ConclusionesRecomendaciones, Model.ReporteRiesgos.CodigoReporteRiesgos.HasValue ? (object)new { id = "txtConclusiones", @class = "form-control", @maxlength = "2500", @rows = "5", @style = "resize:none;" } : new { id = "txtConclusiones", @class = "form-control", @maxlength = "2500", @rows = "5", @style = "resize:none;" })
+                                        <div class="form-group text-right">
+                                            <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 255 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="divBotonAccionGuardarConclusiones" class="box-acciones-foot filter hidden">
+                            @if (!Model.ReporteRiesgos.IndicadorLectura)
+                            {                                
+                                <button class="btn btn-primary" id="btnAgregarConclusiones">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                            }
+                                <button class="btn btn-primary" id="btnCancelarConclusiones">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabAccionesInmediatas">
+                        <div class="title-interna">
+                            <span>@Html.Raw(ReporteRiesgosResource.EtiquetaTituloAccionesInmediatas)</span>
+                        </div>
+                        <div id="divtabAccionesInmediatas" class="hidden">
+                            <form onsubmit="return false;" id="frmAccionesInmediatas">
+                                <fieldset @(!Model.ReporteRiesgos.IndicadorLectura ? null : "disabled=disabled")>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    @Html.Hidden("hdnCRRAI", string.Empty, new { ïd = "hdnCRRAI" })
+                                                    <label>@Html.Raw(ReporteRiesgosResource.EtiquetaDescripcion):</label>
+                                                    @Html.TextArea("txtDescripcionAccionInmediata", new { @class = "form-control", id = "txtDescripcionAccionInmediata", @maxlength = "250" })
+                                                    <div class="form-group text-right">
+                                                        <label style="font-size: 11px">@Html.Raw(GenericoResource.EtiquetaMaximoAbreviado) 250 @Html.Raw(GenericoResource.EtiquetaCaracteres)</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            @if (!Model.ReporteRiesgos.IndicadorLectura)
+                            {
+                                <div id="divBotonAccion9" class="box-acciones-foot filter">
+                                    <button class="btn btn-default" id="btnCancelarAccionesInmediatas">@Html.Raw(RecordsResource.EtiquetaBotonCancelar)</button>
+                                    <button class="btn btn-primary" id="btnGuardarAccionesInmediatas">@Html.Raw(RecordsResource.EtiquetaBotonGuardar)</button>
+                                </div>   
+                            }
+                            <div class="table-grilla">
+                                <div id="divGrdAccionesInmediatas">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="tabAnexos">
+                        <div class="title-interna">
+                            <span>@Html.Raw(ReporteRiesgosResource.EtiquetaTituloAnexos)</span>
+                            <div class="acciones-form btn-group btn-group-table">
+                                @if (!Model.ReporteRiesgos.IndicadorLectura)
+                                { 
+                                    <button id="btnAgregarAnexo" type="button" class="btn-table text-line one hidden">@Html.Raw(ReporteRiesgosResource.EtiquetaAgregarAnexo)</button>    
+                                }                                
+                            </div>
+                        </div>
+                        <div class="table-grilla">
+                            <div id="divGrdResultadoAnexoApendice">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.DatosConstantes')
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.DatosConstantes.EstadoReporteRiesgosAbierto = '@DatosConstantes.EstadosDeReporteRiesgos.Abierto';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.DatosConstantes.EstadoEstadoReporteRiesgosReAbierto = '@DatosConstantes.EstadosDeReporteRiesgos.Reabierto';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.DatosConstantes.EstadoReporteRiesgosCerrado = '@DatosConstantes.EstadosDeReporteRiesgos.Cerrado';
+
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.DatosConstantes.CheckOtros = '@DatosConstantes.ValorOtrosReporteRiesgosCheck.ValorOtros';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.DatosConstantes.Interno = '@DatosConstantes.ValoresTipoReportante.Interno';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.DatosConstantes.Externo = '@DatosConstantes.ValoresTipoReportante.Externo';
+
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.DatosConstantes.TiposAnexosReporteRiesgos = '@DatosConstantes.ParametrosGenerales.TiposAnexosReporteRiesgos';
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Models')
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Models.Formulario = @(Html.Raw(Json.Encode(Model)))
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource')
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.EtiquetaMensajeAnular = '@Html.Raw(ReporteRiesgosResource.EtiquetaMensajeAnular)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.EtiquetaTituloMatrizRiesgos = '@Html.Raw(ReporteRiesgosResource.EtiquetaTituloMatrizRiesgos)';
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions')
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.BuscarProyecto = '@Url.Action("BuscarProyecto", "Proyecto", new { Area = "Mantenimiento" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.BandejaReporteRiesgos = '@Url.Action("Index", "BandejaReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.AnularReporteRiesgos = '@Url.Action("AnularReporteRiesgos", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.RegistrarReporteRiesgos = '@Url.Action("RegistrarReporteRiesgos", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.BuscarReporteRiesgosReportante = '@Url.Action("BuscarReporteRiesgosReportante", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.BuscarReporteRiesgosEmpresaReportada = '@Url.Action("BuscarReporteRiesgosEmpresaReportada", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.BuscarReporteRiesgosAccionInmediata = '@Url.Action("BuscarReporteRiesgosAccionInmediata", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.RegistrarAccionesInmediatas = '@Url.Action("RegistrarAccionesInmediatas", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.RegistrarReporteRiesgosReportante = '@Url.Action("RegistrarReporteRiesgosReportante", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.RegistrarReporteRiesgosEmpresaReportada = '@Url.Action("RegistrarReporteRiesgosEmpresaReportada", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.EliminarHallazgosReporteRiesgos = '@Url.Action("EliminarHallazgosReporteRiesgos", "IngresoReporteRiesgos", new { Area = "Inspecciones" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.EliminarReporteRiesgosReportante = '@Url.Action("EliminarReporteRiesgosReportante", "IngresoReporteRiesgos", new { Area = "Inspecciones" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.EliminarReporteRiesgosEmpresaReportada = '@Url.Action("EliminarReporteRiesgosEmpresaReportada", "IngresoReporteRiesgos", new { Area = "Inspecciones" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.EliminarAccionesInmediatas = '@Url.Action("EliminarAccionesInmediatas", "IngresoReporteRiesgos", new { Area = "Inspecciones" })';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Actions.FormularioMatrizRiesgos = '@Url.Action("FormularioMatrizRiesgos", "IngresoReporteRiesgos", new { Area = "ReporteRiesgos" })';
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource')
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.EtiquetaMensajeAnular = '@Html.Raw(ReporteRiesgosResource.EtiquetaMensajeAnular)';        
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridArea = '@Html.Raw(ReporteRiesgosResource.GridArea)';    
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridApellidosyNombres = '@Html.Raw(ReporteRiesgosResource.GridApellidosyNombres)';    
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridTipoDocumento = '@Html.Raw(ReporteRiesgosResource.GridTipoDocumento)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridNumeroDocumento = '@Html.Raw(ReporteRiesgosResource.GridNumeroDocumento)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridEmpresa = '@Html.Raw(ReporteRiesgosResource.GridEmpresa)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridProyecto = '@Html.Raw(ReporteRiesgosResource.GridProyecto)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridPuestoTrabajo = '@Html.Raw(ReporteRiesgosResource.GridPuestoTrabajo)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridTiempoPuestoTrabajo = '@Html.Raw(ReporteRiesgosResource.GridTiempoPuestoTrabajo)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridExperienciaNegocio = '@Html.Raw(ReporteRiesgosResource.GridExperienciaNegocio)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridTiempoProyecto = '@Html.Raw(ReporteRiesgosResource.GridTiempoProyecto)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridCargoReferencial = '@Html.Raw(ReporteRiesgosResource.GridCargoReferencial)';       
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridRazonSocial = '@Html.Raw(ReporteRiesgosResource.GridRazonSocial)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridRUC = '@Html.Raw(ReporteRiesgosResource.GridRUC)';    
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridDuenio = '@Html.Raw(ReporteRiesgosResource.GridDuenioContrato)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.EtiquetaNivelRiesgo = '@Html.Raw(ReporteRiesgosResource.EtiquetaNivelRiesgo)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.MensajeErrorAnulacion = '@Html.Raw(ReporteRiesgosResource.MensajeErrorAnulacion)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridItem = '@Html.Raw(ReporteRiesgosResource.GridItem)';    
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.EtiquetaDescripcionCorta = '@Html.Raw(ReporteRiesgosResource.EtiquetaDescripcionCorta)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.EtiquetaDescripcionLarga = '@Html.Raw(ReporteRiesgosResource.EtiquetaDescripcionLarga)';
+
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridNumeroAccion = '@Html.Raw(ReporteRiesgosResource.GridNumeroAccion)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridDescripcionCortaAccion = '@Html.Raw(ReporteRiesgosResource.GridDescripcionCortaAccion)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridDescripcionLargaAccion = '@Html.Raw(ReporteRiesgosResource.GridDescripcionLargaAccion)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridPlanteadaPor = '@Html.Raw(ReporteRiesgosResource.GridPlanteadaPor)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridFechaPlanteada = '@Html.Raw(ReporteRiesgosResource.GridFechaPlanteada)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridResponsable = '@Html.Raw(ReporteRiesgosResource.GridResponsable)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridFechaVencimiento = '@Html.Raw(ReporteRiesgosResource.GridFechaVencimiento)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridEstadoDeAccion = '@Html.Raw(ReporteRiesgosResource.GridEstadoAccion)';
+
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridCodigo = '@Html.Raw(ReporteRiesgosResource.GridCodigo)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridCategoria = '@Html.Raw(ReporteRiesgosResource.GridCategoria)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridCausaRaiz = '@Html.Raw(ReporteRiesgosResource.GridCausaRaiz)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridSubCategoria = '@Html.Raw(ReporteRiesgosResource.GridSubCategoria)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridComentario = '@Html.Raw(ReporteRiesgosResource.GridComentario)';
+
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridItem = '@Html.Raw(ReporteRiesgosResource.GridItem)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridTipo = '@Html.Raw(ReporteRiesgosResource.GridTipo)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridNombreArchivo = '@Html.Raw(ReporteRiesgosResource.GridNombreArchivo)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridDescripcion = '@Html.Raw(ReporteRiesgosResource.GridDescripcion)';
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.GridDescargar = '@Html.Raw(ReporteRiesgosResource.GridDescargar)';
+    
+
+    Pe.ElectroPeru.SGI.Presentacion.ReporteRiesgos.IngresoReporteRiesgos.Resource.MensajeValidacionHallazgos = '@Html.Raw(ObservacionPlaneadaResource.MensajeValidacionHallazgos)';
+</script>
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+            overflow-y: auto !important;
+        }
+
+        /*.skin-stracon .form-control {
+            width: auto !important;
+        }*/
+    </style>    
+    @CustomHtmlHelper.RenderViewJs("mantenimientoempresaformulariobuscarempresa");
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariorecordacciongenerico");
+    @CustomHtmlHelper.RenderViewJs("observacionplaneadaingresoobservacionformulariocausasraices");
+    @CustomHtmlHelper.RenderViewJs("seguimientorecordsformulariointegradorapendicearchivo");
+    @CustomHtmlHelper.RenderViewJs("reporteriesgosingresoreporteriesgosformulariomatrizriesgos");
+}

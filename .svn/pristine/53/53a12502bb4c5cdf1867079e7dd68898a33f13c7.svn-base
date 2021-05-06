@@ -1,0 +1,82 @@
+﻿@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mantenimiento
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Mensajes
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Mantenimiento.Empresa.FormularioBandejaEmpresaModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-content view-wrap">
+    <div class="GmdBody-header main-title">
+        <h2 class="pull-left">
+            <strong>@Html.Raw(EmpresaResource.EtiquetaTituloPrincipal)</strong>
+        </h2>
+        <div class="pull-right">
+            <div class="acciones-form btn-group btn-group-table" style="top: 10px">
+                <button id="btnAgregar" type="button" class="btn-table text-line one">
+                    @Html.Raw(EmpresaResource.BotonAgregarEmpresa)
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="title-interna">
+            <span>@Html.Raw(EmpresaResource.EtiquetaLista)</span>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.Raw(GenericoResource.EtiquetaResultadosBusqueda)</h4>
+            </div>
+        </div>
+        <div class="table-grilla">
+            <div id="divGrdResult">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Actions')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Actions.BuscarEmpresa = '@Url.Action("BuscarEmpresa", "Empresa", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Actions.FormularioEmpresa = '@Url.Action("FormularioEmpresa", "Empresa", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Actions.RegistrarEmpresa = '@Url.Action("RegistrarEmpresa", "Empresa", new { Area = "Mantenimiento" })';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Actions.EliminarEmpresa = '@Url.Action("EliminarEmpresa", "Empresa", new { Area = "Mantenimiento" })';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources')
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.FormularioEmpresa = '@Html.Raw(EmpresaResource.EtiquetaTituloPrincipal)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.EtiquetaEditarEmpresa = '@Html.Raw(EmpresaResource.EtiquetaEditarEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridCodigoEmpresa = '@Html.Raw(EmpresaResource.GridCodigoEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridRazonSocial = '@Html.Raw(EmpresaResource.GridRazonSocial)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridRUC = '@Html.Raw(EmpresaResource.GridRUC)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridAbreviatura = '@Html.Raw(EmpresaResource.GridAbreviatura)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridDireccion = '@Html.Raw(EmpresaResource.GridDireccion)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridTipoEmpresa = '@Html.Raw(EmpresaResource.GridTipoEmpresa)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridActividadEconomica = '@Html.Raw(EmpresaResource.GridActividadEconomica)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridNroTrabajadores = '@Html.Raw(EmpresaResource.GridNroTrabajadores)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridAltoRiesgo = '@Html.Raw(EmpresaResource.GridAltoRiesgo)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridNroTrabajadoresAfiliados = '@Html.Raw(EmpresaResource.GridNroTrabajadoresAfiliados)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridNroTrabajadoresNoAfiliados = '@Html.Raw(EmpresaResource.GridNroTrabajadoresNoAfiliados)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridNombreAseguradora = '@Html.Raw(EmpresaResource.GridNombreAseguradora)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridDuenoContrato = '@Html.Raw(EmpresaResource.GridDuenoContrato)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridEstadoRegistroDescripcion = '@Html.Raw(EmpresaResource.GridEstadoRegistroDescripcion)';
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Resources.GridAcciones = '@Html.Raw(GenericoResource.GridAcciones)';
+
+        ns('Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Models');
+        Pe.ElectroPeru.SGI.Presentacion.Mantenimiento.Empresa.Models.Empresa = '@(Html.Raw(Json.Encode(Model)))';
+    </script>
+    <style type="text/css">
+        .skin-stracon .table-grilla {
+            overflow-y: auto !important;
+        }
+
+        /*.skin-stracon .form-control {
+            width: auto !important;
+        }*/
+    </style>
+    @CustomHtmlHelper.RenderViewJs("mantenimientoempresaformularioempresa")
+    @CustomHtmlHelper.RenderViewJs("mantenimientocolaboradorformulariobuscarcolaborador");
+}

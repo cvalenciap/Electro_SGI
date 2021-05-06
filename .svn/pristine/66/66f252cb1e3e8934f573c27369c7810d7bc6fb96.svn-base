@@ -1,0 +1,78 @@
+﻿@model Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Seguridad.Sistema.SistemaModel
+@using Pe.ElectroPeru.SGI.Presentacion.Core.Helpers
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Base
+@using Pe.ElectroPeru.SGI.Presentacion.Recursos.Seguridad.Sistema
+
+@using Pe.ElectroPeru.SGI.Transversal.Core.Constante
+@using Pe.ElectroPeru.SGI.Presentacion.Core.ViewModel.Sistema;
+@{
+    var listTmp = (List<PermisosSistemaModel.PermisoControlador>)this.Session[Constantes.Sesion.Permisos.Lista_PermisosControlador];
+    var permiso = listTmp.Where(x => x.Controlador == @ViewContext.RouteData.Values["controller"].ToString()).Select(s => s.CodigoAccion).ToList()[0];
+}
+
+<div class="modal-body">
+    <form id="frmFormulario">
+        <div class="form-group">
+            <div class="row">                
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(SistemaResource.EtiquetaNombre): (*)</label>
+                    <div>
+                        @Html.TextBox("txtNombre", Model.Sistema.Nombre, new { id = "txtNombre", @type = "text", @class = "form-control", @maxlength = "250", @validable = "required ValidarNombre" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(SistemaResource.EtiquetaRuta): (*)</label>
+                    <div>
+                        @Html.TextBox("txtRuta", Model.Sistema.Ruta, new { id = "txtRuta", @type = "text", @class = "form-control", @maxlength = "250", @validable = "required ValidarRuta" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(SistemaResource.EtiquetaToken): (*)</label>
+                    <div>
+                        @Html.TextBox("txtToken", Model.Sistema.Token, new { id = "txtToken", @type = "text", @class = "form-control", @maxlength = "32", @validable = "required ValidarToken" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(SistemaResource.EtiquetaParametro):</label>
+                    <div>
+                        @Html.TextBox("txtParametro", Model.Sistema.Parametro, new { id = "txtParametro", @type = "number", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(SistemaResource.EtiquetaValorParametro):</label>
+                    <div>
+                        @Html.TextBox("txtValorParametro", Model.Sistema.ValorParametro, new { id = "txtValorParametro", @type = "number", @class = "form-control"})
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <label style="position: relative; margin-top: 7px;">@Html.Raw(SistemaResource.EtiquetaDescripcion):</label>
+                    <div>
+                        @Html.TextArea("txtDescripcion", Model.Sistema.Descripcion, new { id = "txtDescripcion", @type = "text", @class = "form-control", @maxlength = "250"})
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="box-acciones-foot modal_box">
+    <button class="btn btn-default" id="btnCancelar">@GenericoResource.BotonCancelar</button>
+    <button class="btn btn-primary" id="btnGrabar">@GenericoResource.BotonGrabar</button>
+</div>
+
+<script type="text/javascript">
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.Validacion')
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.Validacion.ValidarNombre = '@(Html.Raw(SistemaResource.EtiquetaNombre))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.Validacion.ValidarRuta = '@(Html.Raw(SistemaResource.EtiquetaRuta))';
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Resources.Validacion.ValidarToken = '@(Html.Raw(SistemaResource.EtiquetaToken))';
+
+    ns('Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Models')
+    Pe.ElectroPeru.SGI.Presentacion.Seguridad.Sistema.Models.Sistema = @(Html.Raw(Json.Encode(Model)))
+</script>
+@CustomHtmlHelper.RenderViewJs()
